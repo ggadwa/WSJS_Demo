@@ -18,14 +18,14 @@
 </script>
 
 <script>
-function runDualCastle()
-{
-    window.main.run(window.gameClass,{"startMap":"Dual Castles"});
-}
-
 function runDungeon()
 {
     window.main.run(window.gameClass,{"startMap":"Dungeon"});
+}
+
+function runDualCastle()
+{
+    window.main.run(window.gameClass,{"startMap":"Dual Castles"});
 }
 
 function runNetwork()
@@ -49,12 +49,12 @@ function runNetwork()
 
 <div class="columnWrapper">
     <div class="column">
-        <img class="imageClick" src="dual_castles.png" onClick="runDualCastle()">
-        <div class="imageText">Multiplayer Bot Map</div>
-    </div>
-    <div class="column">
         <img class="imageClick" src="dungeon.png" onClick="runDungeon()">
         <div class="imageText">First Person Shooter Map</div>
+    </div>
+    <div class="column">
+        <img class="imageClick" src="dual_castles.png" onClick="runDualCastle()">
+        <div class="imageText">Multiplayer Bot Map</div>
     </div>
     <div class="column">
         <img class="imageClick" src="network.png" onClick="runNetwork()">

@@ -14,8 +14,16 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
     {
         super(core,name,position,angle,data);
         
-        this.radius=1500;
-        this.height=4500;
+            // captain skeletons are bigger
+            
+        if (!this.data.captain) {
+            this.radius=1500;
+            this.height=4500;
+        }
+        else {
+            this.radius=2000;
+            this.height=8500;
+        }
         
         this.gravityMinValue=10;
         this.gravityMaxValue=450;
@@ -28,17 +36,45 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
     {
         super.initialize();
 
+            // get model
+            
         this.setModel({"name":"skeleton_captain"});
-        this.scale.setFromValues(25,25,25);
+        
+            // captain skeletons are bigger
+            
+        if (!this.data.captain) {
+            this.scale.setFromValues(25,25,25);
+        }
+        else {
+            this.scale.setFromValues(50,50,50);
+        }
     }
     
     ready()
     {
         super.ready();
         
+            // hide the put away sword and shield
+            
         this.showModelMesh('SH_Sword_E01',false);
         this.showModelMesh('SH_Shield_E02',false);
-        this.startModelAnimationChunkInFrames(null,30,421,520);
+        
+            // regular skeletons have no armor
+            
+        if (!this.data.captain) {
+            this.showModelMesh('Hair',false);
+            this.showModelMesh('SH_Helmet_E',false);
+            this.showModelMesh('SH_Shield_E01',false);
+            this.showModelMesh('SH_Chest_E',false);
+            this.showModelMesh('SH_Shoulders_E',false);
+            this.showModelMesh('SH_Gloves_E',false);
+            this.showModelMesh('SH_LegsArmor_E',false);
+            this.showModelMesh('SH_Boots_E',false);
+        }
+        
+            // skeleton idle
+            
+        this.startModelAnimationChunkInFrames(null,30,6370,6470);
     }
     
     run()

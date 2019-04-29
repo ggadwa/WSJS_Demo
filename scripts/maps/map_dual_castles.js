@@ -47,7 +47,7 @@ export default class MapDualCastlesClass extends ProjectMapClass
                     [
                         {
                             "bitmap":"textures/water.png","waveSize":5000,"wavePeriod":4000,"waveHeight":400,"waveUVStamp":0.1,
-                            "uShift":0.00005,"vShift":0.0,"tint":{"r":0.3,"g":0.3,"b":1.0},
+                            "uShift":0.00005,"vShift":0.0,"tint":{"r":0.2,"g":0.2,"b":0.5},
                             "xBound":{"min":-215000,"max":215000},"yBound":{"min":-28000,"max":-11500},"zBound":{"min":-40000,"max":75000}
                         }
                     ],
@@ -128,28 +128,6 @@ export default class MapDualCastlesClass extends ProjectMapClass
                                     {"tick":2000,"move":{"x":0,"y":-12600,"z":0}}
                                 ]
                         }
-                    ],
-                "entities":
-                    [
-                        {"entity":EntityPlayerClass,"name":"player","position":{"x":-28000,"y":24124,"z":0},"angle":{"x":0,"y":90,"z":0}},
-                        {"entity":EntityMultiplayerBotClass,"name":"bot_1"},
-                        {"entity":EntityMultiplayerBotClass,"name":"bot_2"},
-                        {"entity":EntityMultiplayerBotClass,"name":"bot_3"},
-                        {"entity":EntityMultiplayerBotClass,"name":"bot_4"},
-                        {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_01","position":{"x":-28242,"y":24839,"z":-28541},"data":{"ammo":true}},
-                        {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_02","position":{"x":28074,"y":24839,"z":28166},"data":{"ammo":true}},
-                        {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_03","position":{"x":-28105,"y":24839,"z":28435},"data":{"ammo":true}},
-                        {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_04","position":{"x":27567,"y":24839,"z":-28819},"data":{"ammo":true}},
-                        {"entity":EntityPickupM16Class,"name":"m16_01","position":{"x":100288,"y":13071,"z":-11516},"data":{"ammo":false}},
-                        {"entity":EntityPickupM16Class,"name":"m16_02","position":{"x":-100348,"y":13008,"z":14111},"data":{"ammo":false}},
-                        {"entity":EntityPickupM16Class,"name":"m16_ammo_01","position":{"x":-66877,"y":24839,"z":108129},"data":{"ammo":true}},
-                        {"entity":EntityPickupM16Class,"name":"m16_ammo_02","position":{"x":66855,"y":24839,"z":-109492},"data":{"ammo":true}},
-                        {"entity":EntityPickupM16Class,"name":"m16_ammo_03","position":{"x":17324,"y":5348,"z":60563},"data":{"ammo":true}},
-                        {"entity":EntityPickupM16Class,"name":"m16_ammo_04","position":{"x":-18407,"y":5454,"z":-58658},"data":{"ammo":true}},
-                        {"entity":EntityPickupGrenadeClass,"name":"grenade_01","position":{"x":16640,"y":29851,"z":136013}},
-                        {"entity":EntityPickupGrenadeClass,"name":"grenade_02","position":{"x":-17541,"y":29851,"z":-136473}},
-                        {"entity":EntityPickupChickenLegClass,"name":"health_01","position":{"x":1468,"y":29851,"z":109299}},
-                        {"entity":EntityPickupChickenLegClass,"name":"health_02","position":{"x":-1789,"y":29851,"z":-108954}}
                     ],
                 "paths":
                     [
@@ -271,6 +249,29 @@ export default class MapDualCastlesClass extends ProjectMapClass
                         {"position":{"x":15596,"y":14581,"z":118012},"links":[114]},
                         {"position":{"x":-14188,"y":14581,"z":-106166},"links":[14,117]},
                         {"position":{"x":-16042,"y":14581,"z":-117774},"links":[116]}
+                    ],
+                "entities":
+                    [
+                        {"entity":EntityPlayerClass,"name":"player","position":{"x":-28000,"y":24124,"z":0},"angle":{"x":0,"y":90,"z":0},"data":{"multiplayer":true}},
+                        {"entity":EntityMultiplayerBotClass,"name":"bot_1"},
+                        {"entity":EntityMultiplayerBotClass,"name":"bot_2"},
+                        {"entity":EntityMultiplayerBotClass,"name":"bot_3"},
+                        {"entity":EntityMultiplayerBotClass,"name":"bot_4"},
+                        {"entity":EntityMultiplayerBotClass,"name":"bot_5"},
+                        {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_01","position":{"x":-28242,"y":24839,"z":-28541},"data":{"ammo":true}},
+                        {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_02","position":{"x":28074,"y":24839,"z":28166},"data":{"ammo":true}},
+                        {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_03","position":{"x":-28105,"y":24839,"z":28435},"data":{"ammo":true}},
+                        {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_04","position":{"x":27567,"y":24839,"z":-28819},"data":{"ammo":true}},
+                        {"entity":EntityPickupM16Class,"name":"m16_01","position":{"x":100288,"y":13071,"z":-11516},"data":{"ammo":false}},
+                        {"entity":EntityPickupM16Class,"name":"m16_02","position":{"x":-100348,"y":13008,"z":14111},"data":{"ammo":false}},
+                        {"entity":EntityPickupM16Class,"name":"m16_ammo_01","position":{"x":-66877,"y":24839,"z":108129},"data":{"ammo":true}},
+                        {"entity":EntityPickupM16Class,"name":"m16_ammo_02","position":{"x":66855,"y":24839,"z":-109492},"data":{"ammo":true}},
+                        {"entity":EntityPickupM16Class,"name":"m16_ammo_03","position":{"x":17324,"y":5348,"z":60563},"data":{"ammo":true}},
+                        {"entity":EntityPickupM16Class,"name":"m16_ammo_04","position":{"x":-18407,"y":5454,"z":-58658},"data":{"ammo":true}},
+                        {"entity":EntityPickupGrenadeClass,"name":"grenade_01","position":{"x":16640,"y":29851,"z":136013}},
+                        {"entity":EntityPickupGrenadeClass,"name":"grenade_02","position":{"x":-17541,"y":29851,"z":-136473}},
+                        {"entity":EntityPickupChickenLegClass,"name":"health_01","position":{"x":1468,"y":29851,"z":109299}},
+                        {"entity":EntityPickupChickenLegClass,"name":"health_02","position":{"x":-1789,"y":29851,"z":-108954}}
                     ]
             };
         

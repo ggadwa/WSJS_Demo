@@ -13,8 +13,8 @@ export default class EffectFireClass extends ProjectEffectClass
     static FIRE_HEIGHT=420;
     static FIRE_EXTRA_SIZE=100;
         
-    static GLOW_WIDTH=2000;
-    static GLOW_HEIGHT=2000;
+    static GLOW_WIDTH=3000;
+    static GLOW_HEIGHT=3000;
         
     constructor(core,data)
     {
@@ -134,17 +134,17 @@ export default class EffectFireClass extends ProjectEffectClass
         
             // the glow
             
-        this.drawAddBillboardQuad(this.glowBitmap,this.position,0.0,0.0,1.0,1.0,EffectFireClass.GLOW_WIDTH,EffectFireClass.GLOW_HEIGHT,this.getPeriodicLinear(35000,360),this.core.gl.SRC_ALPHA,this.core.gl.ONE,this.glowColor,0.8);
+        this.drawAddBillboardQuad(this.glowBitmap,this.position,0.0,0.0,1.0,1.0,EffectFireClass.GLOW_WIDTH,EffectFireClass.GLOW_HEIGHT,this.getPeriodicLinear(35000,360),ProjectEffectClass.DRAW_MODE_ADDITIVE,this.glowColor,0.8);
 
             // the red and orange part
 
-        this.drawAddBillboardQuad(this.fireBitmap,this.position,u,v,0.5,0.5,halfWid,EffectFireClass.FIRE_HEIGHT,0,this.core.gl.SRC_ALPHA,this.core.gl.ONE_MINUS_SRC_ALPHA,this.redColor,1.0);
-        this.drawAddBillboardQuad(this.fireBitmap,this.position,u2,v2,0.5,0.5,halfWid,EffectFireClass.FIRE_HEIGHT,0,this.core.gl.SRC_ALPHA,this.core.gl.ONE_MINUS_SRC_ALPHA,this.redColor,1.0);
+        this.drawAddBillboardQuad(this.fireBitmap,this.position,u,v,0.5,0.5,halfWid,EffectFireClass.FIRE_HEIGHT,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.redColor,1.0);
+        this.drawAddBillboardQuad(this.fireBitmap,this.position,u2,v2,0.5,0.5,halfWid,EffectFireClass.FIRE_HEIGHT,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.redColor,1.0);
         
         halfWid=Math.trunc(halfWid*0.5);
         halfHigh=Math.trunc(EffectFireClass.FIRE_HEIGHT*0.6);
         this.drawPoint.setFromValues(this.position.x,(this.position.y+halfHigh),this.position.z);
-        this.drawAddBillboardQuad(this.fireBitmap,this.drawPoint,u,v,0.5,0.5,halfWid,halfHigh,0,this.core.gl.SRC_ALPHA,this.core.gl.ONE_MINUS_SRC_ALPHA,this.orangeColor,0.9);
+        this.drawAddBillboardQuad(this.fireBitmap,this.drawPoint,u,v,0.5,0.5,halfWid,halfHigh,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.orangeColor,0.9);
 
         this.drawEnd();
     }

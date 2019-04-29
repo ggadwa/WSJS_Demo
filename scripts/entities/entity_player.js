@@ -24,6 +24,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     static JUMP_HEIGHT=400;
     static JUMP_WATER_HEIGHT=400;
     static FLY_SWIM_Y_REDUCE=0.5;
+    static RANDOM_NODE_FAIL_COUNT=20;
+    static MAX_DEATH_COUNT=500;
     static WEAPON_BERETTA=0;
     static WEAPON_M16=1;
     
@@ -44,6 +46,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.filter='player';          // filters are used when searching for entities
         
         this.health=100;
+        this.deadCount=-1;
         
             // movement
             
@@ -51,8 +54,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.rotMovement=new PointClass(0,0,0);
         
             // local variables
-            
-        this.mouseDown=false;
+
         this.lastUnderLiquid=false;
         
         this.currentWeapon=0;
@@ -73,17 +75,17 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     {
         super.initialize();
         
-            // weapons
+            // add sounds
             
-        this.currentWeapon=EntityPlayerClass.WEAPON_BERETTA;
+        this.addSound('player_die',30000);
+        
+            // weapons
             
         this.beretta=new EntityWeaponBerettaClass(this.core,'weapon_beretta',new PointClass(0,0,0),new PointClass(0,0,0),null);
         this.addEntity(this.beretta,true,true);        
         
         this.m16=new EntityWeaponM16Class(this.core,'weapon_m16',new PointClass(0,0,0),new PointClass(0,0,0),null);
         this.addEntity(this.m16,false,true);
-        
-        this.hasM16=false;
         
         this.grenade=new EntityWeaponGrenadeClass(this.core,('weapon_grenade'),new PointClass(0,0,0),new PointClass(0,0,0),null);
         this.addEntity(this.grenade,false,true);
@@ -104,8 +106,18 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
     getScreenTint(tintColor)
     {
-        let liquidIdx,liquid;
+        let deadFactor,liquidIdx,liquid;
         
+            // all red if dead
+            
+        if (this.deadCount!==-1) {
+            deadFactor=0.2+((this.deadCount/EntityPlayerClass.MAX_DEATH_COUNT)*0.5);
+            tintColor.setFromValues((1.0-deadFactor),0.2,0.2);
+            return(true);
+        }
+        
+            // otherwise only liquid tints
+            
         liquidIdx=this.getUnderLiquidIndex();
         if (liquidIdx===-1) return(false);
         
@@ -116,15 +128,59 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     }
     
         //
+        // ready
+        //
+        
+    ready()
+    {
+            // full health
+            
+        this.health=100;
+        this.deadCount=-1;
+        this.passThrough=false;         // reset if this is being called after bot died
+        this.angle.x=0;
+        
+            // start with beretta
+            // and reset the weapons
+            
+        this.currentWeapon=EntityPlayerClass.WEAPON_BERETTA;
+        
+        this.beretta.ready();
+        this.m16.ready();
+        this.grenade.ready();
+        
+        this.beretta.show=true;
+        this.m16.show=false;
+        this.hasM16=false;
+        
+            // move to random node
+            // if multiplayer
+            
+        if (this.data.multiplayer) this.moveToRandomNode(EntityPlayerClass.RANDOM_NODE_FAIL_COUNT);
+    }
+    
+        //
         // called when somebody damages this entity
         //
     
     damage(fromEntity,damage)
     {
+            // already dead, can't take damage
+            
+        if (this.deadCount!==-1) return;
+        
+            // pulse and take the damage
+            
         this.pulseInterfaceElement('health',500,5);
         this.health-=damage;
-        
-        console.log(this.name+' took '+damage+' from '+fromEntity.name);
+        if (this.health<=0) {
+            this.deadCount=EntityPlayerClass.MAX_DEATH_COUNT;
+            this.passThrough=true;
+            this.beretta.show=false;
+            this.m16.show=false;
+            this.playSound('player_die');
+            return;
+        }
     }
     
         //
@@ -196,6 +252,23 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.updateInterfaceText('m16_bullet_count',this.m16.ammoCount);
         this.updateInterfaceText('grenade_count',this.grenade.ammoCount);
         this.updateInterfaceText('health_count',this.health);
+        
+            // dead
+            
+        if (this.deadCount!==-1) {
+            this.deadCount--;
+            
+            if ((!this.data.multiplayer) && (this.deadCount===0)) this.deadCount=1;       //  never recover if not multiplayer
+            if (this.deadCount>1) {
+                if (this.angle.x>-80.0) {
+                    this.position.y-=20;        // sink to ground
+                    this.angle.x-=1.5;
+                }
+            }      
+            
+            if (this.deadCount<=0) this.ready();
+            return;
+        }            
         
             // fire weapon
             

@@ -103,7 +103,7 @@ export default class EffectWebClass extends ProjectEffectClass
             // draw web
             
         this.drawStart();
-        this.drawAddTriangle(this.webBitmap,this.drawV0,this.data.v0.u,this.data.v0.v,this.drawV1,this.data.v1.u,this.data.v1.v,this.drawV2,this.data.v2.u,this.data.v2.v,this.core.gl.SRC_ALPHA,this.core.gl.ONE_MINUS_SRC_ALPHA,this.webColor,0.5);
+        this.drawAddTriangle(this.webBitmap,this.drawV0,this.data.v0.u,this.data.v0.v,this.drawV1,this.data.v1.u,this.data.v1.v,this.drawV2,this.data.v2.u,this.data.v2.v,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.webColor,0.5);
         this.drawEnd();
     }
 }

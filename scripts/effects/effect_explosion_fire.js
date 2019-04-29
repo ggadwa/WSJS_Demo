@@ -163,13 +163,13 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
         this.drawStart();
      
         halfSize=EffectExplosionFireClass.FIRE_RED_START_HALF_SIZE+Math.trunc(EffectExplosionFireClass.FIRE_RED_ADD_HALF_SIZE*factor);
-        this.drawAddBillboardQuadFromMotion(this.fireBitmap,this.redMotions,factor,this.position,0,0,0.5,0.5,halfSize,halfSize,0,this.core.gl.SRC_ALPHA,this.core.gl.ONE_MINUS_SRC_ALPHA,this.redColor,alpha);
+        this.drawAddBillboardQuadFromMotion(this.fireBitmap,this.redMotions,factor,this.position,0,0,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.redColor,alpha);
         
         halfSize=EffectExplosionFireClass.FIRE_ORANGE_START_HALF_SIZE+Math.trunc(EffectExplosionFireClass.FIRE_ORANGE_ADD_HALF_SIZE*factor);
-        this.drawAddBillboardQuadFromMotion(this.fireBitmap,this.orangeMotions,factor,this.position,0.5,0.5,0.5,0.5,halfSize,halfSize,0,this.core.gl.SRC_ALPHA,this.core.gl.ONE_MINUS_SRC_ALPHA,this.orangeColor,alpha);
+        this.drawAddBillboardQuadFromMotion(this.fireBitmap,this.orangeMotions,factor,this.position,0.5,0.5,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.orangeColor,alpha);
 
         halfSize=EffectExplosionFireClass.FIRE_YELLOW_START_HALF_SIZE+Math.trunc(EffectExplosionFireClass.FIRE_YELLOW_ADD_HALF_SIZE*factor);
-        this.drawAddBillboardQuadFromMotion(this.fireBitmap,this.yellowMotions,factor,this.position,0,0.5,0.5,0.5,halfSize,halfSize,0,this.core.gl.SRC_ALPHA,this.core.gl.ONE_MINUS_SRC_ALPHA,this.yellowColor,alpha);
+        this.drawAddBillboardQuadFromMotion(this.fireBitmap,this.yellowMotions,factor,this.position,0,0.5,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.yellowColor,alpha);
             
         this.drawEnd();
     }

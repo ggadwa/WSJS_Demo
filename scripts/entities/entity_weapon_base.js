@@ -27,12 +27,16 @@ export default class EntityWeaponBaseClass extends ProjectEntityClass
     initialize()
     {
         super.initialize();
-
-            // starting ammo
-            
+    }
+    
+    ready()
+    {
+        super.ready();
+        
         this.ammoCount=this.ammoInitialCount;
         this.lastFireTick=0;
     }
+    
     
         //
         // add ammo

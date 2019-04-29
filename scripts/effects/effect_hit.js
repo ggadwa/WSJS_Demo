@@ -96,7 +96,7 @@ export default class EffectHitClass extends ProjectEffectClass
     draw()
     {
         this.drawStart();
-        this.drawAddBillboardQuad(this.hitBitmap,this.position,0,0,1,1,this.halfSize,this.halfSize,this.getPeriodicLinear(1000,360),this.core.gl.SRC_ALPHA,this.core.gl.ONE,this.hitColor,this.alpha);
+        this.drawAddBillboardQuad(this.hitBitmap,this.position,0,0,1,1,this.halfSize,this.halfSize,this.getPeriodicLinear(1000,360),ProjectEffectClass.DRAW_MODE_ADDITIVE,this.hitColor,this.alpha);
         this.drawEnd();
     }
 }

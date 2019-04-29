@@ -24,9 +24,14 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
     static MAX_TARGET_TURN_SPEED=3;     // how fast bot can turn towards player from actual motion direction
     static NODE_SLOP=1000;              // how close to a node before we consider it hit
     static RANDOM_NODE_FAIL_COUNT=20;   // how many times it'll try to find a spawn node that is open
+    static MAX_DEATH_COUNT=500;
     static FORGET_DISTANCE=60000;       // distance bot gives up on targetting somebody
+    static TARGET_SCAN_Y_ANGLES=[-20,-10,-5,0,5,10,20];     // angles we scan (one angle a tick) for targets
+    static TARGET_HIT_FILTER=['player','bot'];              // filters for things we can find with ray trace scan
     static BERETTA_FIRE_SLOP=5;         // angle of slop on fire so bot doesn't always hit you
     static M16_FIRE_SLOP=15;            // angle of slop on fire so bot doesn't always hit you
+    static ANGLE_Y_FIRE_RANGE=10;       // if angle to target is within this range, then you can fire
+    static MIN_GRENADE_DISTANCE=30000;  // if we are greater than this distance, we can throw grenades
     static WEAPON_BERETTA=0;
     static WEAPON_M16=1;
     
@@ -55,6 +60,12 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         this.targetEntity=null;
         this.drawAngle=new PointClass(0,0,0);
         this.fireAngle=new PointClass(0,0,0);
+        this.lastTargetAngleDif=360;
+        
+        this.currentLookIdx=0;
+        this.lookPoint=new PointClass(0,0,0);
+        this.lookVector=new PointClass(0,0,0);
+        this.lookHitPoint=new PointClass(0,0,0);
         
         this.movement=new PointClass(0,0,0);
         this.rotMovement=new PointClass(0,0,0);
@@ -139,31 +150,17 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         this.currentWeapon=whichWeapon;
     }
     
-    fireWeapon()
-    {
-        if (this.currentWeapon===EntityMultiplayerBotClass.WEAPON_BERETTA) {
-            this.fireAngle.setFromPoint(this.drawAngle);
-            this.fireAngle.y+=(EntityMultiplayerBotClass.BERETTA_FIRE_SLOP-(Math.random()*(EntityMultiplayerBotClass.BERETTA_FIRE_SLOP*2)));
-            if (this.beretta.fire(this.position,this.fireAngle,this.eyeOffset)) {
-                this.startModelAnimationChunkInFrames(null,30,554,594);
-                this.queueModelAnimationChunkInFrames(null,30,406,442);
-            }
-        }
-        else {
-            this.fireAngle.setFromPoint(this.drawAngle);
-            this.fireAngle.y+=(EntityMultiplayerBotClass.M16_FIRE_SLOP-(Math.random()*(EntityMultiplayerBotClass.M16_FIRE_SLOP*2)));
-            if (this.m16.fire(this.position,this.fireAngle,this.eyeOffset)) {
-                this.startModelAnimationChunkInFrames(null,30,892,928);
-                this.queueModelAnimationChunkInFrames(null,30,960,996);
-            }
-        }
-    }
-    
     ready()
     {
             // always hide jetpack
             
         this.showModelMesh('Captain_jetpack',false);
+        
+            // full health
+            
+        this.health=100;
+        this.deadCount=-1;
+        this.passThrough=false;         // reset if this is being called after bot died
         
             // start with beretta
             
@@ -172,10 +169,9 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         
         this.hasM16=false;
         
-            // full health
-            
-        this.health=100;
-        this.deadCount=-1;
+        this.beretta.ready();
+        this.m16.ready();
+        this.grenade.ready();
         
             // move to random node
             
@@ -202,6 +198,55 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
             // start animation
             
         this.startModelAnimationChunkInFrames(null,30,960,996);
+    }
+        
+        //
+        // fire weapons
+        //
+        
+    fireWeapon()
+    {
+            // are we turned enough towards player?
+            
+        if (Math.abs(this.lastTargetAngleDif)>EntityMultiplayerBotClass.ANGLE_Y_FIRE_RANGE) return;
+            
+           // are we outside of grenade distance?
+           // if so, then we can throw a grenade
+           
+        if (this.grenade.ammoCount>0) {
+            if (this.position.distance(this.targetEntity.position)>EntityMultiplayerBotClass.MIN_GRENADE_DISTANCE) {
+                this.grenade.fire(this.position,this.angle,this.eyeOffset);
+                
+                if (this.currentWeapon===EntityMultiplayerBotClass.WEAPON_BERETTA) {
+                    this.startModelAnimationChunkInFrames(null,30,51,91);
+                    this.queueModelAnimationChunkInFrames(null,30,406,442);
+                }
+                else {
+                    this.startModelAnimationChunkInFrames(null,30,820,860);
+                    this.queueModelAnimationChunkInFrames(null,30,960,996);
+                }
+                return;
+            }
+        }
+        
+            // otherwise shot the held weapon
+            
+        if (this.currentWeapon===EntityMultiplayerBotClass.WEAPON_BERETTA) {
+            this.fireAngle.setFromPoint(this.drawAngle);
+            this.fireAngle.y+=(EntityMultiplayerBotClass.BERETTA_FIRE_SLOP-(Math.random()*(EntityMultiplayerBotClass.BERETTA_FIRE_SLOP*2)));
+            if (this.beretta.fire(this.position,this.fireAngle,this.eyeOffset)) {
+                this.startModelAnimationChunkInFrames(null,30,554,594);
+                this.queueModelAnimationChunkInFrames(null,30,406,442);
+            }
+        }
+        else {
+            this.fireAngle.setFromPoint(this.drawAngle);
+            this.fireAngle.y+=(EntityMultiplayerBotClass.M16_FIRE_SLOP-(Math.random()*(EntityMultiplayerBotClass.M16_FIRE_SLOP*2)));
+            if (this.m16.fire(this.position,this.fireAngle,this.eyeOffset)) {
+                this.startModelAnimationChunkInFrames(null,30,892,928);
+                this.queueModelAnimationChunkInFrames(null,30,960,996);
+            }
+        }
     }
     
         //
@@ -290,12 +335,25 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
                 this.targetEntity=null;
                 return;
             }
+            
+            return;
         }
         
             // ray trace for entities
+            // we do one look angle per tick
             
-        //this.targetEntity=this.rayTraceForEntities()
-            
+        this.lookPoint.setFromPoint(this.position);
+        this.lookPoint.y+=this.eyeOffset;
+        
+        this.lookVector.setFromValues(0,0,EntityMultiplayerBotClass.FORGET_DISTANCE);
+        this.lookVector.rotateY(null,EntityMultiplayerBotClass.TARGET_SCAN_Y_ANGLES[this.currentLookIdx]);
+        
+        this.currentLookIdx++;
+        if (this.currentLookIdx>=EntityMultiplayerBotClass.TARGET_SCAN_Y_ANGLES.length) this.currentLookIdx=0;
+        
+        if (this.rayCollision(this.lookPoint,this.lookVector,this.lookHitPoint,EntityMultiplayerBotClass.TARGET_HIT_FILTER,null)) {
+            if (this.hitEntity!==null) this.targetEntity=this.hitEntity;
+        }
     }
     
     //
@@ -308,7 +366,8 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         
         this.health-=damage;
         if (this.health<=0) {
-            this.deadCount=200;
+            this.deadCount=EntityMultiplayerBotClass.MAX_DEATH_COUNT;
+            this.passThrough=true;
             this.startModelAnimationChunkInFrames(null,30,209,247);
             this.queueAnimationStop();
             this.playSound('player_die');
@@ -435,7 +494,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
             this.drawAngle.turnYTowards(this.angle.y,EntityMultiplayerBotClass.MAX_TURN_SPEED);
         }
         else {
-            this.drawAngle.turnYTowards(this.position.angleYTo(this.targetEntity.position),EntityMultiplayerBotClass.MAX_TARGET_TURN_SPEED);
+            this.lastTargetAngleDif=this.drawAngle.turnYTowards(this.position.angleYTo(this.targetEntity.position),EntityMultiplayerBotClass.MAX_TARGET_TURN_SPEED);
         }
         
             // move

@@ -116,7 +116,7 @@ export default class EffectExplosionSmokeClass extends ProjectEffectClass
             // the particles
             
         this.drawStart();
-        this.drawAddBillboardQuadFromMotion(this.smokeBitmap,this.smokeMotions,factor,this.position,0,0,0.5,0.5,halfSize,halfSize,0,this.core.gl.SRC_ALPHA,this.core.gl.ONE_MINUS_SRC_ALPHA,this.whiteColor,alpha);
+        this.drawAddBillboardQuadFromMotion(this.smokeBitmap,this.smokeMotions,factor,this.position,0,0,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.whiteColor,alpha);
         this.drawEnd();
     }
 }
