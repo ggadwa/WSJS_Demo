@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>WSJS Demonstration Project</title>
+<link rel="stylesheet" type="text/css" href="common.css">
+
+<!-- the script -->
+
+<script type="module">
+    import GameClass from '../scripts/game/game.js';
+    import main from '../../code/main/main.js';
+    
+    window.main=main;
+    window.gameClass=GameClass;     // modules are scoped so we need to put these on the global window object
+</script>
+
+<script>
+function runDualCastle()
+{
+    window.main.run(window.gameClass,{"startMap":"Dual Castles"});
+}
+
+function runDungeon()
+{
+    window.main.run(window.gameClass,{"startMap":"Dungeon"});
+}
+
+function runNetwork()
+{
+    let userId=prompt('Please enter a User ID','');
+    if ((userId===null) || (userId==='')) return;
+    
+    let serverURL=prompt('Please enter a server URL','ws://localhost:10867');
+    if ((serverURL===null) || (serverURL==='')) return;
+}
+    
+</script>
+
+</head>
+
+<body>
+
+<!-- map picker -->
+
+<div class="header">Demonstration Map Picker</div>
+
+<div class="columnWrapper">
+    <div class="column">
+        <img class="imageClick" src="dual_castles.png" onClick="runDualCastle()">
+        <div class="imageText">Multiplayer Bot Map</div>
+    </div>
+    <div class="column">
+        <img class="imageClick" src="dungeon.png" onClick="runDungeon()">
+        <div class="imageText">First Person Shooter Map</div>
+    </div>
+    <div class="column">
+        <img class="imageClick" src="network.png" onClick="runNetwork()">
+        <div class="imageText">Network Persistence Map</div>
+    </div>
+</div>
+<!-- instructions -->
+
+<div class="header">Instructions</div>
+
+<div class="line">
+    
+    <div class="keyTableWrapper">
+        <table class="keyTable">
+            <tr class="keyRow">
+                <td class="keyColumnLeft">Esc</td>
+                <td class="keyColumnRight">Pause</td>
+            </tr>
+            <tr class="keyRow">
+                <td class="keyColumnLeft">AWSD</td>
+                <td class="keyColumnRight">Movement</td>
+            </tr>
+            <tr class="keyRow">
+                <td class="keyColumnLeft">Space</td>
+                <td class="keyColumnRight">Jump</td>
+            </tr>
+            <tr class="keyRow">
+                <td class="keyColumnLeft">E</td>
+                <td class="keyColumnRight">Interact</td>
+            </tr>
+            <tr class="keyRow">
+                <td class="keyColumnLeft">Left Mouse Button</td>
+                <td class="keyColumnRight">Fire Weapon</td>
+            </tr>
+            <tr class="keyRow">
+                <td class="keyColumnLeft">Right Mouse Button</td>
+                <td class="keyColumnRight">Throw Grenade</td>
+            </tr>
+            <tr class="keyRow">
+                <td class="keyColumnLeft">Mouse Wheel</td>
+                <td class="keyColumnRight">Change Weapons</td>
+            </tr>
+            <tr class="keyRow">
+                <td class="keyColumnLeft">Touch Left</td>
+                <td class="keyColumnRight">Move</td>
+            </tr>
+            <tr class="keyRow">
+                <td class="keyColumnLeft">Touch Right</td>
+                <td class="keyColumnRight">Look, Click to Shoot</td>
+            </tr>
+            <tr class="keyRow">
+                <td class="keyColumnLeft">Swipe Left/Right</td>
+                <td class="keyColumnRight">Change Weapons</td>
+            </tr>
+            <tr class="keyRow">
+                <td class="keyColumnLeft">Swipe Up</td>
+                <td class="keyColumnRight">Throw Grenade</td>
+            </tr>
+            <tr class="keyRow">
+                <td class="keyColumnLeft">-</td>
+                <td class="keyColumnRight">No Clip</td>
+            </tr>
+            <tr class="keyRow">
+                <td class="keyColumnLeft">=</td>
+                <td class="keyColumnRight">Fly</td>
+            </tr>
+            <tr class="keyRow">
+                <td class="keyColumnLeft">Backspace</td>
+                <td class="keyColumnRight">Info to Console</td>
+            </tr>
+            <tr class="keyRow">
+                <td class="keyColumnLeft">Delete</td>
+                <td class="keyColumnRight">Path Editor</td>
+            </tr>
+            <tr class="keyRow">
+                <td class="keyColumnLeft">End</td>
+                <td class="keyColumnRight">Entity Bounds</td>
+            </tr>
+            <tr class="keyRow">
+                <td class="keyColumnLeft">Page Down</td>
+                <td class="keyColumnRight">Entity Skeletons</td>
+            </tr>
+            <tr class="keyRow">
+                <td class="keyColumnLeft">Page Up</td>
+                <td class="keyColumnRight">Collision Surfaces</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- links -->
+
+<div class="header">Links</div>
+
+<div class="line">
+    <a href="https://twitter.com/ggadwa">@ggadwa</a><br>
+    <a href="https://github.com/ggadwa/WSJS">GitHub Source Code</a>
+</div>
+
+<!-- credits -->
+
+<div class="header">Credits</div>
+
+<div class="line">
+    <a href=" http://mr-necturus.com">Mr. Necturus [Maps, Models]</a><br>
+    <a href="https://www.textures.com">Textures.com [Misc textures]</a><br>
+    <a href="https://sketchfab.com/sergei_pavlov">Sergei Pavlov [Grenade]</a><br>
+    <a href="https://freesound.org">FreeSound.org [Sounds]</a>
+</div>
+
+</body>
+</html>
