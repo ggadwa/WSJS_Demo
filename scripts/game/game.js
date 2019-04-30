@@ -7,11 +7,6 @@ import MapDungeonClass from '../maps/map_dungeon.js';
 
 export default class GameClass extends ProjectGameDeveloperClass
 {
-    constructor(core,data)
-    {
-        super(core,data);
-    }
-    
     initialize()
     {
         let x,y;
@@ -51,9 +46,9 @@ export default class GameClass extends ProjectGameDeveloperClass
             
         switch (this.data.startMap) {
             case "Dual Castles":
-                return(new MapDualCastlesClass(this.core));
+                return(this.createMap(MapDualCastlesClass));
             case "Dungeon":
-                return(new MapDungeonClass(this.core));
+                return(this.createMap(MapDungeonClass));
         }
         
         console.log('Unknown Map: '+this.data.startMap);

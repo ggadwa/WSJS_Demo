@@ -14,32 +14,29 @@ export default class EffectHitClass extends ProjectEffectClass
     static HIT_ADD_HALF_SIZE=900;
     static HIT_ALPHA_START_FACTOR=0.3;
     static HIT_ALPHA_ADD_FACTOR=0.7;
-        
-    constructor(core,data)
-    {
-        super(core,data);
-        
-        this.startTimestamp=0;
-        
-            // variables (some to stop GC)
-            
-        this.halfSize=0;
-        this.alpha=1.0;
-            
-        this.position=new PointClass(0,0,0);
-        this.xBound=new BoundClass(0,0);
-        this.yBound=new BoundClass(0,0);
-        this.zBound=new BoundClass(0,0);
-        
-        this.hitBitmap=null;
-        this.hitColor=new ColorClass(1.0,0.9,0.0);
-
-        Object.seal(this);
-    }
     
+    startTimestamp=0;
+    halfSize=0;
+    alpha=1.0;
+    xBound=new BoundClass(0,0);
+    yBound=new BoundClass(0,0);
+    zBound=new BoundClass(0,0);
+    hitBitmap=null;
+    hitColor=new ColorClass(1.0,0.9,0.0);
+        
     initialize()
     {
         super.initialize();
+        
+            // setup
+            
+        this.startTimestamp=0;
+
+        this.xBound=new BoundClass(0,0);
+        this.yBound=new BoundClass(0,0);
+        this.zBound=new BoundClass(0,0);
+
+        this.hitColor=new ColorClass(1.0,0.9,0.0);
         
             // add a bitmap for this effect
             
@@ -90,7 +87,7 @@ export default class EffectHitClass extends ProjectEffectClass
         this.yBound=new BoundClass((this.position.y-this.halfSize),(this.position.y+this.halfSize));
         this.zBound=new BoundClass((this.position.z-this.halfSize),(this.position.z+this.halfSize));
 
-        return(this.core.boundBoxInFrustum(this.xBound,this.yBound,this.zBound));
+        return(this.boundBoxInFrustum(this.xBound,this.yBound,this.zBound));
     }
     
     draw()

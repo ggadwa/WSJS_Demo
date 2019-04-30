@@ -31,10 +31,27 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     static WEAPON_BERETTA=0;
     static WEAPON_M16=1;
     
-    constructor(core,name,position,angle,data)
-    {
-        super(core,name,position,angle,data);
+    health=100;
+    deadCount=-1;
+    lastUnderLiquid=false;
+    movement=null;
+    rotMovement=null;
+    currentWeapon=0;
+    beretta=null;
+    m16=null;
+    grenade=null;
+    hasM16=false;
+    
+        //
+        // initialize and release
+        //
         
+    initialize()
+    {
+        super.initialize();
+
+            // settings
+            
         this.radius=1500;
         this.height=4500;
         
@@ -46,51 +63,21 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.gravityAcceleration=20;
         
         this.filter='player';          // filters are used when searching for entities
-        
-        this.health=100;
-        this.deadCount=-1;
-        
-            // movement
+
+            // some pre-allocations
             
         this.movement=new PointClass(0,0,0);
         this.rotMovement=new PointClass(0,0,0);
-        
-            // local variables
-
-        this.lastUnderLiquid=false;
-        
-        this.currentWeapon=0;
-        this.beretta=null;
-        this.m16=null;
-        this.grenade=null;
-        
-        this.hasM16=false;
-        
-        Object.seal(this);
-    }
-    
-        //
-        // initialize and release
-        //
-        
-    initialize()
-    {
-        super.initialize();
         
             // add sounds
             
         this.addSound('player_die',30000);
         
             // weapons
-            
-        this.beretta=new EntityWeaponBerettaClass(this.core,'weapon_beretta',new PointClass(0,0,0),new PointClass(0,0,0),null);
-        this.addEntity(this.beretta,true,true);        
-        
-        this.m16=new EntityWeaponM16Class(this.core,'weapon_m16',new PointClass(0,0,0),new PointClass(0,0,0),null);
-        this.addEntity(this.m16,false,true);
-        
-        this.grenade=new EntityWeaponGrenadeClass(this.core,('weapon_grenade'),new PointClass(0,0,0),new PointClass(0,0,0),null);
-        this.addEntity(this.grenade,false,true);
+
+        this.beretta=this.addEntity(EntityWeaponBerettaClass,'weapon_beretta',new PointClass(0,0,0),new PointClass(0,0,0),null,true,true);
+        this.m16=this.addEntity(EntityWeaponM16Class,'weapon_m16',new PointClass(0,0,0),new PointClass(0,0,0),null,false,true);
+        this.grenade=this.addEntity(EntityWeaponGrenadeClass,('weapon_grenade'),new PointClass(0,0,0),new PointClass(0,0,0),null,false,true);
     }
     
     release()
@@ -123,7 +110,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         liquidIdx=this.getUnderLiquidIndex();
         if (liquidIdx===-1) return(false);
         
-        liquid=this.core.map.liquidList.liquids[liquidIdx];
+        liquid=this.getLiquidList().liquids[liquidIdx];
         tintColor.setFromColor(liquid.tint);
         
         return(true);
@@ -242,8 +229,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     
     run()
     {
-        let turnAdd,lookAdd,liquidIdx;
-        let input=this.core.input;
+        let x,y,turnAdd,lookAdd,liquidIdx;
         let mouseWheelClick,bump;
         
         super.run();
@@ -274,7 +260,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // fire weapon
             
-        if (input.mouseButtonFlags[0]) {
+        if (this.isMouseButtonDown(0)) {
             switch (this.currentWeapon) {
                 case EntityPlayerClass.WEAPON_BERETTA:
                     this.beretta.fire(this.position,this.angle,this.eyeOffset);
@@ -287,32 +273,32 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // grenade throw
         
-        if (input.mouseButtonFlags[2]) this.grenade.fire(this.position,this.angle,this.eyeOffset);
+        if (this.isMouseButtonDown(2)) this.grenade.fire(this.position,this.angle,this.eyeOffset);
 
             // change weapons
             // for this demo, we just have two weapons so we do it the simple way
         
-        mouseWheelClick=input.mouseWheelRead();
+        mouseWheelClick=this.getMouseWheelClick();
 
-        if ((mouseWheelClick<0) || (input.keyFlags[49])) {
+        if ((mouseWheelClick<0) || (this.isKeyDown(49))) {
             this.currentWeapon=EntityPlayerClass.WEAPON_BERETTA;
             this.beretta.show=true;
             this.m16.show=false;
         }
         
-        if (((mouseWheelClick>0) || (input.keyFlags[50])) && (this.hasM16)) {
+        if (((mouseWheelClick>0) || (this.isKeyDown(50))) && (this.hasM16)) {
             this.currentWeapon=EntityPlayerClass.WEAPON_M16;
             this.beretta.show=false;
             this.m16.show=true;
         }
         
             // turning
-            
-        if (input.mouseChangeX!==0) {
-            turnAdd=-(input.mouseChangeX*EntityPlayerClass.MOUSE_TURN_SENSITIVITY);
+        
+        x=this.getMouseMoveX();
+        if (x!==0) {
+            turnAdd=-(x*EntityPlayerClass.MOUSE_TURN_SENSITIVITY);
             turnAdd+=(turnAdd*EntityPlayerClass.MOUSE_TURN_ACCELERATION);
             if (Math.abs(turnAdd)>EntityPlayerClass.MOUSE_MAX_TURN_SPEED) turnAdd=EntityPlayerClass.MOUSE_MAX_TURN_SPEED*Math.sign(turnAdd);
-            input.mouseChangeX=0;
         
             this.angle.y+=turnAdd;
             if (this.angle.y<0.0) this.angle.y+=360.0;
@@ -320,12 +306,12 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         }
         
             // looking
-            
-        if (input.mouseChangeY!==0) {
-            lookAdd=input.mouseChangeY*EntityPlayerClass.MOUSE_LOOK_SENSITIVITY;
+           
+        y=this.getMouseMoveY();
+        if (y!==0) {
+            lookAdd=y*EntityPlayerClass.MOUSE_LOOK_SENSITIVITY;
             lookAdd+=(lookAdd*EntityPlayerClass.MOUSE_LOOK_ACCELERATION);
             if (Math.abs(lookAdd)>EntityPlayerClass.MOUSE_MAX_LOOK_SPEED) lookAdd=EntityPlayerClass.MOUSE_MAX_LOOK_SPEED*Math.sign(lookAdd);
-            input.mouseChangeY=0;
         
             this.angle.x+=lookAdd;
             if (this.angle.x<-EntityPlayerClass.MAX_LOOK_ANGLE) this.angle.x=-EntityPlayerClass.MAX_LOOK_ANGLE;
@@ -351,7 +337,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // jumping
            
-        if (input.keyFlags[32]) {
+        if (this.isKeyDown(32)) {
             if ((this.isStandingOnFloor()) && (liquidIdx===-1) && (!this.debugPlayerFly)) {
                 this.gravity=this.gravityMinValue;
                 this.movement.y=EntityPlayerClass.JUMP_HEIGHT;
@@ -369,8 +355,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // figure out the movement
          
-        this.movement.moveZWithAcceleration(((input.keyFlags[38]) || (input.keyFlags[87])),((input.keyFlags[40]) || (input.keyFlags[83])),EntityPlayerClass.FORWARD_ACCELERATION,EntityPlayerClass.FORWARD_DECELERATION,EntityPlayerClass.FORWARD_MAX_SPEED);
-        this.movement.moveXWithAcceleration(input.keyFlags[65],input.keyFlags[68],EntityPlayerClass.SIDE_ACCELERATION,EntityPlayerClass.SIDE_DECELERATION,EntityPlayerClass.SIDE_MAX_SPEED);
+        this.movement.moveZWithAcceleration(((this.isKeyDown(38)) || (this.isKeyDown(87))),((this.isKeyDown(40)) || (this.isKeyDown(83))),EntityPlayerClass.FORWARD_ACCELERATION,EntityPlayerClass.FORWARD_DECELERATION,EntityPlayerClass.FORWARD_MAX_SPEED);
+        this.movement.moveXWithAcceleration(this.isKeyDown(65),this.isKeyDown(68),EntityPlayerClass.SIDE_ACCELERATION,EntityPlayerClass.SIDE_DECELERATION,EntityPlayerClass.SIDE_MAX_SPEED);
         
         this.rotMovement.setFromPoint(this.movement);
         if ((this.debugPlayerFly) || (this.lastUnderLiquid)) {

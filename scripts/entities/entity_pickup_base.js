@@ -9,28 +9,28 @@ import ImportModelClass from '../../../code/import/import_model.js';
 
 export default class EntityPickupBaseClass extends ProjectEntityClass
 {
-    constructor(core,name,position,angle,data)
-    {
-        super(core,name,position,angle,data);
-        
-        this.passThrough=true;           // can pass through
-        
-        this.originalY=0;
-        
-        this.hideStartTick=0;
-        this.hideTick=5000;
-        this.pickupName=null;
-    }
+    originalY=0;
+    hideStartTick=0;
+    hideTick=5000;
+    pickupName=null;
     
     initialize()
     {
         super.initialize();
         
+            // base setup
+            
+        this.passThrough=true;           // can pass through
+        
+            // sounds
+            
         this.addSound('pickup',5000);
     }
-        
+    
     ready()
     {
+        this.hideStartTick=0;
+        
         this.originalY=this.position.y;
     }
     

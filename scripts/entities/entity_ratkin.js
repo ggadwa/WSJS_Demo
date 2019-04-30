@@ -10,24 +10,21 @@ import EntityMonsterBaseClass from '../entities/entity_monster_base.js';
 
 export default class EntityRatkinClass extends EntityMonsterBaseClass
 {
-    constructor(core,name,position,angle,data)
+    initialize()
     {
-        super(core,name,position,angle,data);
+        super.initialize();
         
+            // setup
+            
         this.radius=1500;
         this.height=4500;
         
         this.gravityMinValue=10;
         this.gravityMaxValue=450;
         this.gravityAcceleration=20;
-                
-        Object.seal(this);
-    }
-    
-    initialize()
-    {
-        super.initialize();
 
+            // model
+            
         this.setModel({"name":"ratkin_skeleton"});
         this.scale.setFromValues(3000,3000,3000);
     }

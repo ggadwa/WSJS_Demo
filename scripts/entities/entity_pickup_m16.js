@@ -9,23 +9,20 @@ import EntityPickupBaseClass from '../entities/entity_pickup_base.js';
 
 export default class EntityPickupM16Class extends EntityPickupBaseClass
 {
-    constructor(core,name,position,angle,data)
+    initialize()
     {
-        super(core,name,position,angle,data);
+        super.initialize();
         
+            // setup
+            
         this.radius=2000;
         this.height=2000;
         
         this.hideTick=5000;
         this.pickupName=this.data.ammo?'m16_ammo':'m16';
                 
-        Object.seal(this);
-    }
-    
-    initialize()
-    {
-        super.initialize();
-        
+            // model
+                
         this.setModel({"name":"m16"});
         this.scale.setFromValues(8000,8000,8000);
     }

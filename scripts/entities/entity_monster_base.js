@@ -18,19 +18,13 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     static SIDE_DECELERATION=50;
     static SIDE_MAX_SPEED=150;
     
-    constructor(core,name,position,angle,data)
-    {
-        super(core,name,position,angle,data);
-        
-        this.filter='monster';
-                
-        Object.seal(this);
-    }
-    
     initialize()
     {
         super.initialize();
-
+        
+            // base setup
+            
+        this.filter='monster';
     }
     
     ready()
@@ -39,7 +33,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     
     run()
     {
-        this.turnYTowardsEntity(this.core.map.entityList.getPlayer(),EntityMonsterBaseClass.MAX_TURN_SPEED);
+        this.turnYTowardsEntity(this.getPlayerEntity(),EntityMonsterBaseClass.MAX_TURN_SPEED);
     }
     
     /*

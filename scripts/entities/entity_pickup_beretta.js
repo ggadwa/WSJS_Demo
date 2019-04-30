@@ -9,23 +9,20 @@ import EntityPickupBaseClass from '../entities/entity_pickup_base.js';
 
 export default class EntityPickupBerettaClass extends EntityPickupBaseClass
 {
-    constructor(core,name,position,angle,data)
+    initialize()
     {
-        super(core,name,position,angle,data);
+        super.initialize();
         
+            // setup
+            
         this.radius=2000;
         this.height=2000;
         
         this.hideTick=5000;
         this.pickupName=this.data.ammo?'beretta_ammo':'beretta';
                 
-        Object.seal(this);
-    }
-    
-    initialize()
-    {
-        super.initialize();
-        
+            // model
+                
         this.setModel({"name":"beretta"});
         this.scale.setFromValues(10000,10000,10000);
     }

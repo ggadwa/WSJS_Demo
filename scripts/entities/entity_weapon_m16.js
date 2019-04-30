@@ -15,10 +15,16 @@ export default class EntityWeaponM16Class extends EntityWeaponBaseClass
     static DAMAGE=5;
     static HIT_FILTER=['player','bot','monster'];
     
-    constructor(core,name,position,angle,data)
+    handOffset=null;
+    handAngle=null;
+    hitEffect=null;
+    
+    initialize()
     {
-        super(core,name,position,angle,data);
+        super.initialize();
         
+            // setup
+            
         this.radius=5000;
         this.height=11000;      // this model is based on a humanoid skeleton, so it's taller
         
@@ -31,15 +37,6 @@ export default class EntityWeaponM16Class extends EntityWeaponBaseClass
         
         this.handOffset=new PointClass(100,-8500,-2000);
         this.handAngle=new PointClass(0,0,-10);
-        
-        this.hitEffect=null;
-                
-        Object.seal(this);
-    }
-    
-    initialize()
-    {
-        super.initialize();
             
             // the model
             
@@ -52,10 +49,7 @@ export default class EntityWeaponM16Class extends EntityWeaponBaseClass
         
             // hit effect
             
-        this.hitEffect=new EffectHitClass(this.core,null);
-        this.hitEffect.show=false;
-        
-        this.core.map.effectList.add(this.hitEffect);
+        this.hitEffect=this.addEffect(EffectHitClass,null,false);
     }
     
     ready()

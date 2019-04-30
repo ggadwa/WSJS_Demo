@@ -12,15 +12,27 @@ export default class EffectWebClass extends ProjectEffectClass
     static WEB_MIN_FREQUENCY=8000;
     static WEB_ADDITIONAL_FREQUENCY=5000;
     static WEB_MAX_MOVE=80;
+    
+    xBound=null;
+    yBound=null;
+    zBound=null;
+    v0XFrequency=0;
+    v0ZFrequency=0;
+    v1XFrequency=0;
+    v1ZFrequency=0;
+    v2XFrequency=0;
+    v2ZFrequency=0;
+    webBitmap=null;
+    webColor=null;
+    drawV0=null;
+    drawV1=null;
+    drawV2=null;
         
-    constructor(core,data)
+    initialize()
     {
-        super(core,data);
+        super.initialize();
         
-        this.position=new PointClass(0,0,0);
-        this.xBound=new BoundClass(0,0);
-        this.yBound=new BoundClass(0,0);
-        this.zBound=new BoundClass(0,0);
+            // setup
             
         this.v0XFrequency=0;
         this.v0ZFrequency=0;
@@ -29,19 +41,11 @@ export default class EffectWebClass extends ProjectEffectClass
         this.v2XFrequency=0;
         this.v2ZFrequency=0;
         
-        this.webBitmap=null;
-        this.webColor=new ColorClass(1,1,1);
-
         this.drawV0=new PointClass(0,0,0);
         this.drawV1=new PointClass(0,0,0);
         this.drawV2=new PointClass(0,0,0);
-                
-        Object.seal(this);
-    }
-    
-    initialize()
-    {
-        super.initialize();
+        
+        this.webColor=new ColorClass(1,1,1);
         
             // add a bitmap for this effect
             
@@ -62,13 +66,13 @@ export default class EffectWebClass extends ProjectEffectClass
         
             // get the bounds for elimination
             
-        this.xBound.setFromValues(this.data.v0.x,this.data.v1.x);
+        this.xBound=new BoundClass(this.data.v0.x,this.data.v1.x);
         this.xBound.adjust(this.data.v2.x);
         
-        this.yBound.setFromValues(this.data.v0.y,this.data.v1.y);
+        this.yBound=new BoundClass(this.data.v0.y,this.data.v1.y);
         this.yBound.adjust(this.data.v2.y);
         
-        this.zBound.setFromValues(this.data.v0.z,this.data.v1.z);
+        this.zBound=new BoundClass(this.data.v0.z,this.data.v1.z);
         this.zBound.adjust(this.data.v2.z);
         
         return(true);
@@ -81,7 +85,7 @@ export default class EffectWebClass extends ProjectEffectClass
     
     drawSetup()
     {   
-        return(this.core.boundBoxInFrustum(this.xBound,this.yBound,this.zBound));
+        return(this.boundBoxInFrustum(this.xBound,this.yBound,this.zBound));
     }
     
     draw()

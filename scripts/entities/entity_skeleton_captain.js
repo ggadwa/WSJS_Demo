@@ -10,10 +10,11 @@ import EntityMonsterBaseClass from '../entities/entity_monster_base.js';
 
 export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
 {
-    constructor(core,name,position,angle,data)
+    initialize()
     {
-        super(core,name,position,angle,data);
+        super.initialize();
         
+            // setup
             // captain skeletons are bigger
             
         if (!this.data.captain) {
@@ -28,13 +29,6 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
         this.gravityMinValue=10;
         this.gravityMaxValue=450;
         this.gravityAcceleration=20;
-        
-        Object.seal(this);
-    }
-    
-    initialize()
-    {
-        super.initialize();
 
             // get model
             

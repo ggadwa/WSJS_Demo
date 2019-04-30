@@ -1,6 +1,5 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectMapClass from '../../../code/project/project_map.js';
-import ImportMapClass from '../../../code/import/import_map.js';
 import EntityPlayerClass from '../entities/entity_player.js';
 import EntityMultiplayerBotClass from '../entities/entity_multiplayer_bot.js';
 import EntityPickupBerettaClass from '../entities/entity_pickup_beretta.js';
@@ -11,16 +10,9 @@ import EffectFireClass from '../effects/effect_fire.js';
 
 export default class MapDualCastlesClass extends ProjectMapClass
 {
-    constructor(core)
+    getImportSettings()
     {
-        super(core);
-    }
-    
-    async loadMap()
-    {
-        super.loadMap();
-        
-        let importSettings=
+        return(
             {
                 "name":"dual_castles",
                 "scale":700,
@@ -273,10 +265,8 @@ export default class MapDualCastlesClass extends ProjectMapClass
                         {"entity":EntityPickupChickenLegClass,"name":"health_01","position":{"x":1468,"y":29851,"z":109299}},
                         {"entity":EntityPickupChickenLegClass,"name":"health_02","position":{"x":-1789,"y":29851,"z":-108954}}
                     ]
-            };
-        
-        let importMap=new ImportMapClass(this.core);
-        return(await importMap.load(importSettings));
+            }
+        );
     }
     
 }

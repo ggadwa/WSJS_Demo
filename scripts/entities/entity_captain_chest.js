@@ -9,25 +9,26 @@ import ImportModelClass from '../../../code/import/import_model.js';
 
 export default class EntityCaptainChestClass extends ProjectEntityClass
 {
-    constructor(core,name,position,angle,data)
-    {
-        super(core,name,position,angle,data);
-        
-        this.radius=2800;
-        this.height=2200;
-        
-        this.opened=false;
-                
-        Object.seal(this);
-    }
+    opened=false;
     
     initialize()
     {
         super.initialize();
         
+            // setup
+            
+        this.radius=2800;
+        this.height=2200;
+        
+        this.opened=false;
+        
+            // chest model
+            
         this.setModel({"name":"captain_chest"});
         this.scale.setFromValues(50,50,50);
         
+            // sounds
+            
         this.addSound('chime',5000);
     }
         
@@ -46,7 +47,7 @@ export default class EntityCaptainChestClass extends ProjectEntityClass
             // is the E key down
             // and player close enough to open?
         
-        if (!this.core.input.keyFlags[69]) return;
+        if (!this.isKeyDown(69)) return;
         if (!this.isEntityInRange('player',5000)) return;
         
             // open it

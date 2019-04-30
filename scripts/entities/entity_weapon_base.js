@@ -8,25 +8,25 @@ import EntityPlayerClass from '../entities/entity_player.js';
 
 export default class EntityWeaponBaseClass extends ProjectEntityClass
 {
-    constructor(core,name,position,angle,data)
-    {
-        super(core,name,position,angle,data);
-        
-        this.ammoCount=0;
-        
-        this.fireWait=0;
-        this.lastFireTick=0;
-        
-        this.handAngle=new PointClass(0,0,0);
-        
-        this.firePoint=new PointClass(0,0,0);
-        this.fireVector=new PointClass(0,0,0);
-        this.fireHitPoint=new PointClass(0,0,0);
-    }
+    ammoCount=0;
+    ammoAddCount=0;
+    ammoMaxCount=0;
+    interfaceIconName=null;
+    fireWait=0;
+    lastFireTick=0;
+    firePoint=null;
+    fireVector=null;
+    fireHitPoint=null;
     
     initialize()
     {
         super.initialize();
+        
+            // pre-allocates
+            
+        this.firePoint=new PointClass(0,0,0);
+        this.fireVector=new PointClass(0,0,0);
+        this.fireHitPoint=new PointClass(0,0,0);
     }
     
     ready()

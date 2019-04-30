@@ -12,10 +12,18 @@ export default class EntityWeaponGrenadeClass extends EntityWeaponBaseClass
 {
     static MAX_PROJECTILE_COUNT=4;
     
-    constructor(core,name,position,angle,data)
+    grenades=[];
+    grenadeLastIndex=0;
+    grenadeOffset=null;
+    
+    initialize()
     {
-        super(core,name,position,angle,data);
+        let n;
         
+        super.initialize();
+        
+            // setup
+            
         this.radius=0;
         this.height=0;      // nothing ever draws, this is your collection of grenades to throw
         
@@ -26,19 +34,7 @@ export default class EntityWeaponGrenadeClass extends EntityWeaponBaseClass
         this.ammoMaxCount=5;
         this.interfaceIconName='grenade';
         
-        this.grenades=[];
-        this.grenadeLastIndex=0;
-        
         this.grenadeOffset=new PointClass(0,0,0);
-        
-        Object.seal(this);
-    }
-    
-    initialize()
-    {
-        let n,grenade;
-        
-        super.initialize();
         
             // sounds
             
@@ -46,11 +42,10 @@ export default class EntityWeaponGrenadeClass extends EntityWeaponBaseClass
         
             // projectiles
             
-        for (n=0;n!=EntityWeaponGrenadeClass.MAX_PROJECTILE_COUNT;n++) {
-            grenade=new EntityProjectileGrenadeClass(this.core,('projectile_grenade_'+n),new PointClass(0,0,0),new PointClass(0,0,0),null);
-            this.addEntity(grenade,false,false);
+        this.grenades=[];
             
-            this.grenades.push(grenade);
+        for (n=0;n!=EntityWeaponGrenadeClass.MAX_PROJECTILE_COUNT;n++) {
+            this.grenades.push(this.addEntity(EntityProjectileGrenadeClass,('projectile_grenade_'+n),new PointClass(0,0,0),new PointClass(0,0,0),null,false,false));
         }
         
         this.grenadeLastIndex=0;

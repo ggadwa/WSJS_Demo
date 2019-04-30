@@ -10,24 +10,21 @@ import EntityMonsterBaseClass from '../entities/entity_monster_base.js';
 
 export default class EntityVampirePatriarchClass extends EntityMonsterBaseClass
 {
-    constructor(core,name,position,angle,data)
+    initialize()
     {
-        super(core,name,position,angle,data);
+        super.initialize();
         
+            // setup
+            
         this.radius=2000;
         this.height=8200;
         
         this.gravityMinValue=10;
         this.gravityMaxValue=450;
         this.gravityAcceleration=20;
-                
-        Object.seal(this);
-    }
-    
-    initialize()
-    {
-        super.initialize();
         
+            // model
+            
         this.setModel({"name":"vampire_patriarch"});
         this.scale.setFromValues(5000,5000,5000);
     }

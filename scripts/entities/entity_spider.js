@@ -10,23 +10,20 @@ import EntityMonsterBaseClass from '../entities/entity_monster_base.js';
 
 export default class EntitySpiderClass extends EntityMonsterBaseClass
 {
-    constructor(core,name,position,angle,data)
+    initialize()
     {
-        super(core,name,position,angle,data);
+        super.initialize();
         
+            // setup
+            
         this.radius=2500;
         this.height=2800;
         
         this.gravityMinValue=10;
         this.gravityMaxValue=450;
         this.gravityAcceleration=20;
-                
-        Object.seal(this);
-    }
-    
-    initialize()
-    {
-        super.initialize();
+
+            // model
         
         this.setModel({"name":"spider"});
         this.scale.setFromValues(1000,1000,1000);

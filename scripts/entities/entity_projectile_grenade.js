@@ -20,40 +20,45 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
     static DAMAGE=100;
     static DAMAGE_DISTANCE=20000;
     
-    constructor(core,name,position,angle,data)
+    running=false;
+    rolling=false;
+    stopped=false;
+    bouncePause=0;
+    startTick=0;
+    motion=null;
+    savePoint=null;
+    drawPosition=null;
+    drawAngle=null;
+    parentEntity=null;
+    explosionFireEffect=null;
+    explosionSmokeEffect=null;
+    
+    initialize()
     {
-        super(core,name,position,angle,data);
+        super.initialize();
         
+            // setup
+            
         this.radius=500;
         this.height=500;
         
         this.gravityMinValue=10;
         this.gravityMaxValue=320;
         this.gravityAcceleration=15;
+            
+        this.motion=new PointClass(0,0,0);      // some pre-allocates
+        this.savePoint=new PointClass(0,0,0);
+        this.drawPosition=new PointClass(0,0,0);
+        this.drawAngle=new PointClass(0,0,0);
         
+            // not shown and not running
+            
+        this.show=false;
         this.running=false;
         this.rolling=false;
         this.stopped=false;
         
         this.bouncePause=0;
-        this.startTick=0;
-        
-        this.motion=new PointClass(0,0,0);
-        this.savePoint=new PointClass(0,0,0);
-        this.drawPosition=new PointClass(0,0,0);
-        this.drawAngle=new PointClass(0,0,0);
-        
-        this.parentEntity=null;
-        
-        this.explosionFireEffect=null;
-        this.explosionSmokeEffect=null;
-        
-        Object.seal(this);
-    }
-    
-    initialize()
-    {
-        super.initialize();
         
             // the model
             
@@ -66,20 +71,8 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
         
             // explosion effect
         
-        this.explosionSmokeEffect=new EffectExplosionSmokeClass(this.core,null);
-        this.explosionSmokeEffect.show=false;
-        this.core.map.effectList.add(this.explosionSmokeEffect);
-            
-        this.explosionFireEffect=new EffectExplosionFireClass(this.core,null);
-        this.explosionFireEffect.show=false;
-        this.core.map.effectList.add(this.explosionFireEffect);
-        
-            // not shown and not running
-            
-        this.show=false;
-        this.running=false;
-        this.rolling=false;
-        this.bouncePause=0;
+        this.explosionSmokeEffect=this.addEffect(EffectExplosionSmokeClass,null,false);
+        this.explosionFireEffect=this.addEffect(EffectExplosionFireClass,null,false);
     }
     
         //

@@ -9,23 +9,20 @@ import EntityPickupBaseClass from '../entities/entity_pickup_base.js';
 
 export default class EntityPickupChickenLegClass extends EntityPickupBaseClass
 {
-    constructor(core,name,position,angle,data)
+    initialize()
     {
-        super(core,name,position,angle,data);
+        super.initialize();
         
+            // setup
+            
         this.radius=800;
         this.height=800;
         
         this.hideTick=10000;
         this.pickupName='health';
-                
-        Object.seal(this);
-    }
-    
-    initialize()
-    {
-        super.initialize();
         
+            // model
+            
         this.setModel({"name":"chicken_leg"});
         this.scale.setFromValues(100,100,100);
     }

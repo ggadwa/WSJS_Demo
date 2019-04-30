@@ -29,39 +29,38 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
     static FIRE_YELLOW_ADD_HALF_SIZE=1000;
     
     static FIRE_ALPHA=0.5;
-        
-    constructor(core,data)
-    {
-        super(core,data);
-        
-        this.startTimestamp=0;
-        
-            // variables (some to stop GC)
-            
-        this.position=new PointClass(0,0,0);
-        this.xBound=new BoundClass(0,0);
-        this.yBound=new BoundClass(0,0);
-        this.zBound=new BoundClass(0,0);
-        
-        this.fireBitmap=null;
-
-        this.redColor=new ColorClass(1.0,0.0,0.0);
-        this.orangeColor=new ColorClass(1.0,0.5,0.0);
-        this.yellowColor=new ColorClass(1.0,1.0,0.0);
-        this.lightColor=new ColorClass(1.0,1.0,0.0);
-        
-        this.redMotions=null;
-        this.orangeMotions=null;
-        this.yellowMotions=null;
-
-        Object.seal(this);
-    }
     
+    startTimestamp=0;
+    xBound=null;
+    yBound=null;
+    zBound=null;
+    fireBitmap=null;
+    redColor=null;
+    orangeColor=null;
+    yellowColor=null;
+    lightColor=null;
+    redMotions=null;
+    orangeMotions=null;
+    yellowMotions=null;
+        
     initialize()
     {
         let count;
         
         super.initialize();
+        
+            // setup
+            
+        this.startTimestamp=0;
+        
+        this.xBound=new BoundClass(0,0);
+        this.yBound=new BoundClass(0,0);
+        this.zBound=new BoundClass(0,0);
+        
+        this.redColor=new ColorClass(1.0,0.0,0.0);
+        this.orangeColor=new ColorClass(1.0,0.5,0.0);
+        this.yellowColor=new ColorClass(1.0,1.0,0.0);
+        this.lightColor=new ColorClass(1.0,1.0,0.0);
         
             // add a bitmap for this effect
             
@@ -145,7 +144,7 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
         this.yBound=new BoundClass((this.position.y-halfSize),(this.position.y+halfSize));
         this.zBound=new BoundClass((this.position.z-halfSize),(this.position.z+halfSize));
 
-        return(this.core.boundBoxInFrustum(this.xBound,this.yBound,this.zBound));
+        return(this.boundBoxInFrustum(this.xBound,this.yBound,this.zBound));
     }
     
     draw()

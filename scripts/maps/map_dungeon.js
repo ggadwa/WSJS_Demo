@@ -1,6 +1,5 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectMapClass from '../../../code/project/project_map.js';
-import ImportMapClass from '../../../code/import/import_map.js';
 import EntityPlayerClass from '../entities/entity_player.js';
 import EntityRatkinClass from '../entities/entity_ratkin.js';
 import EntitySkeletonCaptainClass from '../entities/entity_skeleton_captain.js';
@@ -12,16 +11,9 @@ import EffectWebClass from '../effects/effect_web.js';
 
 export default class MapDungeonClass extends ProjectMapClass
 {
-    constructor(core)
+    getImportSettings()
     {
-        super(core);
-    }
-    
-    async loadMap()
-    {
-        super.loadMap();
-        
-        let importSettings=
+        return(
             {
                 "name":"dungeon",
                 "scale":700,
@@ -48,12 +40,12 @@ export default class MapDungeonClass extends ProjectMapClass
                         {"effect":EffectFireClass,"data":{"mesh":"LAMP06","offset":{"x":-980,"y":-700,"z":0},"intensity":21000}},
                         {"effect":EffectFireClass,"data":{"mesh":"LAMP07","offset":{"x":980,"y":-700,"z":0},"intensity":21000}},
                         {"effect":EffectFireClass,"data":{"mesh":"LAMP08","offset":{"x":0,"y":-700,"z":980},"intensity":21000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"LAMP09","offset":{"x":0,"y":-700,"z":0},"intensity":25000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"LAMP09","offset":{"x":0,"y":-700,"z":980},"intensity":25000}},
                         {"effect":EffectFireClass,"data":{"mesh":"LAMP10","offset":{"x":700,"y":-700,"z":-560},"intensity":25000}},
                         {"effect":EffectFireClass,"data":{"mesh":"LAMP11","offset":{"x":980,"y":-700,"z":0},"intensity":25000}},
                         {"effect":EffectFireClass,"data":{"mesh":"LAMP12","offset":{"x":0,"y":-700,"z":-980},"intensity":25000}},
                         {"effect":EffectFireClass,"data":{"mesh":"LAMP13","offset":{"x":-910,"y":-700,"z":0},"intensity":25000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"LAMP14","offset":{"x":0,"y":-700,"z":980},"intensity":25000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"LAMP14","offset":{"x":0,"y":-700,"z":910},"intensity":25000}},
                         {"effect":EffectFireClass,"data":{"mesh":"LAMP15","offset":{"x":600,"y":-700,"z":0},"intensity":25000}},
                         {"effect":EffectFireClass,"data":{"mesh":"LAMP16","offset":{"x":0,"y":-700,"z":-980},"intensity":25000}},
                         {"effect":EffectFireClass,"data":{"mesh":"LAMP17","offset":{"x":-600,"y":-700,"z":0},"intensity":25000}},
@@ -326,10 +318,8 @@ export default class MapDungeonClass extends ProjectMapClass
                         {"entity":EntitySpiderClass,"name":"spider_03","position":{"x":-339912,"y":-56720,"z":14092},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntitySkeletonCaptainClass,"name":"skeleton_01","position":{"x":-298429,"y":-61495,"z":28543},"angle":{"x":0,"y":0,"z":0},"data":{"captain":true}}
                     ],
-            };
-
-        let importMap=new ImportMapClass(this.core);  
-        return(await importMap.load(importSettings));
+            }
+        );
     }
 
 }

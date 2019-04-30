@@ -15,40 +15,35 @@ export default class EffectFireClass extends ProjectEffectClass
         
     static GLOW_WIDTH=3000;
     static GLOW_HEIGHT=3000;
-        
-    constructor(core,data)
-    {
-        super(core,data);
-        
-        this.position=new PointClass(0,0,0);
-        this.xBound=new BoundClass(0,0);
-        this.yBound=new BoundClass(0,0);
-        this.zBound=new BoundClass(0,0);
-        
-        this.lightIntensity=0;
-        this.lightIntensityDrop=0;
-        this.lightPeriodicTick=0;
-
-        this.fireBitmap=null;
-        this.glowBitmap=null;
-        
-        this.redColor=new ColorClass(1.0,0.2,0.2);
-        this.orangeColor=new ColorClass(1.0,0.5,0.0);
-        this.glowColor=new ColorClass(1,1,1);
-        this.lightColor=new ColorClass(1.0,0.9,0.9);
-        
-            // to avoid GC
-            
-        this.drawPoint=new PointClass(0,0,0);
-                
-        Object.seal(this);
-    }
     
+    xBound=null;
+    yBound=null;
+    zBound=null;
+    lightIntensity=0;
+    lightIntensityDrop=0;
+    lightPeriodicTick=0;
+    fireBitmap=null;
+    glowBitmap=null;
+    redColor=null;
+    orangeColor=null;
+    glowColor=null;
+    lightColor=null;
+    drawPoint=null;
+            
     initialize()
     {
         super.initialize();
         
-        let meshIdx;
+        let meshList,meshIdx;
+        
+            // setup
+            
+        this.redColor=new ColorClass(1.0,0.2,0.2);
+        this.orangeColor=new ColorClass(1.0,0.5,0.0);
+        this.glowColor=new ColorClass(1,1,1);
+        this.lightColor=new ColorClass(1.0,0.9,0.9);
+            
+        this.drawPoint=new PointClass(0,0,0);
         
             // add a bitmap for this effect
             
@@ -61,10 +56,11 @@ export default class EffectFireClass extends ProjectEffectClass
         
             // find the position from an offset
             // to a mesh
-            
-        meshIdx=this.core.map.meshList.find(this.data.mesh);
+        
+        meshList=this.getMeshList();
+        meshIdx=meshList.find(this.data.mesh);
         if (meshIdx!==-1) {
-            this.position.setFromPoint(this.core.map.meshList.meshes[meshIdx].center);
+            this.position.setFromPoint(meshList.meshes[meshIdx].center);
             this.position.addValues(this.data.offset.x,this.data.offset.y,this.data.offset.z);
         }
         else {
@@ -82,9 +78,9 @@ export default class EffectFireClass extends ProjectEffectClass
             // fire doesn't move, precalc the view culling
             // bounds in the constructor
             
-        this.xBound.setFromValues((this.position.x-EffectFireClass.GLOW_WIDTH),(this.position.x+EffectFireClass.GLOW_WIDTH));
-        this.yBound.setFromValues((this.position.y-EffectFireClass.GLOW_HEIGHT),(this.position.y+EffectFireClass.GLOW_HEIGHT));
-        this.zBound.setFromValues((this.position.z-EffectFireClass.GLOW_WIDTH),(this.position.z+EffectFireClass.GLOW_WIDTH));
+        this.xBound=new BoundClass((this.position.x-EffectFireClass.GLOW_WIDTH),(this.position.x+EffectFireClass.GLOW_WIDTH));
+        this.yBound=new BoundClass((this.position.y-EffectFireClass.GLOW_HEIGHT),(this.position.y+EffectFireClass.GLOW_HEIGHT));
+        this.zBound=new BoundClass((this.position.z-EffectFireClass.GLOW_WIDTH),(this.position.z+EffectFireClass.GLOW_WIDTH));
         
             // some light settings
             
@@ -106,7 +102,7 @@ export default class EffectFireClass extends ProjectEffectClass
             
             // now determine if we can draw this
             
-        return(this.core.boundBoxInFrustum(this.xBound,this.yBound,this.zBound,null));
+        return(this.boundBoxInFrustum(this.xBound,this.yBound,this.zBound,null));
     }
     
     draw()

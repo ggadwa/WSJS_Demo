@@ -17,32 +17,28 @@ export default class EffectExplosionSmokeClass extends ProjectEffectClass
     static SMOKE_SPREAD=20000;
     static SMOKE_START_HALF_SIZE=100;
     static SMOKE_ADD_HALF_SIZE=10000;
+    
+    startTimestamp=0;
+    xBound=null;
+    yBound=null;
+    zBound=null;
+    smokeBitmap=null;
+    whiteColor=null;
+    smokeMotions=null;
             
-    constructor(core,data)
+    initialize()
     {
-        super(core,data);
+        super.initialize();
         
-        this.startTimestamp=0;
-        
-            // variables (some to stop GC)
+            // setup
             
-        this.position=new PointClass(0,0,0);
+        this.startTimestamp=0;
+
         this.xBound=new BoundClass(0,0);
         this.yBound=new BoundClass(0,0);
         this.zBound=new BoundClass(0,0);
         
-        this.smokeBitmap=null;
-        
         this.whiteColor=new ColorClass(1.0,1.0,1.0);
-        
-        this.smokeMotions=null;
-
-        Object.seal(this);
-    }
-    
-    initialize()
-    {
-        super.initialize();
         
             // add a bitmap for this effect
             
@@ -96,7 +92,7 @@ export default class EffectExplosionSmokeClass extends ProjectEffectClass
         this.yBound=new BoundClass((this.position.y-halfSize),(this.position.y+halfSize));
         this.zBound=new BoundClass((this.position.z-halfSize),(this.position.z+halfSize));
 
-        return(this.core.boundBoxInFrustum(this.xBound,this.yBound,this.zBound));
+        return(this.boundBoxInFrustum(this.xBound,this.yBound,this.zBound));
     }
     
     draw()

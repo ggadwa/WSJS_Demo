@@ -36,10 +36,34 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
     static WEAPON_BERETTA=0;
     static WEAPON_M16=1;
     
-    constructor(core,name,position,angle,data)
+    health=100;
+    deadCount=-1;
+    nextNodeIdx=-1;
+    goalNodeIdx=-1;
+    pausedTriggerName=null;
+    targetEntity=null;
+    drawAngle=null;
+    fireAngle=null;
+    lastTargetAngleDif=360;
+    currentLookIdx=0;
+    lookPoint=null;
+    lookVector=null;
+    lookHitPoint=null; 
+    movement=null;
+    rotMovement=null;
+    beretta=null;
+    m16=null;
+    grenade=null;   
+    currentWeapon=0;
+    hasM16=false;
+    grenadePauseTick=0;
+    
+    initialize()
     {
-        super(core,name,position,angle,data);
+        super.initialize();
         
+            // setup
+            
         this.radius=1500;
         this.height=4500;
         
@@ -51,40 +75,14 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         this.gravityAcceleration=20;
         
         this.filter='bot';          // filters are used when searching for entities
-        this.health=100;
-        this.deadCount=-1;
         
-        this.nextNodeIdx=-1;
-        this.goalNodeIdx=-1;
-        this.pausedTriggerName=null;
-        
-        this.targetEntity=null;
-        this.drawAngle=new PointClass(0,0,0);
+        this.drawAngle=new PointClass(0,0,0);       // some pre-allocates
         this.fireAngle=new PointClass(0,0,0);
-        this.lastTargetAngleDif=360;
-        
-        this.currentLookIdx=0;
         this.lookPoint=new PointClass(0,0,0);
         this.lookVector=new PointClass(0,0,0);
         this.lookHitPoint=new PointClass(0,0,0);
-        
         this.movement=new PointClass(0,0,0);
         this.rotMovement=new PointClass(0,0,0);
-        
-        this.beretta=null;
-        this.m16=null;
-        this.grenade=null;
-        
-        this.currentWeapon=0;
-        this.hasM16=false;
-        this.grenadePauseTick=0;
-                
-        Object.seal(this);
-    }
-    
-    initialize()
-    {
-        super.initialize();
         
             // set model
             
@@ -97,14 +95,13 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         
             // add weapons
             
-        this.beretta=new EntityWeaponBerettaClass(this.core,'weapon_beretta',new PointClass(0,0,0),new PointClass(0,0,0),null);
-        this.addEntity(this.beretta,false,true);
+        this.currentWeapon=0;
+        this.hasM16=false;
+        this.grenadePauseTick=0;
             
-        this.m16=new EntityWeaponM16Class(this.core,'weapon_m16',new PointClass(0,0,0),new PointClass(0,0,0),null);
-        this.addEntity(this.m16,false,true);
-        
-        this.grenade=new EntityWeaponGrenadeClass(this.core,('weapon_grenade'),new PointClass(0,0,0),new PointClass(0,0,0),null);
-        this.addEntity(this.grenade,false,true);
+        this.beretta=this.addEntity(EntityWeaponBerettaClass,'weapon_beretta',new PointClass(0,0,0),new PointClass(0,0,0),null,false,true);
+        this.m16=this.addEntity(EntityWeaponM16Class,'weapon_m16',new PointClass(0,0,0),new PointClass(0,0,0),null,false,true);
+        this.grenade=this.addEntity(EntityWeaponGrenadeClass,('weapon_grenade'),new PointClass(0,0,0),new PointClass(0,0,0),null,false,true);
     }
     
     release()
@@ -187,6 +184,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
 
         this.pausedTriggerName=null;
         this.targetEntity=null;
+        this.lastTargetAngleDif=360;
         
             // the draw angle is used to face a
             // different way then we are walking
