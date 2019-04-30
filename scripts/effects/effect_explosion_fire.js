@@ -12,7 +12,7 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
     static FIRE_LIFE_TICK=1200;
     static FIRE_FADE_TICK=500;
     
-    static FIRE_LIGHT_INTENSITY=6000;
+    static FIRE_LIGHT_INTENSITY=45000;
     
     static FIRE_COLOR_PARTICLE_COUNT=75;
     
@@ -27,6 +27,8 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
     static FIRE_YELLOW_SPREAD=800;
     static FIRE_YELLOW_START_HALF_SIZE=10;
     static FIRE_YELLOW_ADD_HALF_SIZE=1000;
+    
+    static FIRE_ALPHA=0.5;
         
     constructor(core,data)
     {
@@ -99,6 +101,12 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
         
         this.startTimestamp=this.getTimestamp();
         
+            // light centered at start point
+            
+        
+        
+            // sound effect
+            
         this.playSound('explosion');
     }
 
@@ -118,16 +126,15 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
             // explosion factor
             
         if (tick>(EffectExplosionFireClass.FIRE_LIFE_TICK-EffectExplosionFireClass.FIRE_FADE_TICK)) {
-            factor=(tick-(EffectExplosionFireClass.FIRE_LIFE_TICK-EffectExplosionFireClass.FIRE_FADE_TICK))/EffectExplosionFireClass.FIRE_FADE_TICK;
-            factor=1.0-(factor*0.15);
+            factor=1.0-(tick-(EffectExplosionFireClass.FIRE_LIFE_TICK-EffectExplosionFireClass.FIRE_FADE_TICK))/EffectExplosionFireClass.FIRE_FADE_TICK;
         }
         else {
             factor=(tick/(EffectExplosionFireClass.FIRE_LIFE_TICK-EffectExplosionFireClass.FIRE_FADE_TICK));
         }
         
-            // light intensity
-            
-        this.setLightIntensity(EffectExplosionFireClass.FIRE_LIGHT_INTENSITY*factor);
+            // the light
+        
+        this.setLightIntensity( EffectExplosionFireClass.FIRE_LIGHT_INTENSITY*factor);
         
             // current explosion size would be size of red
             // as it's the biggest element
@@ -143,33 +150,34 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
     
     draw()
     {
-        let tick,factor,halfSize,alpha;
+        let tick,sizeFactor,motionFactor,halfSize,alpha;
         
             // the sizing factor
             
         tick=this.getTimestamp()-this.startTimestamp;
         if (tick>(EffectExplosionFireClass.FIRE_LIFE_TICK-EffectExplosionFireClass.FIRE_FADE_TICK)) {
-            factor=(tick-(EffectExplosionFireClass.FIRE_LIFE_TICK-EffectExplosionFireClass.FIRE_FADE_TICK))/EffectExplosionFireClass.FIRE_FADE_TICK;
-            alpha=(1.0-factor)*0.5;
-            factor=1.0-(factor*0.15);
+            sizeFactor=1.0-(tick-(EffectExplosionFireClass.FIRE_LIFE_TICK-EffectExplosionFireClass.FIRE_FADE_TICK))/EffectExplosionFireClass.FIRE_FADE_TICK;
+            alpha=0.1+(sizeFactor*(EffectExplosionFireClass.FIRE_ALPHA-0.1));
         }
         else {
-            alpha=0.5;
-            factor=(tick/(EffectExplosionFireClass.FIRE_LIFE_TICK-EffectExplosionFireClass.FIRE_FADE_TICK));
+            alpha=EffectExplosionFireClass.FIRE_ALPHA;
+            sizeFactor=(tick/(EffectExplosionFireClass.FIRE_LIFE_TICK-EffectExplosionFireClass.FIRE_FADE_TICK));
         }
+        
+        motionFactor=tick/EffectExplosionFireClass.FIRE_LIFE_TICK;
 
             // the particles
             
         this.drawStart();
      
-        halfSize=EffectExplosionFireClass.FIRE_RED_START_HALF_SIZE+Math.trunc(EffectExplosionFireClass.FIRE_RED_ADD_HALF_SIZE*factor);
-        this.drawAddBillboardQuadFromMotion(this.fireBitmap,this.redMotions,factor,this.position,0,0,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.redColor,alpha);
+        halfSize=EffectExplosionFireClass.FIRE_RED_START_HALF_SIZE+Math.trunc(EffectExplosionFireClass.FIRE_RED_ADD_HALF_SIZE*sizeFactor);
+        this.drawAddBillboardQuadFromMotion(this.fireBitmap,this.redMotions,motionFactor,this.position,0,0,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.redColor,alpha);
         
-        halfSize=EffectExplosionFireClass.FIRE_ORANGE_START_HALF_SIZE+Math.trunc(EffectExplosionFireClass.FIRE_ORANGE_ADD_HALF_SIZE*factor);
-        this.drawAddBillboardQuadFromMotion(this.fireBitmap,this.orangeMotions,factor,this.position,0.5,0.5,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.orangeColor,alpha);
+        halfSize=EffectExplosionFireClass.FIRE_ORANGE_START_HALF_SIZE+Math.trunc(EffectExplosionFireClass.FIRE_ORANGE_ADD_HALF_SIZE*sizeFactor);
+        this.drawAddBillboardQuadFromMotion(this.fireBitmap,this.orangeMotions,motionFactor,this.position,0.5,0.5,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.orangeColor,alpha);
 
-        halfSize=EffectExplosionFireClass.FIRE_YELLOW_START_HALF_SIZE+Math.trunc(EffectExplosionFireClass.FIRE_YELLOW_ADD_HALF_SIZE*factor);
-        this.drawAddBillboardQuadFromMotion(this.fireBitmap,this.yellowMotions,factor,this.position,0,0.5,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.yellowColor,alpha);
+        halfSize=EffectExplosionFireClass.FIRE_YELLOW_START_HALF_SIZE+Math.trunc(EffectExplosionFireClass.FIRE_YELLOW_ADD_HALF_SIZE*sizeFactor);
+        this.drawAddBillboardQuadFromMotion(this.fireBitmap,this.yellowMotions,motionFactor,this.position,0,0.5,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.yellowColor,alpha);
             
         this.drawEnd();
     }

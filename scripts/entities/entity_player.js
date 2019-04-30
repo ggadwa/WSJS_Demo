@@ -10,17 +10,19 @@ import EntityWeaponGrenadeClass from '../entities/entity_weapon_grenade.js';
 
 export default class EntityPlayerClass extends ProjectEntityDeveloperClass
 {
-    static MOUSE_TURN_SENSITIVITY=0.8;
+    static MOUSE_TURN_SENSITIVITY=0.3;
+    static MOUSE_TURN_ACCELERATION=0.4;
+    static MAX_TURN_SPEED=10;
     static MOUSE_LOOK_SENSITIVITY=0.2;
+    static MOUSE_LOOK_ACCELERATION=0.1;
+    static MOUSE_MAX_LOOK_SPEED=8;
     static MAX_LOOK_ANGLE=80.0;
-    static MAX_TURN_SPEED=8;
-    static MAX_LOOK_SPEED=8;
     static FORWARD_ACCELERATION=15;
     static FORWARD_DECELERATION=30;
     static FORWARD_MAX_SPEED=200;
     static SIDE_ACCELERATION=25;
     static SIDE_DECELERATION=50;
-    static SIDE_MAX_SPEED=150;
+    static SIDE_MAX_SPEED=120;
     static JUMP_HEIGHT=400;
     static JUMP_WATER_HEIGHT=400;
     static FLY_SWIM_Y_REDUCE=0.5;
@@ -306,9 +308,10 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // turning
             
-        if (input.mouseChangeX!==0) {    
+        if (input.mouseChangeX!==0) {
             turnAdd=-(input.mouseChangeX*EntityPlayerClass.MOUSE_TURN_SENSITIVITY);
-            if (Math.abs(turnAdd)>EntityPlayerClass.MAX_TURN_SPEED) turnAdd=EntityPlayerClass.MAX_TURN_SPEED*Math.sign(turnAdd);
+            turnAdd+=(turnAdd*EntityPlayerClass.MOUSE_TURN_ACCELERATION);
+            if (Math.abs(turnAdd)>EntityPlayerClass.MOUSE_MAX_TURN_SPEED) turnAdd=EntityPlayerClass.MOUSE_MAX_TURN_SPEED*Math.sign(turnAdd);
             input.mouseChangeX=0;
         
             this.angle.y+=turnAdd;
@@ -320,7 +323,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             
         if (input.mouseChangeY!==0) {
             lookAdd=input.mouseChangeY*EntityPlayerClass.MOUSE_LOOK_SENSITIVITY;
-            if (Math.abs(lookAdd)>EntityPlayerClass.MAX_LOOK_SPEED) lookAdd=EntityPlayerClass.MAX_LOOK_SPEED*Math.sign(lookAdd);
+            lookAdd+=(lookAdd*EntityPlayerClass.MOUSE_LOOK_ACCELERATION);
+            if (Math.abs(lookAdd)>EntityPlayerClass.MOUSE_MAX_LOOK_SPEED) lookAdd=EntityPlayerClass.MOUSE_MAX_LOOK_SPEED*Math.sign(lookAdd);
             input.mouseChangeY=0;
         
             this.angle.x+=lookAdd;
@@ -370,6 +374,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
         this.rotMovement.setFromPoint(this.movement);
         if ((this.debugPlayerFly) || (this.lastUnderLiquid)) {
+            this.rotMovement.y=0;       // only Y movement comes from X angle rotation
             this.rotMovement.rotateX(null,this.angle.x);     // if flying or swimming, add in the X rotation
             this.rotMovement.y*=EntityPlayerClass.FLY_SWIM_Y_REDUCE;
         }

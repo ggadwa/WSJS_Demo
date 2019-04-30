@@ -18,11 +18,11 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
             
         if (!this.data.captain) {
             this.radius=1500;
-            this.height=4500;
+            this.height=6200;
         }
         else {
-            this.radius=2000;
-            this.height=8500;
+            this.radius=2200;
+            this.height=9500;
         }
         
         this.gravityMinValue=10;
@@ -43,10 +43,10 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
             // captain skeletons are bigger
             
         if (!this.data.captain) {
-            this.scale.setFromValues(25,25,25);
+            this.scale.setFromValues(35,35,35);
         }
         else {
-            this.scale.setFromValues(50,50,50);
+            this.scale.setFromValues(55,55,55);
         }
     }
     
