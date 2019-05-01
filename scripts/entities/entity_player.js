@@ -199,8 +199,6 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         }
         
         if (name==='m16_ammo') {
-            if (!this.hasM16) return(false);
-            
             this.m16.addAmmo();
             return(true);
         }

@@ -22,6 +22,11 @@ export default class EntityRatkinClass extends EntityMonsterBaseClass
         this.gravityMinValue=10;
         this.gravityMaxValue=450;
         this.gravityAcceleration=20;
+        
+        this.startHealth=80;
+        this.deathAnimationFrameStart=1306;
+        this.deathAnimationFrameEnd=1371;
+        this.deathSoundName=null;
 
             // model
             

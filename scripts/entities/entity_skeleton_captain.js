@@ -29,6 +29,11 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
         this.gravityMinValue=10;
         this.gravityMaxValue=450;
         this.gravityAcceleration=20;
+        
+        this.startHealth=this.data.captain?400:160;
+        this.deathAnimationFrameStart=3971;
+        this.deathAnimationFrameEnd=4111;
+        this.deathSoundName=null;
 
             // get model
             

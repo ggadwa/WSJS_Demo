@@ -18,6 +18,13 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     static SIDE_DECELERATION=50;
     static SIDE_MAX_SPEED=150;
     
+    health=0;
+    startHealth=0;
+    dead=false;
+    deathAnimationFrameStart=0;
+    deathAnimationFrameEnd=0;
+    deathSoundName=null;
+    
     initialize()
     {
         super.initialize();
@@ -29,10 +36,32 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     
     ready()
     {
+        super.ready();
+        
+        this.health=this.startHealth;
+        this.dead=false;
+    }
+    
+    damage(fromEntity,damage)
+    {
+        if (this.dead) return;
+        
+        this.health-=damage;
+        console.info(this.health);
+        if (this.health>0) return;
+        
+        this.dead=true;
+        this.passThrough=true;
+        this.startModelAnimationChunkInFrames(null,30,this.deathAnimationFrameStart,this.deathAnimationFrameEnd);
+        this.queueAnimationStop();
+        
+        //this.playSound(this.deathSoundName);
     }
     
     run()
     {
+        if (this.dead) return;
+        
         this.turnYTowardsEntity(this.getPlayerEntity(),EntityMonsterBaseClass.MAX_TURN_SPEED);
     }
     

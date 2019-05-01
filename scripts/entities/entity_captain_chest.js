@@ -9,6 +9,8 @@ import ImportModelClass from '../../../code/import/import_model.js';
 
 export default class EntityCaptainChestClass extends ProjectEntityClass
 {
+    static OPEN_MAX_DISTANCE=8000;
+    
     opened=false;
     
     initialize()
@@ -40,6 +42,8 @@ export default class EntityCaptainChestClass extends ProjectEntityClass
     
     run()
     {
+        let player;
+        
             // nothing to do if opened
             
         if (this.opened) return;
@@ -48,7 +52,7 @@ export default class EntityCaptainChestClass extends ProjectEntityClass
             // and player close enough to open?
         
         if (!this.isKeyDown(69)) return;
-        if (!this.isEntityInRange('player',5000)) return;
+        if (!this.isEntityInRange('player',EntityCaptainChestClass.OPEN_MAX_DISTANCE)) return;
         
             // open it
             
@@ -56,6 +60,15 @@ export default class EntityCaptainChestClass extends ProjectEntityClass
         this.playSound('chime');
         this.startModelAnimationChunkInFrames(null,30,1,65);
         this.queueModelAnimationChunkInFrames(null,30,65,66);
+        
+            // chests refill ammo
+        
+        player=this.getPlayerEntity();
+        
+        player.pickup('beretta_ammo');
+        player.pickup('m16_ammo');
+        player.pickup('grenade');
+        player.pickup('health');
 
             // and run any trigger
 

@@ -6,6 +6,7 @@ import EntitySkeletonCaptainClass from '../entities/entity_skeleton_captain.js';
 import EntityVampirePatriarchClass from '../entities/entity_vampire_patriarch.js';
 import EntitySpiderClass from '../entities/entity_spider.js';
 import EntityCaptainChestClass from '../entities/entity_captain_chest.js';
+import EntityPickupM16Class from '../entities/entity_pickup_m16.js';
 import EffectFireClass from '../effects/effect_fire.js';
 import EffectWebClass from '../effects/effect_web.js';
 
@@ -316,7 +317,8 @@ export default class MapDungeonClass extends ProjectMapClass
                         {"entity":EntitySpiderClass,"name":"spider_03","position":{"x":-272081,"y":-56729,"z":61464},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntitySpiderClass,"name":"spider_03","position":{"x":-337269,"y":-56711,"z":41797},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntitySpiderClass,"name":"spider_03","position":{"x":-339912,"y":-56720,"z":14092},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntitySkeletonCaptainClass,"name":"skeleton_01","position":{"x":-298429,"y":-61495,"z":28543},"angle":{"x":0,"y":0,"z":0},"data":{"captain":true}}
+                        {"entity":EntitySkeletonCaptainClass,"name":"skeleton_01","position":{"x":-298429,"y":-61495,"z":28543},"angle":{"x":0,"y":0,"z":0},"data":{"captain":true}},
+                        {"entity":EntityPickupM16Class,"name":"m16_01","position":{"x":-67684,"y":-7975,"z":-13612},"data":{"ammo":false}}
                     ],
             }
         );

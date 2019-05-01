@@ -19,6 +19,9 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
     static BOUNCE_PAUSE_COUNT=5;
     static DAMAGE=100;
     static DAMAGE_DISTANCE=20000;
+    static SHAKE_DISTANCE=30000;
+    static SHAKE_MAX_SHIFT=40;
+    static SHAKE_TICK=2000;
     
     running=false;
     rolling=false;
@@ -132,6 +135,15 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
             damage=Math.trunc((1.0-(dist/EntityProjectileGrenadeClass.DAMAGE_DISTANCE))*EntityProjectileGrenadeClass.DAMAGE);
             entity.damage(this.parentEntity,damage);
         }
+        
+            // shake the screen
+            
+        entity=this.getPlayerEntity();
+        
+        dist=this.position.distance(entity.position);
+        if (dist>EntityProjectileGrenadeClass.SHAKE_DISTANCE) return;
+        
+        this.startCameraShake(EntityProjectileGrenadeClass.SHAKE_TICK,Math.trunc((EntityProjectileGrenadeClass.SHAKE_MAX_SHIFT*dist)/EntityProjectileGrenadeClass.SHAKE_DISTANCE));
     }
     
     run()

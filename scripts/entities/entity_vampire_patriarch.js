@@ -23,6 +23,11 @@ export default class EntityVampirePatriarchClass extends EntityMonsterBaseClass
         this.gravityMaxValue=450;
         this.gravityAcceleration=20;
         
+        this.startHealth=240;
+        this.deathAnimationFrameStart=1886;
+        this.deathAnimationFrameEnd=1951;
+        this.deathSoundName=null;
+        
             // model
             
         this.setModel({"name":"vampire_patriarch"});

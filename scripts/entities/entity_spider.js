@@ -22,6 +22,11 @@ export default class EntitySpiderClass extends EntityMonsterBaseClass
         this.gravityMinValue=10;
         this.gravityMaxValue=450;
         this.gravityAcceleration=20;
+        
+        this.startHealth=40;
+        this.deathAnimationFrameStart=245;
+        this.deathAnimationFrameEnd=280;
+        this.deathSoundName=null;
 
             // model
         
