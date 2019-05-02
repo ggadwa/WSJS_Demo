@@ -140,9 +140,9 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
 
         halfSize=EffectExplosionFireClass.FIRE_RED_START_HALF_SIZE+Math.trunc(EffectExplosionFireClass.FIRE_RED_ADD_HALF_SIZE*factor);
             
-        this.xBound=new BoundClass((this.position.x-halfSize),(this.position.x+halfSize));
-        this.yBound=new BoundClass((this.position.y-halfSize),(this.position.y+halfSize));
-        this.zBound=new BoundClass((this.position.z-halfSize),(this.position.z+halfSize));
+        this.xBound.setFromValues((this.position.x-halfSize),(this.position.x+halfSize));
+        this.yBound.setFromValues((this.position.y-halfSize),(this.position.y+halfSize));
+        this.zBound.setFromValues((this.position.z-halfSize),(this.position.z+halfSize));
 
         return(this.boundBoxInFrustum(this.xBound,this.yBound,this.zBound));
     }

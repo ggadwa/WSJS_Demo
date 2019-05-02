@@ -1,6 +1,5 @@
 import PointClass from '../../../code/utility/point.js';
 import ModelClass from '../../../code/model/model.js';
-import ImportModelClass from '../../../code/import/import_model.js';
 import EntityPickupBaseClass from '../entities/entity_pickup_base.js';
 
 //

@@ -1,7 +1,6 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
 import ModelClass from '../../../code/model/model.js';
-import ImportModelClass from '../../../code/import/import_model.js';
 import EffectExplosionFireClass from '../effects/effect_explosion_fire.js';
 import EffectExplosionSmokeClass from '../effects/effect_explosion_smoke.js';
 
@@ -82,7 +81,7 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
         // throw call
         //
         
-    throw(senderEntity,throwPosition,throwAngle)
+    fire(senderEntity,throwPosition,throwAngle)
     {
         this.parentEntity=senderEntity;
         

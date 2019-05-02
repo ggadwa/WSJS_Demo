@@ -1,7 +1,7 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
 import ModelClass from '../../../code/model/model.js';
-import ImportModelClass from '../../../code/import/import_model.js';
+import EntityProjectileSparkleClass from '../entities/entity_projectile_sparkle.js';
 import EntityMonsterBaseClass from '../entities/entity_monster_base.js';
 
 //
@@ -24,21 +24,34 @@ export default class EntityVampirePatriarchClass extends EntityMonsterBaseClass
         this.gravityAcceleration=20;
         
         this.startHealth=240;
-        this.deathAnimationFrameStart=1886;
-        this.deathAnimationFrameEnd=1951;
+        
+        this.wakeUpDistance=30000;
+        this.meleeDistance=6000;
+        this.meleeWaitTick=2500;
+        this.meleeDamageTick=500;
+        this.meleeDamage=20;
+        this.projectileDistance=12000;
+        this.projectileWaitTick=5000;
+        this.projectileFireTick=500;
+        this.projectile=this.addEntity(EntityProjectileSparkleClass,'vampire_sparkle',new PointClass(0,0,0),new PointClass(0,0,0),null,false,false);
+        
+        this.maxTurnSpeed=5;
+        this.forwardAcceleration=4;
+        this.forwardMaxSpeed=80;
+        
+        this.idleAnimationFrames=[2,100];
+        this.walkAnimationFrames=[2045,2081];
+        this.meleeAnimationFrames=[[706,741],[598,633]];
+        this.projectileAnimationFrames=[547,597];
+        this.deathAnimationFrames=[1886,1951];
+        this.wakeUpSoundName=null;
+        this.meleeSoundName=null;
         this.deathSoundName=null;
         
             // model
             
         this.setModel({"name":"vampire_patriarch"});
         this.scale.setFromValues(5000,5000,5000);
-    }
-    
-    ready()
-    {
-        super.ready();
-        
-        this.startModelAnimationChunkInFrames(null,30,2,100);
     }
     
     run()

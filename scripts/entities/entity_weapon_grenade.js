@@ -86,7 +86,7 @@ export default class EntityWeaponGrenadeClass extends EntityWeaponBaseClass
         this.grenadeOffset.addPoint(position);
         this.grenadeOffset.y+=4000;
         
-        this.grenades[this.grenadeLastIndex].throw(parentEntity,this.grenadeOffset,angle);
+        this.grenades[this.grenadeLastIndex].fire(parentEntity,this.grenadeOffset,angle);
         
         this.grenadeLastIndex++;
         if (this.grenadeLastIndex>=EntityWeaponGrenadeClass.MAX_PROJECTILE_COUNT) this.grenadeLastIndex=0;

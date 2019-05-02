@@ -1,7 +1,7 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
 import ModelClass from '../../../code/model/model.js';
-import ImportModelClass from '../../../code/import/import_model.js';
+import EntityProjectileGrenadeClass from '../entities/entity_projectile_grenade.js';
 import EntityMonsterBaseClass from '../entities/entity_monster_base.js';
 
 //
@@ -15,7 +15,6 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
         super.initialize();
         
             // setup
-            // captain skeletons are bigger
             
         if (!this.data.captain) {
             this.radius=1500;
@@ -30,10 +29,52 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
         this.gravityMaxValue=450;
         this.gravityAcceleration=20;
         
-        this.startHealth=this.data.captain?400:160;
-        this.deathAnimationFrameStart=3971;
-        this.deathAnimationFrameEnd=4111;
-        this.deathSoundName=null;
+        this.walkAnimationFrames=[5683,5719];
+        this.projectileAnimationFrames=[4711,4731];
+        this.meleeAnimationFrames=[[5299,5334],[5335,5370]];
+        
+        if (!this.data.captain) {
+            this.startHealth=160;
+            
+            this.wakeUpDistance=25000;
+            this.meleeDistance=5000;
+            this.meleeWaitTick=3000;
+            this.meleeDamageTick=500;
+            this.meleeDamage=20;
+            
+            this.maxTurnSpeed=8;
+            this.forwardAcceleration=4;
+            this.forwardMaxSpeed=100;
+            
+            this.idleAnimationFrames=[6370,6470];
+            this.deathAnimationFrames=[3971,4111];
+            this.wakeUpSoundName=null;
+            this.meleeSoundName=null;
+            this.deathSoundName=null;
+        }
+        else {
+            this.startHealth=500;
+            
+            this.wakeUpDistance=25000;
+            this.meleeDistance=6000;
+            this.meleeWaitTick=3000;
+            this.meleeDamageTick=500;
+            this.meleeDamage=20;
+            this.projectileDistance=15000;
+            this.projectileWaitTick=5000;
+            this.projectileFireTick=500;
+            this.projectile=this.addEntity(EntityProjectileGrenadeClass,'skeleton_grenade',new PointClass(0,0,0),new PointClass(0,0,0),null,false,false);
+            
+            this.maxTurnSpeed=8;
+            this.forwardAcceleration=4;
+            this.forwardMaxSpeed=100;
+
+            this.idleAnimationFrames=[598,774];
+            this.deathAnimationFrames=[3833,3966];
+            this.wakeUpSoundName=null;
+            this.meleeSoundName=null;
+            this.deathSoundName=null;
+        }
 
             // get model
             
@@ -70,10 +111,6 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
             this.showModelMesh('SH_LegsArmor_E',false);
             this.showModelMesh('SH_Boots_E',false);
         }
-        
-            // skeleton idle
-            
-        this.startModelAnimationChunkInFrames(null,30,6370,6470);
     }
     
     run()

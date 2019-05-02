@@ -1,7 +1,6 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
 import ModelClass from '../../../code/model/model.js';
-import ImportModelClass from '../../../code/import/import_model.js';
 import EntityMonsterBaseClass from '../entities/entity_monster_base.js';
 
 //
@@ -24,21 +23,29 @@ export default class EntitySpiderClass extends EntityMonsterBaseClass
         this.gravityAcceleration=20;
         
         this.startHealth=40;
-        this.deathAnimationFrameStart=245;
-        this.deathAnimationFrameEnd=280;
+        
+        this.wakeUpDistance=25000;
+        this.meleeDistance=5000;
+        this.meleeWaitTick=800;
+        this.meleeDamageTick=500;
+        this.meleeDamage=5;
+        
+        this.maxTurnSpeed=8;
+        this.forwardAcceleration=10;
+        this.forwardMaxSpeed=120;
+        
+        this.idleAnimationFrames=[284,385];
+        this.walkAnimationFrames=[0,40];
+        this.meleeAnimationFrames=[[83,111],[112,139]];
+        this.deathAnimationFrames=[245,280];
+        this.wakeUpSoundName=null;
+        this.meleeSoundName=null;
         this.deathSoundName=null;
 
             // model
         
         this.setModel({"name":"spider"});
         this.scale.setFromValues(1000,1000,1000);
-    }
-    
-    ready()
-    {
-        super.ready();
-        
-        this.startModelAnimationChunkInFrames(null,30,284,385);
     }
     
     run()

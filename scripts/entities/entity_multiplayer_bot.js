@@ -2,7 +2,6 @@ import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
 import MeshClass from '../../../code/mesh/mesh.js';
 import ModelClass from '../../../code/model/model.js';
-import ImportModelClass from '../../../code/import/import_model.js';
 import EntityWeaponBerettaClass from '../entities/entity_weapon_beretta.js';
 import EntityWeaponM16Class from '../entities/entity_weapon_m16.js';
 import EntityWeaponGrenadeClass from '../entities/entity_weapon_grenade.js';

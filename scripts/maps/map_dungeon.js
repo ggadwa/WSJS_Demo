@@ -291,10 +291,10 @@ export default class MapDungeonClass extends ProjectMapClass
                         {"entity":EntityCaptainChestClass,"name":"chest_06","position":{"x":-90286,"y":-50816,"z":62232},"angle":{"x":0,"y":295,"z":0},"data":{"trigger":"gate_07"}},
                         {"entity":EntityCaptainChestClass,"name":"chest_07","position":{"x":-201969,"y":-50816,"z":10099},"angle":{"x":0,"y":160,"z":0},"data":{"trigger":"gate_08"}},
                         {"entity":EntityCaptainChestClass,"name":"chest_08","position":{"x":-209458,"y":-50816,"z":100539},"angle":{"x":0,"y":200,"z":0},"data":{"trigger":"gate_09"}},
-                        {"entity":EntityRatkinClass,"name":"rat_01","position":{"x":-8383,"y":-7971,"z":4608},"angle":{"x":0,"y":0,"z":0}},
+                        {"entity":EntityRatkinClass,"name":"rat_01","position":{"x":-8642,"y":-7967,"z":21819},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntityRatkinClass,"name":"rat_02","position":{"x":-31405,"y":-7980,"z":58126},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntityRatkinClass,"name":"rat_03","position":{"x":12589,"y":-7969,"z":60802},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntityRatkinClass,"name":"rat_04","position":{"x":-11189,"y":814,"z":73665},"angle":{"x":0,"y":0,"z":0}},
+                        {"entity":EntityRatkinClass,"name":"rat_04","position":{"x":-8506,"y":-7680,"z":102177},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntitySpiderClass,"name":"spider_01","position":{"x":-50807,"y":-7970,"z":44933},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntitySpiderClass,"name":"spider_02","position":{"x":-66813,"y":-7978,"z":45467},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntitySpiderClass,"name":"spider_03","position":{"x":-60463,"y":-7967,"z":84934},"angle":{"x":0,"y":0,"z":0}},
@@ -318,7 +318,7 @@ export default class MapDungeonClass extends ProjectMapClass
                         {"entity":EntitySpiderClass,"name":"spider_03","position":{"x":-337269,"y":-56711,"z":41797},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntitySpiderClass,"name":"spider_03","position":{"x":-339912,"y":-56720,"z":14092},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntitySkeletonCaptainClass,"name":"skeleton_01","position":{"x":-298429,"y":-61495,"z":28543},"angle":{"x":0,"y":0,"z":0},"data":{"captain":true}},
-                        {"entity":EntityPickupM16Class,"name":"m16_01","position":{"x":-67684,"y":-7975,"z":-13612},"data":{"ammo":false}}
+                        {"entity":EntityPickupM16Class,"name":"m16_01","position":{"x":-67684,"y":-7975,"z":-13612},"data":{"ammo":false,"pickupOnce":true}}
                     ],
             }
         );

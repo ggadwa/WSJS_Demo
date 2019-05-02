@@ -1,7 +1,6 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
 import ModelClass from '../../../code/model/model.js';
-import ImportModelClass from '../../../code/import/import_model.js';
 
 //
 // pickup base class
@@ -39,6 +38,8 @@ export default class EntityPickupBaseClass extends ProjectEntityClass
             // if hidden, count down to show
             
         if (!this.show) {
+            if (this.data.pickupOnce!==undefined) return;
+            
             if (this.getTimestamp()<(this.hideStartTick+this.hideTick)) return;
             
             this.touchEntity=null;          // clear any touches

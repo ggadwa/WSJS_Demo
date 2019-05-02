@@ -1,7 +1,6 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
 import ModelClass from '../../../code/model/model.js';
-import ImportModelClass from '../../../code/import/import_model.js';
 import EntityMonsterBaseClass from '../entities/entity_monster_base.js';
 
 //
@@ -24,8 +23,23 @@ export default class EntityRatkinClass extends EntityMonsterBaseClass
         this.gravityAcceleration=20;
         
         this.startHealth=80;
-        this.deathAnimationFrameStart=1306;
-        this.deathAnimationFrameEnd=1371;
+        
+        this.wakeUpDistance=25000;
+        this.meleeDistance=5000;
+        this.meleeWaitTick=1500;
+        this.meleeDamageTick=500;
+        this.meleeDamage=20;
+        
+        this.maxTurnSpeed=3;
+        this.forwardAcceleration=4;
+        this.forwardMaxSpeed=50;
+        
+        this.idleAnimationFrames=[1694,1729];
+        this.walkAnimationFrames=[1465,1501];
+        this.meleeAnimationFrames=[[440,475],[560,595]];
+        this.deathAnimationFrames=[1306,1371];
+        this.wakeUpSoundName=null;
+        this.meleeSoundName=null;
         this.deathSoundName=null;
 
             // model
@@ -39,7 +53,6 @@ export default class EntityRatkinClass extends EntityMonsterBaseClass
         super.ready();
         
         this.showModelMesh('Slave_Pick01',false);
-        this.startModelAnimationChunkInFrames(null,30,1734,1834);
     }
     
     run()
