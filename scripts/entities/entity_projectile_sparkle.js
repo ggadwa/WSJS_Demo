@@ -47,6 +47,8 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
         for (n=0;n!=EntityProjectileSparkleClass.SPARKLE_EFFECT_COUNT;n++) {
             this.sparkleEffects.push(this.addEffect(EffectSparkleClass,null,false));
         }
+        
+        this.addSound('laser',50000);
     }
     
         //
@@ -72,6 +74,8 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
           
         this.currentSparkleIndex=0;
         this.nextSparkleTick=this.getTimestamp();
+        
+        this.playSoundAtEntity(parentEntity,'laser');
         
         this.running=true;
     }

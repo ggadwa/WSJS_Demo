@@ -37,15 +37,22 @@ export default class EntityRatkinClass extends EntityMonsterBaseClass
         this.idleAnimationFrames=[1694,1729];
         this.walkAnimationFrames=[1465,1501];
         this.meleeAnimationFrames=[[440,475],[560,595]];
+        this.hitAnimationFrames=[1186,1221];
         this.deathAnimationFrames=[1306,1371];
-        this.wakeUpSoundName=null;
-        this.meleeSoundName=null;
-        this.deathSoundName=null;
+        this.wakeUpSoundName='rat_wake_up';
+        this.meleeSoundName='blade';
+        this.deathSoundName='rat_die';
 
             // model
             
         this.setModel({"name":"ratkin_skeleton"});
         this.scale.setFromValues(3000,3000,3000);
+        
+            // sounds
+            
+        this.addSound('rat_wake_up',30000);
+        this.addSound('blade',10000);
+        this.addSound('rat_die',30000);
     }
     
     ready()

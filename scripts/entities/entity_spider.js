@@ -37,15 +37,21 @@ export default class EntitySpiderClass extends EntityMonsterBaseClass
         this.idleAnimationFrames=[284,385];
         this.walkAnimationFrames=[0,40];
         this.meleeAnimationFrames=[[83,111],[112,139]];
+        this.hitAnimationFrames=[140,164];
         this.deathAnimationFrames=[245,280];
-        this.wakeUpSoundName=null;
-        this.meleeSoundName=null;
-        this.deathSoundName=null;
+        this.wakeUpSoundName='spider_wake_up';
+        this.meleeSoundName='spider_wake_up';
+        this.deathSoundName='spider_die';
 
             // model
         
         this.setModel({"name":"spider"});
         this.scale.setFromValues(1000,1000,1000);
+        
+            // sounds
+            
+        this.addSound('spider_wake_up',30000);
+        this.addSound('spider_die',30000);
     }
     
     run()

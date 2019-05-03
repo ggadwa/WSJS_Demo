@@ -32,6 +32,7 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
         this.walkAnimationFrames=[5683,5719];
         this.projectileAnimationFrames=[4711,4731];
         this.meleeAnimationFrames=[[5299,5334],[5335,5370]];
+        this.hitAnimationFrames=[4974,5009];
         
         if (!this.data.captain) {
             this.startHealth=160;
@@ -48,9 +49,6 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
             
             this.idleAnimationFrames=[6370,6470];
             this.deathAnimationFrames=[3971,4111];
-            this.wakeUpSoundName=null;
-            this.meleeSoundName=null;
-            this.deathSoundName=null;
         }
         else {
             this.startHealth=500;
@@ -71,10 +69,11 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
 
             this.idleAnimationFrames=[598,774];
             this.deathAnimationFrames=[3833,3966];
-            this.wakeUpSoundName=null;
-            this.meleeSoundName=null;
-            this.deathSoundName=null;
         }
+        
+        this.wakeUpSoundName='skeleton_wake_up';
+        this.meleeSoundName='blade';
+        this.deathSoundName='skeleton_die';
 
             // get model
             
@@ -88,6 +87,12 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
         else {
             this.scale.setFromValues(55,55,55);
         }
+        
+            // sounds
+            
+        this.addSound('skeleton_wake_up',30000);
+        this.addSound('blade',10000);
+        this.addSound('skeleton_die',30000);
     }
     
     ready()

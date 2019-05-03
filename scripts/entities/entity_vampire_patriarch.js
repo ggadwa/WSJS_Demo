@@ -43,15 +43,21 @@ export default class EntityVampirePatriarchClass extends EntityMonsterBaseClass
         this.walkAnimationFrames=[2045,2081];
         this.meleeAnimationFrames=[[706,741],[598,633]];
         this.projectileAnimationFrames=[547,597];
+        this.hitAnimationFrames=[982,1017];
         this.deathAnimationFrames=[1886,1951];
-        this.wakeUpSoundName=null;
-        this.meleeSoundName=null;
-        this.deathSoundName=null;
+        this.wakeUpSoundName='vampire_wake_up';
+        this.meleeSoundName='vampire_wake_up';
+        this.deathSoundName='vampire_die';
         
             // model
             
         this.setModel({"name":"vampire_patriarch"});
         this.scale.setFromValues(5000,5000,5000);
+        
+            // sounds
+            
+        this.addSound('vampire_wake_up',30000);
+        this.addSound('vampire_die',30000);
     }
     
     run()

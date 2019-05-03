@@ -36,6 +36,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     walkAnimationFrames=null;
     meleeAnimationFrames=null;
     projectileAnimationFrames=null;
+    hitAnimationFrames=null;
     deathAnimationFrames=null;
     wakeUpSoundName=null;
     meleeSoundName=null;
@@ -82,7 +83,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         this.nextMeleeTick=this.getTimestamp();
         this.meleeStartTick=-1;
         
-        //this.playSound(this.wakeUpSoundName);
+        this.playSound(this.wakeUpSoundName);
         this.startModelAnimationChunkInFrames(null,30,this.walkAnimationFrames[0],this.walkAnimationFrames[1]);
     }
     
@@ -92,14 +93,24 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         
         this.health-=damage;
         if (!this.awoke) this.wakeUp();
-        if (this.health>0) return;
         
+            // just damage
+            
+        if (this.health>0) {
+            this.playSound(this.wakeUpSoundName);
+            this.startModelAnimationChunkInFrames(null,30,this.hitAnimationFrames[0],this.hitAnimationFrames[1]);
+            this.queueModelAnimationChunkInFrames(null,30,this.walkAnimationFrames[0],this.walkAnimationFrames[1]);
+            return;
+        }
+        
+            // monster is dead
+            
         this.dead=true;
         this.passThrough=true;
         this.startModelAnimationChunkInFrames(null,30,this.deathAnimationFrames[0],this.deathAnimationFrames[1]);
         this.queueAnimationStop();
         
-        //this.playSound(this.deathSoundName);
+        this.playSound(this.deathSoundName);
     }
     
     meleeStart()
@@ -110,12 +121,11 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         this.queueModelAnimationChunkInFrames(null,30,this.walkAnimationFrames[0],this.walkAnimationFrames[1]);
         
         this.meleeStartTick=this.getTimestamp()+this.meleeDamageTick;
-        
-        //this.playSound(this.meleeSoundName);
     }
     
     meleeHit(player)
     {
+        this.playSound(this.meleeSoundName);
         player.damage(this,this.meleeDamage);
     }
     
