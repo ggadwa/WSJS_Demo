@@ -1,6 +1,5 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
-import ModelClass from '../../../code/model/model.js';
 import EntityMonsterBaseClass from '../entities/entity_monster_base.js';
 
 //
@@ -60,11 +59,6 @@ export default class EntityRatkinClass extends EntityMonsterBaseClass
         super.ready();
         
         this.showModelMesh('Slave_Pick01',false);
-    }
-    
-    run()
-    {
-        super.run();
     }
     
 }

@@ -1,6 +1,5 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
-import ModelClass from '../../../code/model/model.js';
 import EffectHitClass from '../effects/effect_hit.js';
 import EntityPlayerClass from '../entities/entity_player.js';
 import EntityWeaponBaseClass from '../entities/entity_weapon_base.js';

@@ -1,6 +1,5 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
-import ModelClass from '../../../code/model/model.js';
 import EntityMonsterBaseClass from '../entities/entity_monster_base.js';
 
 //
@@ -24,7 +23,7 @@ export default class EntitySpiderClass extends EntityMonsterBaseClass
         
         this.startHealth=40;
         
-        this.wakeUpDistance=25000;
+        this.wakeUpDistance=30000;
         this.meleeDistance=5000;
         this.meleeWaitTick=800;
         this.meleeDamageTick=500;
@@ -32,7 +31,9 @@ export default class EntitySpiderClass extends EntityMonsterBaseClass
         
         this.maxTurnSpeed=8;
         this.forwardAcceleration=10;
-        this.forwardMaxSpeed=120;
+        this.forwardMaxSpeed=150;
+        this.jumpWaitTick=2000;
+        this.jumpHeight=350;
         
         this.idleAnimationFrames=[284,385];
         this.walkAnimationFrames=[0,40];
@@ -52,11 +53,6 @@ export default class EntitySpiderClass extends EntityMonsterBaseClass
             
         this.addSound('spider_wake_up',30000);
         this.addSound('spider_die',30000);
-    }
-    
-    run()
-    {
-        super.run();
     }
     
 }

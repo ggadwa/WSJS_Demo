@@ -1,6 +1,5 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
-import ModelClass from '../../../code/model/model.js';
 import EffectSparkleClass from '../effects/effect_sparkle.js';
 
 //
@@ -9,9 +8,10 @@ import EffectSparkleClass from '../effects/effect_sparkle.js';
 
 export default class EntityProjectileSparkleClass extends ProjectEntityClass
 {
-    static SPARKLE_EFFECT_COUNT=10;
-    static SPARKLE_TICK_COUNT=70;
+    static SPARKLE_EFFECT_COUNT=15;
+    static SPARKLE_TICK_COUNT=40;
     static SPEED=300;
+    static Y_SPEED=2;
     static DAMAGE=10;
     
     running=false;
@@ -68,7 +68,9 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
             // setup motion and start running
             
         this.motion.setFromValues(0,0,EntityProjectileSparkleClass.SPEED);
-        this.motion.rotate(this.angle);
+        this.motion.rotateY(null,fireAngle.y);
+        
+        this.motion.y=-(fireAngle.x*EntityProjectileSparkleClass.Y_SPEED);
         
             // setup next sparkle
           

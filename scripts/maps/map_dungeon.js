@@ -25,9 +25,10 @@ export default class MapDungeonClass extends ProjectMapClass
                         {"bitmap":"crystal_red_color","url":"textures/red_crystal_glow.png","frequency":800,"min":0.2,"max":0.7}
                     ],
                 "noCollideBitmaps":["web_color","crystal_blue_color","crystal_red_color"],
-                "simpleCollideMeshes":["LAMP","border_brick_","wood_plank_","pass_woods_","doors_small_","round_wood_shield_","coffin_"],
+                "simpleCollideMeshes":["LAMP","border_brick_","wood_plank_","pass_woods_","doors_small_","round_wood_shield_","coffin_","big_column_"],
                 "meshSkipBitmaps":["light_glow_color","web_color"],
                 "meshSkipMeshes":["border_brick_72","doors_big_left_07","doors_big_right_07","doors_base_big_07","doors_big_left_08","doors_big_right_08","doors_base_big_010","doors_big_left_010","doors_big_right_010","doors_base_big_010","doors_big_left_013","doors_big_right_013","doors_base_big_013","doors_big_left_015","doors_big_right_015","doors_base_big_015","doors_small_04","doors_base_small_04"],
+                "meshNoBumpMeshes":["room_bevel_","cave_pillar_","arc_","big_column_"],
                 "liquids":
                     [
                         {
@@ -291,9 +292,10 @@ export default class MapDungeonClass extends ProjectMapClass
                         {"entity":EntityCaptainChestClass,"name":"chest_06","position":{"x":-90286,"y":-50816,"z":62232},"angle":{"x":0,"y":295,"z":0},"data":{"trigger":"gate_07"}},
                         {"entity":EntityCaptainChestClass,"name":"chest_07","position":{"x":-201969,"y":-50816,"z":10099},"angle":{"x":0,"y":160,"z":0},"data":{"trigger":"gate_08"}},
                         {"entity":EntityCaptainChestClass,"name":"chest_08","position":{"x":-209458,"y":-50816,"z":100539},"angle":{"x":0,"y":200,"z":0},"data":{"trigger":"gate_09"}},
+                        {"entity":EntityCaptainChestClass,"name":"chest_09","position":{"x":-342874,"y":-56715,"z":28471},"angle":{"x":0,"y":90,"z":0}},
                         {"entity":EntityRatkinClass,"name":"rat_01","position":{"x":-8642,"y":-7967,"z":21819},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntityRatkinClass,"name":"rat_02","position":{"x":-31405,"y":-7980,"z":58126},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntityRatkinClass,"name":"rat_03","position":{"x":12589,"y":-7969,"z":60802},"angle":{"x":0,"y":0,"z":0}},
+                        {"entity":EntityRatkinClass,"name":"rat_03","position":{"x":12589,"y":-7969,"z":58126},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntityRatkinClass,"name":"rat_04","position":{"x":-8506,"y":-7680,"z":102177},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntitySpiderClass,"name":"spider_01","position":{"x":-50807,"y":-7970,"z":44933},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntitySpiderClass,"name":"spider_02","position":{"x":-66813,"y":-7978,"z":45467},"angle":{"x":0,"y":0,"z":0}},
@@ -325,3 +327,4 @@ export default class MapDungeonClass extends ProjectMapClass
     }
 
 }
+

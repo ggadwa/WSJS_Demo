@@ -1,6 +1,5 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
-import ModelClass from '../../../code/model/model.js';
 import EntityProjectileSparkleClass from '../entities/entity_projectile_sparkle.js';
 import EntityMonsterBaseClass from '../entities/entity_monster_base.js';
 
@@ -58,11 +57,6 @@ export default class EntityVampirePatriarchClass extends EntityMonsterBaseClass
             
         this.addSound('vampire_wake_up',30000);
         this.addSound('vampire_die',30000);
-    }
-    
-    run()
-    {
-        super.run();
     }
     
 }

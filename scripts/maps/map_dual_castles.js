@@ -45,6 +45,7 @@ export default class MapDualCastlesClass extends ProjectMapClass
                     ],
                 "noCollideBitmaps":["birch_tree_branch_color","bush_color","crystal_blue_color","crystal_red_color"],
                 "simpleCollideMeshes":["border_brick_","rock_","lantern_","latern_","wood_plank_","pass_woods_","window_"],
+                "meshNoBumpMeshes":["tower_pilars_"],
                 "effects":
                     [
                         {"effect":EffectFireClass,"data":{"mesh":"latern_lamp01","offset":{"x":0,"y":-550,"z":0},"intensity":53000}},
@@ -245,11 +246,11 @@ export default class MapDualCastlesClass extends ProjectMapClass
                 "entities":
                     [
                         {"entity":EntityPlayerClass,"name":"player","position":{"x":-28000,"y":24124,"z":0},"angle":{"x":0,"y":90,"z":0},"data":{"multiplayer":true}},
-                        {"entity":EntityMultiplayerBotClass,"name":"bot_1"},
-                        {"entity":EntityMultiplayerBotClass,"name":"bot_2"},
-                        {"entity":EntityMultiplayerBotClass,"name":"bot_3"},
-                        {"entity":EntityMultiplayerBotClass,"name":"bot_4"},
-                        {"entity":EntityMultiplayerBotClass,"name":"bot_5"},
+                        //{"entity":EntityMultiplayerBotClass,"name":"bot_1"},
+                        //{"entity":EntityMultiplayerBotClass,"name":"bot_2"},
+                        //{"entity":EntityMultiplayerBotClass,"name":"bot_3"},
+                        //{"entity":EntityMultiplayerBotClass,"name":"bot_4"},
+                        //{"entity":EntityMultiplayerBotClass,"name":"bot_5"},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_01","position":{"x":-28242,"y":24839,"z":-28541},"data":{"ammo":true}},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_02","position":{"x":28074,"y":24839,"z":28166},"data":{"ammo":true}},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_03","position":{"x":-28105,"y":24839,"z":28435},"data":{"ammo":true}},
@@ -268,5 +269,5 @@ export default class MapDualCastlesClass extends ProjectMapClass
             }
         );
     }
-    
 }
+

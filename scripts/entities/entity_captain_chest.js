@@ -1,6 +1,5 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
-import ModelClass from '../../../code/model/model.js';
 
 //
 // captain chest class
@@ -71,7 +70,9 @@ export default class EntityCaptainChestClass extends ProjectEntityClass
 
             // and run any trigger
 
-        if (this.data.trigger!==undefined) this.setTrigger(this.data.trigger);
+        if (this.data!==null) {
+            if (this.data.trigger!==undefined) this.setTrigger(this.data.trigger);
+        }
     }
     
 }

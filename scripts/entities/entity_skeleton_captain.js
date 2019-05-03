@@ -1,7 +1,6 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
-import ModelClass from '../../../code/model/model.js';
-import EntityProjectileGrenadeClass from '../entities/entity_projectile_grenade.js';
+import EntityProjectileSparkleClass from '../entities/entity_projectile_sparkle.js';
 import EntityMonsterBaseClass from '../entities/entity_monster_base.js';
 
 //
@@ -53,15 +52,15 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
         else {
             this.startHealth=500;
             
-            this.wakeUpDistance=25000;
+            this.wakeUpDistance=30000;
             this.meleeDistance=6000;
             this.meleeWaitTick=3000;
             this.meleeDamageTick=500;
             this.meleeDamage=20;
             this.projectileDistance=15000;
-            this.projectileWaitTick=5000;
+            this.projectileWaitTick=3000;
             this.projectileFireTick=500;
-            this.projectile=this.addEntity(EntityProjectileGrenadeClass,'skeleton_grenade',new PointClass(0,0,0),new PointClass(0,0,0),null,false,false);
+            this.projectile=this.addEntity(EntityProjectileSparkleClass,'skeleton_sparkle',new PointClass(0,0,0),new PointClass(0,0,0),null,false,false);
             
             this.maxTurnSpeed=8;
             this.forwardAcceleration=4;
@@ -116,11 +115,6 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
             this.showModelMesh('SH_LegsArmor_E',false);
             this.showModelMesh('SH_Boots_E',false);
         }
-    }
-    
-    run()
-    {
-        super.run();
     }
     
 }
