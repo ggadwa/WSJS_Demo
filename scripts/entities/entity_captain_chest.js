@@ -50,7 +50,7 @@ export default class EntityCaptainChestClass extends ProjectEntityClass
             // and player close enough to open?
         
         if (!this.isKeyDown(69)) return;
-        if (!this.isEntityInRange('player',EntityCaptainChestClass.OPEN_MAX_DISTANCE)) return;
+        if (!this.isEntityInRange(this.getPlayerEntity(),EntityCaptainChestClass.OPEN_MAX_DISTANCE)) return;
         
             // open it
             

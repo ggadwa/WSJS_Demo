@@ -11,6 +11,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     static ANGLE_Y_PROJECTILE_RANGE=5;
     static ANGLE_Y_MELEE_RANGE=15;
     static FALL_ASLEEP_DISTANCE=75000;
+    static DAMAGE_FLINCH_WAIT_TICK=2000;
     
     health=0;
     startHealth=0;
@@ -38,6 +39,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     jumpHeight=0;
     trapMeshName=null;
     trapMeshShrink=null;
+    nextDamageTick=0;
     
     idleAnimationFrames=null;
     walkAnimationFrames=null;
@@ -114,16 +116,20 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     
     wakeUp()
     {
+        let timestamp=this.getTimestamp();
+        
         this.awoke=true;
         this.movement.setFromValues(0,0,0);
         
-        this.nextProjectileTick=this.getTimestamp();
+        this.nextProjectileTick=timestamp;
         this.projectileStartTick=-1;
         
-        this.nextMeleeTick=this.getTimestamp();
+        this.nextMeleeTick=timestamp;
         this.meleeStartTick=-1;
         
-        this.nextJumpTick=this.getTimestamp()+this.jumpWaitTick;
+        this.nextJumpTick=timestamp+this.jumpWaitTick;
+        
+        this.nextDamageTick=timestamp;
         
         this.playSound(this.wakeUpSoundName);
         this.startModelAnimationChunkInFrames(null,30,this.walkAnimationFrames[0],this.walkAnimationFrames[1]);
@@ -140,6 +146,8 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     
     damage(fromEntity,damage)
     {
+        let timestamp;
+        
         if (this.dead) return;
         
         this.health-=damage;
@@ -148,9 +156,14 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
             // just damage
             
         if (this.health>0) {
-            this.playSound(this.wakeUpSoundName);
-            this.startModelAnimationChunkInFrames(null,30,this.hitAnimationFrames[0],this.hitAnimationFrames[1]);
-            this.queueModelAnimationChunkInFrames(null,30,this.walkAnimationFrames[0],this.walkAnimationFrames[1]);
+            timestamp=this.getTimestamp();
+            if (timestamp>this.nextDamageTick) {
+                this.nextDamageTick=timestamp+EntityMonsterBaseClass.DAMAGE_FLINCH_WAIT_TICK;
+
+                this.playSound(this.wakeUpSoundName);
+                this.startModelAnimationChunkInFrames(null,30,this.hitAnimationFrames[0],this.hitAnimationFrames[1]);
+                this.queueModelAnimationChunkInFrames(null,30,this.walkAnimationFrames[0],this.walkAnimationFrames[1]);
+            }
             return;
         }
         

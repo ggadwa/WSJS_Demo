@@ -6,6 +6,7 @@ import EntityPickupBerettaClass from '../entities/entity_pickup_beretta.js';
 import EntityPickupM16Class from '../entities/entity_pickup_m16.js';
 import EntityPickupGrenadeClass from '../entities/entity_pickup_grenade.js';
 import EntityPickupChickenLegClass from '../entities/entity_pickup_chicken_leg.js';
+import EntityPickupArmorClass from '../entities/entity_pickup_armor.js';
 import EffectFireClass from '../effects/effect_fire.js';
 
 export default class MapDualCastlesClass extends ProjectMapClass
@@ -17,18 +18,22 @@ export default class MapDualCastlesClass extends ProjectMapClass
                 "name":"dual_castles",
                 "scale":700,
                 "skyBox":{"size":50000,"bitmapNegX":"textures/sky_neg_x.png","bitmapPosX":"textures/sky_pos_x.png","bitmapNegY":"textures/sky_neg_y.png","bitmapPosY":"textures/sky_pos_y.png","bitmapNegZ":"textures/sky_neg_z.png","bitmapPosZ":"textures/sky_pos_z.png"},
-                "ambient":{"r":0.18,"g":0.18,"b":0.18},
+                "ambient":{"r":0.2,"g":0.2,"b":0.2},
                 "lights":
                     [
-                        {"mesh":"blue_crystal_87","color":{"r":0.45,"g":0.45,"b":1.0},"intensity":85000,"exponent":1.0},
-                        {"mesh":"blue_crystal_69","color":{"r":0.45,"g":0.45,"b":1.0},"intensity":98000,"exponent":1.0},
-                        {"mesh":"blue_crystal_39","color":{"r":0.45,"g":0.45,"b":1.0},"intensity":85000,"exponent":1.0},
-                        {"mesh":"blue_crystal_09","color":{"r":0.45,"g":0.45,"b":1.0},"intensity":98000,"exponent":1.0},
-
-                        {"mesh":"red_crystal_33","color":{"r":1.0,"g":0.45,"b":0.45},"intensity":85000,"exponent":1.0},
-                        {"mesh":"red_crystal_82","color":{"r":1.0,"g":0.45,"b":0.45},"intensity":98000,"exponent":1.0},
-                        {"mesh":"red_crystal_49","color":{"r":1.0,"g":0.45,"b":0.45},"intensity":85000,"exponent":1.0},
-                        {"mesh":"red_crystal_73","color":{"r":1.0,"g":0.45,"b":0.45},"intensity":98000,"exponent":1.0}
+                        {"mesh":"blue_crystal_87","color":{"r":0.45,"g":0.45,"b":1.0},"intensity":90000,"exponent":1.0},
+                        {"mesh":"blue_crystal_69","color":{"r":0.45,"g":0.45,"b":1.0},"intensity":100000,"exponent":1.0},
+                        {"mesh":"blue_crystal_39","color":{"r":0.45,"g":0.45,"b":1.0},"intensity":90000,"exponent":1.0},
+                        {"mesh":"blue_crystal_09","color":{"r":0.45,"g":0.45,"b":1.0},"intensity":100000,"exponent":1.0},
+                        {"position":{"x":-342,"y":21545,"z":201566},"color":{"r":0.45,"g":0.45,"b":1.0},"intensity":120000,"exponent":1.0},
+                        {"position":{"x":127552,"y":22390,"z":125862},"color":{"r":0.45,"g":0.45,"b":1.0},"intensity":150000,"exponent":1.0},
+                        
+                        {"mesh":"red_crystal_33","color":{"r":1.0,"g":0.45,"b":0.45},"intensity":90000,"exponent":1.0},
+                        {"mesh":"red_crystal_82","color":{"r":1.0,"g":0.45,"b":0.45},"intensity":100000,"exponent":1.0},
+                        {"mesh":"red_crystal_49","color":{"r":1.0,"g":0.45,"b":0.45},"intensity":90000,"exponent":1.0},
+                        {"mesh":"red_crystal_73","color":{"r":1.0,"g":0.45,"b":0.45},"intensity":100000,"exponent":1.0},
+                        {"position":{"x":-2819,"y":25306,"z":-222607},"color":{"r":1.0,"g":0.45,"b":0.45},"intensity":120000,"exponent":1.0},
+                        {"position":{"x":-126357,"y":21545,"z":-116208},"color":{"r":1.0,"g":0.45,"b":0.45},"intensity":150000,"exponent":1.0}
                     ],
                 "glows":
                     [
@@ -48,16 +53,16 @@ export default class MapDualCastlesClass extends ProjectMapClass
                 "meshNoBumpMeshes":["tower_pilars_"],
                 "effects":
                     [
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp01","offset":{"x":0,"y":-550,"z":0},"intensity":53000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp02","offset":{"x":0,"y":-550,"z":0},"intensity":53000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp003","offset":{"x":0,"y":-550,"z":0},"intensity":53000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp004","offset":{"x":0,"y":-550,"z":0},"intensity":53000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp005","offset":{"x":0,"y":-550,"z":0},"intensity":53000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp006","offset":{"x":0,"y":-550,"z":0},"intensity":53000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"LAMP14","offset":{"x":-800,"y":-750,"z":0},"intensity":14000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"LAMP16","offset":{"x":0,"y":-750,"z":-900},"intensity":14000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"LAMP08","offset":{"x":0,"y":-750,"z":900},"intensity":14000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"LAMP10","offset":{"x":800,"y":-750,"z":0},"intensity":14000}}
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp01","offset":{"x":0,"y":-550,"z":0},"intensity":50000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp02","offset":{"x":0,"y":-550,"z":0},"intensity":50000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp003","offset":{"x":0,"y":-550,"z":0},"intensity":50000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp004","offset":{"x":0,"y":-550,"z":0},"intensity":50000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp005","offset":{"x":0,"y":-550,"z":0},"intensity":50000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp006","offset":{"x":0,"y":-550,"z":0},"intensity":50000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"LAMP14","offset":{"x":-800,"y":-750,"z":0},"intensity":15000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"LAMP16","offset":{"x":0,"y":-750,"z":-900},"intensity":18000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"LAMP08","offset":{"x":0,"y":-750,"z":900},"intensity":18000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"LAMP10","offset":{"x":800,"y":-750,"z":0},"intensity":15000}}
                     ],
                 "movements":
                     [
@@ -245,12 +250,12 @@ export default class MapDualCastlesClass extends ProjectMapClass
                     ],
                 "entities":
                     [
-                        {"entity":EntityPlayerClass,"name":"player","position":{"x":-28000,"y":24124,"z":0},"angle":{"x":0,"y":90,"z":0},"data":{"multiplayer":true}},
-                        {"entity":EntityMultiplayerBotClass,"name":"bot_1"},
-                        {"entity":EntityMultiplayerBotClass,"name":"bot_2"},
-                        {"entity":EntityMultiplayerBotClass,"name":"bot_3"},
-                        {"entity":EntityMultiplayerBotClass,"name":"bot_4"},
-                        {"entity":EntityMultiplayerBotClass,"name":"bot_5"},
+                        {"entity":EntityPlayerClass,"name":"Player","position":{"x":-28000,"y":24124,"z":0},"angle":{"x":0,"y":90,"z":0},"data":{"multiplayer":true}},
+                        {"entity":EntityMultiplayerBotClass,"name":"Caesar"},
+                        {"entity":EntityMultiplayerBotClass,"name":"Vespasian"},
+                        {"entity":EntityMultiplayerBotClass,"name":"Hadrian"},
+                        {"entity":EntityMultiplayerBotClass,"name":"Augustus"},
+                        {"entity":EntityMultiplayerBotClass,"name":"Trajan"},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_01","position":{"x":-28242,"y":24839,"z":-28541},"data":{"ammo":true}},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_02","position":{"x":28074,"y":24839,"z":28166},"data":{"ammo":true}},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_03","position":{"x":-28105,"y":24839,"z":28435},"data":{"ammo":true}},
@@ -264,7 +269,9 @@ export default class MapDualCastlesClass extends ProjectMapClass
                         {"entity":EntityPickupGrenadeClass,"name":"grenade_01","position":{"x":16640,"y":29851,"z":136013}},
                         {"entity":EntityPickupGrenadeClass,"name":"grenade_02","position":{"x":-17541,"y":29851,"z":-136473}},
                         {"entity":EntityPickupChickenLegClass,"name":"health_01","position":{"x":1468,"y":29851,"z":109299}},
-                        {"entity":EntityPickupChickenLegClass,"name":"health_02","position":{"x":-1789,"y":29851,"z":-108954}}
+                        {"entity":EntityPickupChickenLegClass,"name":"health_02","position":{"x":-1789,"y":29851,"z":-108954}},
+                        {"entity":EntityPickupArmorClass,"name":"armor_01","position":{"x":-342,"y":2500,"z":201566}},
+                        {"entity":EntityPickupArmorClass,"name":"armor_02","position":{"x":-2819,"y":8000,"z":-222607}}
                     ]
             }
         );

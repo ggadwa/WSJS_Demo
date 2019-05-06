@@ -34,6 +34,10 @@ export default class GameClass extends ProjectGameDeveloperClass
         this.addInterfaceElement('grenade','icon_grenade',null,null,new RectClass(5,(high-55),30,(high-5)),null,1);
         this.addInterfaceText('grenade_count','',35,(high-15),20,InterfaceTextClass.TEXT_ALIGN_LEFT,new ColorClass(1,1,0),1);
         
+        this.addBitmap('textures/icon_armor.png');
+        this.addInterfaceElement('armor','icon_armor',null,null,new RectClass((wid-55),(high-110),(wid-5),(high-60)),null,1);
+        this.addInterfaceText('armor_count','',(wid-60),(high-70),20,InterfaceTextClass.TEXT_ALIGN_RIGHT,new ColorClass(1,1,0),1);
+        
         this.addBitmap('textures/icon_health.png');
         this.addInterfaceElement('health','icon_health',null,null,new RectClass((wid-55),(high-55),(wid-5),(high-5)),null,1);
         this.addInterfaceText('health_count','',(wid-60),(high-15),20,InterfaceTextClass.TEXT_ALIGN_RIGHT,new ColorClass(1,1,0),1);

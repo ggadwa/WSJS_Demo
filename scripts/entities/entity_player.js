@@ -1,5 +1,7 @@
 import PointClass from '../../../code/utility/point.js';
 import BoundClass from '../../../code/utility/bound.js';
+import ColorClass from '../../../code/utility/color.js';
+import InterfaceTextClass from '../../../code/interface/interface_text.js';
 import ProjectEntityDeveloperClass from '../../../code/project/project_entity_developer.js';
 import EntityWeaponBerettaClass from '../entities/entity_weapon_beretta.js';
 import EntityWeaponM16Class from '../entities/entity_weapon_m16.js';
@@ -27,8 +29,10 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     static MAX_DEATH_COUNT=500;
     static WEAPON_BERETTA=0;
     static WEAPON_M16=1;
+    static MAX_SCORES=5;
     
     health=100;
+    armor=0;
     deadCount=-1;
     lastUnderLiquid=false;
     movement=null;
@@ -38,6 +42,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     m16=null;
     grenade=null;
     hasM16=false;
+    scores=null;
+    scoreColor=null;
     
         //
         // initialize and release
@@ -65,6 +71,9 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             
         this.movement=new PointClass(0,0,0);
         this.rotMovement=new PointClass(0,0,0);
+        
+        this.scores=new Map();
+        this.startScore();
         
             // add sounds
             
@@ -122,6 +131,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             // full health
             
         this.health=100;
+        this.armor=0;
         this.deadCount=-1;
         this.passThrough=false;         // reset if this is being called after bot died
         this.angle.x=0;
@@ -138,6 +148,10 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.beretta.show=true;
         this.m16.show=false;
         this.hasM16=false;
+        
+            // turn off any score display
+            
+        this.displayScore(false);
         
             // move to random node
             // if multiplayer
@@ -157,15 +171,35 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // pulse and take the damage
             
-        this.pulseInterfaceElement('health',500,5);
-
-        if (!this.debugNoDamage) this.health-=damage;
+        if (!this.debugNoDamage) {
+            this.armor-=damage;
+            if (this.armor<0) {
+                this.pulseInterfaceElement('health',500,5);
+                this.health+=this.armor;
+                this.armor=0;
+            }
+            else {
+                this.pulseInterfaceElement('armor',500,5);
+            }
+        }
+        else {
+            this.pulseInterfaceElement('health',500,5);
+        }
+        
+            // dead?
+        
         if (this.health<=0) {
             this.deadCount=EntityPlayerClass.MAX_DEATH_COUNT;
             this.passThrough=true;
             this.beretta.show=false;
             this.m16.show=false;
             this.playSound('player_die');
+            
+            if (this.data.multiplayer) {
+                if (fromEntity!==null) this.addScore(fromEntity.name,((fromEntity!==this)?1:-1));
+                this.displayScore(true);
+            }
+            
             return;
         }
     }
@@ -208,7 +242,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             return(true);
         }
         
-            // health
+            // health and armor
             
         if (name==='health') {
             this.pulseInterfaceElement('health',500,5);
@@ -216,7 +250,91 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             return(true);
         }
         
+        if (name==='armor') {
+            this.pulseInterfaceElement('armor',500,5);
+            this.armor=Math.min((this.armor+100),100);
+            return(true);
+        }
+        
         return(false);
+    }
+    
+        //
+        // scoring
+        //
+        
+    startScore()
+    {
+        let entity;
+        let entityList=this.getEntityList();
+        
+        for (entity of entityList.entities) {
+            if ((entity.filter==='bot') || (entity.filter==='player')) {
+                this.scores.set(entity.name,0);
+            }
+        }
+        
+        this.scoreColor=new ColorClass(0,1,0.2);
+    }
+    
+    addScore(name,points)
+    {
+        this.scores.set(name,(this.scores.get(name)+points));
+    }
+    
+    displayScore(show)
+    {
+        let n,x,y;
+        let iter,rtn,name,points,insertIdx;
+        let wid=this.getInterfaceWidth();
+        let high=this.getInterfaceHeight();
+        let sortedNames=[];
+        
+            // if no show, remove all items
+            // if they exist
+            
+        if (!show) {
+            for (n=0;n!==EntityPlayerClass.MAX_SCORES;n++) {
+                this.removeInterfaceText('score_name_'+n);
+                this.removeInterfaceText('score_point_'+n);
+            }
+            return;
+        }
+        
+            // sort the scores
+             
+        iter=this.scores.keys();
+        
+        while (true) {
+            rtn=iter.next();
+            if (rtn.done) break;
+            
+            name=rtn.value;
+            points=this.scores.get(name);
+            
+            insertIdx=0;
+            
+            for (n=0;n!==sortedNames.length;n++) {
+                if ((this.scores.get(sortedNames[n]))<points) {
+                    insertIdx=n;
+                    break;
+                }
+            }
+            
+            sortedNames.splice(insertIdx,0,name);
+        }
+        
+            // add the items
+            
+        x=Math.trunc(wid*0.5)-5;
+        y=Math.trunc(high*0.5)-Math.trunc((35*sortedNames.length)*0.5);
+        
+        for (n=0;n!=sortedNames.length;n++) {
+            this.addInterfaceText(('score_name_'+n),sortedNames[n],x,y,30,InterfaceTextClass.TEXT_ALIGN_RIGHT,this.scoreColor,1);
+            this.addInterfaceText(('score_point_'+n),this.scores.get(sortedNames[n]),(x+10),y,30,InterfaceTextClass.TEXT_ALIGN_LEFT,this.scoreColor,1);
+            
+            y+=35;
+        }
     }
     
         //
@@ -235,6 +353,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.updateInterfaceText('beretta_bullet_count',this.beretta.ammoCount);
         this.updateInterfaceText('m16_bullet_count',this.m16.ammoCount);
         this.updateInterfaceText('grenade_count',this.grenade.ammoCount);
+        this.updateInterfaceText('armor_count',this.armor);
         this.updateInterfaceText('health_count',this.health);
         
             // dead
@@ -242,6 +361,13 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         if (this.deadCount!==-1) {
             this.deadCount--;
             
+                // keep falling
+                
+            this.rotMovement.setFromValues(0,0,0);
+            this.moveInMapY(this.rotMovement,false);
+            
+                // dying twist
+                
             if ((!this.data.multiplayer) && (this.deadCount===0)) this.deadCount=1;       //  never recover if not multiplayer
             if (this.deadCount>1) {
                 if (this.angle.x>-80.0) {
@@ -250,6 +376,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
                 }
             }      
             
+                // respawn
+                
             if (this.deadCount<=0) this.ready();
             return;
         }            

@@ -34,6 +34,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
     static WEAPON_M16=1;
     
     health=100;
+    armor=0;
     deadCount=-1;
     nextNodeIdx=-1;
     goalNodeIdx=-1;
@@ -155,6 +156,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
             // full health
             
         this.health=100;
+        this.armor=0;
         this.deadCount=-1;
         this.passThrough=false;         // reset if this is being called after bot died
         
@@ -293,10 +295,15 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
             return(true);
         }
         
-            // health
+            // health and armor
             
         if (name==='health') {
             this.health=Math.min((this.health+25),100);
+            return(true);
+        }
+        
+        if (name==='armor') {
+            this.armor=Math.min((this.armor+100),100);
             return(true);
         }
         
@@ -371,13 +378,20 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
     {
         if (this.deadCount!==-1) return;
         
-        this.health-=damage;
+        this.armor-=damage;
+        if (this.armor<0) {
+            this.health+=this.armor;
+            this.armor=0;
+        }
+
         if (this.health<=0) {
             this.deadCount=EntityMultiplayerBotClass.MAX_DEATH_COUNT;
             this.passThrough=true;
             this.startModelAnimationChunkInFrames(null,30,209,247);
             this.queueAnimationStop();
             this.playSound('player_die');
+            
+            if (fromEntity!==null) this.getPlayerEntity().addScore(fromEntity.name,((fromEntity!==this)?1:-1));
             return;
         }
         
