@@ -9,7 +9,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
 {
     static MOUSE_TURN_SENSITIVITY=0.3;
     static MOUSE_TURN_ACCELERATION=0.4;
-    static MAX_TURN_SPEED=10;
+    static MAX_TURN_SPEED=8;
     static MOUSE_LOOK_SENSITIVITY=0.2;
     static MOUSE_LOOK_ACCELERATION=0.1;
     static MOUSE_MAX_LOOK_SPEED=8;
@@ -158,7 +158,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             // pulse and take the damage
             
         this.pulseInterfaceElement('health',500,5);
-        this.health-=damage;
+
+        if (!this.debugNoDamage) this.health-=damage;
         if (this.health<=0) {
             this.deadCount=EntityPlayerClass.MAX_DEATH_COUNT;
             this.passThrough=true;

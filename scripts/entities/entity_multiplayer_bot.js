@@ -216,7 +216,9 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         if (this.grenade.ammoCount>0) {
             if (this.getTimestamp()>this.grenadePauseTick) {
                 if (this.position.distance(this.targetEntity.position)>EntityMultiplayerBotClass.MIN_GRENADE_DISTANCE) {
-                    this.grenade.fire(this.position,this.angle,this.eyeOffset);
+                    this.fireAngle.setFromPoint(this.drawAngle);
+                    this.fireAngle.x=this.position.getLookAngleTo(this.targetEntity.position);
+                    this.grenade.fire(this.position,this.fireAngle,this.eyeOffset);
                     this.grenadePauseTick=this.getTimestamp()+EntityMultiplayerBotClass.GRENADE_PAUSE_TICK;
 
                     if (this.currentWeapon===EntityMultiplayerBotClass.WEAPON_BERETTA) {
@@ -236,6 +238,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
             
         if (this.currentWeapon===EntityMultiplayerBotClass.WEAPON_BERETTA) {
             this.fireAngle.setFromPoint(this.drawAngle);
+            this.fireAngle.x=this.position.getLookAngleTo(this.targetEntity.position);
             this.fireAngle.y+=(EntityMultiplayerBotClass.BERETTA_FIRE_SLOP-(Math.random()*(EntityMultiplayerBotClass.BERETTA_FIRE_SLOP*2)));
             if (this.beretta.fire(this.position,this.fireAngle,this.eyeOffset)) {
                 this.startModelAnimationChunkInFrames(null,30,554,594);
@@ -244,6 +247,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         }
         else {
             this.fireAngle.setFromPoint(this.drawAngle);
+            this.fireAngle.x=this.position.getLookAngleTo(this.targetEntity.position);
             this.fireAngle.y+=(EntityMultiplayerBotClass.M16_FIRE_SLOP-(Math.random()*(EntityMultiplayerBotClass.M16_FIRE_SLOP*2)));
             if (this.m16.fire(this.position,this.fireAngle,this.eyeOffset)) {
                 this.startModelAnimationChunkInFrames(null,30,892,928);
@@ -392,6 +396,9 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
             // are we dead?
             
         if (this.deadCount!==-1) {
+            this.rotMovement.setFromValues(0,0,0);      // can still fall
+            this.moveInMapY(this.rotMovement,false);
+            
             this.deadCount--;
             if (this.deadCount<=0) this.ready();
             return;

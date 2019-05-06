@@ -1,4 +1,5 @@
 import PointClass from '../../../code/utility/point.js';
+import BoundClass from '../../../code/utility/bound.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
 
 //
@@ -7,7 +8,8 @@ import ProjectEntityClass from '../../../code/project/project_entity.js';
 
 export default class EntityMonsterBaseClass extends ProjectEntityClass
 {
-    static ANGLE_Y_FIRE_RANGE=5;
+    static ANGLE_Y_PROJECTILE_RANGE=5;
+    static ANGLE_Y_MELEE_RANGE=15;
     static FALL_ASLEEP_DISTANCE=75000;
     
     health=0;
@@ -27,12 +29,15 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     nextProjectileTick=0;
     projectileStartTick=-1;
     projectile=null;
+    projectileRequiresSight=true;
     maxTurnSpeed=0;
     forwardAcceleration=0;
     forwardMaxSpeed=0;
     jumpWaitTick=0;
     nextJumpTick=0;
     jumpHeight=0;
+    trapMeshName=null;
+    trapMeshShrink=null;
     
     idleAnimationFrames=null;
     walkAnimationFrames=null;
@@ -48,6 +53,10 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     rotMovement=null;
     firePosition=null;
     fireAngle=null;
+    fireVector=null;
+    fireHitPoint=null;
+    trapMeshXBound=null;
+    trapMeshZBound=null;
     
     initialize()
     {
@@ -63,15 +72,42 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         this.rotMovement=new PointClass(0,0,0);
         this.firePosition=new PointClass(0,0,0);
         this.fireAngle=new PointClass(0,0,0);
+        this.fireVector=new PointClass(0,0,0);
+        this.fireHitPoint=new PointClass(0,0,0);
+        
+        this.trapMeshXBound=new BoundClass(0,0);
+        this.trapMeshZBound=new BoundClass(0,0);
     }
     
     ready()
     {
+        let meshList,mesh;
+        
         super.ready();
         
+            // sleeping with all health
+            
         this.health=this.startHealth;
         this.awoke=false;
         this.dead=false;
+        
+            // if there is a trap mesh, get it's bounds
+            
+        if (this.trapMeshName!==null) {
+            meshList=this.getMeshList();
+            mesh=meshList.meshes[meshList.find(this.trapMeshName)];
+            this.trapMeshXBound.setFromBound(mesh.xBound);
+            this.trapMeshZBound.setFromBound(mesh.zBound);
+            
+            if (this.trapMeshShrink!==null) {
+                this.trapMeshXBound.min+=this.trapMeshShrink.x;
+                this.trapMeshXBound.max-=this.trapMeshShrink.x;
+                this.trapMeshZBound.min+=this.trapMeshShrink.z;
+                this.trapMeshZBound.max-=this.trapMeshShrink.z;
+            }
+        }
+            
+            // start idle animation
         
         this.startModelAnimationChunkInFrames(null,30,this.idleAnimationFrames[0],this.idleAnimationFrames[1]);
     }
@@ -136,13 +172,22 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         this.playSound(this.wakeUpSoundName);
     }
     
-    meleeStart()
+    meleeStart(distToPlayer,timestamp)
     {
-        let meleeIdx=Math.random()&0x1;
+        let meleeIdx;
         
+        if ((distToPlayer>this.meleeDistance) || (timestamp<this.nextMeleeTick)) return;
+        
+        this.nextMeleeTick=this.getTimestamp()+this.meleeWaitTick;
+        
+            // melee animation
+            
+        meleeIdx=Math.random()&0x1;
         this.startModelAnimationChunkInFrames(null,30,this.meleeAnimationFrames[meleeIdx][0],this.meleeAnimationFrames[meleeIdx][1]);
         this.queueModelAnimationChunkInFrames(null,30,this.walkAnimationFrames[0],this.walkAnimationFrames[1]);
         
+            // pause to start actual melee
+            
         this.meleeStartTick=this.getTimestamp()+this.meleeDamageTick;
     }
     
@@ -152,15 +197,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         player.damage(this,this.meleeDamage);
     }
     
-    projectileStart()
-    {
-        this.startModelAnimationChunkInFrames(null,30,this.projectileAnimationFrames[0],this.projectileAnimationFrames[1]);
-        this.queueModelAnimationChunkInFrames(null,30,this.walkAnimationFrames[0],this.walkAnimationFrames[1]);
-        
-        this.projectileStartTick=this.getTimestamp()+this.projectileFireTick;
-    }
-    
-    projectileFire(player)
+    projectileSetupFire(player)
     {
             // get fire position outside of radius
             // and in middle of monster height
@@ -171,17 +208,58 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         this.firePosition.y+=Math.trunc(this.height*0.5);
         
         this.fireAngle.setFromPoint(this.angle);
-        this.fireAngle.x=this.position.angleXTo(player.position)-180.0;
+        this.fireAngle.x=this.position.getLookAngleTo(player.position);
+    }
+    
+    projectileStart(player,distToPlayer,timestamp)
+    {
+        if ((distToPlayer<this.projectileDistance) || (timestamp<this.nextProjectileTick)) return;
         
+            // does it sight the player?
+            
+        if (this.projectileRequiresSight) {
+            this.projectileSetupFire(player);
+
+            this.fireVector.setFromValues(0,0,this.projectileDistance);
+            this.fireVector.rotateX(null,this.fireAngle.x);
+            this.fireVector.rotateY(null,this.fireAngle.y);
+
+            if (!this.rayCollision(this.firePosition,this.fireVector,this.fireHitPoint,null,null)) return;
+            if (this.hitEntity!==player) return;
+        }
+        
+            // we can fire
+            
+        this.nextProjectileTick=this.getTimestamp()+this.projectileWaitTick;
+
+            // fire animaton
+            
+        this.startModelAnimationChunkInFrames(null,30,this.projectileAnimationFrames[0],this.projectileAnimationFrames[1]);
+        this.queueModelAnimationChunkInFrames(null,30,this.walkAnimationFrames[0],this.walkAnimationFrames[1]);
+        
+            // pause for fire animation
+            
+        this.projectileStartTick=this.getTimestamp()+this.projectileFireTick;
+    }
+    
+    projectileFire(player)
+    {
+        this.projectileSetupFire(player);
         this.projectile.fire(this,this.firePosition,this.fireAngle);
     }
     
     run()
     {
-        let timestamp,angleDif,attackOK;
+        let timestamp,angleDif;
         let player,distToPlayer;
         
-        if (this.dead) return;
+            // if dead, only fall
+            
+        if (this.dead) {
+            this.rotMovement.setFromValues(0,0,0);
+            this.moveInMapY(this.rotMovement,false);
+            return;
+        }
         
             // get player and timestamp
             
@@ -211,12 +289,10 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         }
         
             // always turn towards player, even when idling
-            // check how far we had to turn to see if we are
+            // remember how far we had to turn to see if we are
             // facing within a certain distance so we can attack
          
         angleDif=this.turnYTowardsEntity(player,this.maxTurnSpeed);
-        
-        attackOK=(Math.abs(angleDif)<=EntityMonsterBaseClass.ANGLE_Y_FIRE_RANGE);
         
             // time to wake up?
             
@@ -234,21 +310,10 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
             return;
         }
         
-            // do we need to fire a projectile?
+            // projectiles and melee starts
         
-        if ((this.projectile!=null) && (attackOK)) {
-            if ((distToPlayer>=this.projectileDistance) && (timestamp>this.nextProjectileTick)) {
-                this.nextProjectileTick=this.getTimestamp()+this.projectileWaitTick;
-                this.projectileStart();
-            }
-        }
-        
-            // do we need melee
-            
-        if ((distToPlayer<=this.meleeDistance) && (timestamp>this.nextMeleeTick)) {    
-            this.nextMeleeTick=this.getTimestamp()+this.meleeWaitTick;
-            this.meleeStart();
-        }
+        if ((this.projectile!=null) && (Math.abs(angleDif)<=EntityMonsterBaseClass.ANGLE_Y_PROJECTILE_RANGE)) this.projectileStart(player,distToPlayer,timestamp);
+        if (Math.abs(angleDif)<=EntityMonsterBaseClass.ANGLE_Y_MELEE_RANGE) this.meleeStart(distToPlayer,timestamp);
         
             // time to jump?
             
@@ -267,5 +332,14 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         
         this.movement.y=this.moveInMapY(this.rotMovement,false);
         this.moveInMapXZ(this.rotMovement,true,true);
+        
+            // any bounding?
+            
+        if (this.trapMeshName!==null) {
+            if (this.position.x<this.trapMeshXBound.min) this.position.x=this.trapMeshXBound.min;
+            if (this.position.x>this.trapMeshXBound.max) this.position.x=this.trapMeshXBound.max;
+            if (this.position.z<this.trapMeshZBound.min) this.position.z=this.trapMeshZBound.min;
+            if (this.position.z>this.trapMeshZBound.max) this.position.z=this.trapMeshZBound.max;
+        }
     }
 }

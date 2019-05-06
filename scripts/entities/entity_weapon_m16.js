@@ -30,7 +30,7 @@ export default class EntityWeaponM16Class extends EntityWeaponBaseClass
         
         this.ammoInitialCount=100;
         this.ammoAddCount=50;
-        this.ammoMaxCount=250;
+        this.ammoMaxCount=300;
         this.interfaceIconName='m16_bullet';
         
         this.handOffset=new PointClass(100,-8500,-2000);

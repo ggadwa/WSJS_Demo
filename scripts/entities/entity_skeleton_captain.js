@@ -20,8 +20,8 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
             this.height=6200;
         }
         else {
-            this.radius=2200;
-            this.height=9500;
+            this.radius=1800;
+            this.height=7500;
         }
         
         this.gravityMinValue=10;
@@ -52,15 +52,16 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
         else {
             this.startHealth=500;
             
-            this.wakeUpDistance=30000;
+            this.wakeUpDistance=35000;
             this.meleeDistance=6000;
             this.meleeWaitTick=3000;
             this.meleeDamageTick=500;
             this.meleeDamage=20;
             this.projectileDistance=15000;
-            this.projectileWaitTick=3000;
+            this.projectileWaitTick=5000;
             this.projectileFireTick=500;
-            this.projectile=this.addEntity(EntityProjectileSparkleClass,'skeleton_sparkle',new PointClass(0,0,0),new PointClass(0,0,0),null,false,false);
+            this.projectile=this.addEntity(EntityProjectileSparkleClass,'skeleton_sparkle',new PointClass(0,0,0),new PointClass(0,0,0),{"explode":true},false,false);
+            this.projectileRequiresSight=false;
             
             this.maxTurnSpeed=8;
             this.forwardAcceleration=4;
@@ -68,6 +69,9 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
 
             this.idleAnimationFrames=[598,774];
             this.deathAnimationFrames=[3833,3966];
+            
+            this.trapMeshName='stairs_king_00';
+            this.trapMeshShrink=new PointClass(8000,0,8000);
         }
         
         this.wakeUpSoundName='skeleton_wake_up';
@@ -84,7 +88,7 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
             this.scale.setFromValues(35,35,35);
         }
         else {
-            this.scale.setFromValues(55,55,55);
+            this.scale.setFromValues(45,45,45);
         }
         
             // sounds

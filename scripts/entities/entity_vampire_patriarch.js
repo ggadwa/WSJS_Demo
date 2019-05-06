@@ -32,7 +32,7 @@ export default class EntityVampirePatriarchClass extends EntityMonsterBaseClass
         this.projectileDistance=12000;
         this.projectileWaitTick=5000;
         this.projectileFireTick=500;
-        this.projectile=this.addEntity(EntityProjectileSparkleClass,'vampire_sparkle',new PointClass(0,0,0),new PointClass(0,0,0),null,false,false);
+        this.projectile=this.addEntity(EntityProjectileSparkleClass,'vampire_sparkle',new PointClass(0,0,0),new PointClass(0,0,0),{"explode":false},false,false);
         
         this.maxTurnSpeed=5;
         this.forwardAcceleration=4;

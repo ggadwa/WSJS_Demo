@@ -11,7 +11,7 @@ export default class EffectSparkleClass extends ProjectEffectClass
 {
     static SPARKLE_LIFE_TICK=1000;
     static SPARKLE_START_HALF_SIZE=100;
-    static SPARKLE_ADD_HALF_SIZE=1000;
+    static SPARKLE_ADD_HALF_SIZE=1500;
     static SPARKLE_ALPHA_START_FACTOR=0.3;
     static SPARKLE_ALPHA_ADD_FACTOR=0.7;
     
@@ -80,7 +80,7 @@ export default class EffectSparkleClass extends ProjectEffectClass
         
         factor=tick/EffectSparkleClass.SPARKLE_LIFE_TICK;
 
-        this.halfSize=EffectSparkleClass.SPARKLE_START_HALF_SIZE+Math.trunc(EffectSparkleClass.SPARKLE_ADD_HALF_SIZE*factor);
+        this.halfSize=EffectSparkleClass.SPARKLE_START_HALF_SIZE+Math.trunc(EffectSparkleClass.SPARKLE_ADD_HALF_SIZE*(1.0-factor));
         this.alpha=EffectSparkleClass.SPARKLE_ALPHA_START_FACTOR+(EffectSparkleClass.SPARKLE_ALPHA_ADD_FACTOR*factor);
         
             // need to rebuild the bounds

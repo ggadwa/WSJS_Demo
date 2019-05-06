@@ -33,7 +33,7 @@ export default class EntitySpiderClass extends EntityMonsterBaseClass
         this.forwardAcceleration=10;
         this.forwardMaxSpeed=150;
         this.jumpWaitTick=2000;
-        this.jumpHeight=350;
+        this.jumpHeight=300;
         
         this.idleAnimationFrames=[284,385];
         this.walkAnimationFrames=[0,40];

@@ -1,6 +1,8 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
 import EffectSparkleClass from '../effects/effect_sparkle.js';
+import EffectExplosionFireClass from '../effects/effect_explosion_fire.js';
+import EffectExplosionSmokeClass from '../effects/effect_explosion_smoke.js';
 
 //
 // sparkle projectile entity class
@@ -11,8 +13,13 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
     static SPARKLE_EFFECT_COUNT=15;
     static SPARKLE_TICK_COUNT=40;
     static SPEED=300;
-    static Y_SPEED=2;
-    static DAMAGE=10;
+    static Y_SPEED=1;
+    static DAMAGE=5;
+    static EXPLODE_DAMAGE=30;
+    static DAMAGE_DISTANCE=20000;
+    static SHAKE_DISTANCE=30000;
+    static SHAKE_MAX_SHIFT=40;
+    static SHAKE_TICK=2000;
     
     running=false;
     motion=null;
@@ -20,6 +27,9 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
     nextSparkleTick=0;
     currentSparkleIndex=0;
     sparkleEffects=null;
+    explosionSmokeEffect=null;
+    explosionFireEffect=null;
+
     
     initialize()
     {
@@ -48,6 +58,18 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
             this.sparkleEffects.push(this.addEffect(EffectSparkleClass,null,false));
         }
         
+            // explosion effects
+            
+        this.explosionSmokeEffect=this.addEffect(EffectExplosionSmokeClass,null,false);
+        this.explosionFireEffect=this.addEffect(EffectExplosionFireClass,null,false);
+        
+            // the model
+            
+        this.setModel({"name":"crystal_ball"});
+        this.scale.setFromValues(20,20,20);
+       
+            // sounds
+            
         this.addSound('laser',50000);
     }
     
@@ -68,9 +90,8 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
             // setup motion and start running
             
         this.motion.setFromValues(0,0,EntityProjectileSparkleClass.SPEED);
+        this.motion.rotateX(null,fireAngle.x);
         this.motion.rotateY(null,fireAngle.y);
-        
-        this.motion.y=-(fireAngle.x*EntityProjectileSparkleClass.Y_SPEED);
         
             // setup next sparkle
           
@@ -82,6 +103,46 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
         this.running=true;
     }
     
+        //
+        // exploding
+        //
+        
+        
+    explode()
+    {
+        let dist,damage,entity,entityList;
+        
+            // explosion effects
+            
+        this.explosionSmokeEffect.restart(this.position,true);
+        this.explosionFireEffect.restart(this.position,true);
+        
+            // damage any entity that has a
+            // damage method
+            
+        entityList=this.getEntityList();
+        
+        for (entity of entityList.entities) {
+            if (entity.damage===undefined) continue;
+            if (entity===this.parentEntity) continue;       // never hurt yourself with explosion
+            
+            dist=this.position.distance(entity.position);
+            if (dist>EntityProjectileSparkleClass.DAMAGE_DISTANCE) continue;
+            
+            damage=Math.trunc((1.0-(dist/EntityProjectileSparkleClass.DAMAGE_DISTANCE))*EntityProjectileSparkleClass.EXPLODE_DAMAGE);
+            entity.damage(this.parentEntity,damage);
+        }
+        
+            // shake the screen
+            
+        entity=this.getPlayerEntity();
+        
+        dist=this.position.distance(entity.position);
+        if (dist>EntityProjectileSparkleClass.SHAKE_DISTANCE) return;
+        
+        this.startCameraShake(EntityProjectileSparkleClass.SHAKE_TICK,Math.trunc((EntityProjectileSparkleClass.SHAKE_MAX_SHIFT*dist)/EntityProjectileSparkleClass.SHAKE_DISTANCE));
+    }
+
         //
         // run
         //
@@ -101,23 +162,18 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
         
             // move sparkle
             
-        this.moveInMapXZ(this.motion,false,false);
-        this.moveInMapY(this.motion,true);
+        if (!this.simpleMoveEntityInMap(this.motion)) return;
        
             // hitting anything stops it
-            
-        if (this.touchEntity!==null) {
-            this.touchEntity.damage(this.parentEntity,EntityProjectileSparkleClass.DAMAGE);
-            this.running=false;
-            this.show=false;
-        }
         
-            // hitting anything else stops it
+        this.running=false;
+        this.show=false;
+
+        if (this.touchEntity!==null) this.touchEntity.damage(this.parentEntity,EntityProjectileSparkleClass.DAMAGE);
+        
+            // some can explode
             
-        if ((this.collideWallMeshIdx!==-1) || (this.collideCeilingMeshIdx!==-1)) {
-            this.running=false;
-            this.show=false;
-        }
+        if (this.data.explode) this.explode(); 
     }
     
 }
