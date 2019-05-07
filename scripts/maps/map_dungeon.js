@@ -324,7 +324,7 @@ export default class MapDungeonClass extends ProjectMapClass
                         {"entity":EntitySpiderClass,"name":"spider_13","position":{"x":-339912,"y":-56720,"z":14092},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntitySkeletonCaptainClass,"name":"skeleton_boss","position":{"x":-298429,"y":-61495,"z":28543},"angle":{"x":0,"y":0,"z":0},"data":{"captain":true}},
                         {"entity":EntityPickupM16Class,"name":"m16_01","position":{"x":-67684,"y":-7975,"z":-13612},"data":{"ammo":false,"pickupOnce":true}},
-                        {"entity":EntityPickupArmorClass,"name":"armor_01","position":{"x":-121439,"y":-30924,"z":125337},"data":{"pickupOnce":true}}
+                        {"entity":EntityPickupArmorClass,"name":"armor_01","position":{"x":-121439,"y":-27924,"z":125337},"data":{"pickupOnce":true}}
                     ],
             }
         );

@@ -53,16 +53,16 @@ export default class MapDualCastlesClass extends ProjectMapClass
                 "meshNoBumpMeshes":["tower_pilars_"],
                 "effects":
                     [
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp01","offset":{"x":0,"y":-550,"z":0},"intensity":50000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp02","offset":{"x":0,"y":-550,"z":0},"intensity":50000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp003","offset":{"x":0,"y":-550,"z":0},"intensity":50000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp004","offset":{"x":0,"y":-550,"z":0},"intensity":50000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp005","offset":{"x":0,"y":-550,"z":0},"intensity":50000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp006","offset":{"x":0,"y":-550,"z":0},"intensity":50000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"LAMP14","offset":{"x":-800,"y":-750,"z":0},"intensity":15000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp01","offset":{"x":0,"y":-550,"z":0},"intensity":48000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp02","offset":{"x":0,"y":-550,"z":0},"intensity":48000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp003","offset":{"x":0,"y":-550,"z":0},"intensity":48000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp004","offset":{"x":0,"y":-550,"z":0},"intensity":48000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp005","offset":{"x":0,"y":-550,"z":0},"intensity":48000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp006","offset":{"x":0,"y":-550,"z":0},"intensity":48000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"LAMP14","offset":{"x":-800,"y":-750,"z":0},"intensity":13000}},
                         {"effect":EffectFireClass,"data":{"mesh":"LAMP16","offset":{"x":0,"y":-750,"z":-900},"intensity":18000}},
                         {"effect":EffectFireClass,"data":{"mesh":"LAMP08","offset":{"x":0,"y":-750,"z":900},"intensity":18000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"LAMP10","offset":{"x":800,"y":-750,"z":0},"intensity":15000}}
+                        {"effect":EffectFireClass,"data":{"mesh":"LAMP10","offset":{"x":800,"y":-750,"z":0},"intensity":13000}}
                     ],
                 "movements":
                     [
@@ -270,8 +270,8 @@ export default class MapDualCastlesClass extends ProjectMapClass
                         {"entity":EntityPickupGrenadeClass,"name":"grenade_02","position":{"x":-17541,"y":29851,"z":-136473}},
                         {"entity":EntityPickupChickenLegClass,"name":"health_01","position":{"x":1468,"y":29851,"z":109299}},
                         {"entity":EntityPickupChickenLegClass,"name":"health_02","position":{"x":-1789,"y":29851,"z":-108954}},
-                        {"entity":EntityPickupArmorClass,"name":"armor_01","position":{"x":-342,"y":2500,"z":201566}},
-                        {"entity":EntityPickupArmorClass,"name":"armor_02","position":{"x":-2819,"y":8000,"z":-222607}}
+                        {"entity":EntityPickupArmorClass,"name":"armor_01","position":{"x":-342,"y":6000,"z":201566}},
+                        {"entity":EntityPickupArmorClass,"name":"armor_02","position":{"x":-2819,"y":12000,"z":-222607}}
                     ]
             }
         );

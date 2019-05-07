@@ -44,6 +44,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     hasM16=false;
     scores=null;
     scoreColor=null;
+    lastScoreCount=0;
     
         //
         // initialize and release
@@ -73,7 +74,6 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.rotMovement=new PointClass(0,0,0);
         
         this.scores=new Map();
-        this.startScore();
         
             // add sounds
             
@@ -151,6 +151,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // turn off any score display
             
+        this.startScore();
         this.displayScore(false);
         
             // move to random node
@@ -268,10 +269,10 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         let entity;
         let entityList=this.getEntityList();
         
+        this.scores.clear();
+        
         for (entity of entityList.entities) {
-            if ((entity.filter==='bot') || (entity.filter==='player')) {
-                this.scores.set(entity.name,0);
-            }
+            if ((entity.filter==='bot') || (entity.filter==='player')) this.scores.set(entity.name,0);
         }
         
         this.scoreColor=new ColorClass(0,1,0.2);
@@ -294,10 +295,12 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             // if they exist
             
         if (!show) {
-            for (n=0;n!==EntityPlayerClass.MAX_SCORES;n++) {
+            for (n=0;n!==this.lastScoreCount;n++) {
                 this.removeInterfaceText('score_name_'+n);
                 this.removeInterfaceText('score_point_'+n);
             }
+            
+            this.lastScoreCount=0;
             return;
         }
         
@@ -312,16 +315,21 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             name=rtn.value;
             points=this.scores.get(name);
             
-            insertIdx=0;
-            
-            for (n=0;n!==sortedNames.length;n++) {
-                if ((this.scores.get(sortedNames[n]))<points) {
-                    insertIdx=n;
-                    break;
-                }
+            if (sortedNames.length===0) {
+                sortedNames.push(name);
             }
-            
-            sortedNames.splice(insertIdx,0,name);
+            else {
+                insertIdx=0;
+
+                for (n=(sortedNames.length-1);n>=0;n--) {
+                    if (points<this.scores.get(sortedNames[n])) {
+                        insertIdx=n+1;
+                        break;
+                    }
+                }
+
+                sortedNames.splice(insertIdx,0,name);
+            }
         }
         
             // add the items
@@ -335,6 +343,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             
             y+=35;
         }
+        
+        this.lastScoreCount=sortedNames.length;
     }
     
         //
