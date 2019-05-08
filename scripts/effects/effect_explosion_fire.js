@@ -100,10 +100,6 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
         
         this.startTimestamp=this.getTimestamp();
         
-            // light centered at start point
-            
-        
-        
             // sound effect
             
         this.playSound('explosion');

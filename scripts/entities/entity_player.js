@@ -9,11 +9,7 @@ import EntityWeaponGrenadeClass from '../entities/entity_weapon_grenade.js';
 
 export default class EntityPlayerClass extends ProjectEntityDeveloperClass
 {
-    static MOUSE_TURN_SENSITIVITY=0.3;
-    static MOUSE_TURN_ACCELERATION=0.4;
     static MAX_TURN_SPEED=8;
-    static MOUSE_LOOK_SENSITIVITY=0.2;
-    static MOUSE_LOOK_ACCELERATION=0.1;
     static MOUSE_MAX_LOOK_SPEED=8;
     static MAX_LOOK_ANGLE=80.0;
     static FORWARD_ACCELERATION=15;
@@ -355,6 +351,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     {
         let x,y,turnAdd,lookAdd,liquidIdx;
         let mouseWheelClick,bump;
+        let setup=this.getSetup();
         
         super.run();
         
@@ -430,8 +427,9 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
         x=this.getMouseMoveX();
         if (x!==0) {
-            turnAdd=-(x*EntityPlayerClass.MOUSE_TURN_SENSITIVITY);
-            turnAdd+=(turnAdd*EntityPlayerClass.MOUSE_TURN_ACCELERATION);
+            turnAdd=-(x*setup.mouseXSensitivity);
+            turnAdd+=(turnAdd*setup.mouseXAcceleration);
+            if (setup.mouseXInvert) turnAdd=-turnAdd;
             if (Math.abs(turnAdd)>EntityPlayerClass.MOUSE_MAX_TURN_SPEED) turnAdd=EntityPlayerClass.MOUSE_MAX_TURN_SPEED*Math.sign(turnAdd);
         
             this.angle.y+=turnAdd;
@@ -443,8 +441,9 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
            
         y=this.getMouseMoveY();
         if (y!==0) {
-            lookAdd=y*EntityPlayerClass.MOUSE_LOOK_SENSITIVITY;
-            lookAdd+=(lookAdd*EntityPlayerClass.MOUSE_LOOK_ACCELERATION);
+            lookAdd=y*setup.mouseYSensitivity;
+            lookAdd+=(lookAdd*setup.mouseYAcceleration);
+            if (setup.mouseYInvert) lookAdd=-lookAdd;
             if (Math.abs(lookAdd)>EntityPlayerClass.MOUSE_MAX_LOOK_SPEED) lookAdd=EntityPlayerClass.MOUSE_MAX_LOOK_SPEED*Math.sign(lookAdd);
         
             this.angle.x+=lookAdd;
