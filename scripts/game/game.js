@@ -1,5 +1,6 @@
 import ColorClass from '../../../code/utility/color.js';
 import RectClass from '../../../code/utility/rect.js';
+import CameraClass from '../../../code/main/camera.js';
 import InterfaceTextClass from '../../../code/interface/interface_text.js';
 import ProjectGameDeveloperClass from '../../../code/project/project_game_developer.js';
 import MapDualCastlesClass from '../maps/map_dual_castles.js';
@@ -41,6 +42,11 @@ export default class GameClass extends ProjectGameDeveloperClass
         this.addBitmap('textures/icon_health.png');
         this.addInterfaceElement('health','icon_health',null,null,new RectClass((wid-55),(high-55),(wid-5),(high-5)),null,1);
         this.addInterfaceText('health_count','',(wid-60),(high-15),20,InterfaceTextClass.TEXT_ALIGN_RIGHT,new ColorClass(1,1,0),1);
+    }
+    
+    getName()
+    {
+        return('wsjs_demo');            // uniquely identifies this project so we can have separate persistent data
     }
     
     getStartProjectMap()
