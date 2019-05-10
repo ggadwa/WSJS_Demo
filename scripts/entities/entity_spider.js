@@ -23,7 +23,7 @@ export default class EntitySpiderClass extends EntityMonsterBaseClass
         
         this.startHealth=40;
         
-        this.wakeUpDistance=30000;
+        this.wakeUpDistance=35000;
         this.meleeDistance=5000;
         this.meleeWaitTick=800;
         this.meleeDamageTick=500;

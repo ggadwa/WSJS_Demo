@@ -24,7 +24,7 @@ export default class EntityVampirePatriarchClass extends EntityMonsterBaseClass
         
         this.startHealth=240;
         
-        this.wakeUpDistance=30000;
+        this.wakeUpDistance=50000;
         this.meleeDistance=6000;
         this.meleeWaitTick=2500;
         this.meleeDamageTick=500;

@@ -21,7 +21,8 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
     static MAX_TARGET_TURN_SPEED=3;     // how fast bot can turn towards player from actual motion direction
     static NODE_SLOP=1000;              // how close to a node before we consider it hit
     static RANDOM_NODE_FAIL_COUNT=20;   // how many times it'll try to find a spawn node that is open
-    static MAX_DEATH_COUNT=500;         // how many physic ticks to stay dead
+    static MAX_DEATH_COUNT=500;         // how many physics ticks to stay dead
+    static MAX_STUCK_COUNT=50;          // how many physics tick we can be stuck until we restart pathing
     static FORGET_DISTANCE=60000;       // distance bot gives up on targetting somebody
     static TARGET_SCAN_Y_ANGLES=[-60,-45,-25,-15,-10,-5,0,5,10,15,25,45,60];     // angles we scan (one angle a tick) for targets
     static TARGET_HIT_FILTER=['player','bot'];              // filters for things we can find with ray trace scan
@@ -36,6 +37,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
     health=100;
     armor=0;
     deadCount=-1;
+    stuckCount=0;
     nextNodeIdx=-1;
     goalNodeIdx=-1;
     pausedTriggerName=null;
@@ -49,6 +51,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
     lookHitPoint=null; 
     movement=null;
     rotMovement=null;
+    stuckPoint=null;
     beretta=null;
     m16=null;
     grenade=null;   
@@ -81,6 +84,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         this.lookHitPoint=new PointClass(0,0,0);
         this.movement=new PointClass(0,0,0);
         this.rotMovement=new PointClass(0,0,0);
+        this.stuckPoint=new PointClass(0,0,0);
         
             // set model
             
@@ -158,6 +162,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         this.health=100;
         this.armor=0;
         this.deadCount=-1;
+        this.stuckCount=0;
         this.passThrough=false;         // reset if this is being called after bot died
         
             // start with beretta
@@ -531,6 +536,21 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         
         this.movement.y=this.moveInMapY(this.rotMovement,false);
         this.moveInMapXZ(this.rotMovement,true,true);
+        
+            // detect stuck
+            // if we get stuck, then head towards the nearest node and
+            // then onto a new random goal
+            
+        if ((this.position.equals(this.stuckPoint)) && (this.pausedTriggerName===null)) {
+            this.stuckCount++;
+            if (this.stuckCount>=EntityMultiplayerBotClass.MAX_STUCK_COUNT) {
+                this.stuckCount=0;
+                this.goalNodeIdx=this.getRandomKeyNodeIndex();
+                this.nextNodeIdx=this.findNearestPathNode(-1);
+            }
+        }
+        
+        this.stuckPoint.setFromPoint(this.position);
     }
     
     drawSetup()

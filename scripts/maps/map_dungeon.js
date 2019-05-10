@@ -185,7 +185,6 @@ export default class MapDungeonClass extends ProjectMapClass
                         },
                         {
                             "meshes":["doors_small_05"],
-                            "approachDistance":10000,
                             "moves":
                                 [
                                     {"tick":1000,"move":{"x":0,"y":0,"z":0}},
@@ -195,7 +194,6 @@ export default class MapDungeonClass extends ProjectMapClass
                         },
                         {
                             "meshes":["doors_small_06"],
-                            "approachDistance":10000,
                             "moves":
                                 [
                                     {"tick":1000,"move":{"x":0,"y":0,"z":0}},
@@ -205,7 +203,6 @@ export default class MapDungeonClass extends ProjectMapClass
                         },
                         {
                             "meshes":["doors_small_07"],
-                            "approachDistance":10000,
                             "moves":
                                 [
                                     {"tick":1000,"move":{"x":0,"y":0,"z":0}},
@@ -215,7 +212,6 @@ export default class MapDungeonClass extends ProjectMapClass
                         },
                         {
                             "meshes":["doors_small_08"],
-                            "approachDistance":10000,
                             "moves":
                                 [
                                     {"tick":1000,"move":{"x":0,"y":0,"z":0}},
@@ -225,7 +221,6 @@ export default class MapDungeonClass extends ProjectMapClass
                         },
                         {
                             "meshes":["doors_small_09"],
-                            "approachDistance":10000,
                             "moves":
                                 [
                                     {"tick":1000,"move":{"x":0,"y":0,"z":0}},
@@ -238,11 +233,10 @@ export default class MapDungeonClass extends ProjectMapClass
                             "reverseMeshes":["doors_big_right_009"],
                             "rotateOffset":{"x":0,"y":0,"z":2000},
                             "approachOffset":{"x":0,"y":0,"z":-1000},
-                            "approachDistance":12000,
                             "moves":
                                 [
-                                    {"tick":1500,"rotate":{"x":0,"y":0,"z":0},"pauseType":"leave","pauseData":15000,"sound":"door","soundMaxDistance":25000},
-                                    {"tick":1500,"rotate":{"x":0,"y":85,"z":0},"pauseType":"approach","pauseData":15000,"sound":"door","soundMaxDistance":25000}
+                                    {"tick":1500,"rotate":{"x":0,"y":0,"z":0},"pauseType":"leave","pauseData":18000,"sound":"door","soundMaxDistance":25000},
+                                    {"tick":1500,"rotate":{"x":0,"y":85,"z":0},"pauseType":"approach","pauseData":18000,"sound":"door","soundMaxDistance":25000}
                                 ]
                         },
                         {
@@ -250,11 +244,10 @@ export default class MapDungeonClass extends ProjectMapClass
                             "reverseMeshes":["doors_big_right_011"],
                             "rotateOffset":{"x":2000,"y":0,"z":0},
                             "approachOffset":{"x":-1000,"y":0,"z":0},
-                            "approachDistance":12000,
                             "moves":
                                 [
-                                    {"tick":1500,"rotate":{"x":0,"y":0,"z":0},"pauseType":"leave","pauseData":15000,"sound":"door","soundMaxDistance":25000},
-                                    {"tick":1500,"rotate":{"x":0,"y":85,"z":0},"pauseType":"approach","pauseData":15000,"sound":"door","soundMaxDistance":25000}
+                                    {"tick":1500,"rotate":{"x":0,"y":0,"z":0},"pauseType":"leave","pauseData":18000,"sound":"door","soundMaxDistance":25000},
+                                    {"tick":1500,"rotate":{"x":0,"y":85,"z":0},"pauseType":"approach","pauseData":18000,"sound":"door","soundMaxDistance":25000}
                                 ]
                         },
                         {
@@ -262,11 +255,10 @@ export default class MapDungeonClass extends ProjectMapClass
                             "reverseMeshes":["doors_big_right_012"],
                             "rotateOffset":{"x":2000,"y":0,"z":0},
                             "approachOffset":{"x":-1000,"y":0,"z":0},
-                            "approachDistance":12000,
                             "moves":
                                 [
-                                    {"tick":1500,"rotate":{"x":0,"y":0,"z":0},"pauseType":"leave","pauseData":15000,"sound":"door","soundMaxDistance":25000},
-                                    {"tick":1500,"rotate":{"x":0,"y":85,"z":0},"pauseType":"approach","pauseData":15000,"sound":"door","soundMaxDistance":25000}
+                                    {"tick":1500,"rotate":{"x":0,"y":0,"z":0},"pauseType":"leave","pauseData":18000,"sound":"door","soundMaxDistance":25000},
+                                    {"tick":1500,"rotate":{"x":0,"y":85,"z":0},"pauseType":"approach","pauseData":18000,"sound":"door","soundMaxDistance":25000}
                                 ]
                         },
                         {
@@ -274,11 +266,10 @@ export default class MapDungeonClass extends ProjectMapClass
                             "reverseMeshes":["doors_big_right_014"],
                             "rotateOffset":{"x":2000,"y":0,"z":0},
                             "approachOffset":{"x":-1000,"y":0,"z":0},
-                            "approachDistance":12000,
                             "moves":
                                 [
-                                    {"tick":1500,"rotate":{"x":0,"y":0,"z":0},"pauseType":"leave","pauseData":15000,"sound":"door","soundMaxDistance":25000},
-                                    {"tick":1500,"rotate":{"x":0,"y":85,"z":0},"pauseType":"approach","pauseData":15000,"sound":"door","soundMaxDistance":25000}
+                                    {"tick":1500,"rotate":{"x":0,"y":0,"z":0},"pauseType":"leave","pauseData":18000,"sound":"door","soundMaxDistance":25000},
+                                    {"tick":1500,"rotate":{"x":0,"y":85,"z":0},"pauseType":"approach","pauseData":18000,"sound":"door","soundMaxDistance":25000}
                                 ]
                         }
                     ],
