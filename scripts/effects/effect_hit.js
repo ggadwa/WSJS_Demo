@@ -43,7 +43,7 @@ export default class EffectHitClass extends ProjectEffectClass
         
             // add a bitmap for this effect
             
-        this.hitBitmap=this.addBitmap('textures/particle_hit.png',null,null,null,null);
+        this.hitBitmap=this.addBitmap('textures/particle_hit.png',null,null,null,null,0);
         
             // setup the drawing
             

@@ -42,7 +42,7 @@ export default class EffectExplosionSmokeClass extends ProjectEffectClass
         
             // add a bitmap for this effect
             
-        this.smokeBitmap=this.addBitmap('textures/particle_smoke.png',null,null,null,null);
+        this.smokeBitmap=this.addBitmap('textures/particle_smoke.png',null,null,null,null,0);
         
             // setup the drawing
             

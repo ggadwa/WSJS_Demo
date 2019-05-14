@@ -49,7 +49,7 @@ export default class EffectWebClass extends ProjectEffectClass
         
             // add a bitmap for this effect
             
-        this.webBitmap=this.addBitmap('textures/web.png',null,null,null,null);
+        this.webBitmap=this.addBitmap('textures/web.png',null,null,null,null,0);
         
             // setup the drawing
             
