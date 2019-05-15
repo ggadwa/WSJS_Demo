@@ -84,7 +84,8 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
 
             // some light settings
             
-        this.setLightColor(this.lightColor,5.0);
+        this.setLightColor(this.lightColor);
+        this.setLightExponent(5.0);
         
         return(true);
     }

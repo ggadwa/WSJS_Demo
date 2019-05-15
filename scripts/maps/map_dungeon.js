@@ -19,7 +19,6 @@ export default class MapDungeonClass extends ProjectMapClass
             {
                 "name":"dungeon",
                 "scale":700,
-                "ambient":{"r":0.0,"g":0.0,"b":0.0},
                 "glows":
                     [
                         {"bitmap":"crystal_blue_color","url":"textures/blue_crystal_glow.png","frequency":800,"min":0.2,"max":0.7},

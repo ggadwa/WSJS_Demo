@@ -84,7 +84,8 @@ export default class EffectFireClass extends ProjectEffectClass
         
             // some light settings
             
-        this.setLightColor(this.lightColor,1.5);
+        this.setLightColor(this.lightColor);
+        this.setLightExponent(1.5);
         
         return(true);
     }

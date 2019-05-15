@@ -18,22 +18,23 @@ export default class MapDualCastlesClass extends ProjectMapClass
                 "name":"dual_castles",
                 "scale":700,
                 "skyBox":{"size":50000,"bitmapNegX":"textures/sky_neg_x.png","bitmapPosX":"textures/sky_pos_x.png","bitmapNegY":"textures/sky_neg_y.png","bitmapPosY":"textures/sky_pos_y.png","bitmapNegZ":"textures/sky_neg_z.png","bitmapPosZ":"textures/sky_pos_z.png"},
-                "ambient":{"r":0.2,"g":0.2,"b":0.2},
                 "lights":
                     [
-                        {"mesh":"blue_crystal_87","color":{"r":0.45,"g":0.45,"b":1.0},"intensity":90000,"exponent":1.0},
-                        {"mesh":"blue_crystal_69","color":{"r":0.45,"g":0.45,"b":1.0},"intensity":100000,"exponent":1.0},
-                        {"mesh":"blue_crystal_39","color":{"r":0.45,"g":0.45,"b":1.0},"intensity":90000,"exponent":1.0},
-                        {"mesh":"blue_crystal_09","color":{"r":0.45,"g":0.45,"b":1.0},"intensity":100000,"exponent":1.0},
-                        {"position":{"x":-342,"y":21545,"z":201566},"color":{"r":0.45,"g":0.45,"b":1.0},"intensity":120000,"exponent":1.0},
-                        {"position":{"x":127552,"y":22390,"z":125862},"color":{"r":0.45,"g":0.45,"b":1.0},"intensity":150000,"exponent":1.0},
+                        {"position":{"x":0,"y":100000,"z":0},"color":{"r":0.2,"g":0.2,"b":0.2},"intensity":300000,"exponent":0.0},
                         
-                        {"mesh":"red_crystal_33","color":{"r":1.0,"g":0.45,"b":0.45},"intensity":90000,"exponent":1.0},
-                        {"mesh":"red_crystal_82","color":{"r":1.0,"g":0.45,"b":0.45},"intensity":100000,"exponent":1.0},
-                        {"mesh":"red_crystal_49","color":{"r":1.0,"g":0.45,"b":0.45},"intensity":90000,"exponent":1.0},
-                        {"mesh":"red_crystal_73","color":{"r":1.0,"g":0.45,"b":0.45},"intensity":100000,"exponent":1.0},
-                        {"position":{"x":-2819,"y":25306,"z":-222607},"color":{"r":1.0,"g":0.45,"b":0.45},"intensity":120000,"exponent":1.0},
-                        {"position":{"x":-126357,"y":21545,"z":-116208},"color":{"r":1.0,"g":0.45,"b":0.45},"intensity":150000,"exponent":1.0}
+                        {"mesh":"blue_crystal_87","color":{"r":0.3,"g":0.3,"b":0.8},"intensity":80000,"exponent":1.0},
+                        {"mesh":"blue_crystal_69","color":{"r":0.3,"g":0.3,"b":0.8},"intensity":90000,"exponent":1.0},
+                        {"mesh":"blue_crystal_39","color":{"r":0.3,"g":0.3,"b":0.8},"intensity":80000,"exponent":1.0},
+                        {"mesh":"blue_crystal_09","color":{"r":0.3,"g":0.3,"b":0.8},"intensity":90000,"exponent":1.0},
+                        {"position":{"x":-342,"y":21545,"z":201566},"color":{"r":0.4,"g":0.4,"b":0.8},"intensity":150000,"exponent":1.5},
+                        {"position":{"x":127552,"y":22390,"z":125862},"color":{"r":0.4,"g":0.4,"b":0.8},"intensity":170000,"exponent":1.5},
+                        
+                        {"mesh":"red_crystal_33","color":{"r":0.8,"g":0.3,"b":0.3},"intensity":80000,"exponent":1.0},
+                        {"mesh":"red_crystal_82","color":{"r":0.8,"g":0.3,"b":0.3},"intensity":90000,"exponent":1.0},
+                        {"mesh":"red_crystal_49","color":{"r":0.8,"g":0.3,"b":0.3},"intensity":80000,"exponent":1.0},
+                        {"mesh":"red_crystal_73","color":{"r":0.8,"g":0.3,"b":0.3},"intensity":90000,"exponent":1.0},
+                        {"position":{"x":-2819,"y":25306,"z":-222607},"color":{"r":0.8,"g":0.4,"b":0.4},"intensity":150000,"exponent":1.5},
+                        {"position":{"x":-126357,"y":21545,"z":-116208},"color":{"r":0.8,"g":0.4,"b":0.4},"intensity":170000,"exponent":1.5}
                     ],
                 "glows":
                     [
@@ -53,16 +54,16 @@ export default class MapDualCastlesClass extends ProjectMapClass
                 "meshNoBumpMeshes":["tower_pilars_"],
                 "effects":
                     [
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp01","offset":{"x":0,"y":-550,"z":0},"intensity":48000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp02","offset":{"x":0,"y":-550,"z":0},"intensity":48000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp003","offset":{"x":0,"y":-550,"z":0},"intensity":48000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp004","offset":{"x":0,"y":-550,"z":0},"intensity":48000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp005","offset":{"x":0,"y":-550,"z":0},"intensity":48000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp006","offset":{"x":0,"y":-550,"z":0},"intensity":48000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"LAMP14","offset":{"x":-800,"y":-750,"z":0},"intensity":13000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"LAMP16","offset":{"x":0,"y":-750,"z":-900},"intensity":18000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"LAMP08","offset":{"x":0,"y":-750,"z":900},"intensity":18000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"LAMP10","offset":{"x":800,"y":-750,"z":0},"intensity":13000}}
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp01","offset":{"x":0,"y":-550,"z":0},"intensity":40000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp02","offset":{"x":0,"y":-550,"z":0},"intensity":40000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp003","offset":{"x":0,"y":-550,"z":0},"intensity":40000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp004","offset":{"x":0,"y":-550,"z":0},"intensity":40000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp005","offset":{"x":0,"y":-550,"z":0},"intensity":40000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp006","offset":{"x":0,"y":-550,"z":0},"intensity":40000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"LAMP14","offset":{"x":-800,"y":-750,"z":0},"intensity":14000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"LAMP16","offset":{"x":0,"y":-750,"z":-900},"intensity":12000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"LAMP08","offset":{"x":0,"y":-750,"z":900},"intensity":12000}},
+                        {"effect":EffectFireClass,"data":{"mesh":"LAMP10","offset":{"x":800,"y":-750,"z":0},"intensity":14000}}
                     ],
                 "movements":
                     [
