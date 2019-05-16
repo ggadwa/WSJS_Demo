@@ -41,7 +41,7 @@ export default class EffectSparkleClass extends ProjectEffectClass
         
             // add a bitmap for this effect
             
-        this.sparkleBitmap=this.addBitmap('textures/particle_hit.png',null,null,null,null,0);
+        this.sparkleBitmap=this.addBitmap('textures/particle_hit.png');
         
             // setup the drawing
             

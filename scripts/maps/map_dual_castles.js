@@ -17,7 +17,7 @@ export default class MapDualCastlesClass extends ProjectMapClass
             {
                 "name":"dual_castles",
                 "scale":700,
-                "skyBox":{"size":50000,"bitmapNegX":"textures/sky_neg_x.png","bitmapPosX":"textures/sky_pos_x.png","bitmapNegY":"textures/sky_neg_y.png","bitmapPosY":"textures/sky_pos_y.png","bitmapNegZ":"textures/sky_neg_z.png","bitmapPosZ":"textures/sky_pos_z.png"},
+                "skyBox":{"size":50000,"bitmap":"textures/skybox.png"},
                 "lights":
                     [
                         {"position":{"x":0,"y":100000,"z":0},"color":{"r":0.2,"g":0.2,"b":0.2},"intensity":300000,"exponent":0.0},

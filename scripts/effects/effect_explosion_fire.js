@@ -64,7 +64,7 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
         
             // add a bitmap for this effect
             
-        this.fireBitmap=this.addBitmap('textures/particle_blob.png',null,null,null,null,0);
+        this.fireBitmap=this.addBitmap('textures/particle_blob.png');
         
             // sounds
             

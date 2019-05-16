@@ -47,8 +47,8 @@ export default class EffectFireClass extends ProjectEffectClass
         
             // add a bitmap for this effect
             
-        this.fireBitmap=this.addBitmap('textures/particle_blob.png',null,null,null,null,0);
-        this.glowBitmap=this.addBitmap('textures/particle_glow.png',null,null,null,null,0);
+        this.fireBitmap=this.addBitmap('textures/particle_blob.png');
+        this.glowBitmap=this.addBitmap('textures/particle_glow.png');
         
             // setup the drawing
             
