@@ -34,7 +34,7 @@ export default class EntityWeaponM16Class extends EntityWeaponBaseClass
         this.interfaceIconName='m16_bullet';
         
         this.handOffset=new PointClass(100,-8500,-2000);
-        this.handAngle=new PointClass(0,0,-10);
+        this.handAngle=new PointClass(0,-10,0);
             
             // the model
             
