@@ -488,8 +488,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // figure out the movement
          
-        this.movement.moveZWithAcceleration(((this.isKeyDown(38)) || (this.isKeyDown(87))),((this.isKeyDown(40)) || (this.isKeyDown(83))),EntityPlayerClass.FORWARD_ACCELERATION,EntityPlayerClass.FORWARD_DECELERATION,EntityPlayerClass.FORWARD_MAX_SPEED);
-        this.movement.moveXWithAcceleration(this.isKeyDown(65),this.isKeyDown(68),EntityPlayerClass.SIDE_ACCELERATION,EntityPlayerClass.SIDE_DECELERATION,EntityPlayerClass.SIDE_MAX_SPEED);
+        this.movement.moveZWithAcceleration(((this.isKeyDown(38)) || (this.isKeyDown(87))),((this.isKeyDown(40)) || (this.isKeyDown(83))),EntityPlayerClass.FORWARD_ACCELERATION,EntityPlayerClass.FORWARD_DECELERATION,EntityPlayerClass.FORWARD_MAX_SPEED,EntityPlayerClass.FORWARD_ACCELERATION,EntityPlayerClass.FORWARD_DECELERATION,EntityPlayerClass.FORWARD_MAX_SPEED);
+        this.movement.moveXWithAcceleration(this.isKeyDown(65),this.isKeyDown(68),EntityPlayerClass.SIDE_ACCELERATION,EntityPlayerClass.SIDE_DECELERATION,EntityPlayerClass.SIDE_MAX_SPEED,EntityPlayerClass.SIDE_ACCELERATION,EntityPlayerClass.SIDE_DECELERATION,EntityPlayerClass.SIDE_MAX_SPEED);
         
         this.rotMovement.setFromPoint(this.movement);
         if ((this.debugPlayerFly) || (this.lastUnderLiquid)) {

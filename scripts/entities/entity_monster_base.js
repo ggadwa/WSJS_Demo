@@ -339,7 +339,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         
             // chase player
 
-        this.movement.moveZWithAcceleration(true,false,this.forwardAcceleration,0,this.forwardMaxSpeed);        
+        this.movement.moveZWithAcceleration(true,false,this.forwardAcceleration,0,this.forwardMaxSpeed,this.forwardAcceleration,0,this.forwardMaxSpeed);        
         this.rotMovement.setFromPoint(this.movement);
         this.rotMovement.rotateY(null,this.angle.y);
         

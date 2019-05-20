@@ -528,8 +528,8 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         
             // move
             
-        this.movement.moveZWithAcceleration(moveForward,false,EntityMultiplayerBotClass.FORWARD_ACCELERATION,EntityMultiplayerBotClass.FORWARD_DECELERATION,EntityMultiplayerBotClass.FORWARD_MAX_SPEED);        
-        this.movement.moveXWithAcceleration(slideLeft,false,EntityMultiplayerBotClass.SIDE_ACCELERATION,EntityMultiplayerBotClass.SIDE_DECELERATION,EntityMultiplayerBotClass.SIDE_MAX_SPEED);
+        this.movement.moveZWithAcceleration(moveForward,false,EntityMultiplayerBotClass.FORWARD_ACCELERATION,EntityMultiplayerBotClass.FORWARD_DECELERATION,EntityMultiplayerBotClass.FORWARD_MAX_SPEED,EntityMultiplayerBotClass.FORWARD_ACCELERATION,EntityMultiplayerBotClass.FORWARD_DECELERATION,EntityMultiplayerBotClass.FORWARD_MAX_SPEED);        
+        this.movement.moveXWithAcceleration(slideLeft,false,EntityMultiplayerBotClass.SIDE_ACCELERATION,EntityMultiplayerBotClass.SIDE_DECELERATION,EntityMultiplayerBotClass.SIDE_MAX_SPEED,EntityMultiplayerBotClass.SIDE_ACCELERATION,EntityMultiplayerBotClass.SIDE_DECELERATION,EntityMultiplayerBotClass.SIDE_MAX_SPEED);
 
         this.rotMovement.setFromPoint(this.movement);
         this.rotMovement.rotateY(null,this.angle.y);
