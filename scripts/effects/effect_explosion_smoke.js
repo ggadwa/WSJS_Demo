@@ -98,6 +98,7 @@ export default class EffectExplosionSmokeClass extends ProjectEffectClass
     draw()
     {
         let tick,factor,halfSize,alpha;
+        let k,u,v;
        
             // smoke setup
             
@@ -111,8 +112,12 @@ export default class EffectExplosionSmokeClass extends ProjectEffectClass
 
             // the particles
             
+        k=this.getPeriodicLinear(200,4);
+        u=((k&0x2)===0)?0:0.5;
+        v=(k&0x1)*0.5;
+            
         this.drawStart();
-        this.drawAddBillboardQuadFromMotion(this.smokeBitmap,this.smokeMotions,factor,this.position,0,0,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.whiteColor,alpha);
+        this.drawAddBillboardQuadFromMotion(this.smokeBitmap,this.smokeMotions,factor,this.position,u,v,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.whiteColor,alpha);
         this.drawEnd();
     }
 }
