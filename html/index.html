@@ -20,16 +20,17 @@
 <script>
 function runDungeon()
 {
-    window.main.run(window.gameClass,{"startMap":"Dungeon"});
+    window.main.run(window.gameClass,false,{"startMap":"Dungeon"});
 }
 
 function runDualCastle()
 {
-    window.main.run(window.gameClass,{"startMap":"Dual Castles"});
+    window.main.run(window.gameClass,false,{"startMap":"Dual Castles"});
 }
 
 function runNetwork()
 {
+    window.main.run(window.gameClass,true,{"startMap":"Dual Castles"});
 }
     
 </script>
@@ -52,8 +53,8 @@ function runNetwork()
         <div class="imageText">Multiplayer Bot Map</div>
     </div>
     <div class="column">
-        <img class="imageClick" src="network.png" onClick="runNetwork()">
-        <div class="imageText">Network Persistence Map</div>
+        <img class="imageClick" src="dual_castles.png" onClick="runNetwork()">
+        <div class="imageText">Network Map</div>
     </div>
 </div>
 <!-- instructions -->
