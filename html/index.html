@@ -25,11 +25,6 @@ function runDungeon()
 
 function runDualCastle()
 {
-    window.main.run(window.gameClass,false,{"startMap":"Dual Castles"});
-}
-
-function runNetwork()
-{
     window.main.run(window.gameClass,true,{"startMap":"Dual Castles"});
 }
     
@@ -50,13 +45,10 @@ function runNetwork()
     </div>
     <div class="column">
         <img class="imageClick" src="dual_castles.png" onClick="runDualCastle()">
-        <div class="imageText">Multiplayer Bot Map</div>
-    </div>
-    <div class="column">
-        <img class="imageClick" src="dual_castles.png" onClick="runNetwork()">
-        <div class="imageText">Network Map</div>
+        <div class="imageText">Multiplayer\Bot Map</div>
     </div>
 </div>
+
 <!-- instructions -->
 
 <div class="header">Instructions</div>

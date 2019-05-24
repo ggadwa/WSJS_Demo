@@ -42,6 +42,8 @@ export default class GameClass extends ProjectGameDeveloperClass
         this.addBitmap('textures/icon_health.png');
         this.addInterfaceElement('health','icon_health',null,null,new RectClass((wid-40),(high-40),(wid-5),(high-5)),null,1);
         this.addInterfaceText('health_count','',(wid-50),(high-12),20,InterfaceTextClass.TEXT_ALIGN_RIGHT,new ColorClass(1,1,0),1);
+        
+        if (this.isMultiplayer) this.addInterfaceText('multiplayer_message','',5,25,20,InterfaceTextClass.TEXT_ALIGN_LEFT,new ColorClass(1,1,0),1);
     }
     
     getName()

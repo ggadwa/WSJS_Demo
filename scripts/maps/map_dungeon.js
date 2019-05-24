@@ -274,7 +274,7 @@ export default class MapDungeonClass extends ProjectMapClass
                     ],
                 "entities":
                     [
-                        {"entity":EntityPlayerClass,"name":"Player","position":{"x":-11990,"y":-189,"z":-78363},"angle":{"x":0,"y":0,"z":0},"data":{"multiplayer":false}},
+                        {"entity":EntityPlayerClass,"name":"Player","position":{"x":-11990,"y":-189,"z":-78363},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntityCaptainChestClass,"name":"chest_01","position":{"x":907,"y":-189,"z":-54915},"angle":{"x":0,"y":210,"z":0},"data":{"trigger":"gate_01"}},
                         {"entity":EntityCaptainChestClass,"name":"chest_02","position":{"x":-10245,"y":814,"z":88164},"angle":{"x":0,"y":10,"z":0},"data":{"trigger":"gate_03"}},
                         {"entity":EntityCaptainChestClass,"name":"chest_03","position":{"x":-61933,"y":-7976,"z":37390},"angle":{"x":0,"y":25,"z":0},"data":{"trigger":"gate_02"}},

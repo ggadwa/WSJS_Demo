@@ -63,13 +63,16 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.gravityAcceleration=20;
         
         this.filter='player';          // filters are used when searching for entities
+        
+            // this is the player, replace
+            // the name with setup name
+            
+        this.name=this.getSetup().name;
 
             // some pre-allocations
             
         this.movement=new PointClass(0,0,0);
         this.rotMovement=new PointClass(0,0,0);
-        
-        this.scores=new Map();
         
             // add sounds
             
@@ -153,7 +156,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             // move to random node
             // if multiplayer
             
-        if (this.data.multiplayer) this.moveToRandomNode(EntityPlayerClass.RANDOM_NODE_FAIL_COUNT);
+        if (this.isMultiplayer()) this.moveToRandomNode(EntityPlayerClass.RANDOM_NODE_FAIL_COUNT);
     }
     
         //
@@ -192,8 +195,17 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             this.m16.show=false;
             this.playSound('player_die');
             
-            if (this.data.multiplayer) {
-                if (fromEntity!==null) this.addScore(fromEntity.name,((fromEntity!==this)?1:-1));
+            if (this.isMultiplayer()) {
+                if (fromEntity!==null) {
+                    if (fromEntity!==this) {
+                        this.addScore(fromEntity.name,1);
+                        this.updateInterfaceTemporaryText('multiplayer_message',(fromEntity.name+' killed '+this.name),5000);
+                    }
+                    else {
+                        this.addScore(fromEntity.name,-1);
+                        this.updateInterfaceTemporaryText('multiplayer_message',(this.name+' committed suicide'),5000);
+                    }
+                }
                 this.displayScore(true);
             }
             
@@ -265,7 +277,13 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         let entity;
         let entityList=this.getEntityList();
         
-        this.scores.clear();
+            // if we already started score, then ignore this
+            
+        if (this.scores!==null) return; 
+        
+            // create the scores
+            
+        this.scores=new Map();
         
         for (entity of entityList.entities) {
             if ((entity.filter==='bot') || (entity.filter==='player')) this.scores.set(entity.name,0);
@@ -375,7 +393,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             
                 // dying twist
                 
-            if ((!this.data.multiplayer) && (this.deadCount===0)) this.deadCount=1;       //  never recover if not multiplayer
+            if ((!this.isMultiplayer()) && (this.deadCount===0)) this.deadCount=1;       //  never recover if not multiplayer
             if (this.deadCount>1) {
                 if (this.angle.x>-80.0) {
                     this.position.y-=20;        // sink to ground

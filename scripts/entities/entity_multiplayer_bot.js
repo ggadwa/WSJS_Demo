@@ -396,7 +396,19 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
             this.queueAnimationStop();
             this.playSound('player_die');
             
-            if (fromEntity!==null) this.getPlayerEntity().addScore(fromEntity.name,((fromEntity!==this)?1:-1));
+            if (this.isMultiplayer()) {
+                if (fromEntity!==null) {
+                    if (fromEntity!==this) {
+                        this.getPlayerEntity().addScore(fromEntity.name,1);
+                        this.updateInterfaceTemporaryText('multiplayer_message',(fromEntity.name+' killed '+this.name),5000);
+                    }
+                    else {
+                        this.getPlayerEntity().addScore(fromEntity.name,-1);
+                        this.updateInterfaceTemporaryText('multiplayer_message',(this.name+' committed suicide'),5000);
+                    }
+                }
+            }
+            
             return;
         }
         
