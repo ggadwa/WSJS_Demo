@@ -74,6 +74,11 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.movement=new PointClass(0,0,0);
         this.rotMovement=new PointClass(0,0,0);
         
+            // the model
+            
+        this.setModel({"name":"player"});
+        this.scale.setFromValues(3000,3000,3000);
+        
             // add sounds
             
         this.addSound('player_die',30000);
@@ -530,5 +535,14 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             this.movement.y=this.moveInMapY(this.rotMovement,this.debugPlayerFly);
             this.moveInMapXZ(this.rotMovement,bump,true);
         }
+    }
+    
+        //
+        // player is never drawn, so always skip out
+        //
+        
+    drawSetup()
+    {
+        return(false);
     }
 }
