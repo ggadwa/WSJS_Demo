@@ -123,7 +123,7 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
         entityList=this.getEntityList();
         
         for (entity of entityList.entities) {
-            if (entity.damage===undefined) continue;
+            if ((!entity.active) || (!entity.show) || (entity.damage===undefined)) continue;
             if (entity===this.parentEntity) continue;       // never hurt yourself with explosion
             
             dist=this.position.distance(entity.position);

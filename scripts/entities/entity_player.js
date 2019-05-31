@@ -291,7 +291,9 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.scores=new Map();
         
         for (entity of entityList.entities) {
-            if ((entity.filter==='bot') || (entity.filter==='player')) this.scores.set(entity.name,0);
+            if (entity.active) {
+                if ((entity.filter==='bot') || (entity.filter==='remote') || (entity.filter==='player')) this.scores.set(entity.name,0);
+            }
         }
         
         this.scoreColor=new ColorClass(0,1,0.2);
@@ -299,7 +301,10 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     
     addScore(name,points)
     {
-        this.scores.set(name,(this.scores.get(name)+points));
+        let score=this.scores.get(name);
+        if (score===undefined) score=0;
+        
+        this.scores.set(name,(score+points));
     }
     
     displayScore(show)

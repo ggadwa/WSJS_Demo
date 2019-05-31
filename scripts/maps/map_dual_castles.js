@@ -2,11 +2,13 @@ import PointClass from '../../../code/utility/point.js';
 import ProjectMapClass from '../../../code/project/project_map.js';
 import EntityPlayerClass from '../entities/entity_player.js';
 import EntityMultiplayerBotClass from '../entities/entity_multiplayer_bot.js';
+import EntityRemoteClass from '../entities/entity_remote.js';
 import EntityPickupBerettaClass from '../entities/entity_pickup_beretta.js';
 import EntityPickupM16Class from '../entities/entity_pickup_m16.js';
 import EntityPickupGrenadeClass from '../entities/entity_pickup_grenade.js';
 import EntityPickupChickenLegClass from '../entities/entity_pickup_chicken_leg.js';
 import EntityPickupArmorClass from '../entities/entity_pickup_armor.js';
+import EntityBeachBallClass from '../entities/entity_beach_ball.js';
 import EffectFireClass from '../effects/effect_fire.js';
 
 export default class MapDualCastlesClass extends ProjectMapClass
@@ -252,16 +254,21 @@ export default class MapDualCastlesClass extends ProjectMapClass
                 "entities":
                     [
                         {"entity":EntityPlayerClass,"name":"Player","position":{"x":-28000,"y":24124,"z":0},"angle":{"x":0,"y":90,"z":0}},
-                        {"entity":EntityMultiplayerBotClass,"name":"Caesar","botCountIndex":0},
-                        {"entity":EntityMultiplayerBotClass,"name":"Vespasian","botCountIndex":1},
-                        {"entity":EntityMultiplayerBotClass,"name":"Hadrian","botCountIndex":2},
-                        {"entity":EntityMultiplayerBotClass,"name":"Augustus","botCountIndex":3},
-                        {"entity":EntityMultiplayerBotClass,"name":"Trajan","botCountIndex":4},
-                        {"entity":EntityMultiplayerBotClass,"name":"Tiberius","botCountIndex":5},
-                        {"entity":EntityMultiplayerBotClass,"name":"Caligula","botCountIndex":6},
-                        {"entity":EntityMultiplayerBotClass,"name":"Claudius","botCountIndex":7},
-                        {"entity":EntityMultiplayerBotClass,"name":"Nero","botCountIndex":8},
-                        {"entity":EntityMultiplayerBotClass,"name":"Commodus","botCountIndex":9},
+                        {"entity":EntityMultiplayerBotClass,"name":"Caesar","bot":true},
+                        {"entity":EntityMultiplayerBotClass,"name":"Vespasian","bot":true},
+                        {"entity":EntityMultiplayerBotClass,"name":"Hadrian","bot":true},
+                        {"entity":EntityMultiplayerBotClass,"name":"Augustus","bot":true},
+                        {"entity":EntityMultiplayerBotClass,"name":"Trajan","bot":true},
+                        {"entity":EntityMultiplayerBotClass,"name":"Tiberius","bot":true},
+                        {"entity":EntityMultiplayerBotClass,"name":"Caligula","bot":true},
+                        {"entity":EntityMultiplayerBotClass,"name":"Claudius","bot":true},
+                        {"entity":EntityMultiplayerBotClass,"name":"Nero","bot":true},
+                        {"entity":EntityMultiplayerBotClass,"name":"Commodus","bot":true},
+                        {"entity":EntityRemoteClass,"remote":true},
+                        {"entity":EntityRemoteClass,"remote":true},
+                        {"entity":EntityRemoteClass,"remote":true},
+                        {"entity":EntityRemoteClass,"remote":true},
+                        {"entity":EntityRemoteClass,"remote":true},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_01","position":{"x":-28242,"y":24839,"z":-28541},"data":{"ammo":true}},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_02","position":{"x":28074,"y":24839,"z":28166},"data":{"ammo":true}},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_03","position":{"x":-28105,"y":24839,"z":28435},"data":{"ammo":true}},
@@ -277,10 +284,13 @@ export default class MapDualCastlesClass extends ProjectMapClass
                         {"entity":EntityPickupChickenLegClass,"name":"health_01","position":{"x":1468,"y":29851,"z":109299}},
                         {"entity":EntityPickupChickenLegClass,"name":"health_02","position":{"x":-1789,"y":29851,"z":-108954}},
                         {"entity":EntityPickupArmorClass,"name":"armor_01","position":{"x":-342,"y":6000,"z":201566}},
-                        {"entity":EntityPickupArmorClass,"name":"armor_02","position":{"x":-2819,"y":12000,"z":-222607}}
+                        {"entity":EntityPickupArmorClass,"name":"armor_02","position":{"x":-2819,"y":12000,"z":-222607}},
+                        {"entity":EntityBeachBallClass,"name":"ball_01","position":{"x":122959,"y":784,"z":58039}},
+                        {"entity":EntityBeachBallClass,"name":"ball_02","position":{"x":-123057,"y":2933,"z":-76760}},
+                        {"entity":EntityBeachBallClass,"name":"ball_03","position":{"x":-24376,"y":59561,"z":-124091}},
+                        {"entity":EntityBeachBallClass,"name":"ball_04","position":{"x":25391,"y":59561,"z":123314}}
                     ]
             }
         );
     }
 }
-

@@ -125,7 +125,7 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
         entityList=this.getEntityList();
         
         for (entity of entityList.entities) {
-            if (entity.damage===undefined) continue;
+            if ((!entity.active) || (!entity.show) || (entity.damage===undefined)) continue;
             
             dist=this.position.distance(entity.position);
             if (dist>EntityProjectileGrenadeClass.DAMAGE_DISTANCE) continue;
