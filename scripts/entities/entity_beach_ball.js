@@ -14,8 +14,8 @@ export default class BeachBallClass extends ProjectEntityClass
         
             // setup
             
-        this.radius=1500;
-        this.height=4500;
+        this.radius=5000;
+        this.height=10000;
         
         this.gravityMinValue=10;
         this.gravityMaxValue=450;
@@ -23,8 +23,8 @@ export default class BeachBallClass extends ProjectEntityClass
         
             // model
             
-        this.setModel({"name":"crystal_ball"});
-        this.scale.setFromValues(500,500,500);
+        this.setModel({"name":"beach_ball"});
+        this.scale.setFromValues(5000,5000,5000);
     }
     
     
