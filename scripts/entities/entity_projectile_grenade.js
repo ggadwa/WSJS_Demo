@@ -109,8 +109,6 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
     
     explode()
     {
-        let dist,damage,entity,entityList;
-        
         this.running=false;
         this.show=false;
         
@@ -119,29 +117,13 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
         this.explosionSmokeEffect.restart(this.position,true);
         this.explosionFireEffect.restart(this.position,true);
         
-            // damage any entity that has a
-            // damage method
+            // damage entities in a radius
             
-        entityList=this.getEntityList();
-        
-        for (entity of entityList.entities) {
-            if ((!entity.active) || (!entity.show) || (entity.damage===undefined)) continue;
-            
-            dist=this.position.distance(entity.position);
-            if (dist>EntityProjectileGrenadeClass.DAMAGE_DISTANCE) continue;
-            
-            damage=Math.trunc((1.0-(dist/EntityProjectileGrenadeClass.DAMAGE_DISTANCE))*EntityProjectileGrenadeClass.DAMAGE);
-            entity.damage(this.parentEntity,damage);
-        }
+        this.damageEntityForRadius(this.parentEntity,this.position,EntityProjectileGrenadeClass.DAMAGE_DISTANCE,EntityProjectileGrenadeClass.DAMAGE);
         
             // shake the screen
             
-        entity=this.getPlayerEntity();
-        
-        dist=this.position.distance(entity.position);
-        if (dist>EntityProjectileGrenadeClass.SHAKE_DISTANCE) return;
-        
-        this.startCameraShake(EntityProjectileGrenadeClass.SHAKE_TICK,Math.trunc((EntityProjectileGrenadeClass.SHAKE_MAX_SHIFT*dist)/EntityProjectileGrenadeClass.SHAKE_DISTANCE));
+        this.shakeCamera(this.position,EntityProjectileGrenadeClass.SHAKE_DISTANCE,EntityProjectileGrenadeClass.SHAKE_TICK,EntityProjectileGrenadeClass.SHAKE_MAX_SHIFT);
     }
     
     run()

@@ -112,7 +112,7 @@ export default class EffectExplosionSmokeClass extends ProjectEffectClass
 
             // the particles
             
-        k=this.getPeriodicLinear(200,4);
+        k=this.getPeriodicLinear(600,4);
         u=((k&0x2)===0)?0:0.5;
         v=(k&0x1)*0.5;
             

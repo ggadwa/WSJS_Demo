@@ -86,7 +86,9 @@ export default class EntityWeaponBaseClass extends ProjectEntityClass
                 // is this an entity we can hit?
                 
             if (this.hitEntity) {
-                if (this.hitEntity.damage!==undefined) this.hitEntity.damage(this.heldBy,damage);
+                if (this.hitEntity.damage!==undefined) {
+                    this.hitEntity.damage(this.heldBy,damage,this.fireHitPoint);
+                }
             }
             
                 // hit effect

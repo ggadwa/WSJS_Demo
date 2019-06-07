@@ -379,7 +379,7 @@ export default class EntityRemoteClass extends ProjectEntityClass
     // called when somebody damages this entity
     //
     
-    damage(fromEntity,damage)
+    damage(fromEntity,damage,hitPoint)
     {
         if (this.deadCount!==-1) return;
         

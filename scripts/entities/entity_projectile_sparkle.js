@@ -110,37 +110,18 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
         
     explode()
     {
-        let dist,damage,entity,entityList;
-        
             // explosion effects
             
         this.explosionSmokeEffect.restart(this.position,true);
         this.explosionFireEffect.restart(this.position,true);
         
-            // damage any entity that has a
-            // damage method
+            // damage entities in a radius
             
-        entityList=this.getEntityList();
-        
-        for (entity of entityList.entities) {
-            if ((!entity.active) || (!entity.show) || (entity.damage===undefined)) continue;
-            if (entity===this.parentEntity) continue;       // never hurt yourself with explosion
-            
-            dist=this.position.distance(entity.position);
-            if (dist>EntityProjectileSparkleClass.DAMAGE_DISTANCE) continue;
-            
-            damage=Math.trunc((1.0-(dist/EntityProjectileSparkleClass.DAMAGE_DISTANCE))*EntityProjectileSparkleClass.EXPLODE_DAMAGE);
-            entity.damage(this.parentEntity,damage);
-        }
+        this.damageEntityForRadius(this.parentEntity,this.position,EntityProjectileSparkleClass.DAMAGE_DISTANCE,EntityProjectileSparkleClass.DAMAGE);
         
             // shake the screen
             
-        entity=this.getPlayerEntity();
-        
-        dist=this.position.distance(entity.position);
-        if (dist>EntityProjectileSparkleClass.SHAKE_DISTANCE) return;
-        
-        this.startCameraShake(EntityProjectileSparkleClass.SHAKE_TICK,Math.trunc((EntityProjectileSparkleClass.SHAKE_MAX_SHIFT*dist)/EntityProjectileSparkleClass.SHAKE_DISTANCE));
+        this.shakeCamera(this.position,EntityProjectileSparkleClass.SHAKE_DISTANCE,EntityProjectileSparkleClass.SHAKE_TICK,EntityProjectileSparkleClass.SHAKE_MAX_SHIFT);
     }
 
         //
@@ -169,7 +150,7 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
         this.running=false;
         this.show=false;
 
-        if (this.touchEntity!==null) this.touchEntity.damage(this.parentEntity,EntityProjectileSparkleClass.DAMAGE);
+        if (this.touchEntity!==null) this.touchEntity.damage(this.parentEntity,EntityProjectileSparkleClass.DAMAGE,this.position);
         
             // some can explode
             

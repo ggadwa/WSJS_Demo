@@ -144,7 +144,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         this.startModelAnimationChunkInFrames(null,30,this.idleAnimationFrames[0],this.idleAnimationFrames[1]);
     }
     
-    damage(fromEntity,damage)
+    damage(fromEntity,damage,hitPoint)
     {
         let timestamp;
         
@@ -207,7 +207,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     meleeHit(player)
     {
         this.playSound(this.meleeSoundName);
-        player.damage(this,this.meleeDamage);
+        player.damage(this,this.meleeDamage,null);
     }
     
     projectileSetupFire(player)
