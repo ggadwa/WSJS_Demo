@@ -12,6 +12,7 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
     static LIFE_TICK=3000;
     static SPEED=450;
     static BOUNCE_FACTOR=0.95;
+    static BOUNCE_CUT=50;
     static DECELERATION_FACTOR=0.95;
     static STOP_SPEED=10;
     static BOUNCE_PAUSE_COUNT=5;
@@ -163,8 +164,15 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
             this.playSound('grenade_bounce');
             
             this.position.setFromPoint(this.savePoint);
-            this.motion.y=this.floorHitBounceY(this.motion.y,EntityProjectileGrenadeClass.BOUNCE_FACTOR);
-            if (this.motion.y===0) this.rolling=true;
+            this.motion.y=this.floorHitBounceY(this.motion.y,EntityProjectileGrenadeClass.BOUNCE_FACTOR,EntityProjectileGrenadeClass.BOUNCE_CUT);
+            
+            if (this.motion.y===0) {
+                this.rolling=true;
+            }
+            else {
+                this.motion.y=this.moveInMapY(this.motion,false);
+            }
+            
             return;
         }
 
@@ -212,11 +220,11 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
         }
         
             // model is centered on Y so it needs
-            // to be moved up a bit to draw, but we only
-            // do this if rolling
+            // to be moved up to draw (when need to rotate from
+            // center to roll)
                 
         this.drawPosition.setFromPoint(this.position);
-        if (this.rolling) this.drawPosition.y+=300;
+        this.drawPosition.y+=300;
         
         this.setModelDrawPosition(this.drawPosition,this.drawAngle,this.scale,false);
         return(true);
