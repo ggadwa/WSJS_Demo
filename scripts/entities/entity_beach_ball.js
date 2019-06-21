@@ -15,14 +15,25 @@ export default class EntityBeachBallClass extends ProjectEntityClass
     static DECELERATION_MULTIPLY=0.99;
     static BOUNCE_FACTOR=0.8;
     static BOUNCE_CUT=150;
-    static ROLL_ANGLE_ADD=1;
-    static MAX_ROLL_Y_CHANGE=50;
+    static BOUNCE_PAUSE_COUNT=5;
+    static ROLL_ANGLE_ADD=2;
+    static MAX_ROLL_Y_CHANGE=250;
     static RESET_HEIGHT=100000;
     static EXPLODE_DAMAGE=30;
     static DAMAGE_DISTANCE=20000;
     static SHAKE_DISTANCE=30000;
     static SHAKE_MAX_SHIFT=40;
     static SHAKE_TICK=2000;
+    
+    positionBackup=null;
+    motion=null;
+    rollMotion=null;
+    pushMotion=null;
+    tempPoint=null;
+    savePoint=null;
+    drawPosition=null;
+    drawAngle=null;
+    bouncePause=0;
     
     initialize()
     {
@@ -41,11 +52,15 @@ export default class EntityBeachBallClass extends ProjectEntityClass
         
         this.positionBackup=new PointClass(0,0,0);
         this.motion=new PointClass(0,0,0);
-        this.movement=new PointClass(0,0,0);
+        this.rollMotion=new PointClass(0,0,0);
+        this.pushMotion=new PointClass(0,0,0);
+        this.tempPoint=new PointClass(0,0,0);
         this.savePoint=new PointClass(0,0,0);
         
         this.drawPosition=new PointClass(0,0,0);
         this.drawAngle=new PointClass(0,0,0);
+        
+        this.bouncePause=0;
         
             // model
             
@@ -61,7 +76,11 @@ export default class EntityBeachBallClass extends ProjectEntityClass
     ready()
     {
         this.positionBackup.setFromPoint(this.position);
+        
         this.motion.setFromValues(0,0,0);
+        this.rollMotion.setFromValues(0,0,0);
+        
+        this.bouncePause=0;
     }
     
     damage(fromEntity,damage,hitPoint)
@@ -92,22 +111,43 @@ export default class EntityBeachBallClass extends ProjectEntityClass
         this.motion.setFromValues(0,0,0);
     }
     
+    entityPush(entity,movePnt)
+    {
+        let passThrough;
+        
+            // get the movement to the center point of this
+            // pushed entity
+            
+        this.pushMotion.setFromSubPoint(this.position,this.touchEntity.position);
+        this.pushMotion.normalize();
+        this.pushMotion.scale(movePnt.length());
+        
+            // average it with the push
+            
+        this.pushMotion.average(movePnt);
+        
+            // move this, but hide the pushing entity first
+            // so we don't doubly collide with it
+            
+        passThrough=entity.passThrough;
+        
+        entity.passThrough=true;
+        this.moveInMapXZ(this.pushMotion,false,false);
+        
+        entity.passThrough=passThrough;
+        
+        this.rollMotion.addPoint(this.pushMotion);
+            
+        return(true);
+    }
+    
     run()
     {
         let mesh,trig,lowVertex;
         
-            // movement by touch
-            
-        if (this.touchEntity!==null) {
-            this.movement.setFromSubPoint(this.position,this.touchEntity.position);
-            this.movement.normalize();
-            this.movement.scale(EntityBeachBallClass.TOUCH_ADD_SPEED);
-            
-            this.motion.addPoint(this.movement);
-        }
-        
-            // movement by land
-  
+            // add to movement if rolling across
+            // a triangle
+
         if (this.standOnMeshIdx!==-1) {
             mesh=this.core.map.meshList.meshes[this.standOnMeshIdx];
             trig=mesh.collisionFloorTrigs[this.standOnTrigIdx];
@@ -120,26 +160,24 @@ export default class EntityBeachBallClass extends ProjectEntityClass
             }
             
             if ((lowVertex.y-this.position.y)<=-EntityBeachBallClass.MAX_ROLL_Y_CHANGE) {
-                this.movement.setFromSubPoint(lowVertex,this.position);
-                this.movement.normalize();
-                this.movement.scale(EntityBeachBallClass.ROLL_ADD_SPEED);
+                this.tempPoint.setFromSubPoint(lowVertex,this.position);
+                this.tempPoint.normalize();
+                this.tempPoint.scale(EntityBeachBallClass.ROLL_ADD_SPEED);
                 
-                this.motion.addPoint(this.movement);
+                this.motion.addPoint(this.tempPoint);
             }
         }
-        
+
             // clamp speed
             
-        this.movement.setFromValues(this.motion.x,0,this.motion.z);
+        this.tempPoint.setFromValues(this.motion.x,0,this.motion.z);
         
-        if (this.movement.length()>EntityBeachBallClass.MAX_SPEED) {
-            this.movement.normalize();
-            this.movement.scale(EntityBeachBallClass.MAX_SPEED);
+        if (this.tempPoint.length()>EntityBeachBallClass.MAX_SPEED) {
+            this.tempPoint.normalize();
+            this.tempPoint.scale(EntityBeachBallClass.MAX_SPEED);
             
-            this.motion.x=this.movement.x;
-            this.motion.z=this.movement.z;
-            
-            console.info('problem');
+            this.motion.x=this.tempPoint.x;
+            this.motion.z=this.tempPoint.z;
         }
 
             // moving
@@ -148,6 +186,11 @@ export default class EntityBeachBallClass extends ProjectEntityClass
         
         this.moveInMapXZ(this.motion,false,false);
         this.motion.y=this.moveInMapY(this.motion,false);
+        
+            // add any change into roll motion
+            
+        this.tempPoint.setFromSubPoint(this.position,this.savePoint);
+        this.rollMotion.addPoint(this.tempPoint);
         
             // slow down
             
@@ -161,17 +204,15 @@ export default class EntityBeachBallClass extends ProjectEntityClass
         if ((this.standOnMeshIdx!==-1) && (this.position.y<this.savePoint.y)) {
             //this.playSound('grenade_bounce');
             
-            this.position.setFromPoint(this.savePoint);
+            this.position.y=this.savePoint.y;
             this.motion.y=this.floorHitBounceY(this.motion.y,EntityBeachBallClass.BOUNCE_FACTOR,EntityBeachBallClass.BOUNCE_CUT);
             
             if (this.motion.y!==0) this.motion.y=this.moveInMapY(this.motion,false);
-            
-            //if (this.movement.y===0) this.rolling=true;
             return;
         }
 
             // hitting wall
-/*
+
         if ((this.collideWallMeshIdx!==-1) && (this.bouncePause===0)) {
             this.playSound('grenade_bounce');
             
@@ -181,30 +222,30 @@ export default class EntityBeachBallClass extends ProjectEntityClass
             this.motion.setFromValues(0,0,this.motion.length());
             this.motion.rotate(this.angle);
             
-            this.bouncePause=EntityProjectileGrenadeClass.BOUNCE_PAUSE_COUNT;
+            this.bouncePause=EntityBeachBallClass.BOUNCE_PAUSE_COUNT;
             return;
         }
         
         if (this.bouncePause!==0) this.bouncePause--;
    
- */
-
     }
     
     drawSetup()
     {
             // rolling
             
-        if ((this.motion.x!==0) || (this.motion.z!==0)) {
-            this.movement.setFromValues(this.motion.z,0,this.motion.x);     // turn on opposite axis
-            this.movement.normalize();
-            this.movement.scale(EntityBeachBallClass.ROLL_ANGLE_ADD);
+        if ((this.rollMotion.x!==0) || (this.rollMotion.z!==0)) {
+            this.tempPoint.setFromValues(this.rollMotion.z,0,this.rollMotion.x);     // turn on opposite axis
+            this.tempPoint.normalize();
+            this.tempPoint.scale(EntityBeachBallClass.ROLL_ANGLE_ADD);
             
-            this.drawAngle.subPoint(this.movement);
+            this.drawAngle.subPoint(this.tempPoint);
             if (this.drawAngle.x<0) this.drawAngle.x=360-this.drawAngle.x;
             if (this.drawAngle.x>=360) this.drawAngle.x-=360;
             if (this.drawAngle.z<0) this.drawAngle.z=360-this.drawAngle.z;
             if (this.drawAngle.z>=360) this.drawAngle.z-=360;
+            
+            this.rollMotion.setFromValues(0,0,0);
         }
         
             // model has root in center (so we can rotate to roll)

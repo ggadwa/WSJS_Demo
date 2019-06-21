@@ -101,6 +101,7 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
         this.running=true;
         this.rolling=false;
         this.stopped=false;
+        this.bouncePause=0;
         this.startTick=this.getTimestamp();
     }
     
