@@ -74,5 +74,4 @@ export default class EntityCaptainChestClass extends ProjectEntityClass
             if (this.data.trigger!==undefined) this.setTrigger(this.data.trigger);
         }
     }
-    
 }
