@@ -130,7 +130,7 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
         
             // the light
         
-        this.setLightIntensity( EffectExplosionFireClass.FIRE_LIGHT_INTENSITY*factor);
+        this.setLightIntensity(EffectExplosionFireClass.FIRE_LIGHT_INTENSITY*factor);
         
             // current explosion size would be size of red
             // as it's the biggest element

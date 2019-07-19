@@ -76,7 +76,7 @@ export default class EffectSparkleClass extends ProjectEffectClass
             return;
         }
         
-            // current fire size
+            // current sparkle size
         
         factor=tick/EffectSparkleClass.SPARKLE_LIFE_TICK;
 
