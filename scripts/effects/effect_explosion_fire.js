@@ -103,7 +103,7 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
         
             // sound effect
             
-        this.playSound('explosion');
+        this.playSound('explosion',1.0,false);
     }
 
     drawSetup()

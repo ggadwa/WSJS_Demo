@@ -71,7 +71,7 @@ export default class EntityWeaponM16Class extends EntityWeaponBaseClass
             // the sound played
             // at whoever is holding weapon
             
-        this.playSoundAtEntity(this.heldBy,'m16_fire');
+        this.playSoundAtEntity(this.heldBy,'m16_fire',(1.0+(Math.random()*0.4)),false);
         
             // the animation
             

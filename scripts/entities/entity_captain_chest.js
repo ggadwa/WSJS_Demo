@@ -55,7 +55,7 @@ export default class EntityCaptainChestClass extends ProjectEntityClass
             // open it
             
         this.opened=true;
-        this.playSound('chime');
+        this.playSound('chime',1.0,false);
         this.startModelAnimationChunkInFrames(null,30,1,65);
         this.queueModelAnimationChunkInFrames(null,30,65,66);
         

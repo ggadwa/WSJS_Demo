@@ -11,7 +11,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     static ANGLE_Y_PROJECTILE_RANGE=5;
     static ANGLE_Y_MELEE_RANGE=15;
     static FALL_ASLEEP_DISTANCE=75000;
-    static DAMAGE_FLINCH_WAIT_TICK=2000;
+    static DAMAGE_FLINCH_WAIT_TICK=1000;
     
     health=0;
     startHealth=0;
@@ -131,7 +131,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         
         this.nextDamageTick=timestamp;
         
-        this.playSound(this.wakeUpSoundName);
+        this.playSound(this.wakeUpSoundName,1.0,false);
         this.startModelAnimationChunkInFrames(null,30,this.walkAnimationFrames[0],this.walkAnimationFrames[1]);
     }
     
@@ -160,7 +160,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
             if (timestamp>this.nextDamageTick) {
                 this.nextDamageTick=timestamp+EntityMonsterBaseClass.DAMAGE_FLINCH_WAIT_TICK;
 
-                this.playSound(this.wakeUpSoundName);
+                this.playSound(this.wakeUpSoundName,(1.0+(0.5-Math.random())),false);
                 this.startModelAnimationChunkInFrames(null,30,this.hitAnimationFrames[0],this.hitAnimationFrames[1]);
                 this.queueModelAnimationChunkInFrames(null,30,this.walkAnimationFrames[0],this.walkAnimationFrames[1]);
             }
@@ -174,7 +174,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         this.startModelAnimationChunkInFrames(null,30,this.deathAnimationFrames[0],this.deathAnimationFrames[1]);
         this.queueAnimationStop();
         
-        this.playSound(this.deathSoundName);
+        this.playSound(this.deathSoundName,1.0,false);
     }
     
     jump()
@@ -182,7 +182,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         this.gravity=this.gravityMinValue;
         this.movement.y=this.jumpHeight;
         
-        this.playSound(this.wakeUpSoundName);
+        this.playSound(this.wakeUpSoundName,1.0,false);
     }
     
     meleeStart(distToPlayer,timestamp)
@@ -206,7 +206,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     
     meleeHit(player)
     {
-        this.playSound(this.meleeSoundName);
+        this.playSound(this.meleeSoundName,1.0,false);
         player.damage(this,this.meleeDamage,null);
     }
     

@@ -98,7 +98,7 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
         this.currentSparkleIndex=0;
         this.nextSparkleTick=this.getTimestamp();
         
-        this.playSoundAtEntity(parentEntity,'laser');
+        this.playSoundAtEntity(parentEntity,'laser',1.0,false);
         
         this.running=true;
     }

@@ -162,7 +162,7 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
             // hitting floor
 
         if ((this.standOnMeshIdx!==-1) && (!this.rolling)) {
-            this.playSound('grenade_bounce');
+            this.playSound('grenade_bounce',1.0,false);
             
             this.position.setFromPoint(this.savePoint);
             this.motion.y=this.floorHitBounceY(this.motion.y,EntityProjectileGrenadeClass.BOUNCE_FACTOR,EntityProjectileGrenadeClass.BOUNCE_CUT);
@@ -180,7 +180,7 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
             // hitting wall
 
         if ((this.collideWallMeshIdx!==-1) && (this.bouncePause===0)) {
-            this.playSound('grenade_bounce');
+            this.playSound('grenade_bounce',1.0,false);
             
             this.position.setFromPoint(this.savePoint);
             this.angle.y=this.wallHitAngleReflect();

@@ -66,7 +66,7 @@ export default class EntityPickupBaseClass extends ProjectEntityClass
         if (this.touchEntity.pickup(this.pickupName)) {
             this.show=false;
             this.hideStartTick=this.getTimestamp();
-            this.playSound('pickup');
+            this.playSound('pickup',1.0,false);
         }
     }
     

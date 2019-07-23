@@ -71,7 +71,7 @@ export default class EntityWeaponBerettaClass extends EntityWeaponBaseClass
             // the sound
             // played at holder of weapon
             
-        this.playSoundAtEntity(this.heldBy,'beretta_fire');
+        this.playSoundAtEntity(this.heldBy,'beretta_fire',1.0,false);
         
             // the animation
             

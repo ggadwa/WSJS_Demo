@@ -394,7 +394,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
             this.passThrough=true;
             this.startModelAnimationChunkInFrames(null,30,209,247);
             this.queueAnimationStop();
-            this.playSound('player_die');
+            this.playSound('player_die',1.0,false);
             
             if (this.isMultiplayer()) {
                 if (fromEntity!==null) {

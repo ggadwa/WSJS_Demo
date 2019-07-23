@@ -198,7 +198,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             this.passThrough=true;
             this.beretta.show=false;
             this.m16.show=false;
-            this.playSound('player_die');
+            this.playSound('player_die',1.0,false);
             
             if (this.isMultiplayer()) {
                 if (fromEntity!==null) {

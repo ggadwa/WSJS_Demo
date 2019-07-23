@@ -77,7 +77,7 @@ export default class EntityWeaponGrenadeClass extends EntityWeaponBaseClass
         
             // throw sound
             
-        this.playSoundAtEntity(this.heldBy,'throw');
+        this.playSoundAtEntity(this.heldBy,'throw',1.0,false);
 
             // fire position
             
