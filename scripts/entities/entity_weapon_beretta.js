@@ -43,7 +43,7 @@ export default class EntityWeaponBerettaClass extends EntityWeaponBaseClass
         
             // sounds
             
-        this.addSound('beretta_fire',25000);
+        this.addSound('beretta_fire',25000,0,0);
         
             // hit effect
             

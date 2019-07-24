@@ -81,7 +81,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // add sounds
             
-        this.addSound('player_die',30000);
+        this.addSound('player_die',30000,0,0);
         
             // weapons
 

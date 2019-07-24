@@ -43,7 +43,7 @@ export default class EntityWeaponM16Class extends EntityWeaponBaseClass
         
             // sounds
             
-        this.addSound('m16_fire',25000);
+        this.addSound('m16_fire',25000,0,0);
         
             // hit effect
             

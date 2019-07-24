@@ -55,8 +55,8 @@ export default class EntityVampirePatriarchClass extends EntityMonsterBaseClass
         
             // sounds
             
-        this.addSound('vampire_wake_up',30000);
-        this.addSound('vampire_die',30000);
+        this.addSound('vampire_wake_up',30000,0,0);
+        this.addSound('vampire_die',30000,0,0);
     }
     
 }

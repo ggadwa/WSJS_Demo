@@ -29,7 +29,7 @@ export default class EntityCaptainChestClass extends ProjectEntityClass
         
             // sounds
             
-        this.addSound('chime',7000);
+        this.addSound('chime',7000,0,0);
     }
         
     ready()

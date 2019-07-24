@@ -22,7 +22,7 @@ export default class EntityPickupBaseClass extends ProjectEntityClass
         
             // sounds
             
-        this.addSound('pickup',5000);
+        this.addSound('pickup',5000,0,0);
     }
     
     ready()

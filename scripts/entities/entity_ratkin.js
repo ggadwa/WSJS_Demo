@@ -49,9 +49,9 @@ export default class EntityRatkinClass extends EntityMonsterBaseClass
         
             // sounds
             
-        this.addSound('rat_wake_up',30000);
-        this.addSound('blade',10000);
-        this.addSound('rat_die',30000);
+        this.addSound('rat_wake_up',30000,0,0);
+        this.addSound('blade',10000,0,0);
+        this.addSound('rat_die',30000,0,0);
     }
     
     ready()

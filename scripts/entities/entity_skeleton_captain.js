@@ -93,9 +93,9 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
         
             // sounds
             
-        this.addSound('skeleton_wake_up',30000);
-        this.addSound('blade',10000);
-        this.addSound('skeleton_die',30000);
+        this.addSound('skeleton_wake_up',30000,0,0);
+        this.addSound('blade',10000,0,0);
+        this.addSound('skeleton_die',30000,0,0);
     }
     
     ready()

@@ -69,7 +69,7 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
         
             // sounds
             
-        this.addSound('grenade_bounce',50000);
+        this.addSound('grenade_bounce',50000,0,0);
         
             // explosion effect
         

@@ -70,7 +70,7 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
        
             // sounds
             
-        this.addSound('laser',50000);
+        this.addSound('laser',50000,0,0);
     }
     
         //

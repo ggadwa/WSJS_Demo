@@ -38,7 +38,7 @@ export default class EntityWeaponGrenadeClass extends EntityWeaponBaseClass
         
             // sounds
             
-        this.addSound('throw',10000);
+        this.addSound('throw',10000,0,0);
         
             // projectiles
             
