@@ -27,6 +27,11 @@ function runDualCastle()
 {
     window.main.run(window.gameClass,true,{"startMap":"Dual Castles"});
 }
+
+function runAutoGenerator()
+{
+    window.main.run(window.gameClass,false,{"startMap":"Auto Generate"});
+}
 </script>
 
 </head>
@@ -45,6 +50,10 @@ function runDualCastle()
     <div class="column">
         <img class="imageClick" src="dual_castles.png" onClick="runDualCastle()">
         <div class="imageText">Multiplayer\Bot Map</div>
+    </div>
+    <div class="column">
+        <img class="imageClick" src="auto_generate.png" onClick="runAutoGenerator()">
+        <div class="imageText">Auto Generated Map</div>
     </div>
 </div>
 

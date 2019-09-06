@@ -177,6 +177,10 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         this.m16.ready();
         this.grenade.ready();
         
+            // start scanning in middle
+            
+        this.currentLookIdx=Math.trunc(EntityMultiplayerBotClass.TARGET_SCAN_Y_ANGLES.length*0.5);
+        
             // move to random node
             
         this.moveToRandomNode(EntityMultiplayerBotClass.RANDOM_NODE_FAIL_COUNT);
