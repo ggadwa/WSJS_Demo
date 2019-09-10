@@ -17,7 +17,7 @@ export default class MapAutoGenerateClass extends ProjectMapClass
                     },
                 "entities":
                     [
-                        {"entity":EntityPlayerClass,"name":"Player","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0}},
+                        {"entity":EntityPlayerClass,"name":"Player","position":{"x":30000,"y":0,"z":30000},"angle":{"x":0,"y":0,"z":0}},
                     ],
             }
         );
