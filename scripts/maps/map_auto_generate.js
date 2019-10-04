@@ -14,8 +14,7 @@ export default class MapAutoGenerateClass extends ProjectMapClass
                     {
                         //"randomSeed":25,
                         "roomCount":15,
-                        "roomSize":80000,
-                        "roomHeight":10000,
+                        "segmentSize":8000,
                         "stairFactor":0.5,
                         "pathTurnFactor":0.5,
                         "sideRoomFactor":0.8
