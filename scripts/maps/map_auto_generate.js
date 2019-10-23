@@ -17,7 +17,8 @@ export default class MapAutoGenerateClass extends ProjectMapClass
                         "segmentSize":10000,
                         "stairFactor":0.5,
                         "pathTurnFactor":0.5,
-                        "sideRoomFactor":0.8
+                        "sideRoomFactor":0.8,
+                        "secondStoryFactor":0.6
                     },
                 "entities":
                     [
