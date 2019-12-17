@@ -2,14 +2,14 @@ import PointClass from '../../../code/utility/point.js';
 import ProjectMapClass from '../../../code/project/project_map.js';
 import EntityPlayerClass from '../entities/entity_player.js';
 
-export default class MapAutoGenerateClass extends ProjectMapClass
+export default class MapReaperClass extends ProjectMapClass
 {
     getImportSettings()
     {
         return(
             {
-                "name":"auto_generate_test",
-                "skyBox":{"size":50000,"bitmap":"textures/skybox_test.png"},
+                "name":"reaper",
+                //"skyBox":{"size":50000,"bitmap":"textures/skybox_test.png"},
                 "autoGenerate":
                     {
                         //"randomSeed":25,
