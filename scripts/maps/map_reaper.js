@@ -18,7 +18,6 @@ export default class MapReaperClass extends ProjectMapClass
                         "stairFactor":0.5,
                         "pathTurnFactor":0.5,
                         "sideRoomFactor":0.8,
-                        "secondStoryFactor":1.0
                     },
                 "entities":
                     [
