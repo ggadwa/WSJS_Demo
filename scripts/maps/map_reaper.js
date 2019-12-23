@@ -15,6 +15,7 @@ export default class MapReaperClass extends ProjectMapClass
                         //"randomSeed":25,
                         "roomCount":15,
                         "segmentSize":10000,
+                        "colorScheme":"random",
                         "stairFactor":0.5,
                         "pathTurnFactor":0.5,
                         "sideRoomFactor":0.8,
