@@ -5,7 +5,6 @@ import InterfaceTextClass from '../../../code/interface/interface_text.js';
 import ProjectGameDeveloperClass from '../../../code/project/project_game_developer.js';
 import MapDualCastlesClass from '../maps/map_dual_castles.js';
 import MapDungeonClass from '../maps/map_dungeon.js';
-import MapReaperClass from '../maps/map_reaper.js';
 
 export default class GameClass extends ProjectGameDeveloperClass
 {
@@ -62,8 +61,6 @@ export default class GameClass extends ProjectGameDeveloperClass
                 return(this.createMap(MapDualCastlesClass));
             case "Dungeon":
                 return(this.createMap(MapDungeonClass));
-            case "Reaper":
-                return(this.createMap(MapReaperClass));
         }
         
         console.log('Unknown Map: '+this.data.startMap);
