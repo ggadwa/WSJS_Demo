@@ -2,7 +2,6 @@ import PointClass from '../../../code/utility/point.js';
 import ProjectMapClass from '../../../code/project/project_map.js';
 import EntityPlayerClass from '../entities/entity_player.js';
 import EntityMultiplayerBotClass from '../entities/entity_multiplayer_bot.js';
-import EntityRemoteClass from '../entities/entity_remote.js';
 import EntityPickupBerettaClass from '../entities/entity_pickup_beretta.js';
 import EntityPickupM16Class from '../entities/entity_pickup_m16.js';
 import EntityPickupGrenadeClass from '../entities/entity_pickup_grenade.js';
@@ -264,11 +263,6 @@ export default class MapDualCastlesClass extends ProjectMapClass
                         {"entity":EntityMultiplayerBotClass,"name":"Claudius","bot":true},
                         {"entity":EntityMultiplayerBotClass,"name":"Nero","bot":true},
                         {"entity":EntityMultiplayerBotClass,"name":"Commodus","bot":true},
-                        {"entity":EntityRemoteClass,"remote":true},
-                        {"entity":EntityRemoteClass,"remote":true},
-                        {"entity":EntityRemoteClass,"remote":true},
-                        {"entity":EntityRemoteClass,"remote":true},
-                        {"entity":EntityRemoteClass,"remote":true},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_01","position":{"x":-28242,"y":24839,"z":-28541},"data":{"ammo":true}},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_02","position":{"x":28074,"y":24839,"z":28166},"data":{"ammo":true}},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_03","position":{"x":-28105,"y":24839,"z":28435},"data":{"ammo":true}},
