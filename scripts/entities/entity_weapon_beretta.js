@@ -33,18 +33,13 @@ export default class EntityWeaponBerettaClass extends EntityWeaponBaseClass
         this.ammoMaxCount=25;
         this.interfaceIconName='beretta_bullet';
         
-        this.handOffset=new PointClass(-1300,-12500,-2700);
-        this.handAngle=new PointClass(0,0,0);
+        this.handOffset=new PointClass(-800,-12500,-2700);
+        this.handAngle=new PointClass(0,-10,0);
 
             // the model
             
-        this.cacheModel('hand_beretta',null);
         this.setModel('hand_beretta');
         this.scale.setFromValues(7000,7000,7000);
-        
-            // sounds
-            
-        this.addSound('beretta_fire',25000,0,0);
         
             // hit effect
             

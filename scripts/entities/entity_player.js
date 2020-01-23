@@ -75,14 +75,9 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.rotMovement=new PointClass(0,0,0);
         
             // the model
-            
-        this.cacheModel('player',null);
+         
         this.setModel('player');
         this.scale.setFromValues(3000,3000,3000);
-        
-            // add sounds
-            
-        this.addSound('player_die',30000,0,0);
         
             // weapons
 

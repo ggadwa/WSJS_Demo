@@ -36,10 +36,6 @@ export default class EntityWeaponGrenadeClass extends EntityWeaponBaseClass
         
         this.grenadeOffset=new PointClass(0,0,0);
         
-            // sounds
-            
-        this.addSound('throw',10000,0,0);
-        
             // projectiles
             
         this.grenades=[];

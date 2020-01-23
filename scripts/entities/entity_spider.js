@@ -46,14 +46,8 @@ export default class EntitySpiderClass extends EntityMonsterBaseClass
 
             // model
         
-        this.cacheModel('spider',null);
         this.setModel('spider');
         this.scale.setFromValues(1000,1000,1000);
-        
-            // sounds
-            
-        this.addSound('spider_wake_up',30000,0,0);
-        this.addSound('spider_die',30000,0,0);
     }
     
 }

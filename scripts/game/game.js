@@ -5,9 +5,12 @@ import InterfaceTextClass from '../../../code/interface/interface_text.js';
 import ProjectGameDeveloperClass from '../../../code/project/project_game_developer.js';
 import MapDualCastlesClass from '../maps/map_dual_castles.js';
 import MapDungeonClass from '../maps/map_dungeon.js';
+import EntityMultiplayerBotClass from '../entities/entity_multiplayer_bot.js';
 
 export default class GameClass extends ProjectGameDeveloperClass
 {
+    static BOT_NAMES=['Caesar','Vespasian','Hadrian','Augustus','Trajan','Tiberius','Caligula','Claudius','Nero','Commodus'];
+    
     initialize()
     {
         let x,y;
@@ -51,6 +54,16 @@ export default class GameClass extends ProjectGameDeveloperClass
         return('wsjs_demo');            // uniquely identifies this project so we can have separate persistent data
     }
     
+    getBotClass()
+    {
+        return(EntityMultiplayerBotClass);
+    }
+                            
+    getBotName(idx)
+    {
+        return(GameClass.BOT_NAMES[idx]);
+    }
+
     getStartProjectMap()
     {
             // for this demonstration project, we just pick a map

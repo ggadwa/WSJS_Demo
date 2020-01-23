@@ -50,14 +50,8 @@ export default class EntityVampirePatriarchClass extends EntityMonsterBaseClass
         
             // model
             
-        this.cacheModel('vampire_patriarch',null);
         this.setModel('vampire_patriarch');
         this.scale.setFromValues(5000,5000,5000);
-        
-            // sounds
-            
-        this.addSound('vampire_wake_up',30000,0,0);
-        this.addSound('vampire_die',30000,0,0);
     }
     
 }

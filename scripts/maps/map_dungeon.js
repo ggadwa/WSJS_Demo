@@ -272,6 +272,45 @@ export default class MapDungeonClass extends ProjectMapClass
                                 ]
                         }
                     ],
+                "models":
+                    [
+                        {"name":"player"},
+                        {"name":"beretta"},
+                        {"name":"hand_beretta"},
+                        {"name":"m16"},
+                        {"name":"hand_m16"},
+                        {"name":"grenade"},
+                        {"name":"shield"},
+                        {"name":"captain_chest"},
+                        {"name":"skeleton_captain"},
+                        {"name":"spider"},
+                        {"name":"vampire_patriarch"},
+                        {"name":"ratkin_skeleton"},
+                        {"name":"crystal_ball"}
+                    ],
+                "sounds":
+                    [
+                        {"name":"beretta_fire","distance":25000,"loopStart":0,"loopEnd":0},
+                        {"name":"m16_fire","distance":25000,"loopStart":0,"loopEnd":0},
+                        {"name":"throw","distance":10000,"loopStart":0,"loopEnd":0},
+                        {"name":"grenade_bounce","distance":50000,"loopStart":0,"loopEnd":0},
+                        {"name":"laser","distance":50000,"loopStart":0,"loopEnd":0},
+                        {"name":"explosion","distance":50000,"loopStart":0,"loopEnd":0},
+                        {"name":"chime","distance":7000,"loopStart":0,"loopEnd":0},
+                        {"name":"player_die","distance":30000,"loopStart":0,"loopEnd":0},
+                        {"name":"pickup","distance":5000,"loopStart":0,"loopEnd":0},
+                        {"name":"blade","distance":10000,"loopStart":0,"loopEnd":0},
+                        {"name":"rat_wake_up","distance":30000,"loopStart":0,"loopEnd":0},
+                        {"name":"rat_die","distance":30000,"loopStart":0,"loopEnd":0},
+                        {"name":"skeleton_wake_up","distance":30000,"loopStart":0,"loopEnd":0},
+                        {"name":"skeleton_die","distance":30000,"loopStart":0,"loopEnd":0},
+                        {"name":"spider_wake_up","distance":30000,"loopStart":0,"loopEnd":0},
+                        {"name":"spider_die","distance":30000,"loopStart":0,"loopEnd":0},
+                        {"name":"vampire_wake_up","distance":30000,"loopStart":0,"loopEnd":0},
+                        {"name":"vampire_die","distance":30000,"loopStart":0,"loopEnd":0},
+                        {"name":"gate","distance":30000,"loopStart":0,"loopEnd":0},
+                        {"name":"door","distance":30000,"loopStart":0,"loopEnd":0}
+                    ],
                 "entities":
                     [
                         {"entity":EntityPlayerClass,"name":"Player","position":{"x":-11990,"y":-189,"z":-78363},"angle":{"x":0,"y":0,"z":0}},

@@ -64,7 +64,6 @@ export default class EntityBeachBallClass extends ProjectEntityClass
         
             // model
             
-        this.cacheModel('beach_ball',null);
         this.setModel('beach_ball');
         this.scale.setFromValues(5000,5000,5000);
         

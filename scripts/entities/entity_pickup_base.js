@@ -19,10 +19,6 @@ export default class EntityPickupBaseClass extends ProjectEntityClass
             // base setup
             
         this.passThrough=true;           // can pass through
-        
-            // sounds
-            
-        this.addSound('pickup',5000,0,0);
     }
     
     ready()

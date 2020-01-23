@@ -88,13 +88,8 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         
             // set model
             
-        this.cacheModel('player',null);
         this.setModel('player');
         this.scale.setFromValues(3000,3000,3000);
-        
-            // add sounds
-            
-        this.addSound('player_die',30000,0,0);
         
             // add weapons
             

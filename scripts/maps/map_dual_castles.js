@@ -250,19 +250,32 @@ export default class MapDualCastlesClass extends ProjectMapClass
                         {"position":{"x":-14188,"y":14581,"z":-106166},"links":[14,117]},
                         {"position":{"x":-16042,"y":14581,"z":-117774},"links":[116]}
                     ],
+                "models":
+                    [
+                        {"name":"player"},
+                        {"name":"beretta"},
+                        {"name":"hand_beretta"},
+                        {"name":"m16"},
+                        {"name":"hand_m16"},
+                        {"name":"grenade"},
+                        {"name":"shield"},
+                        {"name":"chicken_leg"}
+                    ],
+                "sounds":
+                    [
+                        {"name":"beretta_fire","distance":25000,"loopStart":0,"loopEnd":0},
+                        {"name":"m16_fire","distance":25000,"loopStart":0,"loopEnd":0},
+                        {"name":"throw","distance":10000,"loopStart":0,"loopEnd":0},
+                        {"name":"grenade_bounce","distance":50000,"loopStart":0,"loopEnd":0},
+                        {"name":"explosion","distance":50000,"loopStart":0,"loopEnd":0},
+                        {"name":"chime","distance":7000,"loopStart":0,"loopEnd":0},
+                        {"name":"player_die","distance":30000,"loopStart":0,"loopEnd":0},
+                        {"name":"pickup","distance":5000,"loopStart":0,"loopEnd":0},
+                        {"name":"stone_platform","distance":30000,"loopStart":0,"loopEnd":0}
+                    ],
                 "entities":
                     [
                         {"entity":EntityPlayerClass,"name":"Player","position":{"x":-28000,"y":24124,"z":0},"angle":{"x":0,"y":90,"z":0}},
-                        {"entity":EntityMultiplayerBotClass,"name":"Caesar","bot":true},
-                        {"entity":EntityMultiplayerBotClass,"name":"Vespasian","bot":true},
-                        {"entity":EntityMultiplayerBotClass,"name":"Hadrian","bot":true},
-                        {"entity":EntityMultiplayerBotClass,"name":"Augustus","bot":true},
-                        {"entity":EntityMultiplayerBotClass,"name":"Trajan","bot":true},
-                        {"entity":EntityMultiplayerBotClass,"name":"Tiberius","bot":true},
-                        {"entity":EntityMultiplayerBotClass,"name":"Caligula","bot":true},
-                        {"entity":EntityMultiplayerBotClass,"name":"Claudius","bot":true},
-                        {"entity":EntityMultiplayerBotClass,"name":"Nero","bot":true},
-                        {"entity":EntityMultiplayerBotClass,"name":"Commodus","bot":true},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_01","position":{"x":-28242,"y":24839,"z":-28541},"data":{"ammo":true}},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_02","position":{"x":28074,"y":24839,"z":28166},"data":{"ammo":true}},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_03","position":{"x":-28105,"y":24839,"z":28435},"data":{"ammo":true}},

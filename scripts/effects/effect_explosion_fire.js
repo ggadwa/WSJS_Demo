@@ -66,10 +66,6 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
             
         this.fireBitmap=this.addBitmap('textures/particle_blob.png');
         
-            // sounds
-            
-        this.addSound('explosion',50000,0,0);
-        
             // setup the drawing
             // we have FIRE_COLOR_PARTICLE_COUNT red, orange and yellow
             
