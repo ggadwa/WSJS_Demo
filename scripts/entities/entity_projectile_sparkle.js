@@ -65,7 +65,8 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
         
             // the model
             
-        this.setModel({"name":"crystal_ball"});
+        this.cacheModel('crystal_ball',null);
+        this.setModel('crystal_ball');
         this.scale.setFromValues(20,20,20);
        
             // sounds

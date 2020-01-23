@@ -38,7 +38,8 @@ export default class EntityWeaponBerettaClass extends EntityWeaponBaseClass
 
             // the model
             
-        this.setModel({"name":"hand_beretta"});
+        this.cacheModel('hand_beretta',null);
+        this.setModel('hand_beretta');
         this.scale.setFromValues(7000,7000,7000);
         
             // sounds

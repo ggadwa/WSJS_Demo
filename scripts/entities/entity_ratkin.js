@@ -44,7 +44,8 @@ export default class EntityRatkinClass extends EntityMonsterBaseClass
 
             // model
             
-        this.setModel({"name":"ratkin_skeleton"});
+        this.cacheModel('ratkin_skeleton',null);
+        this.setModel('ratkin_skeleton');
         this.scale.setFromValues(3000,3000,3000);
         
             // sounds

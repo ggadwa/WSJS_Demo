@@ -21,7 +21,8 @@ export default class EntityPickupChickenLegClass extends EntityPickupBaseClass
         
             // model
             
-        this.setModel({"name":"chicken_leg"});
+        this.cacheModel('chicken_leg',null);
+        this.setModel('chicken_leg');
         this.scale.setFromValues(100,100,100);
     }
         

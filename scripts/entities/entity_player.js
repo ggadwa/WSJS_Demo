@@ -76,7 +76,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // the model
             
-        this.setModel({"name":"player"});
+        this.cacheModel('player',null);
+        this.setModel('player');
         this.scale.setFromValues(3000,3000,3000);
         
             // add sounds

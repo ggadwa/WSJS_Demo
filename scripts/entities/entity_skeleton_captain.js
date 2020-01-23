@@ -80,7 +80,8 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
 
             // get model
             
-        this.setModel({"name":"skeleton_captain"});
+        this.cacheModel('skeleton_captain',null);
+        this.setModel('skeleton_captain');
         
             // captain skeletons are bigger
             

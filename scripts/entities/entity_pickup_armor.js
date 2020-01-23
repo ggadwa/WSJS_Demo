@@ -21,7 +21,8 @@ export default class EntityPickupArmorClass extends EntityPickupBaseClass
         
             // model
             
-        this.setModel({"name":"shield"});
+        this.cacheModel('shield',null);
+        this.setModel('shield');
         this.scale.setFromValues(80,80,80);
     }
     

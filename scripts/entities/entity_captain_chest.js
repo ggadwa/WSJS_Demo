@@ -24,7 +24,8 @@ export default class EntityCaptainChestClass extends ProjectEntityClass
         
             // chest model
             
-        this.setModel({"name":"captain_chest"});
+        this.cacheModel('captain_chest',null);
+        this.setModel('captain_chest');
         this.scale.setFromValues(50,50,50);
         
             // sounds

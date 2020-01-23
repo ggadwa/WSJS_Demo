@@ -64,7 +64,8 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
         
             // the model
             
-        this.setModel({"name":"grenade"});
+        this.cacheModel('grenade',null);
+        this.setModel('grenade');
         this.scale.setFromValues(100,100,100);
         
             // sounds

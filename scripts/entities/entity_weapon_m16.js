@@ -38,7 +38,8 @@ export default class EntityWeaponM16Class extends EntityWeaponBaseClass
             
             // the model
             
-        this.setModel({"name":"hand_m16"});
+        this.cacheModel('hand_m16',null);
+        this.setModel('hand_m16');
         this.scale.setFromValues(5000,5000,5000);
         
             // sounds
