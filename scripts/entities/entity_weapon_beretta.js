@@ -15,7 +15,6 @@ export default class EntityWeaponBerettaClass extends EntityWeaponBaseClass
     
     handOffset=null;
     handAngle=null;
-    hitEffect=null;
     
     initialize()
     {
@@ -40,10 +39,6 @@ export default class EntityWeaponBerettaClass extends EntityWeaponBaseClass
             
         this.setModel('hand_beretta');
         this.scale.setFromValues(7000,7000,7000);
-        
-            // hit effect
-            
-        this.hitEffect=this.addEffect(EffectHitClass,null,false);
     }
     
     ready()
@@ -76,7 +71,7 @@ export default class EntityWeaponBerettaClass extends EntityWeaponBaseClass
         
             // run the hitscan
             
-        this.hitScan(position,angle,eyeOffset,100000,EntityWeaponBerettaClass.HIT_FILTER,EntityWeaponBerettaClass.DAMAGE,this.hitEffect);
+        this.hitScan(position,angle,eyeOffset,100000,EntityWeaponBerettaClass.HIT_FILTER,EntityWeaponBerettaClass.DAMAGE,EffectHitClass);
         
         return(true);
     }

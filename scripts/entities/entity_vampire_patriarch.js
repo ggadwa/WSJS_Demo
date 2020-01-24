@@ -32,7 +32,8 @@ export default class EntityVampirePatriarchClass extends EntityMonsterBaseClass
         this.projectileDistance=12000;
         this.projectileWaitTick=5000;
         this.projectileFireTick=500;
-        this.projectile=this.addEntity(EntityProjectileSparkleClass,'vampire_sparkle',new PointClass(0,0,0),new PointClass(0,0,0),{"explode":false},false,false);
+        this.projectileClass=EntityProjectileSparkleClass;
+        this.projectileData={"explode":false};
         
         this.maxTurnSpeed=5;
         this.forwardAcceleration=4;
@@ -47,6 +48,8 @@ export default class EntityVampirePatriarchClass extends EntityMonsterBaseClass
         this.wakeUpSoundName='vampire_wake_up';
         this.meleeSoundName='vampire_wake_up';
         this.deathSoundName='vampire_die';
+        this.fallSoundName='splash';
+        this.fallSoundWaitCount=120;
         
             // model
             

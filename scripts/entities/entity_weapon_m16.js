@@ -15,7 +15,6 @@ export default class EntityWeaponM16Class extends EntityWeaponBaseClass
     
     handOffset=null;
     handAngle=null;
-    hitEffect=null;
     
     initialize()
     {
@@ -40,10 +39,6 @@ export default class EntityWeaponM16Class extends EntityWeaponBaseClass
             
         this.setModel('hand_m16');
         this.scale.setFromValues(5000,5000,5000);
-        
-            // hit effect
-            
-        this.hitEffect=this.addEffect(EffectHitClass,null,false);
     }
     
     ready()
@@ -77,7 +72,7 @@ export default class EntityWeaponM16Class extends EntityWeaponBaseClass
         
             // run the hitscan
             
-        this.hitScan(position,angle,eyeOffset,100000,EntityWeaponM16Class.HIT_FILTER,EntityWeaponM16Class.DAMAGE,this.hitEffect);
+        this.hitScan(position,angle,eyeOffset,100000,EntityWeaponM16Class.HIT_FILTER,EntityWeaponM16Class.DAMAGE,EffectHitClass);
         
         return(true);
     }

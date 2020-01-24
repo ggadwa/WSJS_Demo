@@ -58,6 +58,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
     currentWeapon=0;
     hasM16=false;
     grenadePauseTick=0;
+    lastInLiquid=false;
     
     initialize()
     {
@@ -422,7 +423,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
     run()
     {
         let nodeIdx,prevNodeIdx,moveForward;
-        let turnDiff,slideLeft;
+        let turnDiff,slideLeft,liquidIdx;
         
             // are we dead?
             
@@ -563,6 +564,19 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         }
         
         this.stuckPoint.setFromPoint(this.position);
+        
+            // liquids
+            
+        liquidIdx=this.getInLiquidIndex();
+        
+        if (liquidIdx!==-1) {
+            if (!this.lastInLiquid) this.playSound('splash',1.0,false);
+            this.lastInLiquid=true;
+        }
+        else {
+            if (this.lastInLiquid) this.playSound('splash',0.8,false);
+            this.lastInLiquid=false;
+        }
     }
     
     drawSetup()

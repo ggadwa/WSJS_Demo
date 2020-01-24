@@ -41,6 +41,8 @@ export default class EntityRatkinClass extends EntityMonsterBaseClass
         this.wakeUpSoundName='rat_wake_up';
         this.meleeSoundName='blade';
         this.deathSoundName='rat_die';
+        this.fallSoundName='splash';
+        this.fallSoundWaitCount=120;
 
             // model
             

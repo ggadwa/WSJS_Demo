@@ -30,7 +30,8 @@ export default class EffectSparkleClass extends ProjectEffectClass
         
             // setup
             
-        this.startTimestamp=0;
+        this.startTimestamp=this.getTimestamp();
+        this.rotateTick=1000+Math.trunc(Math.random()*1000);         // add a random rotation to every new effect
 
         this.xBound=new BoundClass(0,0);
         this.yBound=new BoundClass(0,0);
@@ -50,14 +51,6 @@ export default class EffectSparkleClass extends ProjectEffectClass
         this.drawRelease();
     }
     
-    restart(position,show)
-    {
-        super.restart(position,show);
-        
-        this.startTimestamp=this.getTimestamp();
-        this.rotateTick=1000+Math.trunc(Math.random()*1000);         // add a random rotation to every new effect
-    }
-    
     drawSetup()
     {
         let tick,factor;
@@ -66,9 +59,8 @@ export default class EffectSparkleClass extends ProjectEffectClass
 
         tick=this.getTimestamp()-this.startTimestamp;
         if (tick>EffectSparkleClass.SPARKLE_LIFE_TICK) {
-            this.startTimestamp=0;
-            this.show=false;
-            return;
+            this.markDelete=true;
+            return(false);
         }
         
             // current sparkle size

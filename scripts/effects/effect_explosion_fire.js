@@ -50,7 +50,7 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
         
             // setup
             
-        this.startTimestamp=0;
+        this.startTimestamp=this.getTimestamp();
         
         this.xBound=new BoundClass(0,0);
         this.yBound=new BoundClass(0,0);
@@ -78,23 +78,16 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
         this.setLightColor(this.lightColor);
         this.setLightExponent(5.0);
         
+            // sound effect
+            
+        this.playSound('explosion',1.0,false);
+        
         return(true);
     }
     
     release()
     {
         this.drawRelease();
-    }
-    
-    restart(position,show)
-    {
-        super.restart(position,show);
-        
-        this.startTimestamp=this.getTimestamp();
-        
-            // sound effect
-            
-        this.playSound('explosion',1.0,false);
     }
 
     drawSetup()
@@ -106,8 +99,8 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
         tick=this.getTimestamp()-this.startTimestamp;
         if (tick>EffectExplosionFireClass.FIRE_LIFE_TICK) {
             this.startTimestamp=0;
-            this.show=false;
-            return;
+            this.markDelete=true;
+            return(false);
         }
         
             // explosion factor

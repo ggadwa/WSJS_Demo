@@ -7,7 +7,6 @@ import EntityPickupM16Class from '../entities/entity_pickup_m16.js';
 import EntityPickupGrenadeClass from '../entities/entity_pickup_grenade.js';
 import EntityPickupChickenLegClass from '../entities/entity_pickup_chicken_leg.js';
 import EntityPickupArmorClass from '../entities/entity_pickup_armor.js';
-import EntityBeachBallClass from '../entities/entity_beach_ball.js';
 import EffectFireClass from '../effects/effect_fire.js';
 
 export default class MapDualCastlesClass extends ProjectMapClass
@@ -271,6 +270,7 @@ export default class MapDualCastlesClass extends ProjectMapClass
                         {"name":"chime","distance":7000,"loopStart":0,"loopEnd":0},
                         {"name":"player_die","distance":30000,"loopStart":0,"loopEnd":0},
                         {"name":"pickup","distance":5000,"loopStart":0,"loopEnd":0},
+                        {"name":"splash","distance":40000,"loopStart":0,"loopEnd":0},
                         {"name":"stone_platform","distance":30000,"loopStart":0,"loopEnd":0}
                     ],
                 "bitmaps":

@@ -31,7 +31,7 @@ export default class EffectHitClass extends ProjectEffectClass
         
             // setup
             
-        this.startTimestamp=0;
+        this.startTimestamp=this.getTimestamp();
 
         this.xBound=new BoundClass(0,0);
         this.yBound=new BoundClass(0,0);
@@ -52,13 +52,6 @@ export default class EffectHitClass extends ProjectEffectClass
         this.drawRelease();
     }
     
-    restart(position,show)
-    {
-        super.restart(position,show);
-        
-        this.startTimestamp=this.getTimestamp();
-    }
-    
     drawSetup()
     {
         let tick,factor;
@@ -67,9 +60,8 @@ export default class EffectHitClass extends ProjectEffectClass
 
         tick=this.getTimestamp()-this.startTimestamp;
         if (tick>EffectHitClass.HIT_LIFE_TICK) {
-            this.startTimestamp=0;
-            this.show=false;
-            return;
+            this.markDelete=true;
+            return(false);
         }
         
             // current fire size

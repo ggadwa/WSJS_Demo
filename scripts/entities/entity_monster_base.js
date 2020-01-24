@@ -11,7 +11,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     static ANGLE_Y_PROJECTILE_RANGE=5;
     static ANGLE_Y_MELEE_RANGE=15;
     static FALL_ASLEEP_DISTANCE=75000;
-    static DAMAGE_FLINCH_WAIT_TICK=1000;
+    static DAMAGE_FLINCH_WAIT_TICK=500;
     
     health=0;
     startHealth=0;
@@ -29,7 +29,8 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     projectileFireTick=0;
     nextProjectileTick=0;
     projectileStartTick=-1;
-    projectile=null;
+    projectileClass=null;
+    projectileData=null;
     projectileRequiresSight=true;
     maxTurnSpeed=0;
     forwardAcceleration=0;
@@ -41,6 +42,8 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     trapMeshShrink=null;
     nextDamageTick=0;
     
+    lastInLiquid=false;
+    
     idleAnimationFrames=null;
     walkAnimationFrames=null;
     meleeAnimationFrames=null;
@@ -50,6 +53,8 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     wakeUpSoundName=null;
     meleeSoundName=null;
     deathSoundName=null;
+    fallSoundName=null;
+    fallSoundWaitCount=0;
     
     movement=null;
     rotMovement=null;
@@ -258,17 +263,26 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
     projectileFire(player)
     {
         this.projectileSetupFire(player);
-        this.projectile.fire(this,this.firePosition,this.fireAngle);
+        this.addEntityFromEntity(this,this.projectileClass,'monster_projectile',this.firePosition,this.fireAngle,this.projectileData,true,false);
     }
     
     run()
     {
         let timestamp,angleDif;
-        let player,distToPlayer;
+        let player,distToPlayer,liquidIdx;
         
-            // if dead, only fall
+            // if dead, only fall and play
+            // and fall sound
             
         if (this.dead) {
+            
+            if (this.fallSoundName!==null) {
+                if (this.fallSoundWaitCount>0) {
+                    this.fallSoundWaitCount--;
+                    if (this.fallSoundWaitCount===0) this.playSound(this.fallSoundName,1.0,false);
+                }
+            }
+            
             this.rotMovement.setFromValues(0,0,0);
             this.moveInMapY(this.rotMovement,false);
             return;
@@ -323,9 +337,22 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
             return;
         }
         
+            // liquids
+            
+        liquidIdx=this.getInLiquidIndex();
+        
+        if (liquidIdx!==-1) {
+            if (!this.lastInLiquid) this.playSound('splash',1.0,false);
+            this.lastInLiquid=true;
+        }
+        else {
+            if (this.lastInLiquid) this.playSound('splash',0.8,false);
+            this.lastInLiquid=false;
+        }
+        
             // projectiles and melee starts
         
-        if ((this.projectile!=null) && (Math.abs(angleDif)<=EntityMonsterBaseClass.ANGLE_Y_PROJECTILE_RANGE)) this.projectileStart(player,distToPlayer,timestamp);
+        if ((this.projectileClass!=null) && (Math.abs(angleDif)<=EntityMonsterBaseClass.ANGLE_Y_PROJECTILE_RANGE)) this.projectileStart(player,distToPlayer,timestamp);
         if (Math.abs(angleDif)<=EntityMonsterBaseClass.ANGLE_Y_MELEE_RANGE) this.meleeStart(distToPlayer,timestamp);
         
             // time to jump?

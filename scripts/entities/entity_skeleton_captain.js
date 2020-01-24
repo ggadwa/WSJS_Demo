@@ -60,7 +60,8 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
             this.projectileDistance=15000;
             this.projectileWaitTick=5000;
             this.projectileFireTick=500;
-            this.projectile=this.addEntity(EntityProjectileSparkleClass,'skeleton_sparkle',new PointClass(0,0,0),new PointClass(0,0,0),{"explode":true},false,false);
+            this.projectileClass=EntityProjectileSparkleClass;
+            this.projectileData={"explode":true};
             this.projectileRequiresSight=false;
             
             this.maxTurnSpeed=8;
@@ -77,6 +78,8 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
         this.wakeUpSoundName='skeleton_wake_up';
         this.meleeSoundName='blade';
         this.deathSoundName='skeleton_die';
+        this.fallSoundName='splash';
+        this.fallSoundWaitCount=120;
 
             // model
             

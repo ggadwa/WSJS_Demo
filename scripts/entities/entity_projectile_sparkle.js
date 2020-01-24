@@ -21,84 +21,36 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
     static SHAKE_MAX_SHIFT=40;
     static SHAKE_TICK=2000;
     
-    running=false;
     motion=null;
-    parentEntity=null;
     nextSparkleTick=0;
-    currentSparkleIndex=0;
-    sparkleEffects=null;
-    explosionSmokeEffect=null;
-    explosionFireEffect=null;
-
     
     initialize()
     {
-        let n;
-        
         super.initialize();
         
             // setup
             
         this.radius=500;
         this.height=500;
-            
-        this.motion=new PointClass(0,0,0);
         
-            // not shown and not running
+        this.nextSparkleTick=this.getTimestamp();
             
-        this.show=false;
-        this.running=false;
-        
-            // sparkle effects
-            // this projectile has no model, it's all effects
+            // the motion
             
-        this.sparkleEffects=[];
-        
-        for (n=0;n!=EntityProjectileSparkleClass.SPARKLE_EFFECT_COUNT;n++) {
-            this.sparkleEffects.push(this.addEffect(EffectSparkleClass,null,false));
-        }
-        
-            // explosion effects
-            
-        this.explosionSmokeEffect=this.addEffect(EffectExplosionSmokeClass,null,false);
-        this.explosionFireEffect=this.addEffect(EffectExplosionFireClass,null,false);
+        this.motion=new PointClass(0,0,EntityProjectileSparkleClass.SPEED);
+        this.motion.rotateX(null,this.angle.x);
+        this.motion.rotateY(null,this.angle.y);
         
             // the model
             
         this.setModel('crystal_ball');
         this.scale.setFromValues(20,20,20);
-    }
-    
-        //
-        // throw call
-        //
         
-    fire(parentEntity,firePosition,fireAngle)
-    {
-        this.parentEntity=parentEntity;
-        
-            // show and position
+            // sound effect
             
-        this.show=true;
-        this.position.setFromPoint(firePosition);
-        this.angle.setFromPoint(fireAngle);
-        
-            // setup motion and start running
-            
-        this.motion.setFromValues(0,0,EntityProjectileSparkleClass.SPEED);
-        this.motion.rotateX(null,fireAngle.x);
-        this.motion.rotateY(null,fireAngle.y);
-        
-            // setup next sparkle
-          
-        this.currentSparkleIndex=0;
-        this.nextSparkleTick=this.getTimestamp();
-        
-        this.playSoundAtEntity(parentEntity,'laser',1.0,false);
-        
-        this.running=true;
+        this.playSound('laser',1.0,false);
     }
-    
+        
         //
         // exploding
         //
@@ -108,12 +60,12 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
     {
             // explosion effects
             
-        this.explosionSmokeEffect.restart(this.position,true);
-        this.explosionFireEffect.restart(this.position,true);
+        this.addEffect(EffectExplosionSmokeClass,this.position,null,true);
+        this.addEffect(EffectExplosionFireClass,this.position,null,true);
         
             // damage entities in a radius
             
-        this.damageEntityForRadius(this.parentEntity,this.position,EntityProjectileSparkleClass.DAMAGE_DISTANCE,EntityProjectileSparkleClass.DAMAGE);
+        this.damageEntityForRadius(this.spawnedBy,this.position,EntityProjectileSparkleClass.DAMAGE_DISTANCE,EntityProjectileSparkleClass.DAMAGE);
         
             // shake the screen
             
@@ -126,15 +78,12 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
     
     run()
     {
-        if (!this.running) return;
-        
             // time for an effect
 
         if (this.getTimestamp()>=this.nextSparkleTick) {
             this.nextSparkleTick+=EntityProjectileSparkleClass.SPARKLE_TICK_COUNT;
 
-            this.sparkleEffects[this.currentSparkleIndex++].restart(this.position,true);
-            if (this.currentSparkleIndex>=EntityProjectileSparkleClass.SPARKLE_EFFECT_COUNT) this.currentSparkleIndex=0;
+            this.addEffect(EffectSparkleClass,this.position,null,true);
         }
         
             // move sparkle
@@ -143,10 +92,9 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
        
             // hitting anything stops it
         
-        this.running=false;
-        this.show=false;
+        this.markDelete=true;
 
-        if (this.touchEntity!==null) this.touchEntity.damage(this.parentEntity,EntityProjectileSparkleClass.DAMAGE,this.position);
+        if (this.touchEntity!==null) this.touchEntity.damage(this.spawnedBy,EntityProjectileSparkleClass.DAMAGE,this.position);
         
             // some can explode
             

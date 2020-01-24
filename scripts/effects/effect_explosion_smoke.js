@@ -31,7 +31,7 @@ export default class EffectExplosionSmokeClass extends ProjectEffectClass
         
             // setup
             
-        this.startTimestamp=0;
+        this.startTimestamp=this.getTimestamp();
 
         this.xBound=new BoundClass(0,0);
         this.yBound=new BoundClass(0,0);
@@ -54,13 +54,6 @@ export default class EffectExplosionSmokeClass extends ProjectEffectClass
     {
         this.drawRelease();
     }
-    
-    restart(position,show)
-    {
-        super.restart(position,show);
-        
-        this.startTimestamp=this.getTimestamp();
-    }
 
     drawSetup()
     {
@@ -70,9 +63,8 @@ export default class EffectExplosionSmokeClass extends ProjectEffectClass
 
         tick=this.getTimestamp()-this.startTimestamp;
         if (tick>EffectExplosionSmokeClass.SMOKE_LIFE_TICK) {
-            this.startTimestamp=0;
-            this.show=false;
-            return;
+            this.markDelete=true;
+            return(false);
         }
         
             // explosion factor

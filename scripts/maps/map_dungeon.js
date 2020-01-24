@@ -309,7 +309,8 @@ export default class MapDungeonClass extends ProjectMapClass
                         {"name":"vampire_wake_up","distance":30000,"loopStart":0,"loopEnd":0},
                         {"name":"vampire_die","distance":30000,"loopStart":0,"loopEnd":0},
                         {"name":"gate","distance":30000,"loopStart":0,"loopEnd":0},
-                        {"name":"door","distance":30000,"loopStart":0,"loopEnd":0}
+                        {"name":"door","distance":30000,"loopStart":0,"loopEnd":0},
+                        {"name":"splash","distance":40000,"loopStart":0,"loopEnd":0}
                     ],
                 "bitmaps":
                     [

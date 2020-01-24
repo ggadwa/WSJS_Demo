@@ -31,6 +31,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     armor=0;
     deadCount=-1;
     lastUnderLiquid=false;
+    lastInLiquid=false;
     movement=null;
     rotMovement=null;
     currentWeapon=0;
@@ -287,9 +288,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.scores=new Map();
         
         for (entity of entityList.entities) {
-            if (entity.active) {
-                if ((entity.filter==='bot') || (entity.filter==='remote') || (entity.filter==='player')) this.scores.set(entity.name,0);
-            }
+            if ((entity.filter==='bot') || (entity.filter==='remote') || (entity.filter==='player')) this.scores.set(entity.name,0);
         }
         
         this.scoreColor=new ColorClass(0,1,0.2);
@@ -490,6 +489,17 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             }
             
             this.lastUnderLiquid=false;
+        }
+        
+        liquidIdx=this.getInLiquidIndex();
+        
+        if (liquidIdx!==-1) {
+            if (!this.lastInLiquid) this.playSound('splash',1.0,false);
+            this.lastInLiquid=true;
+        }
+        else {
+            if (this.lastInLiquid) this.playSound('splash',0.8,false);
+            this.lastInLiquid=false;
         }
         
             // jumping

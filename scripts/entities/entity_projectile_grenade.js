@@ -22,7 +22,6 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
     static SHAKE_MAX_SHIFT=40;
     static SHAKE_TICK=2000;
     
-    running=false;
     rolling=false;
     stopped=false;
     bouncePause=0;
@@ -31,15 +30,14 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
     savePoint=null;
     drawPosition=null;
     drawAngle=null;
-    parentEntity=null;
-    explosionFireEffect=null;
-    explosionSmokeEffect=null;
     
     initialize()
     {
         super.initialize();
         
             // setup
+            
+        this.startTick=this.getTimestamp();
             
         this.radius=500;
         this.height=500;
@@ -53,52 +51,20 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
         this.drawPosition=new PointClass(0,0,0);
         this.drawAngle=new PointClass(0,0,0);
         
-            // not shown and not running
+            // setup motion
             
-        this.show=false;
-        this.running=false;
+        this.show=true;
         this.rolling=false;
         this.stopped=false;
-        
         this.bouncePause=0;
+            
+        this.motion.setFromValues(0,0,EntityProjectileGrenadeClass.SPEED);
+        this.motion.rotate(this.angle);
         
             // the model
             
         this.setModel('grenade');
         this.scale.setFromValues(100,100,100);
-        
-            // explosion effect
-        
-        this.explosionSmokeEffect=this.addEffect(EffectExplosionSmokeClass,null,false);
-        this.explosionFireEffect=this.addEffect(EffectExplosionFireClass,null,false);
-    }
-    
-        //
-        // throw call
-        //
-        
-    fire(senderEntity,throwPosition,throwAngle)
-    {
-        this.parentEntity=senderEntity;
-        
-            // show and position
-            
-        this.show=true;
-        this.position.setFromPoint(throwPosition);
-        this.angle.setFromPoint(throwAngle);
-        
-            // setup motion and start running
-            
-        this.motion.setFromValues(0,0,EntityProjectileGrenadeClass.SPEED);
-        this.motion.rotate(this.angle);
-        
-        this.drawAngle.setFromValues(0,0,0);
-        
-        this.running=true;
-        this.rolling=false;
-        this.stopped=false;
-        this.bouncePause=0;
-        this.startTick=this.getTimestamp();
     }
     
         //
@@ -107,17 +73,18 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
     
     explode()
     {
-        this.running=false;
-        this.show=false;
+            // remove it
+            
+        this.markDelete=true;
         
             // explosion effects
             
-        this.explosionSmokeEffect.restart(this.position,true);
-        this.explosionFireEffect.restart(this.position,true);
+        this.addEffect(EffectExplosionSmokeClass,this.position,null,true);
+        this.addEffect(EffectExplosionFireClass,this.position,null,true);
         
             // damage entities in a radius
             
-        this.damageEntityForRadius(this.parentEntity,this.position,EntityProjectileGrenadeClass.DAMAGE_DISTANCE,EntityProjectileGrenadeClass.DAMAGE);
+        this.damageEntityForRadius(this.spawnedBy,this.position,EntityProjectileGrenadeClass.DAMAGE_DISTANCE,EntityProjectileGrenadeClass.DAMAGE);
         
             // shake the screen
             
@@ -126,8 +93,6 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
     
     run()
     {
-        if (!this.running) return;
-        
             // time for grenade to end?
             
         if (this.getTimestamp()>(this.startTick+EntityProjectileGrenadeClass.LIFE_TICK)) {
