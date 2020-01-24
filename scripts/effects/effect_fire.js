@@ -22,8 +22,6 @@ export default class EffectFireClass extends ProjectEffectClass
     lightIntensity=0;
     lightIntensityDrop=0;
     lightPeriodicTick=0;
-    fireBitmap=null;
-    glowBitmap=null;
     redColor=null;
     orangeColor=null;
     glowColor=null;
@@ -44,11 +42,6 @@ export default class EffectFireClass extends ProjectEffectClass
         this.lightColor=new ColorClass(1.0,0.9,0.9);
             
         this.drawPoint=new PointClass(0,0,0);
-        
-            // add a bitmap for this effect
-            
-        this.fireBitmap=this.addBitmap('textures/particle_blob.png');
-        this.glowBitmap=this.addBitmap('textures/particle_glow.png');
         
             // setup the drawing
             
@@ -131,17 +124,17 @@ export default class EffectFireClass extends ProjectEffectClass
         
             // the glow
             
-        this.drawAddBillboardQuad(this.glowBitmap,this.position,0.0,0.0,1.0,1.0,EffectFireClass.GLOW_WIDTH,EffectFireClass.GLOW_HEIGHT,this.getPeriodicLinear(35000,360),ProjectEffectClass.DRAW_MODE_ADDITIVE,this.glowColor,0.8);
+        this.drawAddBillboardQuad('textures/particle_glow.png',this.position,0.0,0.0,1.0,1.0,EffectFireClass.GLOW_WIDTH,EffectFireClass.GLOW_HEIGHT,this.getPeriodicLinear(35000,360),ProjectEffectClass.DRAW_MODE_ADDITIVE,this.glowColor,0.8);
 
             // the red and orange part
 
-        this.drawAddBillboardQuad(this.fireBitmap,this.position,u,v,0.5,0.5,halfWid,EffectFireClass.FIRE_HEIGHT,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.redColor,1.0);
-        this.drawAddBillboardQuad(this.fireBitmap,this.position,u2,v2,0.5,0.5,halfWid,EffectFireClass.FIRE_HEIGHT,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.redColor,1.0);
+        this.drawAddBillboardQuad('textures/particle_blob.png',this.position,u,v,0.5,0.5,halfWid,EffectFireClass.FIRE_HEIGHT,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.redColor,1.0);
+        this.drawAddBillboardQuad('textures/particle_blob.png',this.position,u2,v2,0.5,0.5,halfWid,EffectFireClass.FIRE_HEIGHT,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.redColor,1.0);
         
         halfWid=Math.trunc(halfWid*0.5);
         halfHigh=Math.trunc(EffectFireClass.FIRE_HEIGHT*0.6);
         this.drawPoint.setFromValues(this.position.x,(this.position.y+halfHigh),this.position.z);
-        this.drawAddBillboardQuad(this.fireBitmap,this.drawPoint,u,v,0.5,0.5,halfWid,halfHigh,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.orangeColor,0.9);
+        this.drawAddBillboardQuad('textures/particle_blob.png',this.drawPoint,u,v,0.5,0.5,halfWid,halfHigh,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.orangeColor,0.9);
 
         this.drawEnd();
     }

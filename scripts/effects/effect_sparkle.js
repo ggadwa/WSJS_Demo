@@ -22,7 +22,6 @@ export default class EffectSparkleClass extends ProjectEffectClass
     xBound=null;
     yBound=null;
     zBound=null;
-    sparkleBitmap=null;
     sparkleColor=null;
         
     initialize()
@@ -38,10 +37,6 @@ export default class EffectSparkleClass extends ProjectEffectClass
         this.zBound=new BoundClass(0,0);
 
         this.sparkleColor=new ColorClass((0.3+(Math.random()*0.7)),(0.2+(Math.random()*0.7)),(0.1+(Math.random()*0.8)));
-        
-            // add a bitmap for this effect
-            
-        this.sparkleBitmap=this.addBitmap('textures/particle_hit.png');
         
             // setup the drawing
             
@@ -95,7 +90,7 @@ export default class EffectSparkleClass extends ProjectEffectClass
     draw()
     {
         this.drawStart();
-        this.drawAddBillboardQuad(this.sparkleBitmap,this.position,0,0,1,1,this.halfSize,this.halfSize,this.getPeriodicLinear(this.rotateTick,360),ProjectEffectClass.DRAW_MODE_ADDITIVE,this.sparkleColor,this.alpha);
+        this.drawAddBillboardQuad('textures/particle_hit.png',this.position,0,0,1,1,this.halfSize,this.halfSize,this.getPeriodicLinear(this.rotateTick,360),ProjectEffectClass.DRAW_MODE_ADDITIVE,this.sparkleColor,this.alpha);
         this.drawEnd();
     }
 }

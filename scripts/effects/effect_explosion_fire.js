@@ -34,7 +34,6 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
     xBound=null;
     yBound=null;
     zBound=null;
-    fireBitmap=null;
     redColor=null;
     orangeColor=null;
     yellowColor=null;
@@ -61,10 +60,6 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
         this.orangeColor=new ColorClass(1.0,0.5,0.0);
         this.yellowColor=new ColorClass(1.0,1.0,0.0);
         this.lightColor=new ColorClass(1.0,1.0,0.0);
-        
-            // add a bitmap for this effect
-            
-        this.fireBitmap=this.addBitmap('textures/particle_blob.png');
         
             // setup the drawing
             // we have FIRE_COLOR_PARTICLE_COUNT red, orange and yellow
@@ -163,13 +158,13 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
         this.drawStart();
      
         halfSize=EffectExplosionFireClass.FIRE_RED_START_HALF_SIZE+Math.trunc(EffectExplosionFireClass.FIRE_RED_ADD_HALF_SIZE*sizeFactor);
-        this.drawAddBillboardQuadFromMotion(this.fireBitmap,this.redMotions,motionFactor,this.position,0,0,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.redColor,alpha);
+        this.drawAddBillboardQuadFromMotion('textures/particle_blob.png',this.redMotions,motionFactor,this.position,0,0,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.redColor,alpha);
         
         halfSize=EffectExplosionFireClass.FIRE_ORANGE_START_HALF_SIZE+Math.trunc(EffectExplosionFireClass.FIRE_ORANGE_ADD_HALF_SIZE*sizeFactor);
-        this.drawAddBillboardQuadFromMotion(this.fireBitmap,this.orangeMotions,motionFactor,this.position,0.5,0.5,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.orangeColor,alpha);
+        this.drawAddBillboardQuadFromMotion('textures/particle_blob.png',this.orangeMotions,motionFactor,this.position,0.5,0.5,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.orangeColor,alpha);
 
         halfSize=EffectExplosionFireClass.FIRE_YELLOW_START_HALF_SIZE+Math.trunc(EffectExplosionFireClass.FIRE_YELLOW_ADD_HALF_SIZE*sizeFactor);
-        this.drawAddBillboardQuadFromMotion(this.fireBitmap,this.yellowMotions,motionFactor,this.position,0,0.5,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.yellowColor,alpha);
+        this.drawAddBillboardQuadFromMotion('textures/particle_blob.png',this.yellowMotions,motionFactor,this.position,0,0.5,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.yellowColor,alpha);
             
         this.drawEnd();
     }

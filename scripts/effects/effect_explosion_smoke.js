@@ -22,7 +22,6 @@ export default class EffectExplosionSmokeClass extends ProjectEffectClass
     xBound=null;
     yBound=null;
     zBound=null;
-    smokeBitmap=null;
     whiteColor=null;
     smokeMotions=null;
             
@@ -39,10 +38,6 @@ export default class EffectExplosionSmokeClass extends ProjectEffectClass
         this.zBound=new BoundClass(0,0);
         
         this.whiteColor=new ColorClass(1.0,1.0,1.0);
-        
-            // add a bitmap for this effect
-            
-        this.smokeBitmap=this.addBitmap('textures/particle_smoke.png');
         
             // setup the drawing
             
@@ -117,7 +112,7 @@ export default class EffectExplosionSmokeClass extends ProjectEffectClass
         v=(k&0x1)*0.5;
             
         this.drawStart();
-        this.drawAddBillboardQuadFromMotion(this.smokeBitmap,this.smokeMotions,factor,this.position,u,v,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.whiteColor,alpha);
+        this.drawAddBillboardQuadFromMotion('textures/particle_smoke.png',this.smokeMotions,factor,this.position,u,v,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.whiteColor,alpha);
         this.drawEnd();
     }
 }

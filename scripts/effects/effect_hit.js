@@ -21,7 +21,6 @@ export default class EffectHitClass extends ProjectEffectClass
     xBound=null;
     yBound=null;
     zBound=null;
-    hitBitmap=null;
     hitColor=null;
         
     initialize()
@@ -40,10 +39,6 @@ export default class EffectHitClass extends ProjectEffectClass
 
         col=0.7+(Math.random()*0.2);
         this.hitColor=new ColorClass((col+0.1),col,0.0);
-        
-            // add a bitmap for this effect
-            
-        this.hitBitmap=this.addBitmap('textures/particle_hit.png');
         
             // setup the drawing
             
@@ -96,7 +91,7 @@ export default class EffectHitClass extends ProjectEffectClass
     draw()
     {
         this.drawStart();
-        this.drawAddBillboardQuad(this.hitBitmap,this.position,0,0,1,1,this.halfSize,this.halfSize,this.getPeriodicLinear(1000,360),ProjectEffectClass.DRAW_MODE_ADDITIVE,this.hitColor,this.alpha);
+        this.drawAddBillboardQuad('textures/particle_hit.png',this.position,0,0,1,1,this.halfSize,this.halfSize,this.getPeriodicLinear(1000,360),ProjectEffectClass.DRAW_MODE_ADDITIVE,this.hitColor,this.alpha);
         this.drawEnd();
     }
 }

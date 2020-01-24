@@ -311,6 +311,20 @@ export default class MapDungeonClass extends ProjectMapClass
                         {"name":"gate","distance":30000,"loopStart":0,"loopEnd":0},
                         {"name":"door","distance":30000,"loopStart":0,"loopEnd":0}
                     ],
+                "bitmaps":
+                    [
+                        {"url":"textures/crosshair_dot.png"},
+                        {"url":"textures/icon_beretta_bullet.png"},
+                        {"url":"textures/icon_m16_bullet.png"},
+                        {"url":"textures/icon_grenade.png"},
+                        {"url":"textures/icon_armor.png"},
+                        {"url":"textures/icon_health.png"},
+                        {"url":"textures/particle_blob.png"},
+                        {"url":"textures/particle_smoke.png"},
+                        {"url":"textures/particle_hit.png"},
+                        {"url":"textures/particle_glow.png"},
+                        {"url":"textures/web.png"}
+                    ],
                 "entities":
                     [
                         {"entity":EntityPlayerClass,"name":"Player","position":{"x":-11990,"y":-189,"z":-78363},"angle":{"x":0,"y":0,"z":0}},
@@ -354,7 +368,7 @@ export default class MapDungeonClass extends ProjectMapClass
                         {"entity":EntitySkeletonCaptainClass,"name":"skeleton_boss","position":{"x":-298429,"y":-61495,"z":28543},"angle":{"x":0,"y":0,"z":0},"data":{"captain":true}},
                         {"entity":EntityPickupM16Class,"name":"m16_01","position":{"x":-67684,"y":-7975,"z":-13612},"data":{"ammo":false,"pickupOnce":true}},
                         {"entity":EntityPickupArmorClass,"name":"armor_01","position":{"x":-121439,"y":-27924,"z":125337},"data":{"pickupOnce":true}}
-                    ],
+                    ]
             }
         );
     }

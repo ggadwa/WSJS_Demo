@@ -273,6 +273,19 @@ export default class MapDualCastlesClass extends ProjectMapClass
                         {"name":"pickup","distance":5000,"loopStart":0,"loopEnd":0},
                         {"name":"stone_platform","distance":30000,"loopStart":0,"loopEnd":0}
                     ],
+                "bitmaps":
+                    [
+                        {"url":"textures/crosshair_dot.png"},
+                        {"url":"textures/icon_beretta_bullet.png"},
+                        {"url":"textures/icon_m16_bullet.png"},
+                        {"url":"textures/icon_grenade.png"},
+                        {"url":"textures/icon_armor.png"},
+                        {"url":"textures/icon_health.png"},
+                        {"url":"textures/particle_blob.png"},
+                        {"url":"textures/particle_smoke.png"},
+                        {"url":"textures/particle_hit.png"},
+                        {"url":"textures/particle_glow.png"}
+                    ],
                 "entities":
                     [
                         {"entity":EntityPlayerClass,"name":"Player","position":{"x":-28000,"y":24124,"z":0},"angle":{"x":0,"y":90,"z":0}},

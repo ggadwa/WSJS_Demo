@@ -22,7 +22,6 @@ export default class EffectWebClass extends ProjectEffectClass
     v1ZFrequency=0;
     v2XFrequency=0;
     v2ZFrequency=0;
-    webBitmap=null;
     webColor=null;
     drawV0=null;
     drawV1=null;
@@ -46,10 +45,6 @@ export default class EffectWebClass extends ProjectEffectClass
         this.drawV2=new PointClass(0,0,0);
         
         this.webColor=new ColorClass(1,1,1);
-        
-            // add a bitmap for this effect
-            
-        this.webBitmap=this.addBitmap('textures/web.png');
         
             // setup the drawing
             
@@ -107,7 +102,7 @@ export default class EffectWebClass extends ProjectEffectClass
             // draw web
             
         this.drawStart();
-        this.drawAddTriangle(this.webBitmap,this.drawV0,this.data.v0.u,this.data.v0.v,this.drawV1,this.data.v1.u,this.data.v1.v,this.drawV2,this.data.v2.u,this.data.v2.v,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.webColor,0.5);
+        this.drawAddTriangle('textures/web.png',this.drawV0,this.data.v0.u,this.data.v0.v,this.drawV1,this.data.v1.u,this.data.v1.v,this.drawV2,this.data.v2.u,this.data.v2.v,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.webColor,0.5);
         this.drawEnd();
     }
 }
