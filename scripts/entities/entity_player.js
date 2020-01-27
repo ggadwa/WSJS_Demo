@@ -21,6 +21,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     static JUMP_HEIGHT=400;
     static JUMP_WATER_HEIGHT=400;
     static FLY_SWIM_Y_REDUCE=0.5;
+    static DAMAGE_FLINCH_WAIT_TICK=500;
     static RANDOM_NODE_FAIL_COUNT=20;
     static MAX_DEATH_COUNT=500;
     static WEAPON_BERETTA=0;
@@ -39,6 +40,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     m16=null;
     grenade=null;
     hasM16=false;
+    nextDamageTick=0;
     scores=null;
     scoreColor=null;
     lastScoreCount=0;
@@ -62,6 +64,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.gravityMinValue=10;
         this.gravityMaxValue=450;
         this.gravityAcceleration=20;
+        
+        this.nextDamageTick=0;
         
         this.filter='player';          // filters are used when searching for entities
         
@@ -167,6 +171,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     
     damage(fromEntity,damage,hitPoint)
     {
+        let timestamp;
+        
             // already dead, can't take damage
             
         if (this.deadCount!==-1) return;
@@ -212,6 +218,14 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             }
             
             return;
+        }
+        
+            // hurt sound
+            
+        timestamp=this.getTimestamp();
+        if (timestamp>this.nextDamageTick) {
+            this.nextDamageTick=timestamp+EntityPlayerClass.DAMAGE_FLINCH_WAIT_TICK;
+            this.playSound('hurt',(1.0+(0.5-Math.random())),false);
         }
     }
     

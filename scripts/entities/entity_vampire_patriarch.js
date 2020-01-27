@@ -48,8 +48,8 @@ export default class EntityVampirePatriarchClass extends EntityMonsterBaseClass
         this.wakeUpSoundName='vampire_wake_up';
         this.meleeSoundName='vampire_wake_up';
         this.deathSoundName='vampire_die';
-        this.fallSoundName='splash';
-        this.fallSoundWaitCount=120;
+        this.fallSoundName='thud';
+        this.fallSoundWaitCount=100;
         
             // model
             

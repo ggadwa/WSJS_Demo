@@ -269,6 +269,8 @@ export default class MapDualCastlesClass extends ProjectMapClass
                         {"name":"explosion","distance":50000,"loopStart":0,"loopEnd":0},
                         {"name":"chime","distance":7000,"loopStart":0,"loopEnd":0},
                         {"name":"player_die","distance":30000,"loopStart":0,"loopEnd":0},
+                        {"name":"thud","distance":30000,"loopStart":0,"loopEnd":0},
+                        {"name":"hurt","distance":5000,"loopStart":0,"loopEnd":0},
                         {"name":"pickup","distance":5000,"loopStart":0,"loopEnd":0},
                         {"name":"splash","distance":40000,"loopStart":0,"loopEnd":0},
                         {"name":"stone_platform","distance":30000,"loopStart":0,"loopEnd":0}

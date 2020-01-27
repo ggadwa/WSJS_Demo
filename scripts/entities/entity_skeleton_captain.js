@@ -78,8 +78,8 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
         this.wakeUpSoundName='skeleton_wake_up';
         this.meleeSoundName='blade';
         this.deathSoundName='skeleton_die';
-        this.fallSoundName='splash';
-        this.fallSoundWaitCount=120;
+        this.fallSoundName='thud';
+        this.fallSoundWaitCount=250;
 
             // model
             
