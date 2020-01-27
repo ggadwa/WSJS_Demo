@@ -1,6 +1,8 @@
 import PointClass from '../../../code/utility/point.js';
 import BoundClass from '../../../code/utility/bound.js';
 import ColorClass from '../../../code/utility/color.js';
+import InputTouchClickClass from '../../../code/main/input_touch_click.js';
+import InputTouchSwipeClass from '../../../code/main/input_touch_swipe.js';
 import InterfaceTextClass from '../../../code/interface/interface_text.js';
 import ProjectEntityDeveloperClass from '../../../code/project/project_entity_developer.js';
 import EntityWeaponBerettaClass from '../entities/entity_weapon_beretta.js';
@@ -388,6 +390,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     {
         let x,y,turnAdd,lookAdd,liquidIdx;
         let mouseWheelClick,bump;
+        let fireWeapon,fireGrenade,touchClick;
         let setup=this.getSetup();
         
         super.run();
@@ -424,11 +427,16 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
                 
             if (this.deadCount<=0) this.ready();
             return;
-        }            
+        }
+        
+            // detect weapon clicks/touches
+            
+        fireWeapon=this.isMouseButtonDown(0)||(this.getNextTouchClick(InputTouchClickClass.QUADRANT_BOTTOMRIGHT)!==null);
+        fireGrenade=this.isMouseButtonDown(2)||(this.getNextTouchSwipe(InputTouchSwipeClass.QUADRANT_TOPRIGHT,InputTouchSwipeClass.DIRECTION_Y));
         
             // fire weapon
             
-        if (this.isMouseButtonDown(0)) {
+        if (fireWeapon) {
             switch (this.currentWeapon) {
                 case EntityPlayerClass.WEAPON_BERETTA:
                     this.beretta.fire(this.position,this.angle,this.eyeOffset);
@@ -441,7 +449,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // grenade throw
         
-        if (this.isMouseButtonDown(2)) this.grenade.fire(this.position,this.angle,this.eyeOffset);
+        if (fireGrenade) this.grenade.fire(this.position,this.angle,this.eyeOffset);
 
             // change weapons
             // for this demo, we just have two weapons so we do it the simple way
