@@ -6,6 +6,7 @@ import ProjectGameDeveloperClass from '../../../code/project/project_game_develo
 import MapDualCastlesClass from '../maps/map_dual_castles.js';
 import MapDungeonClass from '../maps/map_dungeon.js';
 import EntityMultiplayerBotClass from '../entities/entity_multiplayer_bot.js';
+import EntityRemoteClass from '../entities/entity_remote.js';
 
 export default class GameClass extends ProjectGameDeveloperClass
 {
@@ -24,6 +25,11 @@ export default class GameClass extends ProjectGameDeveloperClass
     getBotName(idx)
     {
         return(GameClass.BOT_NAMES[idx]);
+    }
+    
+    getRemoteClass()
+    {
+        return(EntityRemoteClass);
     }
 
     getStartProjectMap()
