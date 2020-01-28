@@ -25,7 +25,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
     static MAX_STUCK_COUNT=50;          // how many physics tick we can be stuck until we restart pathing
     static FORGET_DISTANCE=60000;       // distance bot gives up on targetting somebody
     static TARGET_SCAN_Y_ANGLES=[-60,-45,-25,-15,-10,-5,0,5,10,15,25,45,60];     // angles we scan (one angle a tick) for targets
-    static TARGET_HIT_FILTER=['player','bot'];              // filters for things we can find with ray trace scan
+    static TARGET_HIT_FILTER=['player','remote','bot'];              // filters for things we can find with ray trace scan
     static BERETTA_FIRE_SLOP=5;         // angle of slop on fire so bot doesn't always hit you
     static M16_FIRE_SLOP=15;            // angle of slop on fire so bot doesn't always hit you
     static ANGLE_Y_FIRE_RANGE=10;       // if angle to target is within this range, then you can fire

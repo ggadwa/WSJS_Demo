@@ -47,6 +47,11 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     scoreColor=null;
     lastScoreCount=0;
     
+    cameraKeyDown=false;
+    cameraFPP=true;
+    
+    inStandingAnimation=true;
+    
         //
         // initialize and release
         //
@@ -143,6 +148,10 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.passThrough=false;         // reset if this is being called after bot died
         this.angle.x=0;
         
+            // get rid of jetpack from model
+            
+        this.showModelMesh('Captain_jetpack',false);
+        
             // start with beretta
             // and reset the weapons
             
@@ -160,6 +169,11 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             
         this.startScore();
         this.displayScore(false);
+        
+            // start with standing animation
+            
+        this.inStandingAnimation=true;
+        this.startModelAnimationChunkInFrames(null,30,0,50);
         
             // move to random node
             // if multiplayer
@@ -218,6 +232,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
                 }
                 this.displayScore(true);
             }
+            
+            this.startModelAnimationChunkInFrames(null,30,209,247);
             
             return;
         }
@@ -390,7 +406,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     {
         let x,y,turnAdd,lookAdd,liquidIdx;
         let mouseWheelClick,bump;
-        let fireWeapon,fireGrenade,touchClick;
+        let fireWeapon,fireGrenade;
         let setup=this.getSetup();
         
         super.run();
@@ -484,16 +500,21 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // looking
            
-        y=this.getMouseMoveY();
-        if (y!==0) {
-            lookAdd=y*setup.mouseYSensitivity;
-            lookAdd+=(lookAdd*setup.mouseYAcceleration);
-            if (setup.mouseYInvert) lookAdd=-lookAdd;
-            if (Math.abs(lookAdd)>EntityPlayerClass.MOUSE_MAX_LOOK_SPEED) lookAdd=EntityPlayerClass.MOUSE_MAX_LOOK_SPEED*Math.sign(lookAdd);
-        
-            this.angle.x+=lookAdd;
-            if (this.angle.x<-EntityPlayerClass.MAX_LOOK_ANGLE) this.angle.x=-EntityPlayerClass.MAX_LOOK_ANGLE;
-            if (this.angle.x>=EntityPlayerClass.MAX_LOOK_ANGLE) this.angle.x=EntityPlayerClass.MAX_LOOK_ANGLE;
+        if (this.getCamera().isFirstPerson()) {
+            y=this.getMouseMoveY();
+            if (y!==0) {
+                lookAdd=y*setup.mouseYSensitivity;
+                lookAdd+=(lookAdd*setup.mouseYAcceleration);
+                if (setup.mouseYInvert) lookAdd=-lookAdd;
+                if (Math.abs(lookAdd)>EntityPlayerClass.MOUSE_MAX_LOOK_SPEED) lookAdd=EntityPlayerClass.MOUSE_MAX_LOOK_SPEED*Math.sign(lookAdd);
+
+                this.angle.x+=lookAdd;
+                if (this.angle.x<-EntityPlayerClass.MAX_LOOK_ANGLE) this.angle.x=-EntityPlayerClass.MAX_LOOK_ANGLE;
+                if (this.angle.x>=EntityPlayerClass.MAX_LOOK_ANGLE) this.angle.x=EntityPlayerClass.MAX_LOOK_ANGLE;
+            }
+        }
+        else {
+            this.angle.x=0;
         }
         
             // determine if we've passed out of a liquid
@@ -568,14 +589,83 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             this.movement.y=this.moveInMapY(this.rotMovement,this.debugPlayerFly);
             this.moveInMapXZ(this.rotMovement,bump,true);
         }
+        
+            // camera swaps
+            
+        if (this.isKeyDown(192)) {
+            if (!this.cameraKeyDown) {
+                this.cameraKeyDown=true;
+                if (this.cameraFPP) {
+                    this.cameraFPP=false;
+                    this.getCamera().gotoThirdPersonBehind(10000,-10);
+                    this.showInterfaceElement('crosshair',false);
+                }
+                else {
+                    this.cameraFPP=true;
+                    this.getCamera().gotoFirstPerson();
+                    this.showInterfaceElement('crosshair',true);
+                }
+            }
+        }
+        else {
+            this.cameraKeyDown=false;
+        }
+        
+            // current animation
+            
+        if ((this.movement.x!==0) || (this.movement.z!==0)) {
+            if (this.currentWeapon===EntityPlayerClass.WEAPON_BERETTA) {
+                if (fireWeapon) {
+                    this.startModelAnimationChunkInFrames(null,30,523,549);
+                    this.queueModelAnimationChunkInFrames(null,30,492,518);
+                }
+                else {
+                    if (this.inStandingAnimation) this.startModelAnimationChunkInFrames(null,30,492,518);
+                }
+            }
+            else {
+                if (fireWeapon) {
+                    this.startModelAnimationChunkInFrames(null,30,865,887);
+                    this.queueModelAnimationChunkInFrames(null,30,933,955);
+                }
+                else {
+                    if (this.inStandingAnimation) this.startModelAnimationChunkInFrames(null,30,933,955);
+                }
+            }
+            
+            this.inStandingAnimation=false;
+        }
+        else {
+            if (this.currentWeapon===EntityPlayerClass.WEAPON_BERETTA) {
+                if (fireWeapon) {
+                    this.startModelAnimationChunkInFrames(null,30,364,401);
+                    this.queueModelAnimationChunkInFrames(null,30,0,50);
+                }
+                else {
+                    if (!this.inStandingAnimation) this.startModelAnimationChunkInFrames(null,30,0,50);
+                }
+            }
+            else {
+                if (fireWeapon) {
+                    this.startModelAnimationChunkInFrames(null,30,775,815);
+                    this.queueModelAnimationChunkInFrames(null,30,710,760);
+                }
+                else {
+                    if (!this.inStandingAnimation) this.startModelAnimationChunkInFrames(null,30,710,760);
+                }
+            }
+            
+            this.inStandingAnimation=true;
+        }
     }
     
         //
-        // player is never drawn, so always skip out
+        // player is only drawn in third person
         //
         
     drawSetup()
     {
+        if (this.getCamera().isThirdPersonBehind()) return(super.drawSetup());
         return(false);
     }
 }

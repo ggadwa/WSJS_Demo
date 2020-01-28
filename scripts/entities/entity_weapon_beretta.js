@@ -11,7 +11,7 @@ import EntityWeaponBaseClass from '../entities/entity_weapon_base.js';
 export default class EntityWeaponBerettaClass extends EntityWeaponBaseClass
 {
     static DAMAGE=20;
-    static HIT_FILTER=['player','bot','monster','ball'];
+    static HIT_FILTER=['player','remote','bot','monster'];
     
     handOffset=null;
     handAngle=null;
@@ -83,6 +83,8 @@ export default class EntityWeaponBerettaClass extends EntityWeaponBaseClass
             
     drawSetup()
     {
+        if (!this.getCamera().isFirstPerson()) return(false);
+        
         this.setModelDrawPosition(this.handOffset,this.handAngle,this.scale,true);
         return(true);
     }

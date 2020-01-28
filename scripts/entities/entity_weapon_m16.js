@@ -11,7 +11,7 @@ import EntityWeaponBaseClass from '../entities/entity_weapon_base.js';
 export default class EntityWeaponM16Class extends EntityWeaponBaseClass
 {
     static DAMAGE=5;
-    static HIT_FILTER=['player','bot','monster','ball'];
+    static HIT_FILTER=['player','remote','bot','monster'];
     
     handOffset=null;
     handAngle=null;
@@ -84,8 +84,7 @@ export default class EntityWeaponM16Class extends EntityWeaponBaseClass
     
     drawSetup()
     {
-            // this weapon draws in the camera view
-            // so we have to set some positions and angles
+        if (!this.getCamera().isFirstPerson()) return(false);
             
         this.setModelDrawPosition(this.handOffset,this.handAngle,this.scale,true);
         return(true);
