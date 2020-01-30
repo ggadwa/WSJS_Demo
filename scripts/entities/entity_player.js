@@ -1,9 +1,6 @@
 import PointClass from '../../../code/utility/point.js';
 import BoundClass from '../../../code/utility/bound.js';
 import ColorClass from '../../../code/utility/color.js';
-import InputTouchClickClass from '../../../code/main/input_touch_click.js';
-import InputTouchSwipeClass from '../../../code/main/input_touch_swipe.js';
-import InterfaceTextClass from '../../../code/interface/interface_text.js';
 import ProjectEntityDeveloperClass from '../../../code/project/project_entity_developer.js';
 import EntityWeaponBerettaClass from '../entities/entity_weapon_beretta.js';
 import EntityWeaponM16Class from '../entities/entity_weapon_m16.js';
@@ -389,8 +386,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         y=Math.trunc(high*0.5)-Math.trunc((35*sortedNames.length)*0.5);
         
         for (n=0;n!=sortedNames.length;n++) {
-            this.addInterfaceText(('score_name_'+n),sortedNames[n],x,y,30,InterfaceTextClass.TEXT_ALIGN_RIGHT,this.scoreColor,1);
-            this.addInterfaceText(('score_point_'+n),this.scores.get(sortedNames[n]),(x+10),y,30,InterfaceTextClass.TEXT_ALIGN_LEFT,this.scoreColor,1);
+            this.addInterfaceText(('score_name_'+n),sortedNames[n],x,y,30,this.TEXT_ALIGN_RIGHT,this.scoreColor,1);
+            this.addInterfaceText(('score_point_'+n),this.scores.get(sortedNames[n]),(x+10),y,30,this.TEXT_ALIGN_LEFT,this.scoreColor,1);
             
             y+=35;
         }
@@ -447,8 +444,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // detect weapon clicks/touches
             
-        fireWeapon=this.isMouseButtonDown(0)||(this.getNextTouchClick(InputTouchClickClass.QUADRANT_BOTTOMRIGHT)!==null);
-        fireGrenade=this.isMouseButtonDown(2)||(this.getNextTouchSwipe(InputTouchSwipeClass.QUADRANT_TOPRIGHT,InputTouchSwipeClass.DIRECTION_Y));
+        fireWeapon=this.isMouseButtonDown(0)||(this.getNextTouchClick(this.TOUCH_QUADRANT_BOTTOMRIGHT)!==null);
+        fireGrenade=this.isMouseButtonDown(2)||(this.getNextTouchSwipe(this.TOUCH_QUADRANT_TOPRIGHT,this.TOUCH_DIRECTION_Y)!==null);
         
             // fire weapon
             
