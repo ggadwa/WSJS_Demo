@@ -7,10 +7,6 @@ import ProjectEntityClass from '../../../code/project/project_entity.js';
 
 export default class EntityPickupBaseClass extends ProjectEntityClass
 {
-    originalY=0;
-    hideStartTick=0;
-    hideTick=5000;
-    pickupName=null;
     
     initialize()
     {
@@ -19,6 +15,13 @@ export default class EntityPickupBaseClass extends ProjectEntityClass
             // base setup
             
         this.passThrough=true;           // can pass through
+        
+            // pickup setup
+            
+        this.originalY=0;
+        this.hideStartTick=0;
+        this.hideTick=5000;
+        this.pickupName=null;
     }
     
     ready()

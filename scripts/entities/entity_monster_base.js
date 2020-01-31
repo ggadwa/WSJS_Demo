@@ -8,72 +8,67 @@ import ProjectEntityClass from '../../../code/project/project_entity.js';
 
 export default class EntityMonsterBaseClass extends ProjectEntityClass
 {
-    static ANGLE_Y_PROJECTILE_RANGE=5;
-    static ANGLE_Y_MELEE_RANGE=15;
-    static FALL_ASLEEP_DISTANCE=75000;
-    static DAMAGE_FLINCH_WAIT_TICK=500;
-    
-    health=0;
-    startHealth=0;
-    awoke=false;
-    dead=false;
-    wakeUpDistance=0;
-    meleeDistance=0;
-    meleeWaitTick=0;
-    meleeDamageTick=0;
-    nextMeleeTick=0;
-    meleeDamage=0;
-    meleeStartTick=-1;
-    projectileDistance=0;
-    projectileWaitTick=0;
-    projectileFireTick=0;
-    nextProjectileTick=0;
-    projectileStartTick=-1;
-    projectileClass=null;
-    projectileData=null;
-    projectileRequiresSight=true;
-    maxTurnSpeed=0;
-    forwardAcceleration=0;
-    forwardMaxSpeed=0;
-    jumpWaitTick=0;
-    nextJumpTick=0;
-    jumpHeight=0;
-    trapMeshName=null;
-    trapMeshShrink=null;
-    nextDamageTick=0;
-    
-    lastInLiquid=false;
-    
-    idleAnimationFrames=null;
-    walkAnimationFrames=null;
-    meleeAnimationFrames=null;
-    projectileAnimationFrames=null;
-    hitAnimationFrames=null;
-    deathAnimationFrames=null;
-    wakeUpSoundName=null;
-    meleeSoundName=null;
-    deathSoundName=null;
-    fallSoundName=null;
-    fallSoundWaitCount=0;
-    
-    movement=null;
-    rotMovement=null;
-    firePosition=null;
-    fireAngle=null;
-    fireVector=null;
-    fireHitPoint=null;
-    trapMeshXBound=null;
-    trapMeshZBound=null;
-    
     initialize()
     {
         super.initialize();
+        
+        this.ANGLE_Y_PROJECTILE_RANGE=5;
+        this.ANGLE_Y_MELEE_RANGE=15;
+        this.FALL_ASLEEP_DISTANCE=75000;
+        this.DAMAGE_FLINCH_WAIT_TICK=500;
         
             // base setup
             
         this.bumpHeight=1400;
         
         this.filter='monster';
+        
+            // monster setup
+            
+        this.health=0;
+        this.startHealth=0;
+        this.awoke=false;
+        this.dead=false;
+        this.wakeUpDistance=0;
+        this.meleeDistance=0;
+        this.meleeWaitTick=0;
+        this.meleeDamageTick=0;
+        this.nextMeleeTick=0;
+        this.meleeDamage=0;
+        this.meleeStartTick=-1;
+        this.projectileDistance=0;
+        this.projectileWaitTick=0;
+        this.projectileFireTick=0;
+        this.nextProjectileTick=0;
+        this.projectileStartTick=-1;
+        this.projectileClass=null;
+        this.projectileData=null;
+        this.projectileRequiresSight=true;
+        this.maxTurnSpeed=0;
+        this.forwardAcceleration=0;
+        this.forwardMaxSpeed=0;
+        this.jumpWaitTick=0;
+        this.nextJumpTick=0;
+        this.jumpHeight=0;
+        this.trapMeshName=null;
+        this.trapMeshShrink=null;
+        this.nextDamageTick=0;
+    
+        this.lastInLiquid=false;
+    
+        this.idleAnimationFrames=null;
+        this.walkAnimationFrames=null;
+        this.meleeAnimationFrames=null;
+        this.projectileAnimationFrames=null;
+        this.hitAnimationFrames=null;
+        this.deathAnimationFrames=null;
+        this.wakeUpSoundName=null;
+        this.meleeSoundName=null;
+        this.deathSoundName=null;
+        this.fallSoundName=null;
+        this.fallSoundWaitCount=0;
+            
+            // non-gc stuff
         
         this.movement=new PointClass(0,0,0);
         this.rotMovement=new PointClass(0,0,0);
@@ -163,7 +158,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         if (this.health>0) {
             timestamp=this.getTimestamp();
             if (timestamp>this.nextDamageTick) {
-                this.nextDamageTick=timestamp+EntityMonsterBaseClass.DAMAGE_FLINCH_WAIT_TICK;
+                this.nextDamageTick=timestamp+this.DAMAGE_FLINCH_WAIT_TICK;
 
                 this.playSound(this.wakeUpSoundName,(1.0+(0.5-Math.random())),false);
                 this.startModelAnimationChunkInFrames(null,30,this.hitAnimationFrames[0],this.hitAnimationFrames[1]);
@@ -332,7 +327,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         
             // if we get to far away, go back to sleep
             
-        if (distToPlayer>EntityMonsterBaseClass.FALL_ASLEEP_DISTANCE) {
+        if (distToPlayer>this.FALL_ASLEEP_DISTANCE) {
             this.sleep();
             return;
         }
@@ -352,8 +347,8 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         
             // projectiles and melee starts
         
-        if ((this.projectileClass!=null) && (Math.abs(angleDif)<=EntityMonsterBaseClass.ANGLE_Y_PROJECTILE_RANGE)) this.projectileStart(player,distToPlayer,timestamp);
-        if (Math.abs(angleDif)<=EntityMonsterBaseClass.ANGLE_Y_MELEE_RANGE) this.meleeStart(distToPlayer,timestamp);
+        if ((this.projectileClass!=null) && (Math.abs(angleDif)<=this.ANGLE_Y_PROJECTILE_RANGE)) this.projectileStart(player,distToPlayer,timestamp);
+        if (Math.abs(angleDif)<=this.ANGLE_Y_MELEE_RANGE) this.meleeStart(distToPlayer,timestamp);
         
             // time to jump?
             

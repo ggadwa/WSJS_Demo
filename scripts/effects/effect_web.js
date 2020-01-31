@@ -9,27 +9,13 @@ import ProjectEffectClass from '../../../code/project/project_effect.js';
 
 export default class EffectWebClass extends ProjectEffectClass
 {
-    static WEB_MIN_FREQUENCY=8000;
-    static WEB_ADDITIONAL_FREQUENCY=5000;
-    static WEB_MAX_MOVE=80;
-    
-    xBound=null;
-    yBound=null;
-    zBound=null;
-    v0XFrequency=0;
-    v0ZFrequency=0;
-    v1XFrequency=0;
-    v1ZFrequency=0;
-    v2XFrequency=0;
-    v2ZFrequency=0;
-    webColor=null;
-    drawV0=null;
-    drawV1=null;
-    drawV2=null;
-        
     initialize()
     {
         super.initialize();
+    
+        this.WEB_MIN_FREQUENCY=8000;
+        this.WEB_ADDITIONAL_FREQUENCY=5000;
+        this.WEB_MAX_MOVE=80;
         
             // setup
             
@@ -52,12 +38,12 @@ export default class EffectWebClass extends ProjectEffectClass
         
             //random moves
             
-        this.v0XFrequency=EffectWebClass.WEB_MIN_FREQUENCY+(Math.random()*EffectWebClass.WEB_ADDITIONAL_FREQUENCY);
-        this.v0ZFrequency=EffectWebClass.WEB_MIN_FREQUENCY+(Math.random()*EffectWebClass.WEB_ADDITIONAL_FREQUENCY);
-        this.v1XFrequency=EffectWebClass.WEB_MIN_FREQUENCY+(Math.random()*EffectWebClass.WEB_ADDITIONAL_FREQUENCY);
-        this.v1ZFrequency=EffectWebClass.WEB_MIN_FREQUENCY+(Math.random()*EffectWebClass.WEB_ADDITIONAL_FREQUENCY);
-        this.v2XFrequency=EffectWebClass.WEB_MIN_FREQUENCY+(Math.random()*EffectWebClass.WEB_ADDITIONAL_FREQUENCY);
-        this.v2ZFrequency=EffectWebClass.WEB_MIN_FREQUENCY+(Math.random()*EffectWebClass.WEB_ADDITIONAL_FREQUENCY);
+        this.v0XFrequency=this.WEB_MIN_FREQUENCY+(Math.random()*this.WEB_ADDITIONAL_FREQUENCY);
+        this.v0ZFrequency=this.WEB_MIN_FREQUENCY+(Math.random()*this.WEB_ADDITIONAL_FREQUENCY);
+        this.v1XFrequency=this.WEB_MIN_FREQUENCY+(Math.random()*this.WEB_ADDITIONAL_FREQUENCY);
+        this.v1ZFrequency=this.WEB_MIN_FREQUENCY+(Math.random()*this.WEB_ADDITIONAL_FREQUENCY);
+        this.v2XFrequency=this.WEB_MIN_FREQUENCY+(Math.random()*this.WEB_ADDITIONAL_FREQUENCY);
+        this.v2ZFrequency=this.WEB_MIN_FREQUENCY+(Math.random()*this.WEB_ADDITIONAL_FREQUENCY);
         
             // get the bounds for elimination
             
@@ -87,22 +73,22 @@ export default class EffectWebClass extends ProjectEffectClass
     {
             // moving web
             
-        this.drawV0.x=this.data.v0.x+this.getPeriodicSin(this.v0XFrequency,EffectWebClass.WEB_MAX_MOVE);
+        this.drawV0.x=this.data.v0.x+this.getPeriodicSin(this.v0XFrequency,this.WEB_MAX_MOVE);
         this.drawV0.y=this.data.v0.y;
-        this.drawV0.z=this.data.v0.z+this.getPeriodicCos(this.v0ZFrequency,EffectWebClass.WEB_MAX_MOVE);
+        this.drawV0.z=this.data.v0.z+this.getPeriodicCos(this.v0ZFrequency,this.WEB_MAX_MOVE);
         
-        this.drawV1.x=this.data.v1.x+this.getPeriodicSin(this.v1XFrequency,EffectWebClass.WEB_MAX_MOVE);
+        this.drawV1.x=this.data.v1.x+this.getPeriodicSin(this.v1XFrequency,this.WEB_MAX_MOVE);
         this.drawV1.y=this.data.v1.y;
-        this.drawV1.z=this.data.v1.z+this.getPeriodicCos(this.v1ZFrequency,EffectWebClass.WEB_MAX_MOVE);
+        this.drawV1.z=this.data.v1.z+this.getPeriodicCos(this.v1ZFrequency,this.WEB_MAX_MOVE);
         
-        this.drawV2.x=this.data.v2.x+this.getPeriodicSin(this.v2XFrequency,EffectWebClass.WEB_MAX_MOVE);
+        this.drawV2.x=this.data.v2.x+this.getPeriodicSin(this.v2XFrequency,this.WEB_MAX_MOVE);
         this.drawV2.y=this.data.v2.y;
-        this.drawV2.z=this.data.v2.z+this.getPeriodicCos(this.v2ZFrequency,EffectWebClass.WEB_MAX_MOVE);
+        this.drawV2.z=this.data.v2.z+this.getPeriodicCos(this.v2ZFrequency,this.WEB_MAX_MOVE);
             
             // draw web
             
         this.drawStart();
-        this.drawAddTriangle('textures/web.png',this.drawV0,this.data.v0.u,this.data.v0.v,this.drawV1,this.data.v1.u,this.data.v1.v,this.drawV2,this.data.v2.u,this.data.v2.v,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.webColor,0.5);
+        this.drawAddTriangle('textures/web.png',this.drawV0,this.data.v0.u,this.data.v0.v,this.drawV1,this.data.v1.u,this.data.v1.v,this.drawV2,this.data.v2.u,this.data.v2.v,this.DRAW_MODE_TRANSPARENT,this.webColor,0.5);
         this.drawEnd();
     }
 }

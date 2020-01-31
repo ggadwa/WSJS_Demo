@@ -10,23 +10,20 @@ import EffectExplosionSmokeClass from '../effects/effect_explosion_smoke.js';
 
 export default class EntityProjectileSparkleClass extends ProjectEntityClass
 {
-    static SPARKLE_EFFECT_COUNT=15;
-    static SPARKLE_TICK_COUNT=40;
-    static SPEED=300;
-    static Y_SPEED=1;
-    static DAMAGE=5;
-    static EXPLODE_DAMAGE=30;
-    static DAMAGE_DISTANCE=20000;
-    static SHAKE_DISTANCE=30000;
-    static SHAKE_MAX_SHIFT=40;
-    static SHAKE_TICK=2000;
-    
-    motion=null;
-    nextSparkleTick=0;
-    
     initialize()
     {
         super.initialize();
+        
+        this.SPARKLE_EFFECT_COUNT=15;
+        this.SPARKLE_TICK_COUNT=40;
+        this.SPEED=300;
+        this.Y_SPEED=1;
+        this.DAMAGE=5;
+        this.EXPLODE_DAMAGE=30;
+        this.DAMAGE_DISTANCE=20000;
+        this.SHAKE_DISTANCE=30000;
+        this.SHAKE_MAX_SHIFT=40;
+        this.SHAKE_TICK=2000;
         
             // setup
             
@@ -37,7 +34,7 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
             
             // the motion
             
-        this.motion=new PointClass(0,0,EntityProjectileSparkleClass.SPEED);
+        this.motion=new PointClass(0,0,this.SPEED);
         this.motion.rotateX(null,this.angle.x);
         this.motion.rotateY(null,this.angle.y);
         
@@ -65,11 +62,11 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
         
             // damage entities in a radius
             
-        this.damageEntityForRadius(this.spawnedBy,this.position,EntityProjectileSparkleClass.DAMAGE_DISTANCE,EntityProjectileSparkleClass.DAMAGE);
+        this.damageEntityForRadius(this.spawnedBy,this.position,this.DAMAGE_DISTANCE,this.DAMAGE);
         
             // shake the screen
             
-        this.shakeCamera(this.position,EntityProjectileSparkleClass.SHAKE_DISTANCE,EntityProjectileSparkleClass.SHAKE_TICK,EntityProjectileSparkleClass.SHAKE_MAX_SHIFT);
+        this.shakeCamera(this.position,this.SHAKE_DISTANCE,this.SHAKE_TICK,this.SHAKE_MAX_SHIFT);
     }
 
         //
@@ -81,7 +78,7 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
             // time for an effect
 
         if (this.getTimestamp()>=this.nextSparkleTick) {
-            this.nextSparkleTick+=EntityProjectileSparkleClass.SPARKLE_TICK_COUNT;
+            this.nextSparkleTick+=this.SPARKLE_TICK_COUNT;
 
             this.addEffect(EffectSparkleClass,this.position,null,true);
         }
@@ -94,7 +91,7 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
         
         this.markDelete=true;
 
-        if (this.touchEntity!==null) this.touchEntity.damage(this.spawnedBy,EntityProjectileSparkleClass.DAMAGE,this.position);
+        if (this.touchEntity!==null) this.touchEntity.damage(this.spawnedBy,this.DAMAGE,this.position);
         
             // some can explode
             

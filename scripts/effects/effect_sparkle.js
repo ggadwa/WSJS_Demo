@@ -9,24 +9,15 @@ import ProjectEffectClass from '../../../code/project/project_effect.js';
 
 export default class EffectSparkleClass extends ProjectEffectClass
 {
-    static SPARKLE_LIFE_TICK=1000;
-    static SPARKLE_START_HALF_SIZE=100;
-    static SPARKLE_ADD_HALF_SIZE=1500;
-    static SPARKLE_ALPHA_START_FACTOR=0.3;
-    static SPARKLE_ALPHA_ADD_FACTOR=0.7;
-    
-    startTimestamp=0;
-    halfSize=0;
-    alpha=1.0;
-    rotateTick=0;
-    xBound=null;
-    yBound=null;
-    zBound=null;
-    sparkleColor=null;
-        
     initialize()
     {
         super.initialize();
+    
+        this.SPARKLE_LIFE_TICK=1000;
+        this.SPARKLE_START_HALF_SIZE=100;
+        this.SPARKLE_ADD_HALF_SIZE=1500;
+        this.SPARKLE_ALPHA_START_FACTOR=0.3;
+        this.SPARKLE_ALPHA_ADD_FACTOR=0.7;
         
             // setup
             
@@ -36,6 +27,9 @@ export default class EffectSparkleClass extends ProjectEffectClass
         this.xBound=new BoundClass(0,0);
         this.yBound=new BoundClass(0,0);
         this.zBound=new BoundClass(0,0);
+        
+        this.halfSize=0;
+        this.alpha=1.0;
 
         this.sparkleColor=new ColorClass((0.3+(Math.random()*0.7)),(0.2+(Math.random()*0.7)),(0.1+(Math.random()*0.8)));
         
@@ -58,17 +52,17 @@ export default class EffectSparkleClass extends ProjectEffectClass
             // checking for stop
 
         tick=this.getTimestamp()-this.startTimestamp;
-        if (tick>EffectSparkleClass.SPARKLE_LIFE_TICK) {
+        if (tick>this.SPARKLE_LIFE_TICK) {
             this.markDelete=true;
             return(false);
         }
         
             // current sparkle size
         
-        factor=tick/EffectSparkleClass.SPARKLE_LIFE_TICK;
+        factor=tick/this.SPARKLE_LIFE_TICK;
 
-        this.halfSize=EffectSparkleClass.SPARKLE_START_HALF_SIZE+Math.trunc(EffectSparkleClass.SPARKLE_ADD_HALF_SIZE*(1.0-factor));
-        this.alpha=EffectSparkleClass.SPARKLE_ALPHA_START_FACTOR+(EffectSparkleClass.SPARKLE_ALPHA_ADD_FACTOR*factor);
+        this.halfSize=this.SPARKLE_START_HALF_SIZE+Math.trunc(this.SPARKLE_ADD_HALF_SIZE*(1.0-factor));
+        this.alpha=this.SPARKLE_ALPHA_START_FACTOR+(this.SPARKLE_ALPHA_ADD_FACTOR*factor);
         
             // need to rebuild the bounds
             
@@ -82,7 +76,7 @@ export default class EffectSparkleClass extends ProjectEffectClass
     draw()
     {
         this.drawStart();
-        this.drawAddBillboardQuad('textures/particle_hit.png',this.position,0,0,1,1,this.halfSize,this.halfSize,this.getPeriodicLinear(this.rotateTick,360),ProjectEffectClass.DRAW_MODE_ADDITIVE,this.sparkleColor,this.alpha);
+        this.drawAddBillboardQuad('textures/particle_hit.png',this.position,0,0,1,1,this.halfSize,this.halfSize,this.getPeriodicLinear(this.rotateTick,360),this.DRAW_MODE_ADDITIVE,this.sparkleColor,this.alpha);
         this.drawEnd();
     }
 }

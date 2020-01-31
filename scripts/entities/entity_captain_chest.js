@@ -7,13 +7,11 @@ import ProjectEntityClass from '../../../code/project/project_entity.js';
 
 export default class EntityCaptainChestClass extends ProjectEntityClass
 {
-    static OPEN_MAX_DISTANCE=8000;
-    
-    opened=false;
-    
     initialize()
     {
         super.initialize();
+        
+        this.OPEN_MAX_DISTANCE=8000;
         
             // setup
             
@@ -45,8 +43,8 @@ export default class EntityCaptainChestClass extends ProjectEntityClass
             // is the E key down
             // and player close enough to open?
         
-        if (!this.isKeyDown(69)) return;
-        if (!this.isEntityInRange(this.getPlayerEntity(),EntityCaptainChestClass.OPEN_MAX_DISTANCE)) return;
+        if (!this.isKeyDown('e')) return;
+        if (!this.isEntityInRange(this.getPlayerEntity(),this.OPEN_MAX_DISTANCE)) return;
         
             // open it
             

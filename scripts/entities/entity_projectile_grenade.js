@@ -9,31 +9,22 @@ import EffectExplosionSmokeClass from '../effects/effect_explosion_smoke.js';
 
 export default class EntityProjectileGrenadeClass extends ProjectEntityClass
 {
-    static LIFE_TICK=3000;
-    static SPEED=450;
-    static BOUNCE_FACTOR=0.95;
-    static BOUNCE_CUT=50;
-    static DECELERATION_FACTOR=0.95;
-    static STOP_SPEED=10;
-    static BOUNCE_PAUSE_COUNT=5;
-    static DAMAGE=100;
-    static DAMAGE_DISTANCE=20000;
-    static SHAKE_DISTANCE=30000;
-    static SHAKE_MAX_SHIFT=40;
-    static SHAKE_TICK=2000;
-    
-    rolling=false;
-    stopped=false;
-    bouncePause=0;
-    startTick=0;
-    motion=null;
-    savePoint=null;
-    drawPosition=null;
-    drawAngle=null;
-    
     initialize()
     {
         super.initialize();
+        
+        this.LIFE_TICK=3000;
+        this.SPEED=450;
+        this.BOUNCE_FACTOR=0.95;
+        this.BOUNCE_CUT=50;
+        this.DECELERATION_FACTOR=0.95;
+        this.STOP_SPEED=10;
+        this.BOUNCE_PAUSE_COUNT=5;
+        this.DAMAGE=100;
+        this.DAMAGE_DISTANCE=20000;
+        this.SHAKE_DISTANCE=30000;
+        this.SHAKE_MAX_SHIFT=40;
+        this.SHAKE_TICK=2000;
         
             // setup
             
@@ -58,7 +49,7 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
         this.stopped=false;
         this.bouncePause=0;
             
-        this.motion.setFromValues(0,0,EntityProjectileGrenadeClass.SPEED);
+        this.motion.setFromValues(0,0,this.SPEED);
         this.motion.rotate(this.angle);
         
             // the model
@@ -84,18 +75,18 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
         
             // damage entities in a radius
             
-        this.damageEntityForRadius(this.spawnedBy,this.position,EntityProjectileGrenadeClass.DAMAGE_DISTANCE,EntityProjectileGrenadeClass.DAMAGE);
+        this.damageEntityForRadius(this.spawnedBy,this.position,this.DAMAGE_DISTANCE,this.DAMAGE);
         
             // shake the screen
             
-        this.shakeCamera(this.position,EntityProjectileGrenadeClass.SHAKE_DISTANCE,EntityProjectileGrenadeClass.SHAKE_TICK,EntityProjectileGrenadeClass.SHAKE_MAX_SHIFT);
+        this.shakeCamera(this.position,this.SHAKE_DISTANCE,this.SHAKE_TICK,this.SHAKE_MAX_SHIFT);
     }
     
     run()
     {
             // time for grenade to end?
             
-        if (this.getTimestamp()>(this.startTick+EntityProjectileGrenadeClass.LIFE_TICK)) {
+        if (this.getTimestamp()>(this.startTick+this.LIFE_TICK)) {
             this.explode();
             return;
         }
@@ -103,10 +94,10 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
             // rolling slows down grenade
             
         if ((this.rolling) && (!this.stopped)) {
-            this.motion.x*=EntityProjectileGrenadeClass.DECELERATION_FACTOR;
-            this.motion.z*=EntityProjectileGrenadeClass.DECELERATION_FACTOR;
+            this.motion.x*=this.DECELERATION_FACTOR;
+            this.motion.z*=this.DECELERATION_FACTOR;
             
-            if ((Math.abs(this.motion.x)+Math.abs(this.motion.z))<EntityProjectileGrenadeClass.STOP_SPEED) {
+            if ((Math.abs(this.motion.x)+Math.abs(this.motion.z))<this.STOP_SPEED) {
                 this.motion.x=0;
                 this.motion.z=0;
                 this.stopped=true;
@@ -126,7 +117,7 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
             this.playSound('grenade_bounce',1.0,false);
             
             this.position.setFromPoint(this.savePoint);
-            this.motion.y=this.floorHitBounceY(this.motion.y,EntityProjectileGrenadeClass.BOUNCE_FACTOR,EntityProjectileGrenadeClass.BOUNCE_CUT);
+            this.motion.y=this.floorHitBounceY(this.motion.y,this.BOUNCE_FACTOR,this.BOUNCE_CUT);
             
             if (this.motion.y===0) {
                 this.rolling=true;
@@ -149,7 +140,7 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
             this.motion.setFromValues(0,0,this.motion.length());
             this.motion.rotate(this.angle);
             
-            this.bouncePause=EntityProjectileGrenadeClass.BOUNCE_PAUSE_COUNT;
+            this.bouncePause=this.BOUNCE_PAUSE_COUNT;
             return;
         }
         

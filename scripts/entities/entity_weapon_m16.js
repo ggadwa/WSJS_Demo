@@ -10,15 +10,12 @@ import EntityWeaponBaseClass from '../entities/entity_weapon_base.js';
 
 export default class EntityWeaponM16Class extends EntityWeaponBaseClass
 {
-    static DAMAGE=5;
-    static HIT_FILTER=['player','remote','bot','monster'];
-    
-    handOffset=null;
-    handAngle=null;
-    
     initialize()
     {
         super.initialize();
+        
+        this.DAMAGE=5;
+        this.HIT_FILTER=['player','remote','bot','monster'];
         
             // setup
             
@@ -72,7 +69,7 @@ export default class EntityWeaponM16Class extends EntityWeaponBaseClass
         
             // run the hitscan
             
-        this.hitScan(position,angle,eyeOffset,100000,EntityWeaponM16Class.HIT_FILTER,EntityWeaponM16Class.DAMAGE,EffectHitClass);
+        this.hitScan(position,angle,eyeOffset,100000,this.HIT_FILTER,this.DAMAGE,EffectHitClass);
         
         return(true);
     }

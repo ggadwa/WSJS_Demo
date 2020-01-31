@@ -9,42 +9,24 @@ import ProjectEffectClass from '../../../code/project/project_effect.js';
 
 export default class EffectExplosionFireClass extends ProjectEffectClass
 {
-    static FIRE_LIFE_TICK=1200;
-    static FIRE_FADE_TICK=500;
-    
-    static FIRE_LIGHT_INTENSITY=45000;
-    
-    static FIRE_COLOR_PARTICLE_COUNT=75;
-    
-    static FIRE_RED_SPREAD=7500;
-    static FIRE_RED_START_HALF_SIZE=10;
-    static FIRE_RED_ADD_HALF_SIZE=3500;
-    
-    static FIRE_ORANGE_SPREAD=4500;
-    static FIRE_ORANGE_START_HALF_SIZE=10;
-    static FIRE_ORANGE_ADD_HALF_SIZE=1500;
-    
-    static FIRE_YELLOW_SPREAD=800;
-    static FIRE_YELLOW_START_HALF_SIZE=10;
-    static FIRE_YELLOW_ADD_HALF_SIZE=1000;
-    
-    static FIRE_ALPHA=0.5;
-    
-    startTimestamp=0;
-    xBound=null;
-    yBound=null;
-    zBound=null;
-    redColor=null;
-    orangeColor=null;
-    yellowColor=null;
-    lightColor=null;
-    redMotions=null;
-    orangeMotions=null;
-    yellowMotions=null;
-        
     initialize()
     {
         let count;
+        
+        this.FIRE_LIFE_TICK=1200;
+        this.FIRE_FADE_TICK=500;
+        this.FIRE_LIGHT_INTENSITY=45000;
+        this.FIRE_COLOR_PARTICLE_COUNT=75;
+        this.FIRE_RED_SPREAD=7500;
+        this.FIRE_RED_START_HALF_SIZE=10;
+        this.FIRE_RED_ADD_HALF_SIZE=3500;
+        this.FIRE_ORANGE_SPREAD=4500;
+        this.FIRE_ORANGE_START_HALF_SIZE=10;
+        this.FIRE_ORANGE_ADD_HALF_SIZE=1500;
+        this.FIRE_YELLOW_SPREAD=800;
+        this.FIRE_YELLOW_START_HALF_SIZE=10;
+        this.FIRE_YELLOW_ADD_HALF_SIZE=1000;
+        this.FIRE_ALPHA=0.5;
         
         super.initialize();
         
@@ -64,14 +46,14 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
             // setup the drawing
             // we have FIRE_COLOR_PARTICLE_COUNT red, orange and yellow
             
-        count=(EffectExplosionFireClass.FIRE_COLOR_PARTICLE_COUNT*3);
+        count=(this.FIRE_COLOR_PARTICLE_COUNT*3);
         this.drawInitialize((count*4),(count*6));
         
             // random moves
             
-        this.redMotions=this.createRandomMotionArray(EffectExplosionFireClass.FIRE_COLOR_PARTICLE_COUNT,EffectExplosionFireClass.FIRE_RED_SPREAD,EffectExplosionFireClass.FIRE_RED_SPREAD,EffectExplosionFireClass.FIRE_RED_SPREAD);
-        this.orangeMotions=this.createRandomMotionArray(EffectExplosionFireClass.FIRE_COLOR_PARTICLE_COUNT,EffectExplosionFireClass.FIRE_ORANGE_SPREAD,EffectExplosionFireClass.FIRE_ORANGE_SPREAD,EffectExplosionFireClass.FIRE_ORANGE_SPREAD);
-        this.yellowMotions=this.createRandomMotionArray(EffectExplosionFireClass.FIRE_COLOR_PARTICLE_COUNT,EffectExplosionFireClass.FIRE_YELLOW_SPREAD,EffectExplosionFireClass.FIRE_YELLOW_SPREAD,EffectExplosionFireClass.FIRE_YELLOW_SPREAD);
+        this.redMotions=this.createRandomMotionArray(this.FIRE_COLOR_PARTICLE_COUNT,this.FIRE_RED_SPREAD,this.FIRE_RED_SPREAD,this.FIRE_RED_SPREAD);
+        this.orangeMotions=this.createRandomMotionArray(this.FIRE_COLOR_PARTICLE_COUNT,this.FIRE_ORANGE_SPREAD,this.FIRE_ORANGE_SPREAD,this.FIRE_ORANGE_SPREAD);
+        this.yellowMotions=this.createRandomMotionArray(this.FIRE_COLOR_PARTICLE_COUNT,this.FIRE_YELLOW_SPREAD,this.FIRE_YELLOW_SPREAD,this.FIRE_YELLOW_SPREAD);
 
             // some light settings
             
@@ -97,7 +79,7 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
             // checking for stop
 
         tick=this.getTimestamp()-this.startTimestamp;
-        if (tick>EffectExplosionFireClass.FIRE_LIFE_TICK) {
+        if (tick>this.FIRE_LIFE_TICK) {
             this.startTimestamp=0;
             this.markDelete=true;
             return(false);
@@ -105,21 +87,21 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
         
             // explosion factor
             
-        if (tick>(EffectExplosionFireClass.FIRE_LIFE_TICK-EffectExplosionFireClass.FIRE_FADE_TICK)) {
-            factor=1.0-(tick-(EffectExplosionFireClass.FIRE_LIFE_TICK-EffectExplosionFireClass.FIRE_FADE_TICK))/EffectExplosionFireClass.FIRE_FADE_TICK;
+        if (tick>(this.FIRE_LIFE_TICK-this.FIRE_FADE_TICK)) {
+            factor=1.0-(tick-(this.FIRE_LIFE_TICK-this.FIRE_FADE_TICK))/this.FIRE_FADE_TICK;
         }
         else {
-            factor=(tick/(EffectExplosionFireClass.FIRE_LIFE_TICK-EffectExplosionFireClass.FIRE_FADE_TICK));
+            factor=(tick/(this.FIRE_LIFE_TICK-this.FIRE_FADE_TICK));
         }
         
             // the light
         
-        this.setLightIntensity(EffectExplosionFireClass.FIRE_LIGHT_INTENSITY*factor);
+        this.setLightIntensity(this.FIRE_LIGHT_INTENSITY*factor);
         
             // current explosion size would be size of red
             // as it's the biggest element
 
-        halfSize=EffectExplosionFireClass.FIRE_RED_START_HALF_SIZE+Math.trunc(EffectExplosionFireClass.FIRE_RED_ADD_HALF_SIZE*factor);
+        halfSize=this.FIRE_RED_START_HALF_SIZE+Math.trunc(this.FIRE_RED_ADD_HALF_SIZE*factor);
             
         this.xBound.setFromValues((this.position.x-halfSize),(this.position.x+halfSize));
         this.yBound.setFromValues((this.position.y-halfSize),(this.position.y+halfSize));
@@ -135,29 +117,29 @@ export default class EffectExplosionFireClass extends ProjectEffectClass
             // the sizing factor
             
         tick=this.getTimestamp()-this.startTimestamp;
-        if (tick>(EffectExplosionFireClass.FIRE_LIFE_TICK-EffectExplosionFireClass.FIRE_FADE_TICK)) {
-            sizeFactor=1.0-(tick-(EffectExplosionFireClass.FIRE_LIFE_TICK-EffectExplosionFireClass.FIRE_FADE_TICK))/EffectExplosionFireClass.FIRE_FADE_TICK;
-            alpha=0.1+(sizeFactor*(EffectExplosionFireClass.FIRE_ALPHA-0.1));
+        if (tick>(this.FIRE_LIFE_TICK-this.FIRE_FADE_TICK)) {
+            sizeFactor=1.0-(tick-(this.FIRE_LIFE_TICK-this.FIRE_FADE_TICK))/this.FIRE_FADE_TICK;
+            alpha=0.1+(sizeFactor*(this.FIRE_ALPHA-0.1));
         }
         else {
-            alpha=EffectExplosionFireClass.FIRE_ALPHA;
-            sizeFactor=(tick/(EffectExplosionFireClass.FIRE_LIFE_TICK-EffectExplosionFireClass.FIRE_FADE_TICK));
+            alpha=this.FIRE_ALPHA;
+            sizeFactor=(tick/(this.FIRE_LIFE_TICK-this.FIRE_FADE_TICK));
         }
         
-        motionFactor=tick/EffectExplosionFireClass.FIRE_LIFE_TICK;
+        motionFactor=tick/this.FIRE_LIFE_TICK;
 
             // the particles
             
         this.drawStart();
      
-        halfSize=EffectExplosionFireClass.FIRE_RED_START_HALF_SIZE+Math.trunc(EffectExplosionFireClass.FIRE_RED_ADD_HALF_SIZE*sizeFactor);
-        this.drawAddBillboardQuadFromMotion('textures/particle_blob.png',this.redMotions,motionFactor,this.position,0,0,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.redColor,alpha);
+        halfSize=this.FIRE_RED_START_HALF_SIZE+Math.trunc(this.FIRE_RED_ADD_HALF_SIZE*sizeFactor);
+        this.drawAddBillboardQuadFromMotion('textures/particle_blob.png',this.redMotions,motionFactor,this.position,0,0,0.5,0.5,halfSize,halfSize,0,this.DRAW_MODE_TRANSPARENT,this.redColor,alpha);
         
-        halfSize=EffectExplosionFireClass.FIRE_ORANGE_START_HALF_SIZE+Math.trunc(EffectExplosionFireClass.FIRE_ORANGE_ADD_HALF_SIZE*sizeFactor);
-        this.drawAddBillboardQuadFromMotion('textures/particle_blob.png',this.orangeMotions,motionFactor,this.position,0.5,0.5,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.orangeColor,alpha);
+        halfSize=this.FIRE_ORANGE_START_HALF_SIZE+Math.trunc(this.FIRE_ORANGE_ADD_HALF_SIZE*sizeFactor);
+        this.drawAddBillboardQuadFromMotion('textures/particle_blob.png',this.orangeMotions,motionFactor,this.position,0.5,0.5,0.5,0.5,halfSize,halfSize,0,this.DRAW_MODE_TRANSPARENT,this.orangeColor,alpha);
 
-        halfSize=EffectExplosionFireClass.FIRE_YELLOW_START_HALF_SIZE+Math.trunc(EffectExplosionFireClass.FIRE_YELLOW_ADD_HALF_SIZE*sizeFactor);
-        this.drawAddBillboardQuadFromMotion('textures/particle_blob.png',this.yellowMotions,motionFactor,this.position,0,0.5,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.yellowColor,alpha);
+        halfSize=this.FIRE_YELLOW_START_HALF_SIZE+Math.trunc(this.FIRE_YELLOW_ADD_HALF_SIZE*sizeFactor);
+        this.drawAddBillboardQuadFromMotion('textures/particle_blob.png',this.yellowMotions,motionFactor,this.position,0,0.5,0.5,0.5,halfSize,halfSize,0,this.DRAW_MODE_TRANSPARENT,this.yellowColor,alpha);
             
         this.drawEnd();
     }

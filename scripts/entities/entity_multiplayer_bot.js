@@ -10,59 +10,33 @@ import EntityWeaponGrenadeClass from '../entities/entity_weapon_grenade.js';
 
 export default class EntityMultiplayerBotClass extends ProjectEntityClass
 {
-    static MAX_TURN_SPEED=8;
-    static FORWARD_ACCELERATION=15;
-    static FORWARD_DECELERATION=30;
-    static FORWARD_MAX_SPEED=200;
-    static SIDE_ACCELERATION=25;
-    static SIDE_DECELERATION=50;
-    static SIDE_MAX_SPEED=150;
-    static MAX_TURN_SLOW_DOWN=35;       // if a turn is over this speed, then stop moving forward until closer to correct angle
-    static MAX_TARGET_TURN_SPEED=3;     // how fast bot can turn towards player from actual motion direction
-    static NODE_SLOP=1000;              // how close to a node before we consider it hit
-    static RANDOM_NODE_FAIL_COUNT=20;   // how many times it'll try to find a spawn node that is open
-    static MAX_DEATH_COUNT=500;         // how many physics ticks to stay dead
-    static MAX_STUCK_COUNT=50;          // how many physics tick we can be stuck until we restart pathing
-    static FORGET_DISTANCE=60000;       // distance bot gives up on targetting somebody
-    static TARGET_SCAN_Y_ANGLES=[-60,-45,-25,-15,-10,-5,0,5,10,15,25,45,60];     // angles we scan (one angle a tick) for targets
-    static TARGET_HIT_FILTER=['player','remote','bot'];              // filters for things we can find with ray trace scan
-    static BERETTA_FIRE_SLOP=5;         // angle of slop on fire so bot doesn't always hit you
-    static M16_FIRE_SLOP=15;            // angle of slop on fire so bot doesn't always hit you
-    static ANGLE_Y_FIRE_RANGE=10;       // if angle to target is within this range, then you can fire
-    static MIN_GRENADE_DISTANCE=30000;  // if we are greater than this distance, we can throw grenades
-    static GRENADE_PAUSE_TICK=5000;     // how long until we can throw another grenade
-    static WEAPON_BERETTA=0;
-    static WEAPON_M16=1;
-    
-    health=100;
-    armor=0;
-    deadCount=-1;
-    stuckCount=0;
-    nextNodeIdx=-1;
-    goalNodeIdx=-1;
-    pausedTriggerName=null;
-    targetEntity=null;
-    drawAngle=null;
-    fireAngle=null;
-    lastTargetAngleDif=360;
-    currentLookIdx=0;
-    lookPoint=null;
-    lookVector=null;
-    lookHitPoint=null; 
-    movement=null;
-    rotMovement=null;
-    stuckPoint=null;
-    beretta=null;
-    m16=null;
-    grenade=null;   
-    currentWeapon=0;
-    hasM16=false;
-    grenadePauseTick=0;
-    lastInLiquid=false;
-    
     initialize()
     {
         super.initialize();
+        
+        this.MAX_TURN_SPEED=8;
+        this.FORWARD_ACCELERATION=15;
+        this.FORWARD_DECELERATION=30;
+        this.FORWARD_MAX_SPEED=200;
+        this.SIDE_ACCELERATION=25;
+        this.SIDE_DECELERATION=50;
+        this.SIDE_MAX_SPEED=150;
+        this.MAX_TURN_SLOW_DOWN=35;       // if a turn is over this speed, then stop moving forward until closer to correct angle
+        this.MAX_TARGET_TURN_SPEED=3;     // how fast bot can turn towards player from actual motion direction
+        this.NODE_SLOP=1000;              // how close to a node before we consider it hit
+        this.RANDOM_NODE_FAIL_COUNT=20;   // how many times it'll try to find a spawn node that is open
+        this.MAX_DEATH_COUNT=500;         // how many physics ticks to stay dead
+        this.MAX_STUCK_COUNT=50;          // how many physics tick we can be stuck until we restart pathing
+        this.FORGET_DISTANCE=60000;       // distance bot gives up on targetting somebody
+        this.TARGET_SCAN_Y_ANGLES=[-60,-45,-25,-15,-10,-5,0,5,10,15,25,45,60];     // angles we scan (one angle a tick) for targets
+        this.TARGET_HIT_FILTER=['player','remote','bot'];              // filters for things we can find with ray trace scan
+        this.BERETTA_FIRE_SLOP=5;         // angle of slop on fire so bot doesn't always hit you
+        this.M16_FIRE_SLOP=15;            // angle of slop on fire so bot doesn't always hit you
+        this.ANGLE_Y_FIRE_RANGE=10;       // if angle to target is within this range, then you can fire
+        this.MIN_GRENADE_DISTANCE=30000;  // if we are greater than this distance, we can throw grenades
+        this.GRENADE_PAUSE_TICK=5000;     // how long until we can throw another grenade
+        this.WEAPON_BERETTA=0;
+        this.WEAPON_M16=1;
         
             // setup
             
@@ -77,6 +51,26 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         this.gravityAcceleration=20;
         
         this.filter='bot';          // filters are used when searching for entities
+        
+            // bot setup
+            
+        this.health=100;
+        this.armor=0;
+        this.deadCount=-1;
+        this.stuckCount=0;
+        this.nextNodeIdx=-1;
+        this.goalNodeIdx=-1;
+        this.pausedTriggerName=null;
+        this.targetEntity=null;
+        this.lastTargetAngleDif=360;
+        this.currentLookIdx=0;
+        this.beretta=null;
+        this.m16=null;
+        this.grenade=null;   
+        this.currentWeapon=0;
+        this.hasM16=false;
+        this.grenadePauseTick=0;
+        this.lastInLiquid=false;
         
         this.drawAngle=new PointClass(0,0,0);       // some pre-allocates
         this.fireAngle=new PointClass(0,0,0);
@@ -116,7 +110,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
     {
         if (whichWeapon===this.currentWeapon) return;
         
-        if (whichWeapon===EntityMultiplayerBotClass.WEAPON_BERETTA) {
+        if (whichWeapon===this.WEAPON_BERETTA) {
             this.showModelMesh('beretta',true);
             this.showModelMesh('peen',true);
             this.showModelMesh('beretta_top',true);
@@ -165,10 +159,10 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
             // start with beretta
             
         this.currentWeapon=-1;
-        this.switchWeapon(EntityMultiplayerBotClass.WEAPON_BERETTA);
+        this.switchWeapon(this.WEAPON_BERETTA);
         
         this.hasM16=false;
-        this.grenadePauseTick=this.getTimestamp()+EntityMultiplayerBotClass.GRENADE_PAUSE_TICK;
+        this.grenadePauseTick=this.getTimestamp()+this.GRENADE_PAUSE_TICK;
         
         this.beretta.ready();
         this.m16.ready();
@@ -176,11 +170,11 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         
             // start scanning in middle
             
-        this.currentLookIdx=Math.trunc(EntityMultiplayerBotClass.TARGET_SCAN_Y_ANGLES.length*0.5);
+        this.currentLookIdx=Math.trunc(this.TARGET_SCAN_Y_ANGLES.length*0.5);
         
             // move to random node
             
-        this.moveToRandomNode(EntityMultiplayerBotClass.RANDOM_NODE_FAIL_COUNT);
+        this.moveToRandomNode(this.RANDOM_NODE_FAIL_COUNT);
 
             // get seek node
             
@@ -214,7 +208,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
     {
             // are we turned enough towards player?
             
-        if (Math.abs(this.lastTargetAngleDif)>EntityMultiplayerBotClass.ANGLE_Y_FIRE_RANGE) return;
+        if (Math.abs(this.lastTargetAngleDif)>this.ANGLE_Y_FIRE_RANGE) return;
             
            // are we outside of grenade distance?
            // if so, then we can throw a grenade
@@ -223,13 +217,13 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
            
         if (this.grenade.ammoCount>0) {
             if (this.getTimestamp()>this.grenadePauseTick) {
-                if (this.position.distance(this.targetEntity.position)>EntityMultiplayerBotClass.MIN_GRENADE_DISTANCE) {
+                if (this.position.distance(this.targetEntity.position)>this.MIN_GRENADE_DISTANCE) {
                     this.fireAngle.setFromPoint(this.drawAngle);
                     this.fireAngle.x=this.position.getLookAngleTo(this.targetEntity.position);
                     this.grenade.fire(this.position,this.fireAngle,this.eyeOffset);
-                    this.grenadePauseTick=this.getTimestamp()+EntityMultiplayerBotClass.GRENADE_PAUSE_TICK;
+                    this.grenadePauseTick=this.getTimestamp()+this.GRENADE_PAUSE_TICK;
 
-                    if (this.currentWeapon===EntityMultiplayerBotClass.WEAPON_BERETTA) {
+                    if (this.currentWeapon===this.WEAPON_BERETTA) {
                         this.startModelAnimationChunkInFrames(null,30,51,91);
                         this.queueModelAnimationChunkInFrames(null,30,406,442);
                     }
@@ -244,10 +238,10 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         
             // otherwise shot the held weapon
             
-        if (this.currentWeapon===EntityMultiplayerBotClass.WEAPON_BERETTA) {
+        if (this.currentWeapon===this.WEAPON_BERETTA) {
             this.fireAngle.setFromPoint(this.drawAngle);
             this.fireAngle.x=this.position.getLookAngleTo(this.targetEntity.position);
-            this.fireAngle.y+=(EntityMultiplayerBotClass.BERETTA_FIRE_SLOP-(Math.random()*(EntityMultiplayerBotClass.BERETTA_FIRE_SLOP*2)));
+            this.fireAngle.y+=(this.BERETTA_FIRE_SLOP-(Math.random()*(this.BERETTA_FIRE_SLOP*2)));
             if (this.beretta.fire(this.position,this.fireAngle,this.eyeOffset)) {
                 this.startModelAnimationChunkInFrames(null,30,554,594);
                 this.queueModelAnimationChunkInFrames(null,30,406,442);
@@ -256,7 +250,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         else {
             this.fireAngle.setFromPoint(this.drawAngle);
             this.fireAngle.x=this.position.getLookAngleTo(this.targetEntity.position);
-            this.fireAngle.y+=(EntityMultiplayerBotClass.M16_FIRE_SLOP-(Math.random()*(EntityMultiplayerBotClass.M16_FIRE_SLOP*2)));
+            this.fireAngle.y+=(this.M16_FIRE_SLOP-(Math.random()*(this.M16_FIRE_SLOP*2)));
             if (this.m16.fire(this.position,this.fireAngle,this.eyeOffset)) {
                 this.startModelAnimationChunkInFrames(null,30,892,928);
                 this.queueModelAnimationChunkInFrames(null,30,960,996);
@@ -351,7 +345,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
                 this.targetEntity=null;
                 return;
             }
-            if (this.position.distance(this.targetEntity.position)>EntityMultiplayerBotClass.FORGET_DISTANCE) {
+            if (this.position.distance(this.targetEntity.position)>this.FORGET_DISTANCE) {
                 this.targetEntity=null;
                 return;
             }
@@ -365,13 +359,13 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         this.lookPoint.setFromPoint(this.position);
         this.lookPoint.y+=Math.trunc(this.height*0.5);      // use middle instead of eye position in case other stuff is smaller
         
-        this.lookVector.setFromValues(0,0,EntityMultiplayerBotClass.FORGET_DISTANCE);
-        this.lookVector.rotateY(null,EntityMultiplayerBotClass.TARGET_SCAN_Y_ANGLES[this.currentLookIdx]);
+        this.lookVector.setFromValues(0,0,this.FORGET_DISTANCE);
+        this.lookVector.rotateY(null,this.TARGET_SCAN_Y_ANGLES[this.currentLookIdx]);
         
         this.currentLookIdx++;
-        if (this.currentLookIdx>=EntityMultiplayerBotClass.TARGET_SCAN_Y_ANGLES.length) this.currentLookIdx=0;
+        if (this.currentLookIdx>=this.TARGET_SCAN_Y_ANGLES.length) this.currentLookIdx=0;
         
-        if (this.rayCollision(this.lookPoint,this.lookVector,this.lookHitPoint,EntityMultiplayerBotClass.TARGET_HIT_FILTER,null)) {
+        if (this.rayCollision(this.lookPoint,this.lookVector,this.lookHitPoint,this.TARGET_HIT_FILTER,null)) {
             if (this.hitEntity!==null) this.targetEntity=this.hitEntity;
         }
     }
@@ -391,7 +385,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         }
 
         if (this.health<=0) {
-            this.deadCount=EntityMultiplayerBotClass.MAX_DEATH_COUNT;
+            this.deadCount=this.MAX_DEATH_COUNT;
             this.passThrough=true;
             this.startModelAnimationChunkInFrames(null,30,209,247);
             this.queueAnimationStop();
@@ -443,10 +437,10 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
             // pick best weapon
             
         if ((this.hasM16) && (this.m16.ammoCount>0)) {
-            this.switchWeapon(EntityMultiplayerBotClass.WEAPON_M16);
+            this.switchWeapon(this.WEAPON_M16);
         }
         else {
-            this.switchWeapon(EntityMultiplayerBotClass.WEAPON_BERETTA);
+            this.switchWeapon(this.WEAPON_BERETTA);
         }
         
             // look for things to shoot
@@ -481,7 +475,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
                 // we only chase goals if we aren't targetting another entity
 
             if (this.targetEntity===null) {
-                if (this.hitPathNode(this.goalNodeIdx,EntityMultiplayerBotClass.NODE_SLOP)) {
+                if (this.hitPathNode(this.goalNodeIdx,this.NODE_SLOP)) {
                     nodeIdx=this.goalNodeIdx;
                     this.goalNodeIdx=this.getRandomKeyNodeIndex();
                     this.nextNodeIdx=this.nextNodeInPath(nodeIdx,this.goalNodeIdx);
@@ -492,7 +486,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
                 // if we are targetting an entity, go to the next nearest
                 // linked node closest to the entity, otherwise path to the goal
 
-            if (this.hitPathNode(this.nextNodeIdx,EntityMultiplayerBotClass.NODE_SLOP)) {
+            if (this.hitPathNode(this.nextNodeIdx,this.NODE_SLOP)) {
                 prevNodeIdx=this.nextNodeIdx;
                 
                 if (this.targetEntity===null) {
@@ -525,24 +519,24 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
             // if we aren't paused
         
         if (this.pausedTriggerName===null) {
-            turnDiff=this.turnYTowardsNode(this.nextNodeIdx,EntityMultiplayerBotClass.MAX_TURN_SPEED);
-            if (turnDiff>EntityMultiplayerBotClass.MAX_TURN_SLOW_DOWN) moveForward=false;
+            turnDiff=this.turnYTowardsNode(this.nextNodeIdx,this.MAX_TURN_SPEED);
+            if (turnDiff>this.MAX_TURN_SLOW_DOWN) moveForward=false;
         }
         
             // changing angles based on if we are
             // walking nodes or targetting
             
         if (this.targetEntity===null) {
-            this.drawAngle.turnYTowards(this.angle.y,EntityMultiplayerBotClass.MAX_TURN_SPEED);
+            this.drawAngle.turnYTowards(this.angle.y,this.MAX_TURN_SPEED);
         }
         else {
-            this.lastTargetAngleDif=this.drawAngle.turnYTowards(this.position.angleYTo(this.targetEntity.position),EntityMultiplayerBotClass.MAX_TARGET_TURN_SPEED);
+            this.lastTargetAngleDif=this.drawAngle.turnYTowards(this.position.angleYTo(this.targetEntity.position),this.MAX_TARGET_TURN_SPEED);
         }
         
             // move
             
-        this.movement.moveZWithAcceleration(moveForward,false,EntityMultiplayerBotClass.FORWARD_ACCELERATION,EntityMultiplayerBotClass.FORWARD_DECELERATION,EntityMultiplayerBotClass.FORWARD_MAX_SPEED,EntityMultiplayerBotClass.FORWARD_ACCELERATION,EntityMultiplayerBotClass.FORWARD_DECELERATION,EntityMultiplayerBotClass.FORWARD_MAX_SPEED);        
-        this.movement.moveXWithAcceleration(slideLeft,false,EntityMultiplayerBotClass.SIDE_ACCELERATION,EntityMultiplayerBotClass.SIDE_DECELERATION,EntityMultiplayerBotClass.SIDE_MAX_SPEED,EntityMultiplayerBotClass.SIDE_ACCELERATION,EntityMultiplayerBotClass.SIDE_DECELERATION,EntityMultiplayerBotClass.SIDE_MAX_SPEED);
+        this.movement.moveZWithAcceleration(moveForward,false,this.FORWARD_ACCELERATION,this.FORWARD_DECELERATION,this.FORWARD_MAX_SPEED,this.FORWARD_ACCELERATION,this.FORWARD_DECELERATION,this.FORWARD_MAX_SPEED);        
+        this.movement.moveXWithAcceleration(slideLeft,false,this.SIDE_ACCELERATION,this.SIDE_DECELERATION,this.SIDE_MAX_SPEED,this.SIDE_ACCELERATION,this.SIDE_DECELERATION,this.SIDE_MAX_SPEED);
 
         this.rotMovement.setFromPoint(this.movement);
         this.rotMovement.rotateY(null,this.angle.y);
@@ -556,7 +550,7 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
             
         if ((this.position.equals(this.stuckPoint)) && (this.pausedTriggerName===null)) {
             this.stuckCount++;
-            if (this.stuckCount>=EntityMultiplayerBotClass.MAX_STUCK_COUNT) {
+            if (this.stuckCount>=this.MAX_STUCK_COUNT) {
                 this.stuckCount=0;
                 this.goalNodeIdx=this.getRandomKeyNodeIndex();
                 this.nextNodeIdx=this.findNearestPathNode(-1);

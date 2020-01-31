@@ -8,47 +8,6 @@ import EntityWeaponGrenadeClass from '../entities/entity_weapon_grenade.js';
 
 export default class EntityPlayerClass extends ProjectEntityDeveloperClass
 {
-    static MAX_TURN_SPEED=8;
-    static MOUSE_MAX_LOOK_SPEED=8;
-    static MAX_LOOK_ANGLE=80.0;
-    static FORWARD_ACCELERATION=15;
-    static FORWARD_DECELERATION=30;
-    static FORWARD_MAX_SPEED=200;
-    static SIDE_ACCELERATION=25;
-    static SIDE_DECELERATION=50;
-    static SIDE_MAX_SPEED=120;
-    static JUMP_HEIGHT=400;
-    static JUMP_WATER_HEIGHT=400;
-    static FLY_SWIM_Y_REDUCE=0.5;
-    static DAMAGE_FLINCH_WAIT_TICK=500;
-    static RANDOM_NODE_FAIL_COUNT=20;
-    static MAX_DEATH_COUNT=500;
-    static WEAPON_BERETTA=0;
-    static WEAPON_M16=1;
-    static MAX_SCORES=5;
-    
-    health=100;
-    armor=0;
-    deadCount=-1;
-    lastUnderLiquid=false;
-    lastInLiquid=false;
-    movement=null;
-    rotMovement=null;
-    currentWeapon=0;
-    beretta=null;
-    m16=null;
-    grenade=null;
-    hasM16=false;
-    nextDamageTick=0;
-    scores=null;
-    scoreColor=null;
-    lastScoreCount=0;
-    
-    cameraKeyDown=false;
-    cameraFPP=true;
-    
-    inStandingAnimation=true;
-    
         //
         // initialize and release
         //
@@ -56,6 +15,25 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     initialize()
     {
         super.initialize();
+        
+        this.MAX_TURN_SPEED=8;
+        this.MOUSE_MAX_LOOK_SPEED=8;
+        this.MAX_LOOK_ANGLE=80.0;
+        this.FORWARD_ACCELERATION=15;
+        this.FORWARD_DECELERATION=30;
+        this.FORWARD_MAX_SPEED=200;
+        this.SIDE_ACCELERATION=25;
+        this.SIDE_DECELERATION=50;
+        this.SIDE_MAX_SPEED=120;
+        this.JUMP_HEIGHT=400;
+        this.JUMP_WATER_HEIGHT=400;
+        this.FLY_SWIM_Y_REDUCE=0.5;
+        this.DAMAGE_FLINCH_WAIT_TICK=500;
+        this.RANDOM_NODE_FAIL_COUNT=20;
+        this.MAX_DEATH_COUNT=500;
+        this.WEAPON_BERETTA=0;
+        this.WEAPON_M16=1;
+        this.MAX_SCORES=5;
 
             // settings
             
@@ -77,6 +55,25 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             // the name with setup name
             
         this.name=this.getSetup().name;
+        
+            // player setup
+            
+        this.health=100;
+        this.armor=0;
+        this.deadCount=-1;
+        this.lastUnderLiquid=false;
+        this.lastInLiquid=false;
+        this.currentWeapon=0;
+        this.hasM16=false;
+        this.nextDamageTick=0;
+        this.scores=null;
+        this.scoreColor=null;
+        this.lastScoreCount=0;
+    
+        this.cameraKeyDown=false;
+        this.cameraFPP=true;
+    
+        this.inStandingAnimation=true;
 
             // some pre-allocations
             
@@ -117,7 +114,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             // all red if dead
             
         if (this.deadCount!==-1) {
-            deadFactor=0.2+((this.deadCount/EntityPlayerClass.MAX_DEATH_COUNT)*0.5);
+            deadFactor=0.2+((this.deadCount/this.MAX_DEATH_COUNT)*0.5);
             tintColor.setFromValues((1.0-deadFactor),0.2,0.2);
             return(true);
         }
@@ -154,7 +151,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             // start with beretta
             // and reset the weapons
             
-        this.currentWeapon=EntityPlayerClass.WEAPON_BERETTA;
+        this.currentWeapon=this.WEAPON_BERETTA;
         
         this.beretta.ready();
         this.m16.ready();
@@ -177,7 +174,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             // move to random node
             // if multiplayer
             
-        if (this.isMultiplayer()) this.moveToRandomNode(EntityPlayerClass.RANDOM_NODE_FAIL_COUNT);
+        if (this.isMultiplayer()) this.moveToRandomNode(this.RANDOM_NODE_FAIL_COUNT);
     }
     
         //
@@ -212,7 +209,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             // dead?
         
         if (this.health<=0) {
-            this.deadCount=EntityPlayerClass.MAX_DEATH_COUNT;
+            this.deadCount=this.MAX_DEATH_COUNT;
             this.passThrough=true;
             this.beretta.show=false;
             this.m16.show=false;
@@ -241,7 +238,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             
         timestamp=this.getTimestamp();
         if (timestamp>this.nextDamageTick) {
-            this.nextDamageTick=timestamp+EntityPlayerClass.DAMAGE_FLINCH_WAIT_TICK;
+            this.nextDamageTick=timestamp+this.DAMAGE_FLINCH_WAIT_TICK;
             this.playSound('hurt',(1.0+(0.5-Math.random())),false);
         }
     }
@@ -264,7 +261,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         if (name==='m16') {
             if (!this.hasM16) {
                 this.hasM16=true;
-                this.currentWeapon=EntityPlayerClass.WEAPON_M16;
+                this.currentWeapon=this.WEAPON_M16;
                 this.beretta.show=false;
                 this.m16.show=true;
                 return(true);
@@ -453,10 +450,10 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             
         if (fireWeapon) {
             switch (this.currentWeapon) {
-                case EntityPlayerClass.WEAPON_BERETTA:
+                case this.WEAPON_BERETTA:
                     this.beretta.fire(this.position,this.angle,this.eyeOffset);
                     break;
-                case EntityPlayerClass.WEAPON_M16:
+                case this.WEAPON_M16:
                     this.m16.fire(this.position,this.angle,this.eyeOffset);
                     break;
             }
@@ -471,14 +468,14 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
         mouseWheelClick=this.getMouseWheelClick();
 
-        if ((mouseWheelClick<0) || (this.isKeyDown(49))) {
-            this.currentWeapon=EntityPlayerClass.WEAPON_BERETTA;
+        if ((mouseWheelClick<0) || (this.isKeyDown('1'))) {
+            this.currentWeapon=this.WEAPON_BERETTA;
             this.beretta.show=true;
             this.m16.show=false;
         }
         
-        if (((mouseWheelClick>0) || (this.isKeyDown(50))) && (this.hasM16)) {
-            this.currentWeapon=EntityPlayerClass.WEAPON_M16;
+        if (((mouseWheelClick>0) || (this.isKeyDown('2'))) && (this.hasM16)) {
+            this.currentWeapon=this.WEAPON_M16;
             this.beretta.show=false;
             this.m16.show=true;
         }
@@ -490,7 +487,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             turnAdd=-(x*setup.mouseXSensitivity);
             turnAdd+=(turnAdd*setup.mouseXAcceleration);
             if (setup.mouseXInvert) turnAdd=-turnAdd;
-            if (Math.abs(turnAdd)>EntityPlayerClass.MOUSE_MAX_TURN_SPEED) turnAdd=EntityPlayerClass.MOUSE_MAX_TURN_SPEED*Math.sign(turnAdd);
+            if (Math.abs(turnAdd)>this.MOUSE_MAX_TURN_SPEED) turnAdd=this.MOUSE_MAX_TURN_SPEED*Math.sign(turnAdd);
         
             this.angle.y+=turnAdd;
             if (this.angle.y<0.0) this.angle.y+=360.0;
@@ -505,11 +502,11 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
                 lookAdd=y*setup.mouseYSensitivity;
                 lookAdd+=(lookAdd*setup.mouseYAcceleration);
                 if (setup.mouseYInvert) lookAdd=-lookAdd;
-                if (Math.abs(lookAdd)>EntityPlayerClass.MOUSE_MAX_LOOK_SPEED) lookAdd=EntityPlayerClass.MOUSE_MAX_LOOK_SPEED*Math.sign(lookAdd);
+                if (Math.abs(lookAdd)>this.MOUSE_MAX_LOOK_SPEED) lookAdd=this.MOUSE_MAX_LOOK_SPEED*Math.sign(lookAdd);
 
                 this.angle.x+=lookAdd;
-                if (this.angle.x<-EntityPlayerClass.MAX_LOOK_ANGLE) this.angle.x=-EntityPlayerClass.MAX_LOOK_ANGLE;
-                if (this.angle.x>=EntityPlayerClass.MAX_LOOK_ANGLE) this.angle.x=EntityPlayerClass.MAX_LOOK_ANGLE;
+                if (this.angle.x<-this.MAX_LOOK_ANGLE) this.angle.x=-this.MAX_LOOK_ANGLE;
+                if (this.angle.x>=this.MAX_LOOK_ANGLE) this.angle.x=this.MAX_LOOK_ANGLE;
             }
         }
         else {
@@ -527,7 +524,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         else {
             if ((this.lastUnderLiquid) && (this.angle.x>0)) {
                 this.gravity=0;
-                this.movement.y-=EntityPlayerClass.JUMP_WATER_HEIGHT;
+                this.movement.y-=this.JUMP_WATER_HEIGHT;
             }
             
             this.lastUnderLiquid=false;
@@ -546,10 +543,10 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // jumping
            
-        if (this.isKeyDown(32)) {
+        if (this.isKeyDown(' ')) {
             if ((this.isStandingOnFloor()) && (liquidIdx===-1) && (!this.debugPlayerFly)) {
                 this.gravity=this.gravityMinValue;
-                this.movement.y=EntityPlayerClass.JUMP_HEIGHT;
+                this.movement.y=this.JUMP_HEIGHT;
             }
         }
         
@@ -564,14 +561,14 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // figure out the movement
          
-        this.movement.moveZWithAcceleration(((this.isKeyDown(38)) || (this.isKeyDown(87))),((this.isKeyDown(40)) || (this.isKeyDown(83))),EntityPlayerClass.FORWARD_ACCELERATION,EntityPlayerClass.FORWARD_DECELERATION,EntityPlayerClass.FORWARD_MAX_SPEED,EntityPlayerClass.FORWARD_ACCELERATION,EntityPlayerClass.FORWARD_DECELERATION,EntityPlayerClass.FORWARD_MAX_SPEED);
-        this.movement.moveXWithAcceleration(this.isKeyDown(65),this.isKeyDown(68),EntityPlayerClass.SIDE_ACCELERATION,EntityPlayerClass.SIDE_DECELERATION,EntityPlayerClass.SIDE_MAX_SPEED,EntityPlayerClass.SIDE_ACCELERATION,EntityPlayerClass.SIDE_DECELERATION,EntityPlayerClass.SIDE_MAX_SPEED);
+        this.movement.moveZWithAcceleration(((this.isKeyDown('w')) || (this.isKeyDown('ArrowUp'))),((this.isKeyDown('s')) || (this.isKeyDown('ArrowDown'))),this.FORWARD_ACCELERATION,this.FORWARD_DECELERATION,this.FORWARD_MAX_SPEED,this.FORWARD_ACCELERATION,this.FORWARD_DECELERATION,this.FORWARD_MAX_SPEED);
+        this.movement.moveXWithAcceleration(this.isKeyDown('a'),this.isKeyDown('d'),this.SIDE_ACCELERATION,this.SIDE_DECELERATION,this.SIDE_MAX_SPEED,this.SIDE_ACCELERATION,this.SIDE_DECELERATION,this.SIDE_MAX_SPEED);
         
         this.rotMovement.setFromPoint(this.movement);
         if ((this.debugPlayerFly) || (this.lastUnderLiquid)) {
             this.rotMovement.y=0;       // only Y movement comes from X angle rotation
             this.rotMovement.rotateX(null,this.angle.x);     // if flying or swimming, add in the X rotation
-            this.rotMovement.y*=EntityPlayerClass.FLY_SWIM_Y_REDUCE;
+            this.rotMovement.y*=this.FLY_SWIM_Y_REDUCE;
         }
         this.rotMovement.rotateY(null,this.angle.y);
 
@@ -591,7 +588,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // camera swaps
             
-        if (this.isKeyDown(192)) {
+        if (this.isKeyDown('`')) {
             if (!this.cameraKeyDown) {
                 this.cameraKeyDown=true;
                 if (this.cameraFPP) {
@@ -613,7 +610,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             // current animation
             
         if ((this.movement.x!==0) || (this.movement.z!==0)) {
-            if (this.currentWeapon===EntityPlayerClass.WEAPON_BERETTA) {
+            if (this.currentWeapon===this.WEAPON_BERETTA) {
                 if (fireWeapon) {
                     this.startModelAnimationChunkInFrames(null,30,523,549);
                     this.queueModelAnimationChunkInFrames(null,30,492,518);
@@ -635,7 +632,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             this.inStandingAnimation=false;
         }
         else {
-            if (this.currentWeapon===EntityPlayerClass.WEAPON_BERETTA) {
+            if (this.currentWeapon===this.WEAPON_BERETTA) {
                 if (fireWeapon) {
                     this.startModelAnimationChunkInFrames(null,30,364,401);
                     this.queueModelAnimationChunkInFrames(null,30,0,50);

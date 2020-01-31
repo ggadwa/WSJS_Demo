@@ -9,30 +9,18 @@ import ProjectEffectClass from '../../../code/project/project_effect.js';
 
 export default class EffectFireClass extends ProjectEffectClass
 {
-    static FIRE_WIDTH=400;
-    static FIRE_HEIGHT=420;
-    static FIRE_EXTRA_SIZE=100;
-        
-    static GLOW_WIDTH=3000;
-    static GLOW_HEIGHT=3000;
-    
-    xBound=null;
-    yBound=null;
-    zBound=null;
-    lightIntensity=0;
-    lightIntensityDrop=0;
-    lightPeriodicTick=0;
-    redColor=null;
-    orangeColor=null;
-    glowColor=null;
-    lightColor=null;
-    drawPoint=null;
-            
     initialize()
     {
+        let meshList,meshIdx;
+        
         super.initialize();
         
-        let meshList,meshIdx;
+        this.FIRE_WIDTH=400;
+        this.FIRE_HEIGHT=420;
+        this.FIRE_EXTRA_SIZE=100;
+        
+        this.GLOW_WIDTH=3000;
+        this.GLOW_HEIGHT=3000;
         
             // setup
             
@@ -71,9 +59,9 @@ export default class EffectFireClass extends ProjectEffectClass
             // fire doesn't move, precalc the view culling
             // bounds in the constructor
             
-        this.xBound=new BoundClass((this.position.x-EffectFireClass.GLOW_WIDTH),(this.position.x+EffectFireClass.GLOW_WIDTH));
-        this.yBound=new BoundClass((this.position.y-EffectFireClass.GLOW_HEIGHT),(this.position.y+EffectFireClass.GLOW_HEIGHT));
-        this.zBound=new BoundClass((this.position.z-EffectFireClass.GLOW_WIDTH),(this.position.z+EffectFireClass.GLOW_WIDTH));
+        this.xBound=new BoundClass((this.position.x-this.GLOW_WIDTH),(this.position.x+this.GLOW_WIDTH));
+        this.yBound=new BoundClass((this.position.y-this.GLOW_HEIGHT),(this.position.y+this.GLOW_HEIGHT));
+        this.zBound=new BoundClass((this.position.z-this.GLOW_WIDTH),(this.position.z+this.GLOW_WIDTH));
         
             // some light settings
             
@@ -115,8 +103,8 @@ export default class EffectFireClass extends ProjectEffectClass
         
             // the flame size
          
-        squeeze=Math.trunc(Math.abs(this.getPeriodicSin(2000,EffectFireClass.FIRE_EXTRA_SIZE)));
-        halfWid=EffectFireClass.FIRE_WIDTH-squeeze;
+        squeeze=Math.trunc(Math.abs(this.getPeriodicSin(2000,this.FIRE_EXTRA_SIZE)));
+        halfWid=this.FIRE_WIDTH-squeeze;
         
             // draw the quads
             
@@ -124,17 +112,17 @@ export default class EffectFireClass extends ProjectEffectClass
         
             // the glow
             
-        this.drawAddBillboardQuad('textures/particle_glow.png',this.position,0.0,0.0,1.0,1.0,EffectFireClass.GLOW_WIDTH,EffectFireClass.GLOW_HEIGHT,this.getPeriodicLinear(35000,360),ProjectEffectClass.DRAW_MODE_ADDITIVE,this.glowColor,0.8);
+        this.drawAddBillboardQuad('textures/particle_glow.png',this.position,0.0,0.0,1.0,1.0,this.GLOW_WIDTH,this.GLOW_HEIGHT,this.getPeriodicLinear(35000,360),this.DRAW_MODE_ADDITIVE,this.glowColor,0.8);
 
             // the red and orange part
 
-        this.drawAddBillboardQuad('textures/particle_blob.png',this.position,u,v,0.5,0.5,halfWid,EffectFireClass.FIRE_HEIGHT,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.redColor,1.0);
-        this.drawAddBillboardQuad('textures/particle_blob.png',this.position,u2,v2,0.5,0.5,halfWid,EffectFireClass.FIRE_HEIGHT,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.redColor,1.0);
+        this.drawAddBillboardQuad('textures/particle_blob.png',this.position,u,v,0.5,0.5,halfWid,this.FIRE_HEIGHT,0,this.DRAW_MODE_TRANSPARENT,this.redColor,1.0);
+        this.drawAddBillboardQuad('textures/particle_blob.png',this.position,u2,v2,0.5,0.5,halfWid,this.FIRE_HEIGHT,0,this.DRAW_MODE_TRANSPARENT,this.redColor,1.0);
         
         halfWid=Math.trunc(halfWid*0.5);
-        halfHigh=Math.trunc(EffectFireClass.FIRE_HEIGHT*0.6);
+        halfHigh=Math.trunc(this.FIRE_HEIGHT*0.6);
         this.drawPoint.setFromValues(this.position.x,(this.position.y+halfHigh),this.position.z);
-        this.drawAddBillboardQuad('textures/particle_blob.png',this.drawPoint,u,v,0.5,0.5,halfWid,halfHigh,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.orangeColor,0.9);
+        this.drawAddBillboardQuad('textures/particle_blob.png',this.drawPoint,u,v,0.5,0.5,halfWid,halfHigh,0,this.DRAW_MODE_TRANSPARENT,this.orangeColor,0.9);
 
         this.drawEnd();
     }

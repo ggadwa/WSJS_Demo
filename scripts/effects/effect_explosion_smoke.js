@@ -9,25 +9,19 @@ import ProjectEffectClass from '../../../code/project/project_effect.js';
 
 export default class EffectExplosionSmokeClass extends ProjectEffectClass
 {
-    static SMOKE_LIFE_TICK=3000;
-    static SMOKE_FADE_TICK=700;
     
-    static SMOKE_PARTICLE_COUNT=60;
-    
-    static SMOKE_SPREAD=20000;
-    static SMOKE_START_HALF_SIZE=100;
-    static SMOKE_ADD_HALF_SIZE=10000;
-    
-    startTimestamp=0;
-    xBound=null;
-    yBound=null;
-    zBound=null;
-    whiteColor=null;
-    smokeMotions=null;
-            
     initialize()
     {
         super.initialize();
+        
+        this.SMOKE_LIFE_TICK=3000;
+        this.SMOKE_FADE_TICK=700;
+    
+        this.SMOKE_PARTICLE_COUNT=60;
+    
+        this.SMOKE_SPREAD=20000;
+        this.SMOKE_START_HALF_SIZE=100;
+        this.SMOKE_ADD_HALF_SIZE=10000;
         
             // setup
             
@@ -41,11 +35,11 @@ export default class EffectExplosionSmokeClass extends ProjectEffectClass
         
             // setup the drawing
             
-        this.drawInitialize((EffectExplosionSmokeClass.SMOKE_PARTICLE_COUNT*4),(EffectExplosionSmokeClass.SMOKE_PARTICLE_COUNT*6));
+        this.drawInitialize((this.SMOKE_PARTICLE_COUNT*4),(this.SMOKE_PARTICLE_COUNT*6));
         
             // random moves
             
-        this.smokeMotions=this.createRandomMotionArray(EffectExplosionSmokeClass.SMOKE_PARTICLE_COUNT,EffectExplosionSmokeClass.SMOKE_SPREAD,EffectExplosionSmokeClass.SMOKE_SPREAD,EffectExplosionSmokeClass.SMOKE_SPREAD);
+        this.smokeMotions=this.createRandomMotionArray(this.SMOKE_PARTICLE_COUNT,this.SMOKE_SPREAD,this.SMOKE_SPREAD,this.SMOKE_SPREAD);
         
         return(true);
     }
@@ -62,18 +56,18 @@ export default class EffectExplosionSmokeClass extends ProjectEffectClass
             // checking for stop
 
         tick=this.getTimestamp()-this.startTimestamp;
-        if (tick>EffectExplosionSmokeClass.SMOKE_LIFE_TICK) {
+        if (tick>this.SMOKE_LIFE_TICK) {
             this.markDelete=true;
             return(false);
         }
         
             // explosion factor
             
-        factor=tick/EffectExplosionSmokeClass.SMOKE_LIFE_TICK;
+        factor=tick/this.SMOKE_LIFE_TICK;
         
             // explosion size
 
-        halfSize=EffectExplosionSmokeClass.SMOKE_START_HALF_SIZE+Math.trunc(EffectExplosionSmokeClass.SMOKE_ADD_HALF_SIZE*factor);
+        halfSize=this.SMOKE_START_HALF_SIZE+Math.trunc(this.SMOKE_ADD_HALF_SIZE*factor);
             
         this.xBound.setFromValues((this.position.x-halfSize),(this.position.x+halfSize));
         this.yBound.setFromValues((this.position.y-halfSize),(this.position.y+halfSize));
@@ -90,12 +84,12 @@ export default class EffectExplosionSmokeClass extends ProjectEffectClass
             // smoke setup
             
         tick=this.getTimestamp()-this.startTimestamp;
-        factor=tick/EffectExplosionSmokeClass.SMOKE_LIFE_TICK;
+        factor=tick/this.SMOKE_LIFE_TICK;
         
-        halfSize=EffectExplosionSmokeClass.SMOKE_START_HALF_SIZE+Math.trunc(EffectExplosionSmokeClass.SMOKE_ADD_HALF_SIZE*factor);
+        halfSize=this.SMOKE_START_HALF_SIZE+Math.trunc(this.SMOKE_ADD_HALF_SIZE*factor);
         
         alpha=1.0;
-        if (tick>(EffectExplosionSmokeClass.SMOKE_LIFE_TICK-EffectExplosionSmokeClass.SMOKE_FADE_TICK)) alpha=1.0-((tick-(EffectExplosionSmokeClass.SMOKE_LIFE_TICK-EffectExplosionSmokeClass.SMOKE_FADE_TICK))/EffectExplosionSmokeClass.SMOKE_FADE_TICK);
+        if (tick>(this.SMOKE_LIFE_TICK-this.SMOKE_FADE_TICK)) alpha=1.0-((tick-(this.SMOKE_LIFE_TICK-this.SMOKE_FADE_TICK))/this.SMOKE_FADE_TICK);
 
             // the particles
             
@@ -104,7 +98,7 @@ export default class EffectExplosionSmokeClass extends ProjectEffectClass
         v=(k&0x1)*0.5;
             
         this.drawStart();
-        this.drawAddBillboardQuadFromMotion('textures/particle_smoke.png',this.smokeMotions,factor,this.position,u,v,0.5,0.5,halfSize,halfSize,0,ProjectEffectClass.DRAW_MODE_TRANSPARENT,this.whiteColor,alpha);
+        this.drawAddBillboardQuadFromMotion('textures/particle_smoke.png',this.smokeMotions,factor,this.position,u,v,0.5,0.5,halfSize,halfSize,0,this.DRAW_MODE_TRANSPARENT,this.whiteColor,alpha);
         this.drawEnd();
     }
 }

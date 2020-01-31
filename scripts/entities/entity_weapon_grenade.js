@@ -10,8 +10,6 @@ import EntityWeaponBaseClass from '../entities/entity_weapon_base.js';
 
 export default class EntityWeaponGrenadeClass extends EntityWeaponBaseClass
 {
-    firePosition=null;
-    
     initialize()
     {
         super.initialize();

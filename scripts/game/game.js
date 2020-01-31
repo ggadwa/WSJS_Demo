@@ -8,8 +8,6 @@ import EntityRemoteClass from '../entities/entity_remote.js';
 
 export default class GameClass extends ProjectGameDeveloperClass
 {
-    static BOT_NAMES=['Caesar','Vespasian','Hadrian','Augustus','Trajan','Tiberius','Caligula','Claudius','Nero','Commodus'];
-    
     getName()
     {
         return('wsjs_demo');            // uniquely identifies this project so we can have separate persistent data
@@ -22,7 +20,7 @@ export default class GameClass extends ProjectGameDeveloperClass
                             
     getBotName(idx)
     {
-        return(GameClass.BOT_NAMES[idx]);
+        return(['Caesar','Vespasian','Hadrian','Augustus','Trajan','Tiberius','Caligula','Claudius','Nero','Commodus'][idx]);
     }
     
     getRemoteClass()

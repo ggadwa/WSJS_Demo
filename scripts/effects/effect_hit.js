@@ -9,25 +9,17 @@ import ProjectEffectClass from '../../../code/project/project_effect.js';
 
 export default class EffectHitClass extends ProjectEffectClass
 {
-    static HIT_LIFE_TICK=150;
-    static HIT_START_HALF_SIZE=50;
-    static HIT_ADD_HALF_SIZE=900;
-    static HIT_ALPHA_START_FACTOR=0.3;
-    static HIT_ALPHA_ADD_FACTOR=0.7;
-    
-    startTimestamp=0;
-    halfSize=0;
-    alpha=1.0;
-    xBound=null;
-    yBound=null;
-    zBound=null;
-    hitColor=null;
-        
     initialize()
     {
         let col;
         
         super.initialize();
+        
+        this.HIT_LIFE_TICK=150;
+        this.HIT_START_HALF_SIZE=50;
+        this.HIT_ADD_HALF_SIZE=900;
+        this.HIT_ALPHA_START_FACTOR=0.3;
+        this.HIT_ALPHA_ADD_FACTOR=0.7;
         
             // setup
             
@@ -39,6 +31,9 @@ export default class EffectHitClass extends ProjectEffectClass
 
         col=0.7+(Math.random()*0.2);
         this.hitColor=new ColorClass((col+0.1),col,0.0);
+        
+        this.halfSize=0;
+        this.alpha=1.0;
         
             // setup the drawing
             
@@ -59,17 +54,17 @@ export default class EffectHitClass extends ProjectEffectClass
             // checking for stop
 
         tick=this.getTimestamp()-this.startTimestamp;
-        if (tick>EffectHitClass.HIT_LIFE_TICK) {
+        if (tick>this.HIT_LIFE_TICK) {
             this.markDelete=true;
             return(false);
         }
         
             // current fire size
         
-        factor=tick/EffectHitClass.HIT_LIFE_TICK;
+        factor=tick/this.HIT_LIFE_TICK;
 
-        this.halfSize=EffectHitClass.HIT_START_HALF_SIZE+Math.trunc(EffectHitClass.HIT_ADD_HALF_SIZE*factor);
-        this.alpha=EffectHitClass.HIT_ALPHA_START_FACTOR+(EffectHitClass.HIT_ALPHA_ADD_FACTOR*factor);
+        this.halfSize=this.HIT_START_HALF_SIZE+Math.trunc(this.HIT_ADD_HALF_SIZE*factor);
+        this.alpha=this.HIT_ALPHA_START_FACTOR+(this.HIT_ALPHA_ADD_FACTOR*factor);
         
             // need to rebuild the bounds
             
@@ -83,7 +78,7 @@ export default class EffectHitClass extends ProjectEffectClass
     draw()
     {
         this.drawStart();
-        this.drawAddBillboardQuad('textures/particle_hit.png',this.position,0,0,1,1,this.halfSize,this.halfSize,this.getPeriodicLinear(1000,360),ProjectEffectClass.DRAW_MODE_ADDITIVE,this.hitColor,this.alpha);
+        this.drawAddBillboardQuad('textures/particle_hit.png',this.position,0,0,1,1,this.halfSize,this.halfSize,this.getPeriodicLinear(1000,360),this.DRAW_MODE_ADDITIVE,this.hitColor,this.alpha);
         this.drawEnd();
     }
 }

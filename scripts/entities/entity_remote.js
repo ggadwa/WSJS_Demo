@@ -6,10 +6,6 @@ import EntityWeaponGrenadeClass from '../entities/entity_weapon_grenade.js';
 
 export default class EntityRemoteClass extends ProjectEntityRemoteClass
 {
-    beretta=null;
-    m16=null;
-    grenade=null;
-    
     initialize()
     {
         super.initialize();
