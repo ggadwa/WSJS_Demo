@@ -29,6 +29,16 @@ export default class GameClass extends ProjectGameDeveloperClass
     {
         return(EntityRemoteClass);
     }
+    
+    remoteEntering(name)
+    {
+        this.updateInterfaceTemporaryText('multiplayer_message',(name+' has joined'),5000);
+    }
+    
+    remoteLeaving(name)
+    {
+        this.updateInterfaceTemporaryText('multiplayer_message',(name+' has left'),5000);
+    }
 
     getStartProjectMap()
     {

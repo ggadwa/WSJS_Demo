@@ -107,9 +107,9 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
     {
         super.release();
         
-        this.beretta.release();
-        this.m16.release();
-        this.grenade.release();
+        this.removeEntity(this.beretta);
+        this.removeEntity(this.m16);
+        this.removeEntity(this.grenade);
     }
     
     switchWeapon(whichWeapon)

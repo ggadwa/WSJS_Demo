@@ -14,8 +14,6 @@ export default class EntityWeaponGrenadeClass extends EntityWeaponBaseClass
     
     initialize()
     {
-        let n;
-        
         super.initialize();
         
             // setup
@@ -35,13 +33,6 @@ export default class EntityWeaponGrenadeClass extends EntityWeaponBaseClass
     
     release()
     {
-        let n;
-        
-        super.release();
-        
-        for (n=0;n!=EntityWeaponGrenadeClass.MAX_PROJECTILE_COUNT;n++) {
-            this.grenades[n].release();
-        }
     }
     
         //

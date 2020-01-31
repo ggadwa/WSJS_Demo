@@ -88,6 +88,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.setModel('player');
         this.scale.setFromValues(3000,3000,3000);
         
+        this.drawAngle=new PointClass(0,0,0);
+        
             // weapons
 
         this.beretta=this.addEntity(EntityWeaponBerettaClass,'weapon_beretta',new PointClass(0,0,0),new PointClass(0,0,0),null,true,true);
@@ -99,9 +101,9 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     {
         super.release();
         
-        this.beretta.release();
-        this.m16.release();
-        this.grenade.release();
+        this.removeEntity(this.beretta);
+        this.removeEntity(this.m16);
+        this.removeEntity(this.grenade);
     }
     
         //
@@ -657,12 +659,15 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     }
     
         //
+        // we need to remove the look angle from the player model
         // player is only drawn in third person
         //
         
     drawSetup()
     {
-        if (this.getCamera().isThirdPersonBehind()) return(super.drawSetup());
-        return(false);
+        this.drawAngle.setFromValues(0,this.angle.y,0);
+        this.setModelDrawPosition(this.position,this.drawAngle,this.scale,false);
+        
+        return(this.getCamera().isThirdPersonBehind()) ;
     }
 }

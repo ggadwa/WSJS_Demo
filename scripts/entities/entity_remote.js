@@ -1,3 +1,4 @@
+import PointClass from '../../../code/utility/point.js';
 import ProjectEntityRemoteClass from '../../../code/project/project_entity_remote.js';
 import EntityWeaponBerettaClass from '../entities/entity_weapon_beretta.js';
 import EntityWeaponM16Class from '../entities/entity_weapon_m16.js';
@@ -20,15 +21,15 @@ export default class EntityRemoteClass extends ProjectEntityRemoteClass
 
         this.beretta=this.addEntity(EntityWeaponBerettaClass,'weapon_beretta',new PointClass(0,0,0),new PointClass(0,0,0),null,true,true);
         this.m16=this.addEntity(EntityWeaponM16Class,'weapon_m16',new PointClass(0,0,0),new PointClass(0,0,0),null,false,true);
-        this.grenade=this.addEntity(EntityWeaponGrenadeClass,('weapon_grenade'),new PointClass(0,0,0),new PointClass(0,0,0),null,false,true);
+        this.grenade=this.addEntity(EntityWeaponGrenadeClass,'weapon_grenade',new PointClass(0,0,0),new PointClass(0,0,0),null,false,true);
     }
     
     release()
     {
         super.release();
         
-        this.beretta.release();
-        this.m16.release();
-        this.grenade.release();
+        this.removeEntity(this.beretta);
+        this.removeEntity(this.m16);
+        this.removeEntity(this.grenade);
     }
 }
