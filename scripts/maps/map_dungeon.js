@@ -316,12 +316,12 @@ export default class MapDungeonClass extends ProjectMapClass
                     ],
                 "bitmaps":
                     [
-                        {"url":"textures/crosshair_dot.png"},
-                        {"url":"textures/icon_beretta_bullet.png"},
-                        {"url":"textures/icon_m16_bullet.png"},
-                        {"url":"textures/icon_grenade.png"},
-                        {"url":"textures/icon_armor.png"},
-                        {"url":"textures/icon_health.png"},
+                        {"url":"textures/crosshair_dot.png","interface":true},
+                        {"url":"textures/icon_beretta_bullet.png","interface":true},
+                        {"url":"textures/icon_m16_bullet.png","interface":true},
+                        {"url":"textures/icon_grenade.png","interface":true},
+                        {"url":"textures/icon_armor.png","interface":true},
+                        {"url":"textures/icon_health.png","interface":true},
                         {"url":"textures/particle_blob.png"},
                         {"url":"textures/particle_smoke.png"},
                         {"url":"textures/particle_hit.png"},
