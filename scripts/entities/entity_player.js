@@ -74,6 +74,13 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.cameraFPP=true;
     
         this.inStandingAnimation=true;
+        
+            // some touch control flags
+            
+        this.touchForwardMove=false;
+        this.touchBackwardMove=false;
+        this.touchLeftMove=false;
+        this.touchRightMove=false;
 
             // some pre-allocations
             
@@ -143,6 +150,11 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.deadCount=-1;
         this.passThrough=false;         // reset if this is being called after bot died
         this.angle.x=0;
+        
+        this.touchForwardMove=false;
+        this.touchBackwardMove=false;
+        this.touchLeftMove=false;
+        this.touchRightMove=false;
         
             // get rid of jetpack from model
             
@@ -400,7 +412,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     
     run()
     {
-        let x,y,turnAdd,lookAdd,liquidIdx;
+        let n,x,y,touch,liquidIdx;
+        let moveForward,moveBackward,moveLeft,moveRight,turnAdd,lookAdd;
         let mouseWheelClick,bump;
         let fireWeapon,fireGrenade;
         let setup=this.getSetup();
@@ -441,10 +454,82 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             return;
         }
         
-            // detect weapon clicks/touches
+            // deal with controls
+          
+        turnAdd=0;
+        lookAdd=0;
+        
+            // keyboard
             
-        fireWeapon=this.isMouseButtonDown(0)||(this.getNextTouchClick(this.TOUCH_QUADRANT_BOTTOMRIGHT)!==null);
-        fireGrenade=this.isMouseButtonDown(2)||(this.getNextTouchSwipe(this.TOUCH_QUADRANT_TOPRIGHT,this.TOUCH_DIRECTION_Y)!==null);
+        moveForward=(this.isKeyDown('w')) || (this.isKeyDown('ArrowUp')) || this.touchForwardMove;
+        moveBackward=(this.isKeyDown('s')) || (this.isKeyDown('ArrowDown')) || this.touchBackwardMove;
+        moveLeft=this.isKeyDown('a') || this.touchLeftMove;
+        moveRight=this.isKeyDown('d') || this.touchRightMove;
+        
+            // mouse
+            
+        x=this.getMouseMoveX();
+        if (x!==0) {
+            turnAdd=-(x*setup.mouseXSensitivity);
+            turnAdd+=(turnAdd*setup.mouseXAcceleration);
+            if (setup.mouseXInvert) turnAdd=-turnAdd;
+            if (Math.abs(turnAdd)>this.MOUSE_MAX_TURN_SPEED) turnAdd=this.MOUSE_MAX_TURN_SPEED*Math.sign(turnAdd);
+        }
+        
+        y=this.getMouseMoveY();
+        if (y!==0) {
+            lookAdd=y*setup.mouseYSensitivity;
+            lookAdd+=(lookAdd*setup.mouseYAcceleration);
+            if (setup.mouseYInvert) lookAdd=-lookAdd;
+            if (Math.abs(lookAdd)>this.MOUSE_MAX_LOOK_SPEED) lookAdd=this.MOUSE_MAX_LOOK_SPEED*Math.sign(lookAdd);
+        }
+        
+        fireWeapon=this.isMouseButtonDown(0);
+        fireGrenade=this.isMouseButtonDown(2);
+        
+            // touch
+            
+        for (n=0;n!==this.getTouchTrackCount();n++) {
+            touch=this.getTouchClick(n);
+            if (touch!==null) {
+                if (touch.quadrant===this.TOUCH_QUADRANT_BOTTOMRIGHT) fireWeapon=true;
+                continue;
+            }
+            
+            touch=this.getTouchSwipe(n);
+            if (touch===null) continue;
+            
+            switch (touch.quadrant) {
+                
+                case this.TOUCH_QUADRANT_BOTTOMLEFT:
+                    if (touch.y<0) {
+                        if (this.touchBackwardMove) {
+                            this.touchBackwardMove=false;
+                        }
+                        else {
+                            this.touchForwardMove=true;
+                        }
+                    }
+                    if (touch.y>0) {
+                        if (this.touchForwardMove) {
+                            this.touchForwardMove=false;
+                        }
+                        else {
+                            this.touchBackwardMove=true;
+                        }
+                    }
+                    break;
+                    
+                case this.TOUCH_QUADRANT_BOTTOMRIGHT:
+                    turnAdd=touch.x*1;
+                    lookAdd=touch.y*1;
+                    break;
+                    
+                case this.TOUCH_QUADRANT_TOPRIGHT:
+                    if (touch.y<0) fireGrenade=true;     // swipe up in top right
+                    break;
+            }
+        }
         
             // fire weapon
             
@@ -482,13 +567,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // turning
         
-        x=this.getMouseMoveX();
-        if (x!==0) {
-            turnAdd=-(x*setup.mouseXSensitivity);
-            turnAdd+=(turnAdd*setup.mouseXAcceleration);
-            if (setup.mouseXInvert) turnAdd=-turnAdd;
-            if (Math.abs(turnAdd)>this.MOUSE_MAX_TURN_SPEED) turnAdd=this.MOUSE_MAX_TURN_SPEED*Math.sign(turnAdd);
-        
+        if (turnAdd!==0) {
             this.angle.y+=turnAdd;
             if (this.angle.y<0.0) this.angle.y+=360.0;
             if (this.angle.y>=360.00) this.angle.y-=360.0;
@@ -497,13 +576,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
             // looking
            
         if (this.getCamera().isFirstPerson()) {
-            y=this.getMouseMoveY();
-            if (y!==0) {
-                lookAdd=y*setup.mouseYSensitivity;
-                lookAdd+=(lookAdd*setup.mouseYAcceleration);
-                if (setup.mouseYInvert) lookAdd=-lookAdd;
-                if (Math.abs(lookAdd)>this.MOUSE_MAX_LOOK_SPEED) lookAdd=this.MOUSE_MAX_LOOK_SPEED*Math.sign(lookAdd);
-
+            if (lookAdd!==0) {
                 this.angle.x+=lookAdd;
                 if (this.angle.x<-this.MAX_LOOK_ANGLE) this.angle.x=-this.MAX_LOOK_ANGLE;
                 if (this.angle.x>=this.MAX_LOOK_ANGLE) this.angle.x=this.MAX_LOOK_ANGLE;
@@ -561,8 +634,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // figure out the movement
          
-        this.movement.moveZWithAcceleration(((this.isKeyDown('w')) || (this.isKeyDown('ArrowUp'))),((this.isKeyDown('s')) || (this.isKeyDown('ArrowDown'))),this.FORWARD_ACCELERATION,this.FORWARD_DECELERATION,this.FORWARD_MAX_SPEED,this.FORWARD_ACCELERATION,this.FORWARD_DECELERATION,this.FORWARD_MAX_SPEED);
-        this.movement.moveXWithAcceleration(this.isKeyDown('a'),this.isKeyDown('d'),this.SIDE_ACCELERATION,this.SIDE_DECELERATION,this.SIDE_MAX_SPEED,this.SIDE_ACCELERATION,this.SIDE_DECELERATION,this.SIDE_MAX_SPEED);
+        this.movement.moveZWithAcceleration(moveForward,moveBackward,this.FORWARD_ACCELERATION,this.FORWARD_DECELERATION,this.FORWARD_MAX_SPEED,this.FORWARD_ACCELERATION,this.FORWARD_DECELERATION,this.FORWARD_MAX_SPEED);
+        this.movement.moveXWithAcceleration(moveLeft,moveRight,this.SIDE_ACCELERATION,this.SIDE_DECELERATION,this.SIDE_MAX_SPEED,this.SIDE_ACCELERATION,this.SIDE_DECELERATION,this.SIDE_MAX_SPEED);
         
         this.rotMovement.setFromPoint(this.movement);
         if ((this.debugPlayerFly) || (this.lastUnderLiquid)) {
