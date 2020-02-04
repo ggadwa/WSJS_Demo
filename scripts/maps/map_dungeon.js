@@ -326,7 +326,9 @@ export default class MapDungeonClass extends ProjectMapClass
                         {"url":"textures/particle_smoke.png"},
                         {"url":"textures/particle_hit.png"},
                         {"url":"textures/particle_glow.png"},
-                        {"url":"textures/web.png"}
+                        {"url":"textures/web.png"},
+                        {"url":"textures/stick_ring.png","interface":true},
+                        {"url":"textures/stick_thumb.png","interface":true}
                     ],
                 "entities":
                     [

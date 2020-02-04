@@ -68,8 +68,8 @@ export default class GameClass extends ProjectGameDeveloperClass
         y=Math.trunc(high*0.5);
         this.addInterfaceElement('crosshair','textures/crosshair_dot.png',null,null,new RectClass((x-4),(y-4),(x+4),(y+4)),null,1);
         
-        this.addInterfaceElement('beretta_bullet','textures/icon_beretta_bullet.png',null,null,new RectClass(5,(high-165),30,(high-115)),null,1);
-        this.addInterfaceText('beretta_bullet_count','',35,(high-125),20,this.TEXT_ALIGN_LEFT,new ColorClass(1,1,0),1);
+        this.addInterfaceElement('pistol_bullet','textures/icon_beretta_bullet.png',null,null,new RectClass(5,(high-165),30,(high-115)),null,1);
+        this.addInterfaceText('pistol_bullet_count','',35,(high-125),20,this.TEXT_ALIGN_LEFT,new ColorClass(1,1,0),1);
         
         this.addInterfaceElement('m16_bullet','textures/icon_m16_bullet.png',null,null,new RectClass(5,(high-110),30,(high-60)),null,1);
         this.addInterfaceText('m16_bullet_count','',35,(high-70),20,this.TEXT_ALIGN_LEFT,new ColorClass(1,1,0),1);

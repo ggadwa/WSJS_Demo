@@ -286,7 +286,9 @@ export default class MapDualCastlesClass extends ProjectMapClass
                         {"url":"textures/particle_blob.png"},
                         {"url":"textures/particle_smoke.png"},
                         {"url":"textures/particle_hit.png"},
-                        {"url":"textures/particle_glow.png"}
+                        {"url":"textures/particle_glow.png"},
+                        {"url":"textures/stick_ring.png","interface":true},
+                        {"url":"textures/stick_thumb.png","interface":true}
                     ],
                 "entities":
                     [
