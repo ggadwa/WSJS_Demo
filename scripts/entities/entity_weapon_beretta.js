@@ -3,13 +3,62 @@ import ProjectEntityClass from '../../../code/project/project_entity.js';
 import EffectHitClass from '../effects/effect_hit.js';
 import EntityPlayerClass from '../entities/entity_player.js';
 import EntityWeaponBaseClass from '../entities/entity_weapon_base.js';
+import EntityJsonClass from '../../../code/project/entity_json.js';
 
 //
 // m16 rifle entity class
 //
 
-export default class EntityWeaponBerettaClass extends EntityWeaponBaseClass
+export default class EntityWeaponBerettaClass extends EntityJsonClass
 {
+        getJson()
+    {
+        return(
+            {
+                "model": {"name":"hand_beretta","scale":{"x":7000,"y":7000,"z":7000}},
+                "setup": {"radius":5000,"height":11000},
+                "draw": {},
+                //setModelDrawPosition(position,angle,scale,inCameraSpace)
+                "readyActions":
+                    [
+                 //       {"type":"animationStart","startFrame":0,"endFrame":1}
+                    ],
+                "events":
+                    [
+                /*
+                        {
+                            "conditions":
+                                [
+                                    {"type":"key","key":"e"},
+                                    {"type":"nearEntity","entity":"@player","distance":7000}
+                                ],
+                            "actions":
+                                [
+                                    {"type":"animationStart","startFrame":1,"endFrame":65},
+                                    {"type":"animationQueue","startFrame":65,"endFrame":66},
+                                    {"type":"send","entity":"@player","message":"addHealth","value":25},
+                                    {"type":"sendToHold","entity":"@player","holdEntity":"weapon_pistol","message":"addAmmo","content":10},
+                                    {"type":"sendToHold","entity":"@player","holdEntity":"weapon_m16","message":"addAmmo","content":50},
+                                    {"type":"sendToHold","entity":"@player","holdEntity":"weapon_grenade","message":"addAmmo","content":1},
+                                    {"type":"pulseInterface","element":"health","tick":500,"expand":5},
+                                    {"type":"pulseInterface","element":"pistol_bullet","tick":500,"expand":5},
+                                    {"type":"pulseInterface","element":"m16_bullet","tick":500,"expand":5},
+                                    {"type":"pulseInterface","element":"grenade","tick":500,"expand":5},
+                                    {"type":"playSound","name":"chime","rate":1.0,"loop":false},
+                                    {"type":"trigger","name":"@data.trigger"}
+                                ],
+                            "fireOnce":true
+                        }
+                 
+                 */
+                    ]
+            }
+                    
+        );
+    }
+
+/*
+
     initialize()
     {
         super.initialize();
@@ -85,5 +134,6 @@ export default class EntityWeaponBerettaClass extends EntityWeaponBaseClass
         this.setModelDrawPosition(this.handOffset,this.handAngle,this.scale,true);
         return(true);
     }
-    
+    */
+   
 }
