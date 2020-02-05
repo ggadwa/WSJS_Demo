@@ -13,6 +13,7 @@ export default class EntityCaptainChestClass extends EntityJsonClass
             {
                 "model": {"name":"captain_chest","scale":{"x":50,"y":50,"z":50}},
                 "setup": {"radius":2800,"height":2200},
+                "draw": {"type":"normal"},
                 "readyActions":
                     [
                         {"type":"animationStart","startFrame":0,"endFrame":1}
@@ -29,14 +30,10 @@ export default class EntityCaptainChestClass extends EntityJsonClass
                                 [
                                     {"type":"animationStart","startFrame":1,"endFrame":65},
                                     {"type":"animationQueue","startFrame":65,"endFrame":66},
-                                    {"type":"send","entity":"@player","message":"addHealth","value":25},
-                                    {"type":"sendToHold","entity":"@player","holdEntity":"weapon_pistol","message":"addAmmo","content":10},
-                                    {"type":"sendToHold","entity":"@player","holdEntity":"weapon_m16","message":"addAmmo","content":50},
-                                    {"type":"sendToHold","entity":"@player","holdEntity":"weapon_grenade","message":"addAmmo","content":1},
-                                    {"type":"pulseInterface","element":"health","tick":500,"expand":5},
-                                    {"type":"pulseInterface","element":"pistol_bullet","tick":500,"expand":5},
-                                    {"type":"pulseInterface","element":"m16_bullet","tick":500,"expand":5},
-                                    {"type":"pulseInterface","element":"grenade","tick":500,"expand":5},
+                                    //{"type":"send","entity":"@player","message":"addHealth","content":25},
+                                    {"type":"send","entity":"@player","message":"addPistolAmmo","content":10},
+                                    //{"type":"send","entity":"@player","message":"addM16Ammo","content":50},
+                                    //{"type":"send","entity":"@player","message":"addGrenadeAmmo","content":1},
                                     {"type":"playSound","name":"chime","rate":1.0,"loop":false},
                                     {"type":"trigger","name":"@data.trigger"}
                                 ],

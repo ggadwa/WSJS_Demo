@@ -6,25 +6,58 @@ import EntityWeaponBaseClass from '../entities/entity_weapon_base.js';
 import EntityJsonClass from '../../../code/project/entity_json.js';
 
 //
-// m16 rifle entity class
+// pistol entity class
 //
 
 export default class EntityWeaponBerettaClass extends EntityJsonClass
 {
-        getJson()
+    getJson()
     {
         return(
             {
                 "model": {"name":"hand_beretta","scale":{"x":7000,"y":7000,"z":7000}},
                 "setup": {"radius":5000,"height":11000},
-                "draw": {},
-                //setModelDrawPosition(position,angle,scale,inCameraSpace)
+                "draw": {"type":"inHand","handPosition":{"x":-800,"y":-12500,"z":-2700},"handAngle":{"x":0,"y":-10,"z":0}},
+                "variables":
+                    [
+                        {"name":"ammoCount","value":15}
+                    ],
                 "readyActions":
                     [
-                 //       {"type":"animationStart","startFrame":0,"endFrame":1}
+                        {"type":"animationStart","startFrame":77,"endFrame":127}
+                    ],
+                "messages":
+                    [
+                        {
+                            "message":"addAmmo",
+                            "actions":
+                                [
+                                //    {"type":"calc","code":"#ammoCount=#ammoCount+@content","minClamp":0,"maxClamp":25},
+                                    {"type":"pulseInterface","element":"pistol_bullet","tick":500,"expand":5}
+                                ]
+                        },
+                        {
+                            "message":"fire",
+                            "conditions":
+                                [
+                                //    {"type":"calc","code":"#ammoCount=#ammoCount+@content","minClamp":0,"maxClamp":25},
+                                ],
+                            "actions":
+                                [
+                                    
+                                    {"type":"playSound","entity":"@parent","name":"beretta_fire","rate":1.0,"loop":false}
+                                ],
+                            "fireFrequency":900
+                        }
                     ],
                 "events":
                     [
+                        {
+                            "actions":
+                               [
+                                    {"type":"updateInterfaceText","element":"pistol_bullet_count","text":"#ammoCount"}
+                               ]
+                        }
                 /*
                         {
                             "conditions":
@@ -126,14 +159,18 @@ export default class EntityWeaponBerettaClass extends EntityJsonClass
     // this weapon draws in the camera view
     // so we have to set some positions and angles
     //
-            
+
     drawSetup()
     {
+        this.heldBy=this.getPlayerEntity();
         if (!this.getCamera().isFirstPerson()) return(false);
+        
+        this.handOffset=new PointClass(-800,-12500,-2700);
+        this.handAngle=new PointClass(0,-10,0);
         
         this.setModelDrawPosition(this.handOffset,this.handAngle,this.scale,true);
         return(true);
     }
-    */
+*/
    
 }

@@ -5,8 +5,9 @@ import ProjectEntityDeveloperClass from '../../../code/project/project_entity_de
 import EntityWeaponBerettaClass from '../entities/entity_weapon_beretta.js';
 import EntityWeaponM16Class from '../entities/entity_weapon_m16.js';
 import EntityWeaponGrenadeClass from '../entities/entity_weapon_grenade.js';
+import EntityJsonClass from '../../../code/project/entity_json.js';
 
-export default class EntityPlayerClass extends ProjectEntityDeveloperClass
+export default class EntityPlayerClass extends EntityJsonClass
 {
         //
         // initialize and release
@@ -82,8 +83,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // the model
          
-        this.setModel('player');
-        this.scale.setFromValues(3000,3000,3000);
+        //this.setModel('player');
+        //this.scale.setFromValues(3000,3000,3000);
         
         this.drawAngle=new PointClass(0,0,0);
         
@@ -93,6 +94,47 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         this.m16=this.addEntity(EntityWeaponM16Class,'weapon_m16',new PointClass(0,0,0),new PointClass(0,0,0),null,false,true);
         this.grenade=this.addEntity(EntityWeaponGrenadeClass,('weapon_grenade'),new PointClass(0,0,0),new PointClass(0,0,0),null,false,true);
     }
+    
+    getJson()
+    {
+        return(
+            {
+                "model": {"name":"player","scale":{"x":3000,"y":3000,"z":3000}},
+                "setup": {"radius":1500,"height":4500},
+                "draw": {"type":"player"},
+                "readyActions":
+                    [
+                        {"type":"animationStart","startFrame":0,"endFrame":50}
+                    ],
+                "messages":
+                    [
+                        {
+                            "message":"addPistolAmmo",
+                            "actions":
+                                [
+                                    {"type":"send","entity":"@hold.weapon_beretta","message":"addAmmo","content":"@content"}
+                                ]
+                        },
+                        {
+                            "message":"addM16Ammo",
+                            "actions":
+                                [
+                                    {"type":"send","entity":"@hold.weapon_m16","message":"addAmmo","content":"@content"}
+                                ]
+                        },
+                        {
+                            "message":"addGrenadeAmmo",
+                            "actions":
+                                [
+                                    {"type":"send","entity":"@hold.weapon_grenade","message":"addAmmo","content":"@content"}
+                                ]
+                        }
+                    ]
+            }
+                    
+        );
+    }
+
     
     release()
     {
@@ -159,7 +201,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
         this.beretta.show=true;
         this.m16.show=false;
-        this.hasM16=false;
+        this.hasM16=true;
         
             // turn off any score display
             
@@ -400,7 +442,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
     
     run()
     {
-        let n,x,y,touch,liquidIdx;
+        let x,y,liquidIdx;
         let moveForward,moveBackward,moveLeft,moveRight,turnAdd,lookAdd;
         let mouseWheelClick,bump;
         let fireWeapon;
@@ -410,11 +452,11 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
             // update the UI
             
-        this.updateInterfaceText('pistol_bullet_count',this.beretta.ammoCount);
-        this.updateInterfaceText('m16_bullet_count',this.m16.ammoCount);
-        this.updateInterfaceText('grenade_count',this.grenade.ammoCount);
-        this.updateInterfaceText('armor_count',this.armor);
-        this.updateInterfaceText('health_count',this.health);
+        //this.updateInterfaceText('pistol_bullet_count',this.beretta.ammoCount);
+        //this.updateInterfaceText('m16_bullet_count',this.m16.ammoCount);
+        //this.updateInterfaceText('grenade_count',this.grenade.ammoCount);
+        //this.updateInterfaceText('armor_count',this.armor);
+        //this.updateInterfaceText('health_count',this.health);
         
             // dead
             
@@ -490,7 +532,8 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         if (fireWeapon) {
             switch (this.currentWeapon) {
                 case this.WEAPON_BERETTA:
-                    this.beretta.fire(this.position,this.angle,this.eyeOffset);
+                    this.beretta.receiveMessage("fire",null);
+                    //this.beretta.fire(this.position,this.angle,this.eyeOffset);
                     break;
                 case this.WEAPON_M16:
                     this.m16.fire(this.position,this.angle,this.eyeOffset);
@@ -686,7 +729,7 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         // we need to remove the look angle from the player model
         // player is only drawn in third person
         //
-        
+   /*     
     drawSetup()
     {
         this.drawAngle.setFromValues(0,this.angle.y,0);
@@ -694,4 +737,6 @@ export default class EntityPlayerClass extends ProjectEntityDeveloperClass
         
         return(this.getCamera().isThirdPersonBehind()) ;
     }
+         
+    */
 }
