@@ -1,6 +1,7 @@
 import PointClass from '../../../code/utility/point.js';
 import BoundClass from '../../../code/utility/bound.js';
 import ColorClass from '../../../code/utility/color.js';
+import EffectJsonClass from '../../../code/project/project_effect.js';
 import ProjectEffectClass from '../../../code/project/project_effect.js';
 
 //
@@ -9,6 +10,18 @@ import ProjectEffectClass from '../../../code/project/project_effect.js';
 
 export default class EffectFireClass extends ProjectEffectClass
 {
+    getJson()
+    {
+        return(
+            {
+                "sprites":
+                    [
+                        {"bitmap":"textures/particle_glow.png","uv":"whole","width":3000,"height":3000,"mode":"additive","alpha":0.8,"rotatePeriod":35000,"rotationType":"linear"}
+                    ]
+            }        
+        );
+    }
+    
     initialize()
     {
         let meshList,meshIdx;
@@ -93,7 +106,7 @@ export default class EffectFireClass extends ProjectEffectClass
         
             // get uv based on timestamp
           
-        ts=Math.trunc(this.getTimestamp()*0.01)&0x3;
+        ts=Math.trunc(this.getPeriodicLinear(500,4));
         u=Math.trunc(ts/2)*0.5;
         v=(ts&0x1)*0.5;
         

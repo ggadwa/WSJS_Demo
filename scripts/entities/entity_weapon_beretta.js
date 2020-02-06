@@ -20,7 +20,8 @@ export default class EntityWeaponBerettaClass extends EntityJsonClass
                 "draw": {"type":"inHand","handPosition":{"x":-800,"y":-12500,"z":-2700},"handAngle":{"x":0,"y":-10,"z":0}},
                 "variables":
                     [
-                        {"name":"ammoCount","value":15}
+                        {"name":"ammoCount","value":15},
+                        {"name":"lastFireTimestamp","value":0},
                     ],
                 "readyActions":
                     [
@@ -32,58 +33,28 @@ export default class EntityWeaponBerettaClass extends EntityJsonClass
                             "message":"addAmmo",
                             "actions":
                                 [
-                                //    {"type":"calc","code":"#ammoCount=#ammoCount+@content","minClamp":0,"maxClamp":25},
-                                    {"type":"pulseInterface","element":"pistol_bullet","tick":500,"expand":5}
+                                    {"type":"calc","set":"ammoCount","code":"ammoCount+@content","minClamp":0,"maxClamp":25},
+                                    {"type":"pulseInterface","element":"pistol_bullet","tick":500,"expand":5},
+                                    {"type":"updateInterfaceText","element":"pistol_bullet_count","variable":"ammoCount"}
                                 ]
                         },
                         {
                             "message":"fire",
                             "conditions":
                                 [
-                                //    {"type":"calc","code":"#ammoCount=#ammoCount+@content","minClamp":0,"maxClamp":25},
+                                    {"type":"calc","code":"ammoCount>0"},
+                                    {"type":"calc","code":"(@timestamp-lastFireTimestamp)>900"}
                                 ],
                             "actions":
                                 [
-                                    
-                                    {"type":"playSound","entity":"@parent","name":"beretta_fire","rate":1.0,"loop":false}
-                                ],
-                            "fireFrequency":900
+                                    {"type":"calc","set":"ammoCount","code":"ammoCount-1"},
+                                    {"type":"calc","set":"lastFireTimestamp","code":"@timestamp"},
+                                    {"type":"playSound","entity":"@parent","name":"beretta_fire","rate":1.0,"loop":false},
+                                    {"type":"animationStart","startFrame":128,"endFrame":143},
+                                    {"type":"animationQueue","startFrame":77,"endFrame":127},
+                                    {"type":"updateInterfaceText","element":"pistol_bullet_count","variable":"ammoCount"}
+                                ]
                         }
-                    ],
-                "events":
-                    [
-                        {
-                            "actions":
-                               [
-                                    {"type":"updateInterfaceText","element":"pistol_bullet_count","text":"#ammoCount"}
-                               ]
-                        }
-                /*
-                        {
-                            "conditions":
-                                [
-                                    {"type":"key","key":"e"},
-                                    {"type":"nearEntity","entity":"@player","distance":7000}
-                                ],
-                            "actions":
-                                [
-                                    {"type":"animationStart","startFrame":1,"endFrame":65},
-                                    {"type":"animationQueue","startFrame":65,"endFrame":66},
-                                    {"type":"send","entity":"@player","message":"addHealth","value":25},
-                                    {"type":"sendToHold","entity":"@player","holdEntity":"weapon_pistol","message":"addAmmo","content":10},
-                                    {"type":"sendToHold","entity":"@player","holdEntity":"weapon_m16","message":"addAmmo","content":50},
-                                    {"type":"sendToHold","entity":"@player","holdEntity":"weapon_grenade","message":"addAmmo","content":1},
-                                    {"type":"pulseInterface","element":"health","tick":500,"expand":5},
-                                    {"type":"pulseInterface","element":"pistol_bullet","tick":500,"expand":5},
-                                    {"type":"pulseInterface","element":"m16_bullet","tick":500,"expand":5},
-                                    {"type":"pulseInterface","element":"grenade","tick":500,"expand":5},
-                                    {"type":"playSound","name":"chime","rate":1.0,"loop":false},
-                                    {"type":"trigger","name":"@data.trigger"}
-                                ],
-                            "fireOnce":true
-                        }
-                 
-                 */
                     ]
             }
                     

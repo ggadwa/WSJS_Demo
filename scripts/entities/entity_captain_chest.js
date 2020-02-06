@@ -14,6 +14,10 @@ export default class EntityCaptainChestClass extends EntityJsonClass
                 "model": {"name":"captain_chest","scale":{"x":50,"y":50,"z":50}},
                 "setup": {"radius":2800,"height":2200},
                 "draw": {"type":"normal"},
+                "variables":
+                    [
+                        {"name":"open","value":false}
+                    ],
                 "readyActions":
                     [
                         {"type":"animationStart","startFrame":0,"endFrame":1}
@@ -23,11 +27,13 @@ export default class EntityCaptainChestClass extends EntityJsonClass
                         {
                             "conditions":
                                 [
+                                    {"type":"calc","code":"open!=true"},
                                     {"type":"key","key":"e"},
                                     {"type":"nearEntity","entity":"@player","distance":7000}
                                 ],
                             "actions":
                                 [
+                                    {"type":"calc","set":"open","code":"true"},
                                     {"type":"animationStart","startFrame":1,"endFrame":65},
                                     {"type":"animationQueue","startFrame":65,"endFrame":66},
                                     //{"type":"send","entity":"@player","message":"addHealth","content":25},
@@ -36,8 +42,7 @@ export default class EntityCaptainChestClass extends EntityJsonClass
                                     //{"type":"send","entity":"@player","message":"addGrenadeAmmo","content":1},
                                     {"type":"playSound","name":"chime","rate":1.0,"loop":false},
                                     {"type":"trigger","name":"@data.trigger"}
-                                ],
-                            "fireOnce":true
+                                ]
                         }
                     ]
             }
