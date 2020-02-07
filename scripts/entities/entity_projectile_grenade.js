@@ -56,6 +56,8 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
             
         this.setModel('grenade');
         this.scale.setFromValues(100,100,100);
+        
+        return(true);
     }
     
         //

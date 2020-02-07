@@ -54,16 +54,16 @@ export default class MapDualCastlesClass extends ProjectMapClass
                 "meshNoBumpMeshes":["tower_pilars_"],
                 "effects":
                     [
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp01","offset":{"x":0,"y":-550,"z":0},"intensity":40000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp02","offset":{"x":0,"y":-550,"z":0},"intensity":40000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp003","offset":{"x":0,"y":-550,"z":0},"intensity":40000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp004","offset":{"x":0,"y":-550,"z":0},"intensity":40000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp005","offset":{"x":0,"y":-550,"z":0},"intensity":40000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"latern_lamp006","offset":{"x":0,"y":-550,"z":0},"intensity":40000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"LAMP14","offset":{"x":-800,"y":-750,"z":0},"intensity":14000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"LAMP16","offset":{"x":0,"y":-750,"z":-900},"intensity":12000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"LAMP08","offset":{"x":0,"y":-750,"z":900},"intensity":12000}},
-                        {"effect":EffectFireClass,"data":{"mesh":"LAMP10","offset":{"x":800,"y":-750,"z":0},"intensity":14000}}
+                        {"effect":EffectFireClass,"attachMesh":"latern_lamp01","attachOffset":{"x":0,"y":-550,"z":0},"data":{"intensity":40000}},
+                        {"effect":EffectFireClass,"attachMesh":"latern_lamp02","attachOffset":{"x":0,"y":-550,"z":0},"data":{"intensity":40000}},
+                        {"effect":EffectFireClass,"attachMesh":"latern_lamp003","attachOffset":{"x":0,"y":-550,"z":0},"data":{"intensity":40000}},
+                        {"effect":EffectFireClass,"attachMesh":"latern_lamp004","attachOffset":{"x":0,"y":-550,"z":0},"data":{"intensity":40000}},
+                        {"effect":EffectFireClass,"attachMesh":"latern_lamp005","attachOffset":{"x":0,"y":-550,"z":0},"data":{"intensity":40000}},
+                        {"effect":EffectFireClass,"attachMesh":"latern_lamp006","attachOffset":{"x":0,"y":-550,"z":0},"data":{"intensity":40000}},
+                        {"effect":EffectFireClass,"attachMesh":"LAMP14","attachOffset":{"x":-800,"y":-750,"z":0},"data":{"intensity":14000}},
+                        {"effect":EffectFireClass,"attachMesh":"LAMP16","attachOffset":{"x":0,"y":-750,"z":-900},"data":{"intensity":12000}},
+                        {"effect":EffectFireClass,"attachMesh":"LAMP08","attachOffset":{"x":0,"y":-750,"z":900},"data":{"intensity":12000}},
+                        {"effect":EffectFireClass,"attachMesh":"LAMP10","attachOffset":{"x":800,"y":-750,"z":0},"data":{"intensity":14000}}
                     ],
                 "movements":
                     [

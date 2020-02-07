@@ -23,6 +23,8 @@ export default class EntityPickupGrenadeClass extends EntityPickupBaseClass
             
         this.setModel('grenade');
         this.scale.setFromValues(250,250,250);
+        
+        return(true);
     }
     
 }

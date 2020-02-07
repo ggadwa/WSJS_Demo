@@ -27,6 +27,8 @@ export default class EntityWeaponGrenadeClass extends EntityWeaponBaseClass
         this.interfaceIconName='grenade';
         
         this.firePosition=new PointClass(0,0,0);
+        
+        return(true);
     }
     
     release()

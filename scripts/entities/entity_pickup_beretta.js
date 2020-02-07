@@ -23,6 +23,8 @@ export default class EntityPickupBerettaClass extends EntityPickupBaseClass
                 
         this.setModel('beretta');
         this.scale.setFromValues(10000,10000,10000);
+        
+        return(true);
     }
         
     ready()

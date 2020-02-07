@@ -2,13 +2,34 @@ import PointClass from '../../../code/utility/point.js';
 import BoundClass from '../../../code/utility/bound.js';
 import ColorClass from '../../../code/utility/color.js';
 import ProjectEffectClass from '../../../code/project/project_effect.js';
+import EffectJsonClass from '../../../code/project/effect_json.js';
 
 //
 // web effect class
 //
 
-export default class EffectWebClass extends ProjectEffectClass
+export default class EffectWebClass extends EffectJsonClass
 {
+
+    getJson()
+    {
+        return(
+            {
+                "light":{"color":{"r":1,"g":0.9,"b":0.9},"intensity":this.data.intensity,"exponent":1.5,"glow":true,"glowPeriod":4000,"glowPercentage":0.1,"glowRandomStart":true},
+                "triangles":
+                    [
+                        {
+                            "bitmap":"textures/web.png","mode":"transparent","wave":true,"wavePeriod":10000,"waveSize":80,"waveRandomStart":true,"v0":this.data.v0,"v1":this.data.v1,"v2":this.data.v2,
+                            "frames":
+                                [
+                                    {"tick":0,"width":3000,"height":3000,"rotate":0,"color":{"r":1,"g":1.0,"b":1.0},"alpha":0.5}
+                                ]
+                        },
+                    ]
+            }        
+        );
+    }
+/*
     initialize()
     {
         super.initialize();
@@ -91,4 +112,6 @@ export default class EffectWebClass extends ProjectEffectClass
         this.drawAddTriangle('textures/web.png',this.drawV0,this.data.v0.u,this.data.v0.v,this.drawV1,this.data.v1.u,this.data.v1.v,this.drawV2,this.data.v2.u,this.data.v2.v,this.DRAW_MODE_TRANSPARENT,this.webColor,0.5);
         this.drawEnd();
     }
+         
+*/
 }

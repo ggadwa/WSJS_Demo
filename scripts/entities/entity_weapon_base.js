@@ -26,6 +26,8 @@ export default class EntityWeaponBaseClass extends ProjectEntityClass
         this.firePoint=new PointClass(0,0,0);
         this.fireVector=new PointClass(0,0,0);
         this.fireHitPoint=new PointClass(0,0,0);
+        
+        return(true);
     }
     
     ready()

@@ -48,6 +48,8 @@ export default class EntitySpiderClass extends EntityMonsterBaseClass
         
         this.setModel('spider');
         this.scale.setFromValues(1000,1000,1000);
+        
+        return(true);
     }
     
 }

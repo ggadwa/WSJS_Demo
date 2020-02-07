@@ -79,6 +79,8 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
         
         this.trapMeshXBound=new BoundClass(0,0);
         this.trapMeshZBound=new BoundClass(0,0);
+        
+        return(true);
     }
     
     ready()

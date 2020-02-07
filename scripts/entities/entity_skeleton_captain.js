@@ -93,6 +93,8 @@ export default class EntitySkeletonCaptainClass extends EntityMonsterBaseClass
         else {
             this.scale.setFromValues(45,45,45);
         }
+        
+        return(true);
     }
     
     ready()

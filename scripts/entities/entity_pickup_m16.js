@@ -23,6 +23,8 @@ export default class EntityPickupM16Class extends EntityPickupBaseClass
                 
         this.setModel('m16');
         this.scale.setFromValues(8000,8000,8000);
+        
+        return(true);
     }
         
     ready()

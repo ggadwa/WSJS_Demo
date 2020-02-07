@@ -23,6 +23,8 @@ export default class EntityPickupChickenLegClass extends EntityPickupBaseClass
             
         this.setModel('chicken_leg');
         this.scale.setFromValues(100,100,100);
+        
+        return(true);
     }
         
     

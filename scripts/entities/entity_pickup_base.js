@@ -22,6 +22,8 @@ export default class EntityPickupBaseClass extends ProjectEntityClass
         this.hideStartTick=0;
         this.hideTick=5000;
         this.pickupName=null;
+        
+        return(true);
     }
     
     ready()

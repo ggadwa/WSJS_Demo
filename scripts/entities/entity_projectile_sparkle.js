@@ -46,6 +46,8 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
             // sound effect
             
         this.playSound('laser',1.0,false);
+        
+        return(true);
     }
         
         //

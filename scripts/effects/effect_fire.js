@@ -1,31 +1,39 @@
 import PointClass from '../../../code/utility/point.js';
 import BoundClass from '../../../code/utility/bound.js';
 import ColorClass from '../../../code/utility/color.js';
-import EffectJsonClass from '../../../code/project/project_effect.js';
+import EffectJsonClass from '../../../code/project/effect_json.js';
 import ProjectEffectClass from '../../../code/project/project_effect.js';
 
 //
 // fire effect class
 //
 
-export default class EffectFireClass extends ProjectEffectClass
+export default class EffectFireClass extends EffectJsonClass
 {
     getJson()
     {
         return(
             {
-                "sprites":
+                "light":{"color":{"r":1,"g":0.9,"b":0.9},"intensity":this.data.intensity,"exponent":1.5,"glow":true,"glowPeriod":8000,"glowPercentage":0.1,"glowRandomStart":true},
+                "billboards":
                     [
-                        {"bitmap":"textures/particle_glow.png","uv":"whole","width":3000,"height":3000,"mode":"additive","alpha":0.8,"rotatePeriod":35000,"rotationType":"linear"}
+                        {
+                            "bitmap":"textures/particle_glow.png","mode":"additive","uv":"whole",
+                            "frames":
+                                [
+                                    {"tick":0,"width":3000,"height":3000,"rotate":0,"color":{"r":1,"g":1.0,"b":1.0},"alpha":0.85},
+                                    {"tick":10000,"width":3300,"height":3300,"rotate":180,"color":{"r":1,"g":1.0,"b":1.0},"alpha":0.8},
+                                    {"tick":20000,"width":3000,"height":3000,"rotate":360,"color":{"r":1,"g":1.0,"b":1.0},"alpha":0.85}
+                                ]
+                        },
                     ]
             }        
         );
     }
-    
+
+/*
     initialize()
     {
-        let meshList,meshIdx;
-        
         super.initialize();
         
         this.FIRE_WIDTH=400;
@@ -48,20 +56,9 @@ export default class EffectFireClass extends ProjectEffectClass
             
         this.drawInitialize(16,96);
         
-            // find the position from an offset
-            // to a mesh
+        this.json=this.getJson();
+        console.log(this.json.light.intensity+'>'+this.data.intensity);
         
-        meshList=this.getMeshList();
-        meshIdx=meshList.find(this.data.mesh);
-        if (meshIdx!==-1) {
-            this.position.setFromPoint(meshList.meshes[meshIdx].center);
-            this.position.addValues(this.data.offset.x,this.data.offset.y,this.data.offset.z);
-        }
-        else {
-            console.log('warning: unknown mesh to attach effect to: '+this.data.mesh);
-            return(false);
-        }
-
             // some light precalcs
             
         this.lightIntensity=this.data.intensity;
@@ -139,4 +136,6 @@ export default class EffectFireClass extends ProjectEffectClass
 
         this.drawEnd();
     }
+         * 
+ */
 }

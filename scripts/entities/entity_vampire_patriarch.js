@@ -55,6 +55,8 @@ export default class EntityVampirePatriarchClass extends EntityMonsterBaseClass
             
         this.setModel('vampire_patriarch');
         this.scale.setFromValues(5000,5000,5000);
+        
+        return(true);
     }
     
 }
