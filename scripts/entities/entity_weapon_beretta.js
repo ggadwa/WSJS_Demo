@@ -18,30 +18,35 @@ export default class EntityWeaponBerettaClass extends EntityJsonClass
                 "model": {"name":"hand_beretta","scale":{"x":7000,"y":7000,"z":7000}},
                 "setup": {"radius":5000,"height":11000},
                 "draw": {"type":"inHand","handPosition":{"x":-800,"y":-12500,"z":-2700},"handAngle":{"x":0,"y":-10,"z":0}},
-                "variables":
-                    [
-                        {"name":"ammoCount","value":15},
-                        {"name":"lastFireTimestamp","value":0},
-                    ],
-                "readyActions":
-                    [
-                        {"type":"animationStart","startFrame":77,"endFrame":127}
-                    ],
-                "messages":
+                "ready":
+                    {
+                        "actions":
+                            [
+                                {"type":"calc","set":"ammoCount","code":15},
+                                {"type":"calc","set":"lastFireTimestamp","code":0},
+                                {"type":"animationStart","startFrame":77,"endFrame":127},
+                                {"type":"updateInterfaceText","element":"pistol_bullet_count","variable":"ammoCount"}
+                        
+                            ]
+                    },
+                "events":
                     [
                         {
-                            "message":"addAmmo",
+                            "conditions":
+                                [
+                                    {"type":"receive","name":"addAmmo"}
+                                ],
                             "actions":
                                 [
-                                    {"type":"calc","set":"ammoCount","code":"ammoCount+@content","minClamp":0,"maxClamp":25},
+                                    {"type":"calc","set":"ammoCount","code":"ammoCount+@message","minClamp":0,"maxClamp":25},
                                     {"type":"pulseInterface","element":"pistol_bullet","tick":500,"expand":5},
                                     {"type":"updateInterfaceText","element":"pistol_bullet_count","variable":"ammoCount"}
                                 ]
                         },
                         {
-                            "message":"fire",
                             "conditions":
                                 [
+                                    {"type":"receive","name":"fire"},
                                     {"type":"calc","code":"ammoCount>0"},
                                     {"type":"calc","code":"(@timestamp-lastFireTimestamp)>900"}
                                 ],
@@ -52,7 +57,8 @@ export default class EntityWeaponBerettaClass extends EntityJsonClass
                                     {"type":"playSound","entity":"@parent","name":"beretta_fire","rate":1.0,"loop":false},
                                     {"type":"animationStart","startFrame":128,"endFrame":143},
                                     {"type":"animationQueue","startFrame":77,"endFrame":127},
-                                    {"type":"updateInterfaceText","element":"pistol_bullet_count","variable":"ammoCount"}
+                                    {"type":"updateInterfaceText","element":"pistol_bullet_count","variable":"ammoCount"},
+                                    {"type":"hitScan","entity":"@parent","distance":100000,"hitFilter":["player","remote","bot","monster"],"damage":20,"effect":"hit"}
                                 ]
                         }
                     ]

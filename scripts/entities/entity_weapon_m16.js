@@ -4,6 +4,10 @@ import EffectHitClass from '../effects/effect_hit.js';
 import EntityPlayerClass from '../entities/entity_player.js';
 import EntityWeaponBaseClass from '../entities/entity_weapon_base.js';
 
+import EffectExplosionFireClass from '../effects/effect_explosion_fire.js';
+import EffectExplosionSmokeClass from '../effects/effect_explosion_smoke.js';
+import EffectSparkleClass from '../effects/effect_sparkle.js';
+
 //
 // m16 rifle entity class
 //
@@ -71,7 +75,7 @@ export default class EntityWeaponM16Class extends EntityWeaponBaseClass
         
             // run the hitscan
             
-        this.hitScan(position,angle,eyeOffset,100000,this.HIT_FILTER,this.DAMAGE,EffectHitClass);
+        this.hitScan(position,angle,eyeOffset,100000,this.HIT_FILTER,this.DAMAGE,EffectSparkleClass);
         
         return(true);
     }

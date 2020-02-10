@@ -14,14 +14,14 @@ export default class EntityCaptainChestClass extends EntityJsonClass
                 "model": {"name":"captain_chest","scale":{"x":50,"y":50,"z":50}},
                 "setup": {"radius":2800,"height":2200},
                 "draw": {"type":"normal"},
-                "variables":
-                    [
-                        {"name":"open","value":false}
-                    ],
-                "readyActions":
-                    [
-                        {"type":"animationStart","startFrame":0,"endFrame":1}
-                    ],
+                "ready":
+                    {
+                        "actions":
+                            [
+                                {"type":"calc","set":"open","code":false},
+                                {"type":"animationStart","startFrame":0,"endFrame":1}
+                            ]
+                    },
                 "events":
                     [
                         {
@@ -33,13 +33,13 @@ export default class EntityCaptainChestClass extends EntityJsonClass
                                 ],
                             "actions":
                                 [
-                                    {"type":"calc","set":"open","code":"true"},
+                                    {"type":"calc","set":"open","code":true},
                                     {"type":"animationStart","startFrame":1,"endFrame":65},
                                     {"type":"animationQueue","startFrame":65,"endFrame":66},
-                                    //{"type":"send","entity":"@player","message":"addHealth","content":25},
-                                    {"type":"send","entity":"@player","message":"addPistolAmmo","content":10},
-                                    //{"type":"send","entity":"@player","message":"addM16Ammo","content":50},
-                                    //{"type":"send","entity":"@player","message":"addGrenadeAmmo","content":1},
+                                    //{"type":"send","entity":"@player","name":"addHealth","content":25},
+                                    {"type":"send","entity":"@player","name":"addPistolAmmo","content":10},
+                                    //{"type":"send","entity":"@player","name":"addM16Ammo","content":50},
+                                    //{"type":"send","entity":"@player","name":"addGrenadeAmmo","content":1},
                                     {"type":"playSound","name":"chime","rate":1.0,"loop":false},
                                     {"type":"trigger","name":"@data.trigger"}
                                 ]
