@@ -388,10 +388,8 @@ export default class EntityPlayerClass extends EntityJsonClass
     
     displayScore(show)
     {
-        let n,x,y;
+        let n,y;
         let iter,rtn,name,points,insertIdx;
-        let wid=this.getInterfaceWidth();
-        let high=this.getInterfaceHeight();
         let sortedNames=[];
         
             // if no show, remove all items
@@ -437,18 +435,30 @@ export default class EntityPlayerClass extends EntityJsonClass
         
             // add the items
             
-        x=Math.trunc(wid*0.5)-5;
-        y=Math.trunc(high*0.5)-Math.trunc((35*sortedNames.length)*0.5);
+        y=-Math.trunc((35*sortedNames.length)*0.5);
         
         for (n=0;n!=sortedNames.length;n++) {
-            this.addInterfaceText(('score_name_'+n),sortedNames[n],x,y,30,this.TEXT_ALIGN_RIGHT,this.scoreColor,1);
-            this.addInterfaceText(('score_point_'+n),this.scores.get(sortedNames[n]),(x+10),y,30,this.TEXT_ALIGN_LEFT,this.scoreColor,1);
+            this.addInterfaceText(('score_name_'+n),sortedNames[n],'middle',{"x":0,"y":y},30,this.TEXT_ALIGN_RIGHT,this.scoreColor,1);
+            this.addInterfaceText(('score_point_'+n),this.scores.get(sortedNames[n]),'middle',{"x":10,"y":y},30,this.TEXT_ALIGN_LEFT,this.scoreColor,1);
             
             y+=35;
         }
         
         this.lastScoreCount=sortedNames.length;
     }
+    
+        // remote changes
+        
+    remoteEntering(name)
+    {
+        this.updateInterfaceTemporaryText('multiplayer_message',(name+' has joined'),5000);
+    }
+    
+    remoteLeaving(name)
+    {
+        this.updateInterfaceTemporaryText('multiplayer_message',(name+' has left'),5000);
+    }
+
     
         //
         // run player

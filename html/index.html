@@ -10,22 +10,20 @@
 <!-- the script -->
 
 <script type="module">
-    import GameClass from '../scripts/game/game.js';
     import main from '../../code/main/main.js';
     
     window.main=main;
-    window.gameClass=GameClass;     // modules are scoped so we need to put these on the global window object
 </script>
 
 <script>
 function runDungeon()
 {
-    window.main.run(window.gameClass,false,{"startMap":"Dungeon"});
+    window.main.run(false,{"startMap":"Dungeon"});
 }
 
 function runDualCastle()
 {
-    window.main.run(window.gameClass,true,{"startMap":"Dual Castles"});
+    window.main.run(true,{"startMap":"Dual Castles"});
 }
 </script>
 
