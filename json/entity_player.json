@@ -1,0 +1,45 @@
+{
+    "model": {"name":"player","scale":{"x":3000,"y":3000,"z":3000}},
+    "setup": {"radius":1500,"height":4500},
+    "draw": {"type":"player"},
+    "ready":
+        {
+            "actions":
+                [
+                    {"type":"animationStart","startFrame":0,"endFrame":50}
+                ]
+        },
+    "events":
+        [
+            {
+                "conditions":
+                    [
+                        {"condition":"receive","name":"addPistolAmmo"}
+                    ],
+                "actions":
+                    [
+                        {"action":"send","entity":"@hold.weapon_beretta","name":"addAmmo","content":"@message"}
+                    ]
+            },
+            {
+                "conditions":
+                    [
+                        {"condition":"receive","name":"addM16Ammo"}
+                    ],
+                "actions":
+                    [
+                        {"action":"send","entity":"@hold.weapon_m16","name":"addAmmo","content":"@message"}
+                    ]
+            },
+            {
+                "conditions":
+                    [
+                        {"condition":"receive","name":"addGrenadeAmmo"}
+                    ],
+                "actions":
+                    [
+                        {"action":"send","entity":"@hold.weapon_grenade","name":"addAmmo","content":"@message"}
+                    ]
+            }
+        ]
+}

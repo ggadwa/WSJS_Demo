@@ -97,56 +97,9 @@ export default class EntityPlayerClass extends EntityJsonClass
         return(true);
     }
     
-    getJson()
+    getJsonName()
     {
-        return(
-            {
-                "model": {"name":"player","scale":{"x":3000,"y":3000,"z":3000}},
-                "setup": {"radius":1500,"height":4500},
-                "draw": {"type":"player"},
-                "ready":
-                    {
-                        "actions":
-                            [
-                                {"type":"animationStart","startFrame":0,"endFrame":50}
-                            ]
-                    },
-                "events":
-                    [
-                        {
-                            "conditions":
-                                [
-                                    {"type":"receive","name":"addPistolAmmo"}
-                                ],
-                            "actions":
-                                [
-                                    {"type":"send","entity":"@hold.weapon_beretta","name":"addAmmo","content":"@message"}
-                                ]
-                        },
-                        {
-                            "conditions":
-                                [
-                                    {"type":"receive","name":"addM16Ammo"}
-                                ],
-                            "actions":
-                                [
-                                    {"type":"send","entity":"@hold.weapon_m16","name":"addAmmo","content":"@message"}
-                                ]
-                        },
-                        {
-                            "conditions":
-                                [
-                                    {"type":"receive","name":"addGrenadeAmmo"}
-                                ],
-                            "actions":
-                                [
-                                    {"type":"send","entity":"@hold.weapon_grenade","name":"addAmmo","content":"@message"}
-                                ]
-                        }
-                    ]
-            }
-                    
-        );
+        return("entity_player");
     }
 
     

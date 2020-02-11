@@ -1,0 +1,39 @@
+{
+    "model": {"name":"captain_chest","scale":{"x":50,"y":50,"z":50}},
+    "setup": {"radius":2800,"height":2200},
+    "draw": {"type":"normal"},
+    "ready":
+        {
+            "actions":
+                [
+                    {"action":"calc","set":"open","code":false},
+                    {"action":"animationStart","startFrame":0,"endFrame":1}
+                ]
+        },
+    "events":
+        [
+            {
+                "conditions":
+                    [
+                        {"condition":"calc","code":"open!=true"},
+                        {"condition":"key","key":"e"},
+                        {"condition":"nearEntity","entity":"@player","distance":7000}
+                    ],
+                "actions":
+                    [
+                        {"action":"calc","set":"open","code":true},
+                        {"action":"animationStart","startFrame":1,"endFrame":65},
+                        {"action":"animationQueue","startFrame":65,"endFrame":66},
+                        {"action":"send","entity":"@player","name":"addPistolAmmo","content":10},
+                        {"action":"playSound","name":"chime","rate":1.0,"loop":false},
+                        {"action":"trigger","name":"@data.trigger"}
+                    ],
+                "unused":
+                    [
+                        {"action":"send","entity":"@player","name":"addHealth","content":25},
+                        {"action":"send","entity":"@player","name":"addM16Ammo","content":50},
+                        {"action":"send","entity":"@player","name":"addGrenadeAmmo","content":1}
+                    ]
+            }
+        ]
+}

@@ -5,7 +5,8 @@
     "developer":true,
     "jsons":
         [
-            "effect_explosion_fire","effect_explosion_smoke","effect_fire","effect_hit","effect_sparkle","effect_web"
+            "effect_explosion_fire","effect_explosion_smoke","effect_fire","effect_hit","effect_sparkle","effect_web",
+            "entity_player","entity_captain_chest","entity_weapon_pistol"
         ],
     "interface":
         {

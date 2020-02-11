@@ -1,0 +1,49 @@
+{
+    "model": {"name":"hand_beretta","scale":{"x":7000,"y":7000,"z":7000}},
+    "setup": {"radius":5000,"height":11000},
+    "draw": {"type":"inHand","handPosition":{"x":-800,"y":-12500,"z":-2700},"handAngle":{"x":0,"y":-10,"z":0}},
+    "ready":
+        {
+            "actions":
+                [
+                    {"action":"calc","set":"ammoCount","code":15},
+                    {"action":"calc","set":"lastFireTimestamp","code":0},
+                    {"action":"animationStart","startFrame":77,"endFrame":127},
+                    {"action":"updateInterfaceText","element":"pistol_bullet_count","variable":"ammoCount"}
+
+                ]
+        },
+    "events":
+        [
+            {
+                "conditions":
+                    [
+                        {"condition":"receive","name":"addAmmo"}
+                    ],
+                "actions":
+                    [
+                        {"action":"calc","set":"ammoCount","code":"ammoCount+@message","minClamp":0,"maxClamp":25},
+                        {"action":"pulseInterface","element":"pistol_bullet","tick":500,"expand":5},
+                        {"action":"updateInterfaceText","element":"pistol_bullet_count","variable":"ammoCount"}
+                    ]
+            },
+            {
+                "conditions":
+                    [
+                        {"condition":"receive","name":"fire"},
+                        {"condition":"calc","code":"ammoCount>0"},
+                        {"condition":"calc","code":"(@timestamp-lastFireTimestamp)>900"}
+                    ],
+                "actions":
+                    [
+                        {"action":"calc","set":"ammoCount","code":"ammoCount-1"},
+                        {"action":"calc","set":"lastFireTimestamp","code":"@timestamp"},
+                        {"action":"playSound","entity":"@parent","name":"beretta_fire","rate":1.0,"loop":false},
+                        {"action":"animationStart","startFrame":128,"endFrame":143},
+                        {"action":"animationQueue","startFrame":77,"endFrame":127},
+                        {"action":"updateInterfaceText","element":"pistol_bullet_count","variable":"ammoCount"},
+                        {"action":"hitScan","entity":"@parent","distance":100000,"hitFilter":["player","remote","bot","monster"],"damage":20,"hitEffect":"effect_hit"}
+                    ]
+            }
+        ]
+}
