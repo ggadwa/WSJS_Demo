@@ -1,7 +1,5 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
-import EffectExplosionFireClass from '../effects/effect_explosion_fire.js';
-import EffectExplosionSmokeClass from '../effects/effect_explosion_smoke.js';
 
 //
 // grenade projectile entity class
@@ -72,8 +70,8 @@ export default class EntityProjectileGrenadeClass extends ProjectEntityClass
         
             // explosion effects
             
-        this.addEffect(EffectExplosionSmokeClass,this.position,null,true);
-        this.addEffect(EffectExplosionFireClass,this.position,null,true);
+        this.addEffect('effect_explosion_smoke',this.position,null,true);
+        this.addEffect('effect_explosion_fire',this.position,null,true);
         
             // damage entities in a radius
             

@@ -1,0 +1,12 @@
+{
+    "triangles":
+        [
+            {
+                "bitmap":"textures/web.png","mode":"transparent","wave":true,"wavePeriod":10000,"waveSize":80,"waveRandomStart":true,"v0":"@data.v0","v1":"@data.v1","v2":"@data.v2",
+                "frames":
+                    [
+                        {"tick":0,"width":3000,"height":3000,"rotate":0,"color":{"r":1,"g":1.0,"b":1.0},"alpha":0.5}
+                    ]
+            }
+        ]
+}        

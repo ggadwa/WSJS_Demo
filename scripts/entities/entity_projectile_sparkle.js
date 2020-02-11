@@ -1,8 +1,5 @@
 import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
-import EffectSparkleClass from '../effects/effect_sparkle.js';
-import EffectExplosionFireClass from '../effects/effect_explosion_fire.js';
-import EffectExplosionSmokeClass from '../effects/effect_explosion_smoke.js';
 
 //
 // sparkle projectile entity class
@@ -59,8 +56,8 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
     {
             // explosion effects
             
-        this.addEffect(EffectExplosionSmokeClass,this.position,null,true);
-        this.addEffect(EffectExplosionFireClass,this.position,null,true);
+        this.addEffect('effect_explosion_smoke',this.position,null,true);
+        this.addEffect('effect_explosion_fire',this.position,null,true);
         
             // damage entities in a radius
             
@@ -82,7 +79,7 @@ export default class EntityProjectileSparkleClass extends ProjectEntityClass
         if (this.getTimestamp()>=this.nextSparkleTick) {
             this.nextSparkleTick+=this.SPARKLE_TICK_COUNT;
 
-            this.addEffect(EffectSparkleClass,this.position,null,true);
+            this.addEffect('effect_sparkle',this.position,null,true);
         }
         
             // move sparkle

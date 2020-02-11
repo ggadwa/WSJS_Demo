@@ -70,7 +70,7 @@ export default class EntityWeaponBaseClass extends ProjectEntityClass
         return(true);
     }
     
-    hitScan(position,angle,eyeOffset,maxDistance,hitFilter,damage,hitEffectClass)
+    hitScan(position,angle,eyeOffset,maxDistance,hitFilter,damage,jsonName)
     {
             // the hit scan, firing point is the eye
             // and we rotate with the look and then turn
@@ -95,11 +95,11 @@ export default class EntityWeaponBaseClass extends ProjectEntityClass
                 // hit effect
                 // push effect point towards person firing so it shows up better
 
-            if (hitEffectClass!==null) {
+            if (jsonName!==null) {
                 this.fireVector.normalize();
                 this.fireVector.scale(-100);
                 this.fireHitPoint.addPoint(this.fireVector);
-                this.addEffect(hitEffectClass,this.fireHitPoint,null,true);
+                this.addEffect(jsonName,this.fireHitPoint,null,true);
             }
         }
 
