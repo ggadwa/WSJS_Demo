@@ -6,7 +6,7 @@
         {
             "actions":
                 [
-                    {"action":"calc","set":"open","code":false},
+                    {"action":"set","variable":"open","value":false},
                     {"action":"animationStart","startFrame":0,"endFrame":1}
                 ]
         },
@@ -15,18 +15,18 @@
             {
                 "conditions":
                     [
-                        {"condition":"calc","code":"open!=true"},
+                        {"condition":"if","value":"open!=true"},
                         {"condition":"key","key":"e"},
                         {"condition":"nearEntity","entity":"@player","distance":7000}
                     ],
                 "actions":
                     [
-                        {"action":"calc","set":"open","code":true},
+                        {"action":"set","variable":"open","value":true},
                         {"action":"animationStart","startFrame":1,"endFrame":65},
                         {"action":"animationQueue","startFrame":65,"endFrame":66},
                         {"action":"send","entity":"@player","name":"addPistolAmmo","content":10},
                         {"action":"playSound","name":"chime","rate":1.0,"loop":false},
-                        {"action":"trigger","name":"@data.trigger"}
+                        {"action":"trigger","name":"calc(@data.trigger)"}
                     ],
                 "unused":
                     [

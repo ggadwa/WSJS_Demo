@@ -18,7 +18,7 @@
                     ],
                 "actions":
                     [
-                        {"action":"send","entity":"@hold.weapon_beretta","name":"addAmmo","content":"@message"}
+                        {"action":"forward","entity":"@hold.weapon_beretta"}
                     ]
             },
             {
@@ -28,7 +28,7 @@
                     ],
                 "actions":
                     [
-                        {"action":"send","entity":"@hold.weapon_m16","name":"addAmmo","content":"@message"}
+                        {"action":"forward","entity":"@hold.weapon_m16"}
                     ]
             },
             {
@@ -38,7 +38,7 @@
                     ],
                 "actions":
                     [
-                        {"action":"send","entity":"@hold.weapon_grenade","name":"addAmmo","content":"@message"}
+                        {"action":"forward","entity":"@hold.weapon_grenade"}
                     ]
             }
         ]

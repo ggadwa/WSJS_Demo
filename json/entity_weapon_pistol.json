@@ -6,10 +6,10 @@
         {
             "actions":
                 [
-                    {"action":"calc","set":"ammoCount","code":15},
-                    {"action":"calc","set":"lastFireTimestamp","code":0},
+                    {"action":"set","variable":"ammoCount","value":15},
+                    {"action":"set","variable":"lastFireTimestamp","value":0},
                     {"action":"animationStart","startFrame":77,"endFrame":127},
-                    {"action":"updateInterfaceText","element":"pistol_bullet_count","variable":"ammoCount"}
+                    {"action":"updateInterfaceText","element":"pistol_bullet_count","value":"calc(ammoCount)"}
 
                 ]
         },
@@ -18,30 +18,30 @@
             {
                 "conditions":
                     [
-                        {"condition":"receive","name":"addAmmo"}
+                        {"condition":"receive","name":"addPistolAmmo"}
                     ],
                 "actions":
                     [
-                        {"action":"calc","set":"ammoCount","code":"ammoCount+@message","minClamp":0,"maxClamp":25},
+                        {"action":"set","variable":"ammoCount","value":"calc(ammoCount+@message)","minClamp":0,"maxClamp":25},
                         {"action":"pulseInterface","element":"pistol_bullet","tick":500,"expand":5},
-                        {"action":"updateInterfaceText","element":"pistol_bullet_count","variable":"ammoCount"}
+                        {"action":"updateInterfaceText","element":"pistol_bullet_count","value":"calc(ammoCount)"}
                     ]
             },
             {
                 "conditions":
                     [
                         {"condition":"receive","name":"fire"},
-                        {"condition":"calc","code":"ammoCount>0"},
-                        {"condition":"calc","code":"(@timestamp-lastFireTimestamp)>900"}
+                        {"condition":"if","value":"calc(ammoCount>0)"},
+                        {"condition":"if","value":"calc((@timestamp-lastFireTimestamp)>900)"}
                     ],
                 "actions":
                     [
-                        {"action":"calc","set":"ammoCount","code":"ammoCount-1"},
-                        {"action":"calc","set":"lastFireTimestamp","code":"@timestamp"},
+                        {"action":"set","variable":"ammoCount","value":"calc(ammoCount-1)"},
+                        {"action":"set","variable":"lastFireTimestamp","value":"calc(@timestamp)"},
                         {"action":"playSound","entity":"@parent","name":"beretta_fire","rate":1.0,"loop":false},
                         {"action":"animationStart","startFrame":128,"endFrame":143},
                         {"action":"animationQueue","startFrame":77,"endFrame":127},
-                        {"action":"updateInterfaceText","element":"pistol_bullet_count","variable":"ammoCount"},
+                        {"action":"updateInterfaceText","element":"pistol_bullet_count","value":"calc(ammoCount)"},
                         {"action":"hitScan","entity":"@parent","distance":100000,"hitFilter":["player","remote","bot","monster"],"damage":20,"hitEffect":"effect_hit"}
                     ]
             }

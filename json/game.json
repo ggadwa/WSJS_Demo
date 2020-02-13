@@ -1,6 +1,6 @@
 {
     "name":"wsjs_demo",
-    "startMap":"@data.startMap",
+    "startMap":"calc(@data.startMap)",
     "camera":{"mode":"firstPerson","viewNearZ":500,"viewFarZ":500000},
     "developer":true,
     "jsons":
