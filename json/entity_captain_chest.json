@@ -26,7 +26,7 @@
                         {"action":"animationQueue","startFrame":65,"endFrame":66},
                         {"action":"send","entity":"@player","name":"addPistolAmmo","content":10},
                         {"action":"playSound","name":"chime","rate":1.0,"loop":false},
-                        {"action":"trigger","name":"calc(@data.trigger)"}
+                        {"action":"trigger","name":"calc(@trigger)"}
                     ],
                 "unused":
                     [
