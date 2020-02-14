@@ -1,7 +1,6 @@
 import PointClass from '../../../code/utility/point.js';
 import BoundClass from '../../../code/utility/bound.js';
 import ColorClass from '../../../code/utility/color.js';
-import ProjectEntityDeveloperClass from '../../../code/project/project_entity_developer.js';
 import EntityWeaponBerettaClass from '../entities/entity_weapon_beretta.js';
 import EntityWeaponM16Class from '../entities/entity_weapon_m16.js';
 import EntityWeaponGrenadeClass from '../entities/entity_weapon_grenade.js';
@@ -9,6 +8,19 @@ import EntityJsonClass from '../../../code/project/entity_json.js';
 
 export default class EntityPlayerClass extends EntityJsonClass
 {
+    
+    getJsonName()
+    {
+        return("entity_player");
+    }
+
+
+
+
+
+
+
+
         //
         // initialize and release
         //
@@ -96,12 +108,6 @@ export default class EntityPlayerClass extends EntityJsonClass
         
         return(true);
     }
-    
-    getJsonName()
-    {
-        return("entity_player");
-    }
-
     
     release()
     {
@@ -474,7 +480,7 @@ export default class EntityPlayerClass extends EntityJsonClass
         moveRight=this.isKeyDown('d') || (this.getTouchStickLeftX()>0);
         
             // mouse and touch sticks
-            
+            /*
         x=this.getMouseMoveX();
         if (x!==0) {
             turnAdd=-(x*setup.mouseXSensitivity);
@@ -501,7 +507,7 @@ export default class EntityPlayerClass extends EntityJsonClass
                 if (Math.abs(this.angle.x)<0.05) this.angle.x=0;
             }
         }
-        
+        */
             // fire weapon
         
         fireWeapon=this.isMouseButtonDown(0)||this.isTouchStickRightClick();
@@ -513,14 +519,16 @@ export default class EntityPlayerClass extends EntityJsonClass
                     //this.beretta.fire(this.position,this.angle,this.eyeOffset);
                     break;
                 case this.WEAPON_M16:
-                    this.m16.fire(this.position,this.angle,this.eyeOffset);
+                    this.m16.receiveMessage("fire",null);
+                    //this.m16.fire(this.position,this.angle,this.eyeOffset);
                     break;
             }
         }
         
             // grenade throw
         
-        if (this.isMouseButtonDown(2)) this.grenade.fire(this.position,this.angle,this.eyeOffset);
+        if (this.isMouseButtonDown(2)) this.grenade.receiveMessage("fire",null);
+        //if (this.isMouseButtonDown(2)) this.grenade.fire(this.position,this.angle,this.eyeOffset);
 
             // change weapons
             // for this demo, we just have two weapons so we do it the simple way
@@ -538,7 +546,7 @@ export default class EntityPlayerClass extends EntityJsonClass
             this.beretta.show=false;
             this.m16.show=true;
         }
-        
+/*        
             // turning
         
         if (turnAdd!==0) {
@@ -559,7 +567,7 @@ export default class EntityPlayerClass extends EntityJsonClass
         else {
             this.angle.x=0;
         }
-        
+        */
             // determine if we've passed out of a liquid
             // if we are, auto-jump to get out of liquid
         
@@ -596,7 +604,7 @@ export default class EntityPlayerClass extends EntityJsonClass
                 this.movement.y=this.JUMP_HEIGHT;
             }
         }
-        
+        /*
             // can only bump if we aren't falling
             // as otherwise ledges can catch you and
             // bump you back up
@@ -632,7 +640,7 @@ export default class EntityPlayerClass extends EntityJsonClass
             this.movement.y=this.moveInMapY(this.rotMovement,this.debugPlayerFly);
             this.moveInMapXZ(this.rotMovement,bump,true);
         }
-        
+        */
             // camera swaps
             
         if (this.isKeyDown('`')) {

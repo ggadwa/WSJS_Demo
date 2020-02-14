@@ -1,0 +1,43 @@
+{
+    "setup": {"radius":5000,"height":11000},
+    "ready":
+        {
+            "actions":
+                [
+                    {"action":"set","variable":"ammoCount","value":3},
+                    {"action":"set","variable":"lastFireTimestamp","value":0},
+                    {"action":"updateInterfaceText","element":"grenade_count","value":"calc(ammoCount)"}
+
+                ]
+        },
+    "events":
+        [
+            {
+                "conditions":
+                    [
+                        {"condition":"receive","name":"addGrenadeAmmo"}
+                    ],
+                "actions":
+                    [
+                        {"action":"set","variable":"ammoCount","value":"calc(ammoCount+@message)","minClamp":0,"maxClamp":5},
+                        {"action":"pulseInterface","element":"grenade","tick":500,"expand":5},
+                        {"action":"updateInterfaceText","element":"grenade_count","value":"calc(ammoCount)"}
+                    ]
+            },
+            {
+                "conditions":
+                    [
+                        {"condition":"receive","name":"fire"},
+                        {"condition":"if","value":"calc(ammoCount>0)"},
+                        {"condition":"if","value":"calc((@timestamp-lastFireTimestamp)>1000)"}
+                    ],
+                "actions":
+                    [
+                        {"action":"set","variable":"ammoCount","value":"calc(ammoCount-1)"},
+                        {"action":"set","variable":"lastFireTimestamp","value":"calc(@timestamp)"},
+                        {"action":"playSound","entity":"@parent","name":"throw","rate":1.0,"loop":false},
+                        {"action":"updateInterfaceText","element":"grenade_count","value":"calc(ammoCount)"}
+                    ]
+            }
+        ]
+}

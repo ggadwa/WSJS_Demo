@@ -15,7 +15,7 @@
             {
                 "conditions":
                     [
-                        {"condition":"if","value":"open!=true"},
+                        {"condition":"if","value":"calc(open!=true)"},
                         {"condition":"key","key":"e"},
                         {"condition":"nearEntity","entity":"@player","distance":7000}
                     ],
@@ -25,14 +25,16 @@
                         {"action":"animationStart","startFrame":1,"endFrame":65},
                         {"action":"animationQueue","startFrame":65,"endFrame":66},
                         {"action":"send","entity":"@player","name":"addPistolAmmo","content":10},
+                        {"action":"send","entity":"@player","name":"addM16Ammo","content":50},
+                        {"action":"send","entity":"@player","name":"addGrenadeAmmo","content":1},
                         {"action":"playSound","name":"chime","rate":1.0,"loop":false},
                         {"action":"trigger","name":"calc(@trigger)"}
                     ],
                 "unused":
                     [
-                        {"action":"send","entity":"@player","name":"addHealth","content":25},
-                        {"action":"send","entity":"@player","name":"addM16Ammo","content":50},
-                        {"action":"send","entity":"@player","name":"addGrenadeAmmo","content":1}
+                        {"action":"send","entity":"@player","name":"addHealth","content":25}
+                        
+                        
                     ]
             }
         ]

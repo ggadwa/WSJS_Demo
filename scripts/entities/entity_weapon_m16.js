@@ -2,14 +2,20 @@ import PointClass from '../../../code/utility/point.js';
 import ProjectEntityClass from '../../../code/project/project_entity.js';
 import EntityPlayerClass from '../entities/entity_player.js';
 import EntityWeaponBaseClass from '../entities/entity_weapon_base.js';
+import EntityJsonClass from '../../../code/project/entity_json.js';
 
 //
 // m16 rifle entity class
 //
 
-export default class EntityWeaponM16Class extends EntityWeaponBaseClass
+export default class EntityWeaponM16Class extends EntityJsonClass
 {
-    initialize()
+    getJsonName()
+    {
+        return("entity_weapon_m16");
+    }
+/*
+        initialize()
     {
         super.initialize();
         
@@ -87,5 +93,5 @@ export default class EntityWeaponM16Class extends EntityWeaponBaseClass
         this.setModelDrawPosition(this.handOffset,this.handAngle,this.scale,true);
         return(true);
     }
-    
+    */
 }

@@ -1,0 +1,49 @@
+{
+    "model": {"name":"hand_m16","scale":{"x":5000,"y":5000,"z":5000}},
+    "setup": {"radius":5000,"height":11000},
+    "draw": {"type":"inHand","handPosition":{"x":100,"y":-8500,"z":-2000},"handAngle":{"x":0,"y":-10,"z":0}},
+    "ready":
+        {
+            "actions":
+                [
+                    {"action":"set","variable":"ammoCount","value":100},
+                    {"action":"set","variable":"lastFireTimestamp","value":0},
+                    {"action":"animationStart","startFrame":77,"endFrame":127},
+                    {"action":"updateInterfaceText","element":"m16_bullet_count","value":"calc(ammoCount)"}
+
+                ]
+        },
+    "events":
+        [
+            {
+                "conditions":
+                    [
+                        {"condition":"receive","name":"addM16Ammo"}
+                    ],
+                "actions":
+                    [
+                        {"action":"set","variable":"ammoCount","value":"calc(ammoCount+@message)","minClamp":0,"maxClamp":300},
+                        {"action":"pulseInterface","element":"m16_bullet","tick":500,"expand":5},
+                        {"action":"updateInterfaceText","element":"m16_bullet_count","value":"calc(ammoCount)"}
+                    ]
+            },
+            {
+                "conditions":
+                    [
+                        {"condition":"receive","name":"fire"},
+                        {"condition":"if","value":"calc(ammoCount>0)"},
+                        {"condition":"if","value":"calc((@timestamp-lastFireTimestamp)>200)"}
+                    ],
+                "actions":
+                    [
+                        {"action":"set","variable":"ammoCount","value":"calc(ammoCount-1)"},
+                        {"action":"set","variable":"lastFireTimestamp","value":"calc(@timestamp)"},
+                        {"action":"playSound","entity":"@parent","name":"m16_fire","rate":"calc(1.0+(@rnd*0.4))","loop":false},
+                        {"action":"animationStart","startFrame":128,"endFrame":143},
+                        {"action":"animationQueue","startFrame":77,"endFrame":127},
+                        {"action":"updateInterfaceText","element":"m16_bullet_count","value":"calc(ammoCount)"},
+                        {"action":"hitScan","entity":"@parent","distance":100000,"hitFilter":["player","remote","bot","monster"],"damage":5,"hitEffect":"effect_hit"}
+                    ]
+            }
+        ]
+}

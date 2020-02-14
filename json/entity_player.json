@@ -40,6 +40,13 @@
                     [
                         {"action":"forward","entity":"@hold.weapon_grenade"}
                     ]
+            },
+            {
+                "actions":
+                    [
+                        {"action":"control_developer"},
+                        {"action":"control_fps","maxTurnSpeed":8,"maxLookSpeed":8,"maxLookAngle":80,"forwardAcceleration":15,"forwardDeceleration":30,"forwardMaxSpeed":200,"sideAcceleration":25,"sideDeceleration":50,"sideMaxSpeed":120,"flySwimYReduce":0.5}
+                    ]
             }
         ]
 }

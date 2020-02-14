@@ -3,13 +3,19 @@ import ProjectEntityClass from '../../../code/project/project_entity.js';
 import EntityProjectileGrenadeClass from '../entities/entity_projectile_grenade.js';
 import EntityPlayerClass from '../entities/entity_player.js';
 import EntityWeaponBaseClass from '../entities/entity_weapon_base.js';
+import EntityJsonClass from '../../../code/project/entity_json.js';
 
 //
 // grenade weapon entity class
 //
 
-export default class EntityWeaponGrenadeClass extends EntityWeaponBaseClass
+export default class EntityWeaponGrenadeClass extends EntityJsonClass
 {
+    getJsonName()
+    {
+        return("entity_weapon_grenade");
+    }
+
     initialize()
     {
         super.initialize();
