@@ -14,8 +14,8 @@ export default class EntityWeaponM16Class extends EntityJsonClass
     {
         return("entity_weapon_m16");
     }
-/*
-        initialize()
+
+    initialize()
     {
         super.initialize();
         
@@ -93,5 +93,5 @@ export default class EntityWeaponM16Class extends EntityJsonClass
         this.setModelDrawPosition(this.handOffset,this.handAngle,this.scale,true);
         return(true);
     }
-    */
+
 }

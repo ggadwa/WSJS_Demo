@@ -1,49 +1,41 @@
 {
-    "model": {"name":"hand_m16","scale":{"x":5000,"y":5000,"z":5000}},
-    "setup": {"radius":5000,"height":11000},
-    "draw": {"type":"inHand","handPosition":{"x":100,"y":-8500,"z":-2000},"handAngle":{"x":0,"y":-10,"z":0}},
-    "ready":
+    "setup":
         {
-            "actions":
-                [
-                    {"action":"set","variable":"ammoCount","value":100},
-                    {"action":"set","variable":"lastFireTimestamp","value":0},
-                    {"action":"animationStart","startFrame":77,"endFrame":127},
-                    {"action":"updateInterfaceText","element":"m16_bullet_count","value":"calc(ammoCount)"}
-
-                ]
+            "model":"hand_m16",
+            "scale":{"x":5000,"y":5000,"z":5000},
+            "radius":5000,
+            "height":11000,
+            "eyeOffset":0,
+            "weight":0
         },
-    "events":
+    "blocks":
         [
             {
-                "conditions":
-                    [
-                        {"condition":"receive","name":"addM16Ammo"}
-                    ],
-                "actions":
-                    [
-                        {"action":"set","variable":"ammoCount","value":"calc(ammoCount+@message)","minClamp":0,"maxClamp":300},
-                        {"action":"pulseInterface","element":"m16_bullet","tick":500,"expand":5},
-                        {"action":"updateInterfaceText","element":"m16_bullet_count","value":"calc(ammoCount)"}
-                    ]
+                "type":"weapon",
+                "handOffset":{"x":100,"y":-8500,"z":-2000},
+                "handAngle":{"x":0,"y":-10,"z":0},
+                "interfaceCrosshair":"m16_crosshair",
+                "interfaceAmmoIcon":"m16_bullet",
+                "interfaceAmmoCount":"m16_bullet_count",
+                "ammoInitialCount":100,
+                "ammoMaxCount":300,
+                "idleAnimation":[77,127]
             },
             {
-                "conditions":
-                    [
-                        {"condition":"receive","name":"fire"},
-                        {"condition":"if","value":"calc(ammoCount>0)"},
-                        {"condition":"if","value":"calc((@timestamp-lastFireTimestamp)>200)"}
-                    ],
-                "actions":
-                    [
-                        {"action":"set","variable":"ammoCount","value":"calc(ammoCount-1)"},
-                        {"action":"set","variable":"lastFireTimestamp","value":"calc(@timestamp)"},
-                        {"action":"playSound","entity":"@parent","name":"m16_fire","rate":"calc(1.0+(@rnd*0.4))","loop":false},
-                        {"action":"animationStart","startFrame":128,"endFrame":143},
-                        {"action":"animationQueue","startFrame":77,"endFrame":127},
-                        {"action":"updateInterfaceText","element":"m16_bullet_count","value":"calc(ammoCount)"},
-                        {"action":"hitScan","entity":"@parent","distance":100000,"hitFilter":["player","remote","bot","monster"],"damage":5,"hitEffect":"effect_hit"}
-                    ]
+                "type":"fire_hitscan",
+                "fireWait":200
             }
-        ]
+        ],
+    "interface":
+        {
+            "elements":
+                [
+                    {"id":"m16_crosshair","bitmap":"textures/crosshair_x.png","width":8,"height":8,"positionMode":"middle","positionOffset":{"x":-4,"y":-4},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true},
+                    {"id":"m16_bullet","bitmap":"textures/icon_m16_bullet.png","width":25,"height":50,"positionMode":"bottomLeft","positionOffset":{"x":5,"y":-110},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true}
+                ],
+            "texts":
+                [
+                    {"id":"m16_bullet_count","text":"","positionMode":"bottomLeft","positionOffset":{"x":35,"y":-70},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true}
+                ]
+        }
 }

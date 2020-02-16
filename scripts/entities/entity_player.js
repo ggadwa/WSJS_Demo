@@ -5,6 +5,7 @@ import EntityWeaponBerettaClass from '../entities/entity_weapon_beretta.js';
 import EntityWeaponM16Class from '../entities/entity_weapon_m16.js';
 import EntityWeaponGrenadeClass from '../entities/entity_weapon_grenade.js';
 import EntityJsonClass from '../../../code/project/entity_json.js';
+import ProjectEntityClass from '../../../code/project/project_entity.js';
 
 export default class EntityPlayerClass extends EntityJsonClass
 {
@@ -101,11 +102,11 @@ export default class EntityPlayerClass extends EntityJsonClass
         this.drawAngle=new PointClass(0,0,0);
         
             // weapons
-
+/*
         this.beretta=this.addEntity(EntityWeaponBerettaClass,'weapon_beretta',new PointClass(0,0,0),new PointClass(0,0,0),null,true,true);
         this.m16=this.addEntity(EntityWeaponM16Class,'weapon_m16',new PointClass(0,0,0),new PointClass(0,0,0),null,false,true);
         this.grenade=this.addEntity(EntityWeaponGrenadeClass,('weapon_grenade'),new PointClass(0,0,0),new PointClass(0,0,0),null,false,true);
-        
+        */
         return(true);
     }
     
@@ -151,6 +152,8 @@ export default class EntityPlayerClass extends EntityJsonClass
         
     ready()
     {
+        super.ready();
+        
             // full health
             
         this.health=100;
@@ -165,7 +168,7 @@ export default class EntityPlayerClass extends EntityJsonClass
         
             // start with beretta
             // and reset the weapons
-            
+           /* 
         this.currentWeapon=this.WEAPON_BERETTA;
         
         this.beretta.ready();
@@ -175,7 +178,7 @@ export default class EntityPlayerClass extends EntityJsonClass
         this.beretta.show=true;
         this.m16.show=false;
         this.hasM16=true;
-        
+        */
             // turn off any score display
             
         this.startScore();
@@ -480,7 +483,7 @@ export default class EntityPlayerClass extends EntityJsonClass
         moveRight=this.isKeyDown('d') || (this.getTouchStickLeftX()>0);
         
             // mouse and touch sticks
-            /*
+        /*
         x=this.getMouseMoveX();
         if (x!==0) {
             turnAdd=-(x*setup.mouseXSensitivity);
@@ -507,9 +510,10 @@ export default class EntityPlayerClass extends EntityJsonClass
                 if (Math.abs(this.angle.x)<0.05) this.angle.x=0;
             }
         }
-        */
+    */
             // fire weapon
         
+        /*
         fireWeapon=this.isMouseButtonDown(0)||this.isTouchStickRightClick();
 
         if (fireWeapon) {
@@ -546,6 +550,7 @@ export default class EntityPlayerClass extends EntityJsonClass
             this.beretta.show=false;
             this.m16.show=true;
         }
+            */
 /*        
             // turning
         
@@ -567,7 +572,7 @@ export default class EntityPlayerClass extends EntityJsonClass
         else {
             this.angle.x=0;
         }
-        */
+
             // determine if we've passed out of a liquid
             // if we are, auto-jump to get out of liquid
         
@@ -604,7 +609,7 @@ export default class EntityPlayerClass extends EntityJsonClass
                 this.movement.y=this.JUMP_HEIGHT;
             }
         }
-        /*
+
             // can only bump if we aren't falling
             // as otherwise ledges can catch you and
             // bump you back up
@@ -640,9 +645,9 @@ export default class EntityPlayerClass extends EntityJsonClass
             this.movement.y=this.moveInMapY(this.rotMovement,this.debugPlayerFly);
             this.moveInMapXZ(this.rotMovement,bump,true);
         }
-        */
+
             // camera swaps
-            
+           
         if (this.isKeyDown('`')) {
             if (!this.cameraKeyDown) {
                 this.cameraKeyDown=true;
@@ -708,13 +713,14 @@ export default class EntityPlayerClass extends EntityJsonClass
             
             this.inStandingAnimation=true;
         }
+                    */
     }
-    
+
         //
         // we need to remove the look angle from the player model
         // player is only drawn in third person
         //
-   /*     
+    /*
     drawSetup()
     {
         this.drawAngle.setFromValues(0,this.angle.y,0);

@@ -1,40 +1,32 @@
 {
-    "model": {"name":"captain_chest","scale":{"x":50,"y":50,"z":50}},
-    "setup": {"radius":2800,"height":2200},
-    "draw": {"type":"normal"},
-    "ready":
+    "setup":
         {
-            "actions":
-                [
-                    {"action":"set","variable":"open","value":false},
-                    {"action":"animationStart","startFrame":0,"endFrame":1}
-                ]
+            "model":"captain_chest",
+            "scale":{"x":50,"y":50,"z":50},
+            "radius":2800,
+            "height":2200,
+            "eyeOffset":0,
+            "weight":250
         },
-    "events":
+    "blocks":
         [
             {
-                "conditions":
+                "type":"container",
+                "startOpened":false,
+                "openOnce":true,
+                "openOnActionKey":true,
+                "openDistance":8000,
+                "openPause":2500,
+                "closedAnimation":[0,1],
+                "openAnimation":[65,66],
+                "openingAnimation":[1,65],
+                "closingAnimation":[0,1],
+                "openActions":
                     [
-                        {"condition":"if","value":"calc(open!=true)"},
-                        {"condition":"key","key":"e"},
-                        {"condition":"nearEntity","entity":"@player","distance":7000}
+                        {"action":"trigger","name":"@trigger"}
                     ],
-                "actions":
+                "closeActions":
                     [
-                        {"action":"set","variable":"open","value":true},
-                        {"action":"animationStart","startFrame":1,"endFrame":65},
-                        {"action":"animationQueue","startFrame":65,"endFrame":66},
-                        {"action":"send","entity":"@player","name":"addPistolAmmo","content":10},
-                        {"action":"send","entity":"@player","name":"addM16Ammo","content":50},
-                        {"action":"send","entity":"@player","name":"addGrenadeAmmo","content":1},
-                        {"action":"playSound","name":"chime","rate":1.0,"loop":false},
-                        {"action":"trigger","name":"calc(@trigger)"}
-                    ],
-                "unused":
-                    [
-                        {"action":"send","entity":"@player","name":"addHealth","content":25}
-                        
-                        
                     ]
             }
         ]

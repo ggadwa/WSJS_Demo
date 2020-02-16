@@ -17,6 +17,8 @@ export default class MapDungeonClass extends ProjectMapClass
             {
                 "name":"dungeon",
                 "scale":700,
+                "bumpHeight":1400,
+                "gravity":{"min":0,"max":1700,"acceleration":0.1},
                 "glows":
                     [
                         {"bitmap":"crystal_blue_color","url":"textures/blue_crystal_glow.png","frequency":800,"min":0.2,"max":0.7},
@@ -315,6 +317,7 @@ export default class MapDungeonClass extends ProjectMapClass
                 "bitmaps":
                     [
                         {"url":"textures/crosshair_dot.png","interface":true},
+                        {"url":"textures/crosshair_x.png","interface":true},
                         {"url":"textures/icon_beretta_bullet.png","interface":true},
                         {"url":"textures/icon_m16_bullet.png","interface":true},
                         {"url":"textures/icon_grenade.png","interface":true},

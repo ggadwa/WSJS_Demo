@@ -7,7 +7,6 @@ import EntityPickupM16Class from '../entities/entity_pickup_m16.js';
 import EntityPickupGrenadeClass from '../entities/entity_pickup_grenade.js';
 import EntityPickupChickenLegClass from '../entities/entity_pickup_chicken_leg.js';
 import EntityPickupArmorClass from '../entities/entity_pickup_armor.js';
-import EffectFireClass from '../effects/effect_fire.js';
 
 export default class MapDualCastlesClass extends ProjectMapClass
 {
@@ -17,6 +16,8 @@ export default class MapDualCastlesClass extends ProjectMapClass
             {
                 "name":"dual_castles",
                 "scale":700,
+                "bumpHeight":1400,
+                "gravity":{"min":0,"max":1700,"acceleration":0.1},
                 "skyBox":{"size":50000,"bitmap":"textures/skybox.png"},
                 "lights":
                     [
@@ -278,6 +279,7 @@ export default class MapDualCastlesClass extends ProjectMapClass
                 "bitmaps":
                     [
                         {"url":"textures/crosshair_dot.png","interface":true},
+                        {"url":"textures/crosshair_x.png","interface":true},
                         {"url":"textures/icon_beretta_bullet.png","interface":true},
                         {"url":"textures/icon_m16_bullet.png","interface":true},
                         {"url":"textures/icon_grenade.png","interface":true},

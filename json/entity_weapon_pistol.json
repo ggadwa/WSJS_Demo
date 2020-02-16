@@ -1,49 +1,41 @@
 {
-    "model": {"name":"hand_beretta","scale":{"x":7000,"y":7000,"z":7000}},
-    "setup": {"radius":5000,"height":11000},
-    "draw": {"type":"inHand","handPosition":{"x":-800,"y":-12500,"z":-2700},"handAngle":{"x":0,"y":-10,"z":0}},
-    "ready":
+    "setup":
         {
-            "actions":
-                [
-                    {"action":"set","variable":"ammoCount","value":15},
-                    {"action":"set","variable":"lastFireTimestamp","value":0},
-                    {"action":"animationStart","startFrame":77,"endFrame":127},
-                    {"action":"updateInterfaceText","element":"pistol_bullet_count","value":"calc(ammoCount)"}
-
-                ]
+            "model":"hand_beretta",
+            "scale":{"x":7000,"y":7000,"z":7000},
+            "radius":5000,
+            "height":11000,
+            "eyeOffset":0,
+            "weight":0
         },
-    "events":
+    "blocks":
         [
             {
-                "conditions":
-                    [
-                        {"condition":"receive","name":"addPistolAmmo"}
-                    ],
-                "actions":
-                    [
-                        {"action":"set","variable":"ammoCount","value":"calc(ammoCount+@message)","minClamp":0,"maxClamp":25},
-                        {"action":"pulseInterface","element":"pistol_bullet","tick":500,"expand":5},
-                        {"action":"updateInterfaceText","element":"pistol_bullet_count","value":"calc(ammoCount)"}
-                    ]
+                "type":"weapon",
+                "handOffset":{"x":-800,"y":-12500,"z":-2700},
+                "handAngle":{"x":0,"y":-10,"z":0},
+                "interfaceCrosshair":"pistol_crosshair",
+                "interfaceAmmoIcon":"pistol_bullet",
+                "interfaceAmmoCount":"pistol_bullet_count",
+                "ammoInitialCount":15,
+                "ammoMaxCount":25,
+                "idleAnimation":[77,127]
             },
             {
-                "conditions":
-                    [
-                        {"condition":"receive","name":"fire"},
-                        {"condition":"if","value":"calc(ammoCount>0)"},
-                        {"condition":"if","value":"calc((@timestamp-lastFireTimestamp)>900)"}
-                    ],
-                "actions":
-                    [
-                        {"action":"set","variable":"ammoCount","value":"calc(ammoCount-1)"},
-                        {"action":"set","variable":"lastFireTimestamp","value":"calc(@timestamp)"},
-                        {"action":"playSound","entity":"@parent","name":"beretta_fire","rate":1.0,"loop":false},
-                        {"action":"animationStart","startFrame":128,"endFrame":143},
-                        {"action":"animationQueue","startFrame":77,"endFrame":127},
-                        {"action":"updateInterfaceText","element":"pistol_bullet_count","value":"calc(ammoCount)"},
-                        {"action":"hitScan","entity":"@parent","distance":100000,"hitFilter":["player","remote","bot","monster"],"damage":20,"hitEffect":"effect_hit"}
-                    ]
+                "type":"fire_hitscan",
+                "fireWait":900
             }
-        ]
+        ],
+    "interface":
+        {
+            "elements":
+                [
+                    {"id":"pistol_crosshair","bitmap":"textures/crosshair_dot.png","width":8,"height":8,"positionMode":"middle","positionOffset":{"x":-4,"y":-4},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true},
+                    {"id":"pistol_bullet","bitmap":"textures/icon_beretta_bullet.png","width":25,"height":50,"positionMode":"bottomLeft","positionOffset":{"x":5,"y":-165},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true}
+                ],
+            "texts":
+                [
+                    {"id":"pistol_bullet_count","text":"","positionMode":"bottomLeft","positionOffset":{"x":35,"y":-125},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true}
+                ]
+        }
 }

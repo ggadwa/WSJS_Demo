@@ -1,52 +1,78 @@
 {
-    "model": {"name":"player","scale":{"x":3000,"y":3000,"z":3000}},
-    "setup": {"radius":1500,"height":4500},
-    "draw": {"type":"player"},
-    "ready":
+    "setup":
         {
-            "actions":
-                [
-                    {"type":"animationStart","startFrame":0,"endFrame":50}
-                ]
+            "model":"player",
+            "scale":{"x":3000,"y":3000,"z":3000},
+            "radius":1500,
+            "height":4500,
+            "eyeOffset":4400,
+            "weight":180
         },
-    "events":
+    "blocks":
         [
             {
-                "conditions":
+                "type":"player",
+                "multiCamera":true,
+                "idleAnimation":[0,50]
+            },
+            {
+                "type":"fps_movement",
+                "maxTurnSpeed":8,
+                "maxLookSpeed":8,
+                "maxLookAngle":80,
+                "forwardAcceleration":15,
+                "forwardDeceleration":30,
+                "forwardMaxSpeed":200,
+                "sideAcceleration":25,
+                "sideDeceleration":50,
+                "sideMaxSpeed":120,
+                "jumpHeight":400,
+                "jumpWaterHeight":400,
+                "splashSound":"splash",
+                "flySwimYReduce":0.5
+            },
+            {
+                "type":"fps_weapons",
+                "weapons":
                     [
-                        {"condition":"receive","name":"addPistolAmmo"}
-                    ],
-                "actions":
-                    [
-                        {"action":"forward","entity":"@hold.weapon_beretta"}
+                        {
+                            "json":"entity_weapon_pistol",
+                            "name":"pistol",
+                            "default":true,
+                            "inCarousel":true,
+                            "fire":"primary"
+                        },
+                        {
+                            "json":"entity_weapon_m16",
+                            "name":"m16",
+                            "default":false,
+                            "inCarousel":true,
+                            "fire":"primary"
+                        },
+                        {
+                            "json":"entity_weapon_grenade",
+                            "name":"grenade",
+                            "default":false,
+                            "inCarousel":false,
+                            "fire":"tertiary"
+                        }
                     ]
             },
             {
-                "conditions":
-                    [
-                        {"condition":"receive","name":"addM16Ammo"}
-                    ],
-                "actions":
-                    [
-                        {"action":"forward","entity":"@hold.weapon_m16"}
-                    ]
-            },
-            {
-                "conditions":
-                    [
-                        {"condition":"receive","name":"addGrenadeAmmo"}
-                    ],
-                "actions":
-                    [
-                        {"action":"forward","entity":"@hold.weapon_grenade"}
-                    ]
-            },
-            {
-                "actions":
-                    [
-                        {"action":"control_developer"},
-                        {"action":"control_fps","maxTurnSpeed":8,"maxLookSpeed":8,"maxLookAngle":80,"forwardAcceleration":15,"forwardDeceleration":30,"forwardMaxSpeed":200,"sideAcceleration":25,"sideDeceleration":50,"sideMaxSpeed":120,"flySwimYReduce":0.5}
-                    ]
+                "type":"developer"
             }
-        ]
+        ],
+    "interface":
+        {
+            "elements":
+                [
+                    {"id":"armor","bitmap":"textures/icon_armor.png","width":35,"height":35,"positionMode":"bottomRight","positionOffset":{"x":-40,"y":-80},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true},
+                    {"id":"health","bitmap":"textures/icon_health.png","width":35,"height":35,"positionMode":"bottomRight","positionOffset":{"x":-40,"y":-40},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true}
+                ],
+            "texts":
+                [
+                    {"id":"armor_count","text":"","positionMode":"bottomRight","positionOffset":{"x":-50,"y":-50},"textSize":20,"textAlign":"right","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true},
+                    {"id":"health_count","text":"","positionMode":"bottomRight","positionOffset":{"x":-50,"y":-12},"textSize":20,"textAlign":"right","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true}
+                ]
+        }
 }

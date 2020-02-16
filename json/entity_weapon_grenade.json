@@ -1,43 +1,40 @@
 {
-    "setup": {"radius":5000,"height":11000},
-    "ready":
+    "setup":
         {
-            "actions":
-                [
-                    {"action":"set","variable":"ammoCount","value":3},
-                    {"action":"set","variable":"lastFireTimestamp","value":0},
-                    {"action":"updateInterfaceText","element":"grenade_count","value":"calc(ammoCount)"}
-
-                ]
+            "model":null,
+            "scale":{"x":0,"y":0,"z":0},
+            "radius":5000,
+            "height":11000,
+            "eyeOffset":0,
+            "weight":0
         },
-    "events":
+    "blocks":
         [
             {
-                "conditions":
-                    [
-                        {"condition":"receive","name":"addGrenadeAmmo"}
-                    ],
-                "actions":
-                    [
-                        {"action":"set","variable":"ammoCount","value":"calc(ammoCount+@message)","minClamp":0,"maxClamp":5},
-                        {"action":"pulseInterface","element":"grenade","tick":500,"expand":5},
-                        {"action":"updateInterfaceText","element":"grenade_count","value":"calc(ammoCount)"}
-                    ]
+                "type":"weapon",
+                "handOffset":{"x":0,"y":0,"z":0},
+                "handAngle":{"x":0,"y":0,"z":0},
+                "interfaceCrosshair":null,
+                "interfaceAmmoIcon":"grenade",
+                "interfaceAmmoCount":"grenade_count",
+                "ammoInitialCount":3,
+                "ammoMaxCount":5,
+                "idleAnimation":[0,0]
             },
             {
-                "conditions":
-                    [
-                        {"condition":"receive","name":"fire"},
-                        {"condition":"if","value":"calc(ammoCount>0)"},
-                        {"condition":"if","value":"calc((@timestamp-lastFireTimestamp)>1000)"}
-                    ],
-                "actions":
-                    [
-                        {"action":"set","variable":"ammoCount","value":"calc(ammoCount-1)"},
-                        {"action":"set","variable":"lastFireTimestamp","value":"calc(@timestamp)"},
-                        {"action":"playSound","entity":"@parent","name":"throw","rate":1.0,"loop":false},
-                        {"action":"updateInterfaceText","element":"grenade_count","value":"calc(ammoCount)"}
-                    ]
+                "type":"fire_hitscan",
+                "fireWait":1000
             }
-        ]
+        ],
+    "interface":
+        {
+            "elements":
+                [
+                    {"id":"grenade","bitmap":"textures/icon_grenade.png","width":25,"height":50,"positionMode":"bottomLeft","positionOffset":{"x":5,"y":-55},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true}
+                ],
+            "texts":
+                [
+                    {"id":"grenade_count","text":"","positionMode":"bottomLeft","positionOffset":{"x":35,"y":-15},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true}
+                ]
+        }
 }
