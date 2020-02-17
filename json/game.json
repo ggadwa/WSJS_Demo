@@ -4,8 +4,9 @@
     "camera":{"mode":"firstPerson","viewNearZ":500,"viewFarZ":500000},
     "jsons":
         [
-            "effect_explosion_fire","effect_explosion_smoke","effect_fire","effect_hit","effect_sparkle","effect_web",
-            "entity_player","entity_captain_chest","entity_weapon_pistol","entity_weapon_m16","entity_weapon_grenade"
+            "effect_explosion","effect_fire","effect_hit","effect_sparkle","effect_web",
+            "entity_player","entity_captain_chest","entity_weapon_pistol","entity_weapon_m16","entity_weapon_grenade",
+            "entity_projectile_grenade"
         ],
     "interface":
         {

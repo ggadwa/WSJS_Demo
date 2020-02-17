@@ -19,11 +19,16 @@
                 "interfaceAmmoCount":"grenade_count",
                 "ammoInitialCount":3,
                 "ammoMaxCount":5,
-                "idleAnimation":[0,0]
+                "idleAnimation":[0,0],
+                "fireAnimation":[0,0]
             },
             {
-                "type":"fire_hitscan",
-                "fireWait":1000
+                "type":"fire_projectile",
+                "fireMethod":"tertiary",
+                "fireWait":1000,
+                "fireStartRadius":2500,
+                "json":"entity_projectile_grenade",
+                "fireSound":{"name":"throw","rate":1.0,"randomRateAdd":0,"loop":false}
             }
         ],
     "interface":

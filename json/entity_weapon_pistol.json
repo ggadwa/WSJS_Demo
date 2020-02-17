@@ -19,11 +19,18 @@
                 "interfaceAmmoCount":"pistol_bullet_count",
                 "ammoInitialCount":15,
                 "ammoMaxCount":25,
-                "idleAnimation":[77,127]
+                "idleAnimation":[77,127],
+                "fireAnimation":[128,143]
             },
             {
                 "type":"fire_hitscan",
-                "fireWait":900
+                "fireMethod":"primary",
+                "fireWait":900,
+                "damage":20,
+                "distance":100000,
+                "hitFilter":["player","remote","bot","monster"],
+                "hitEffect":"effect_hit",
+                "fireSound":{"name":"beretta_fire","rate":1.0,"randomRateAdd":0.4,"loop":false}
             }
         ],
     "interface":

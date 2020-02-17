@@ -1,0 +1,20 @@
+{
+    "setup":
+        {
+            "model":"grenade",
+            "scale":{"x":100,"y":100,"z":100},
+            "radius":500,
+            "height":500,
+            "eyeOffset":0,
+            "weight":20
+        },
+    "blocks":
+        [
+            {
+                "type":"projectile",
+                "lifeTick":3000,
+                "speed":45,
+                "hitEffect":"effect_explosion"
+            }
+        ]
+}

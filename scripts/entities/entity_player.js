@@ -57,9 +57,9 @@ export default class EntityPlayerClass extends EntityJsonClass
         this.eyeOffset=4400;
         this.bumpHeight=1400;
         
-        this.gravityMinValue=10;
-        this.gravityMaxValue=450;
-        this.gravityAcceleration=20;
+        //this.gravityMinValue=10;
+        //this.gravityMaxValue=450;
+        //this.gravityAcceleration=20;
         
         this.nextDamageTick=0;
         
@@ -72,8 +72,8 @@ export default class EntityPlayerClass extends EntityJsonClass
         
             // player setup
             
-        this.health=100;
-        this.armor=0;
+        //this.health=100;
+        //this.armor=0;
         this.deadCount=-1;
         this.lastUnderLiquid=false;
         this.lastInLiquid=false;
@@ -156,8 +156,8 @@ export default class EntityPlayerClass extends EntityJsonClass
         
             // full health
             
-        this.health=100;
-        this.armor=0;
+        //this.health=100;
+        //this.armor=0;
         this.deadCount=-1;
         this.passThrough=false;         // reset if this is being called after bot died
         this.angle.x=0;
