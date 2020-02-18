@@ -6,14 +6,20 @@
             "radius":500,
             "height":500,
             "eyeOffset":0,
-            "weight":20
+            "weight":30
         },
     "blocks":
         [
             {
                 "type":"projectile",
                 "lifeTick":3000,
-                "speed":45,
+                "speed":450,
+                "stopOnHit":false,
+                "canRoll":false,
+                "canBounce":false,
+                "bounceSound":{"name":"grenade_bounce","rate":1.0,"randomRateAdd":0.1,"loop":false},
+                "canReflect":true,
+                "reflectSound":{"name":"grenade_bounce","rate":1.2,"randomRateAdd":0.1,"loop":false},
                 "hitEffect":"effect_explosion"
             }
         ]
