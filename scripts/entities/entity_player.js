@@ -203,6 +203,8 @@ export default class EntityPlayerClass extends EntityJsonClass
     {
         let timestamp;
         
+        return;
+        
             // already dead, can't take damage
             
         if (this.deadCount!==-1) return;

@@ -17,7 +17,7 @@
                 "interfaceCrosshair":null,
                 "interfaceAmmoIcon":"grenade",
                 "interfaceAmmoCount":"grenade_count",
-                "ammoInitialCount":300,
+                "ammoInitialCount":3,
                 "ammoMaxCount":5,
                 "idleAnimation":[0,0],
                 "fireAnimation":[0,0]
