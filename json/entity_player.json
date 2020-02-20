@@ -14,7 +14,8 @@
             {
                 "type":"fps_player",
                 "multiCamera":true,
-                "idleAnimation":[0,50]
+                "idleAnimation":[0,50],
+                "runAnimation":[492,518]
             },
             {
                 "type":"health",
@@ -47,21 +48,36 @@
                             "name":"pistol",
                             "default":true,
                             "inCarousel":true,
-                            "fire":"primary"
+                            "fire":"primary",
+                            "idleAnimation":[0,50],
+                            "runAnimation":[492,518],
+                            "fireIdleAnimation":[364,401],
+                            "fireRunAnimation":[523,549],
+                            "meshes":["beretta","peen","beretta_top","triger","holder"]
                         },
                         {
                             "json":"entity_weapon_m16",
                             "name":"m16",
                             "default":false,
                             "inCarousel":true,
-                            "fire":"primary"
+                            "fire":"primary",
+                            "idleAnimation":[710,760],
+                            "runAnimation":[933,955],
+                            "fireIdleAnimation":[775,815],
+                            "fireRunAnimation":[865,887],
+                            "meshes":["m16_rifle","m16_holder_01","shutter","trigger"]
                         },
                         {
                             "json":"entity_weapon_grenade",
                             "name":"grenade",
                             "default":false,
                             "inCarousel":false,
-                            "fire":"tertiary"
+                            "fire":"tertiary",
+                            "idleAnimation":[0,50],
+                            "runAnimation":[492,518],
+                            "fireIdleAnimation":[51,91],
+                            "fireRunAnimation":[51,91],
+                            "meshes":[]
                         }
                     ]
             },
