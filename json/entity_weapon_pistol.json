@@ -2,6 +2,7 @@
     "setup":
         {
             "model":"hand_beretta",
+            "rotationOrder":"XYZ",
             "scale":{"x":7000,"y":7000,"z":7000},
             "radius":5000,
             "height":11000,

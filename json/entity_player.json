@@ -2,6 +2,7 @@
     "setup":
         {
             "model":"player",
+            "rotationOrder":"XYZ",
             "scale":{"x":3000,"y":3000,"z":3000},
             "radius":1500,
             "height":4500,
@@ -11,7 +12,7 @@
     "blocks":
         [
             {
-                "type":"player",
+                "type":"fps_player",
                 "multiCamera":true,
                 "idleAnimation":[0,50]
             },

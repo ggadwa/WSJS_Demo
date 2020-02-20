@@ -2,6 +2,7 @@
     "setup":
         {
             "model":"grenade",
+            "rotationOrder":"XYZ",
             "scale":{"x":100,"y":100,"z":100},
             "radius":500,
             "height":500,
