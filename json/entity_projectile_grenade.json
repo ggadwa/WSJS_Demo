@@ -1,4 +1,5 @@
 {
+    "type":"projectile",
     "setup":
         {
             "model":"grenade",
@@ -12,7 +13,6 @@
     "blocks":
         [
             {
-                "type":"projectile",
                 "lifeTick":3000,
                 "speed":450,
                 "spins":true,

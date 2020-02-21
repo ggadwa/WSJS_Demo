@@ -1,4 +1,5 @@
 {
+    "type":"fps_player",
     "setup":
         {
             "model":"player",
@@ -12,18 +13,11 @@
     "blocks":
         [
             {
-                "type":"fps_player",
+                
+                "developer":true,
                 "multiCamera":true,
                 "idleAnimation":[0,50],
-                "runAnimation":[492,518]
-            },
-            {
-                "type":"health",
-                "healthInitialCount":100,
-                "armorInitialCount":0
-            },
-            {
-                "type":"fps_control",
+                "runAnimation":[492,518],
                 "maxTurnSpeed":8,
                 "maxLookSpeed":8,
                 "maxLookAngle":80,
@@ -40,51 +34,50 @@
                 "flySwimYReduce":0.5
             },
             {
-                "type":"weapon_list",
-                "weapons":
-                    [
-                        {
-                            "json":"entity_weapon_pistol",
-                            "name":"pistol",
-                            "default":true,
-                            "inCarousel":true,
-                            "fire":"primary",
-                            "idleAnimation":[0,50],
-                            "runAnimation":[492,518],
-                            "fireIdleAnimation":[364,401],
-                            "fireRunAnimation":[523,549],
-                            "meshes":["beretta","peen","beretta_top","triger","holder"]
-                        },
-                        {
-                            "json":"entity_weapon_m16",
-                            "name":"m16",
-                            "default":false,
-                            "inCarousel":true,
-                            "fire":"primary",
-                            "idleAnimation":[710,760],
-                            "runAnimation":[933,955],
-                            "fireIdleAnimation":[775,815],
-                            "fireRunAnimation":[865,887],
-                            "meshes":["m16_rifle","m16_holder_01","shutter","trigger"]
-                        },
-                        {
-                            "json":"entity_weapon_grenade",
-                            "name":"grenade",
-                            "default":false,
-                            "inCarousel":false,
-                            "fire":"tertiary",
-                            "idleAnimation":[0,50],
-                            "runAnimation":[492,518],
-                            "fireIdleAnimation":[51,91],
-                            "fireRunAnimation":[51,91],
-                            "meshes":[]
-                        }
-                    ]
-            },
-            {
-                "type":"developer"
+                "type":"health",
+                "healthInitialCount":100,
+                "armorInitialCount":0
             }
         ],
+        "weapons":
+            [
+                {
+                    "json":"entity_weapon_pistol",
+                    "name":"pistol",
+                    "default":true,
+                    "inCarousel":true,
+                    "fire":"primary",
+                    "parentIdleAnimation":[0,50],
+                    "parentRunAnimation":[492,518],
+                    "parentFireIdleAnimation":[364,401],
+                    "parentFireRunAnimation":[523,549],
+                    "meshes":["beretta","peen","beretta_top","triger","holder"]
+                },
+                {
+                    "json":"entity_weapon_m16",
+                    "name":"m16",
+                    "default":false,
+                    "inCarousel":true,
+                    "fire":"primary",
+                    "parentIdleAnimation":[710,760],
+                    "parentRunAnimation":[933,955],
+                    "parentFireIdleAnimation":[775,815],
+                    "parentFireRunAnimation":[865,887],
+                    "meshes":["m16_rifle","m16_holder_01","shutter","trigger"]
+                },
+                {
+                    "json":"entity_weapon_grenade",
+                    "name":"grenade",
+                    "default":false,
+                    "inCarousel":false,
+                    "fire":"tertiary",
+                    "parentIdleAnimation":[0,50],
+                    "parentRunAnimation":[492,518],
+                    "parentFireIdleAnimation":[51,91],
+                    "parentFireRunAnimation":[51,91],
+                    "meshes":[]
+                }
+            ],
     "interface":
         {
             "elements":

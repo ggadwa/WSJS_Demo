@@ -1,4 +1,5 @@
 {
+    "type":"weapon",
     "setup":
         {
             "model":"hand_m16",
@@ -20,18 +21,16 @@
                 "interfaceAmmoCount":"m16_bullet_count",
                 "ammoInitialCount":100,
                 "ammoMaxCount":300,
-                "idleAnimation":[77,127],
-                "fireAnimation":[128,143]
-            },
-            {
-                "type":"fire_hitscan",
+                "fireType":"hit_scan",
                 "fireMethod":"primary",
                 "fireWait":200,
                 "damage":5,
                 "distance":100000,
                 "hitFilter":["player","remote","bot","monster"],
                 "hitEffect":"effect_hit",
-                "fireSound":{"name":"m16_fire","rate":1.0,"randomRateAdd":0.4,"loop":false}
+                "fireSound":{"name":"m16_fire","rate":1.0,"randomRateAdd":0.4,"loop":false},
+                "idleAnimation":[77,127],
+                "fireAnimation":[128,143]
             }
         ],
     "interface":

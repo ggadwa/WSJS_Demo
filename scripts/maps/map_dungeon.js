@@ -8,6 +8,7 @@ import EntitySpiderClass from '../entities/entity_spider.js';
 import EntityCaptainChestClass from '../entities/entity_captain_chest.js';
 import EntityPickupM16Class from '../entities/entity_pickup_m16.js';
 import EntityPickupArmorClass from '../entities/entity_pickup_armor.js';
+import EntityFPSPlayerClass from '../../../code/project/entity_fps_player.js';
 
 export default class MapDungeonClass extends ProjectMapClass
 {
@@ -333,7 +334,8 @@ export default class MapDungeonClass extends ProjectMapClass
                     ],
                 "entities":
                     [
-                        {"entity":EntityPlayerClass,"name":"Player","position":{"x":-11990,"y":-189,"z":-78363},"angle":{"x":0,"y":0,"z":0}},
+                        {"json":"entity_player","name":"Player","position":{"x":-11990,"y":-189,"z":-78363},"angle":{"x":0,"y":0,"z":0}},
+                        /*
                         {"entity":EntityCaptainChestClass,"name":"chest_01","position":{"x":907,"y":-189,"z":-54915},"angle":{"x":0,"y":210,"z":0},"data":{"trigger":"gate_01"}},
                         {"entity":EntityCaptainChestClass,"name":"chest_02","position":{"x":-10245,"y":814,"z":88164},"angle":{"x":0,"y":10,"z":0},"data":{"trigger":"gate_03"}},
                         {"entity":EntityCaptainChestClass,"name":"chest_03","position":{"x":-61933,"y":-7976,"z":37390},"angle":{"x":0,"y":25,"z":0},"data":{"trigger":"gate_02"}},
@@ -374,6 +376,8 @@ export default class MapDungeonClass extends ProjectMapClass
                         {"entity":EntitySkeletonCaptainClass,"name":"skeleton_boss","position":{"x":-298429,"y":-61495,"z":28543},"angle":{"x":0,"y":0,"z":0},"data":{"captain":true}},
                         {"entity":EntityPickupM16Class,"name":"m16_01","position":{"x":-67684,"y":-7975,"z":-13612},"data":{"ammo":false,"pickupOnce":true}},
                         {"entity":EntityPickupArmorClass,"name":"armor_01","position":{"x":-121439,"y":-27924,"z":125337},"data":{"pickupOnce":true}}
+                     * 
+                         */
                     ]
             }
         );
