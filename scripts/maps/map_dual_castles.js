@@ -309,8 +309,8 @@ export default class MapDualCastlesClass extends ProjectMapClass
                         {"entity":EntityPickupGrenadeClass,"name":"grenade_02","position":{"x":-17541,"y":29851,"z":-136473}},
                         {"entity":EntityPickupChickenLegClass,"name":"health_01","position":{"x":1468,"y":29851,"z":109299}},
                         {"entity":EntityPickupChickenLegClass,"name":"health_02","position":{"x":-1789,"y":29851,"z":-108954}},
-                        {"entity":EntityPickupArmorClass,"name":"armor_01","position":{"x":-342,"y":6000,"z":201566}},
-                        {"entity":EntityPickupArmorClass,"name":"armor_02","position":{"x":-2819,"y":12000,"z":-222607}}
+                        {"entity":EntityPickupArmorClass,"name":"armor_01","position":{"x":-342,"y":6000,"z":201566},"angle":{"x":90,"y":0,"z":0}},
+                        {"entity":EntityPickupArmorClass,"name":"armor_02","position":{"x":-2819,"y":12000,"z":-222607},"angle":{"x":90,"y":0,"z":0}}
                     ]
             }
         );

@@ -24,6 +24,8 @@
             "maxTurnSpeed":3,
             "forwardAcceleration":4,
             "forwardMaxSpeed":50,
+            "jumpWaitTick":0,
+            "jumpHeight":0,
             "angleYProjectileRange":5,
             "angleYMeleeRange":15,
             "damageFlinchWaitTick":500,

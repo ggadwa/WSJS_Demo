@@ -350,36 +350,37 @@ export default class MapDungeonClass extends ProjectMapClass
                         {"json":"entity_ratkin","name":"rat_02","position":{"x":-31405,"y":-7980,"z":58126},"angle":{"x":0,"y":0,"z":0}},
                         {"json":"entity_ratkin","name":"rat_03","position":{"x":12589,"y":-7969,"z":58126},"angle":{"x":0,"y":0,"z":0}},
                         {"json":"entity_ratkin","name":"rat_04","position":{"x":-8506,"y":-7680,"z":102177},"angle":{"x":0,"y":0,"z":0}},
+                        {"json":"entity_spider","name":"spider_01","position":{"x":-50807,"y":-7970,"z":44933},"angle":{"x":0,"y":0,"z":0}},
+                        {"json":"entity_spider","name":"spider_02","position":{"x":-66813,"y":-7978,"z":45467},"angle":{"x":0,"y":0,"z":0}},
+                        {"json":"entity_spider","name":"spider_03","position":{"x":-60463,"y":-7967,"z":84934},"angle":{"x":0,"y":0,"z":0}},
+                        {"json":"entity_spider","name":"spider_04","position":{"x":-77489,"y":-7975,"z":-6855},"angle":{"x":0,"y":0,"z":0}},
+                        {"json":"entity_spider","name":"spider_05","position":{"x":-68213,"y":-7976,"z":-21675},"angle":{"x":0,"y":0,"z":0}},
                         /*
-                        {"entity":EntitySpiderClass,"name":"spider_01","position":{"x":-50807,"y":-7970,"z":44933},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntitySpiderClass,"name":"spider_02","position":{"x":-66813,"y":-7978,"z":45467},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntitySpiderClass,"name":"spider_03","position":{"x":-60463,"y":-7967,"z":84934},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntitySpiderClass,"name":"spider_04","position":{"x":-77489,"y":-7975,"z":-6855},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntitySpiderClass,"name":"spider_05","position":{"x":-68213,"y":-7976,"z":-21675},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntityVampirePatriarchClass,"name":"vampire_01","position":{"x":-118764,"y":-18116,"z":51012},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntitySkeletonCaptainClass,"name":"skeleton_01","position":{"x":-94767,"y":-24566,"z":103094},"angle":{"x":0,"y":0,"z":0},"data":{"captain":false}},
                         {"entity":EntitySkeletonCaptainClass,"name":"skeleton_02","position":{"x":-141570,"y":-40936,"z":145621},"angle":{"x":0,"y":0,"z":0},"data":{"captain":false}},
-                        {"entity":EntitySpiderClass,"name":"spider_06","position":{"x":-136763,"y":-50826,"z":62837},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntitySpiderClass,"name":"spider_07","position":{"x":-98745,"y":-50829,"z":65278},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntityRatkinClass,"name":"rat_01","position":{"x":-113068,"y":-50828,"z":69474},"angle":{"x":0,"y":180,"z":0}},
+                    */
+                        {"json":"entity_spider","name":"spider_06","position":{"x":-136763,"y":-50826,"z":62837},"angle":{"x":0,"y":0,"z":0}},
+                        {"json":"entity_spider","name":"spider_07","position":{"x":-98745,"y":-50829,"z":65278},"angle":{"x":0,"y":0,"z":0}},
+                        {"json":"entity_ratkin","name":"rat_01","position":{"x":-113068,"y":-50828,"z":69474},"angle":{"x":0,"y":180,"z":0}},
+                        /*
                         {"entity":EntitySkeletonCaptainClass,"name":"skeleton_03","position":{"x":-118068,"y":-50828,"z":16260},"angle":{"x":0,"y":0,"z":0},"data":{"captain":false}},
                         {"entity":EntitySkeletonCaptainClass,"name":"skeleton_04","position":{"x":-112189,"y":-50829,"z":28829},"angle":{"x":0,"y":0,"z":0},"data":{"captain":false}},
                         {"entity":EntitySkeletonCaptainClass,"name":"skeleton_05","position":{"x":-191100,"y":-50825,"z":37826},"angle":{"x":0,"y":0,"z":0},"data":{"captain":false}},
                         {"entity":EntitySkeletonCaptainClass,"name":"skeleton_06","position":{"x":-191001,"y":-50828,"z":14912},"angle":{"x":0,"y":0,"z":0},"data":{"captain":false}},
                         {"entity":EntityVampirePatriarchClass,"name":"vampire_02","position":{"x":-209422,"y":-50822,"z":92541},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntitySpiderClass,"name":"spider_08","position":{"x":-219024,"y":-50822,"z":74063},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntitySpiderClass,"name":"spider_09","position":{"x":-219734,"y":-50822,"z":89620},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntitySpiderClass,"name":"spider_10","position":{"x":-312275,"y":-56724,"z":-5715},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntitySpiderClass,"name":"spider_11","position":{"x":-311726,"y":-56714,"z":63405},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntitySpiderClass,"name":"spider_12","position":{"x":-337269,"y":-56711,"z":41797},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntitySpiderClass,"name":"spider_13","position":{"x":-339912,"y":-56720,"z":14092},"angle":{"x":0,"y":0,"z":0}},
+                    */
+                        {"json":"entity_spider","name":"spider_08","position":{"x":-219024,"y":-50822,"z":74063},"angle":{"x":0,"y":0,"z":0}},
+                        {"json":"entity_spider","name":"spider_09","position":{"x":-219734,"y":-50822,"z":89620},"angle":{"x":0,"y":0,"z":0}},
+                        {"json":"entity_spider","name":"spider_10","position":{"x":-312275,"y":-56724,"z":-5715},"angle":{"x":0,"y":0,"z":0}},
+                        {"json":"entity_spider","name":"spider_11","position":{"x":-311726,"y":-56714,"z":63405},"angle":{"x":0,"y":0,"z":0}},
+                        {"json":"entity_spider","name":"spider_12","position":{"x":-337269,"y":-56711,"z":41797},"angle":{"x":0,"y":0,"z":0}},
+                        {"json":"entity_spider","name":"spider_13","position":{"x":-339912,"y":-56720,"z":14092},"angle":{"x":0,"y":0,"z":0}},
+                        /*
                         {"entity":EntitySkeletonCaptainClass,"name":"skeleton_boss","position":{"x":-298429,"y":-61495,"z":28543},"angle":{"x":0,"y":0,"z":0},"data":{"captain":true}},
                     */
                         {"json":"entity_pickup_m16","name":"m16_01","position":{"x":-67684,"y":-7975,"z":-13612},"data":{"pickupOnce":true}},
-                        /*
-                        {"entity":EntityPickupArmorClass,"name":"armor_01","position":{"x":-121439,"y":-27924,"z":125337},"data":{"pickupOnce":true}}
-                     * 
-                         */
+                        {"json":"entity_pickup_armor","name":"armor_01","position":{"x":-121439,"y":-27924,"z":125337},"angle":{"x":90,"y":0,"z":0},"data":{"pickupOnce":true}}
                     ]
             }
         );
