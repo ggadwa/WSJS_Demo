@@ -8,29 +8,28 @@
             "radius":5000,
             "height":11000,
             "eyeOffset":0,
-            "weight":0
+            "weight":0,
+            "hideMeshes":[]
         },
-    "blocks":
-        [
-            {
-                "type":"weapon",
-                "handOffset":{"x":0,"y":0,"z":0},
-                "handAngle":{"x":0,"y":0,"z":0},
-                "interfaceCrosshair":null,
-                "interfaceAmmoIcon":"grenade",
-                "interfaceAmmoCount":"grenade_count",
-                "ammoInitialCount":3,
-                "ammoMaxCount":5,
-                "fireType":"projectile",
-                "fireMethod":"tertiary",
-                "fireWait":1000,
-                "fireStartRadius":2500,
-                "json":"entity_projectile_grenade",
-                "fireSound":{"name":"throw","rate":1.0,"randomRateAdd":0,"loop":false},
-                "idleAnimation":[0,0],
-                "fireAnimation":[0,0]
-            }
-        ],
+    "config":
+        {
+            "handOffset":{"x":0,"y":0,"z":0},
+            "handAngle":{"x":0,"y":0,"z":0},
+            "interfaceCrosshair":null,
+            "interfaceAmmoIcon":"grenade",
+            "interfaceAmmoText":"grenade_count",
+            "interfaceAmmoCount":null,
+            "ammoInitialCount":3,
+            "ammoMaxCount":5,
+            "fireType":"projectile",
+            "fireMethod":"tertiary",
+            "fireWait":1000,
+            "fireStartRadius":2500,
+            "json":"entity_projectile_grenade",
+            "fireSound":{"name":"throw","rate":1.0,"randomRateAdd":0,"loop":false},
+            "idleAnimation":[0,0],
+            "fireAnimation":[0,0]
+        },
     "interface":
         {
             "elements":

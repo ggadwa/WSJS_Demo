@@ -367,8 +367,10 @@ export default class EntityMultiplayerBotClass extends ProjectEntityClass
         this.currentLookIdx++;
         if (this.currentLookIdx>=this.TARGET_SCAN_Y_ANGLES.length) this.currentLookIdx=0;
         
-        if (this.rayCollision(this.lookPoint,this.lookVector,this.lookHitPoint,this.TARGET_HIT_FILTER,null)) {
-            if (this.hitEntity!==null) this.targetEntity=this.hitEntity;
+        if (this.rayCollision(this.lookPoint,this.lookVector,this.lookHitPoint)) {
+            if (this.hitEntity!==null) {
+                if (this.hitEntity.fighter) this.targetEntity=this.hitEntity;
+            }
         }
     }
     

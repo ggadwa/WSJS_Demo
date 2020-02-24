@@ -334,23 +334,23 @@ export default class MapDungeonClass extends ProjectMapClass
                     ],
                 "entities":
                     [
-                        {"json":"entity_player","name":"Player","position":{"x":-11990,"y":-189,"z":-78363},"angle":{"x":0,"y":0,"z":0}},
+                        {"json":"entity_player","name":"Player","position":{"x":-11990,"y":-189,"z":-78363},"angle":{"x":0,"y":0,"z":0},"player":true},
+                        {"json":"entity_captain_chest","name":"chest_01","position":{"x":907,"y":-189,"z":-54915},"angle":{"x":0,"y":210,"z":0},"data":{"trigger":"gate_01"}},
+                        {"json":"entity_captain_chest","name":"chest_02","position":{"x":-10245,"y":814,"z":88164},"angle":{"x":0,"y":10,"z":0},"data":{"trigger":"gate_03"}},
+                        {"json":"entity_captain_chest","name":"chest_03","position":{"x":-61933,"y":-7976,"z":37390},"angle":{"x":0,"y":25,"z":0},"data":{"trigger":"gate_02"}},
+                        {"json":"entity_captain_chest","name":"chest_04","position":{"x":-98469,"y":-16996,"z":46252},"angle":{"x":0,"y":295,"z":0},"data":{"trigger":"gate_05"}},
+                        {"json":"entity_captain_chest","name":"chest_05","position":{"x":-138109,"y":-17002,"z":62855},"angle":{"x":0,"y":100,"z":0},"data":{"trigger":"gate_06"}},
+                        {"json":"entity_captain_chest","name":"chest_06","position":{"x":-90286,"y":-50816,"z":62232},"angle":{"x":0,"y":295,"z":0},"data":{"trigger":"gate_07"}},
+                        {"json":"entity_captain_chest","name":"chest_07","position":{"x":-201969,"y":-50816,"z":10099},"angle":{"x":0,"y":160,"z":0},"data":{"trigger":"gate_08"}},
+                        {"json":"entity_captain_chest","name":"chest_08","position":{"x":-209458,"y":-50816,"z":100539},"angle":{"x":0,"y":200,"z":0},"data":{"trigger":"gate_09"}},
+                        {"json":"entity_captain_chest","name":"chest_09","position":{"x":-342874,"y":-56715,"z":28471},"angle":{"x":0,"y":90,"z":0}},
+                        {"json":"entity_captain_chest","name":"chest_10","position":{"x":-346286,"y":-56707,"z":67521},"angle":{"x":0,"y":132,"z":0}},
+                        {"json":"entity_captain_chest","name":"chest_11","position":{"x":-346575,"y":-56726,"z":-9776},"angle":{"x":0,"y":52,"z":0}},
+                        {"json":"entity_ratkin","name":"rat_01","position":{"x":-8642,"y":-7967,"z":21819},"angle":{"x":0,"y":0,"z":0}},
+                        {"json":"entity_ratkin","name":"rat_02","position":{"x":-31405,"y":-7980,"z":58126},"angle":{"x":0,"y":0,"z":0}},
+                        {"json":"entity_ratkin","name":"rat_03","position":{"x":12589,"y":-7969,"z":58126},"angle":{"x":0,"y":0,"z":0}},
+                        {"json":"entity_ratkin","name":"rat_04","position":{"x":-8506,"y":-7680,"z":102177},"angle":{"x":0,"y":0,"z":0}},
                         /*
-                        {"entity":EntityCaptainChestClass,"name":"chest_01","position":{"x":907,"y":-189,"z":-54915},"angle":{"x":0,"y":210,"z":0},"data":{"trigger":"gate_01"}},
-                        {"entity":EntityCaptainChestClass,"name":"chest_02","position":{"x":-10245,"y":814,"z":88164},"angle":{"x":0,"y":10,"z":0},"data":{"trigger":"gate_03"}},
-                        {"entity":EntityCaptainChestClass,"name":"chest_03","position":{"x":-61933,"y":-7976,"z":37390},"angle":{"x":0,"y":25,"z":0},"data":{"trigger":"gate_02"}},
-                        {"entity":EntityCaptainChestClass,"name":"chest_04","position":{"x":-98469,"y":-16996,"z":46252},"angle":{"x":0,"y":295,"z":0},"data":{"trigger":"gate_05"}},
-                        {"entity":EntityCaptainChestClass,"name":"chest_05","position":{"x":-138109,"y":-17002,"z":62855},"angle":{"x":0,"y":100,"z":0},"data":{"trigger":"gate_06"}},
-                        {"entity":EntityCaptainChestClass,"name":"chest_06","position":{"x":-90286,"y":-50816,"z":62232},"angle":{"x":0,"y":295,"z":0},"data":{"trigger":"gate_07"}},
-                        {"entity":EntityCaptainChestClass,"name":"chest_07","position":{"x":-201969,"y":-50816,"z":10099},"angle":{"x":0,"y":160,"z":0},"data":{"trigger":"gate_08"}},
-                        {"entity":EntityCaptainChestClass,"name":"chest_08","position":{"x":-209458,"y":-50816,"z":100539},"angle":{"x":0,"y":200,"z":0},"data":{"trigger":"gate_09"}},
-                        {"entity":EntityCaptainChestClass,"name":"chest_09","position":{"x":-342874,"y":-56715,"z":28471},"angle":{"x":0,"y":90,"z":0}},
-                        {"entity":EntityCaptainChestClass,"name":"chest_10","position":{"x":-346286,"y":-56707,"z":67521},"angle":{"x":0,"y":132,"z":0}},
-                        {"entity":EntityCaptainChestClass,"name":"chest_11","position":{"x":-346575,"y":-56726,"z":-9776},"angle":{"x":0,"y":52,"z":0}},
-                        {"entity":EntityRatkinClass,"name":"rat_01","position":{"x":-8642,"y":-7967,"z":21819},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntityRatkinClass,"name":"rat_02","position":{"x":-31405,"y":-7980,"z":58126},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntityRatkinClass,"name":"rat_03","position":{"x":12589,"y":-7969,"z":58126},"angle":{"x":0,"y":0,"z":0}},
-                        {"entity":EntityRatkinClass,"name":"rat_04","position":{"x":-8506,"y":-7680,"z":102177},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntitySpiderClass,"name":"spider_01","position":{"x":-50807,"y":-7970,"z":44933},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntitySpiderClass,"name":"spider_02","position":{"x":-66813,"y":-7978,"z":45467},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntitySpiderClass,"name":"spider_03","position":{"x":-60463,"y":-7967,"z":84934},"angle":{"x":0,"y":0,"z":0}},
@@ -374,7 +374,9 @@ export default class MapDungeonClass extends ProjectMapClass
                         {"entity":EntitySpiderClass,"name":"spider_12","position":{"x":-337269,"y":-56711,"z":41797},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntitySpiderClass,"name":"spider_13","position":{"x":-339912,"y":-56720,"z":14092},"angle":{"x":0,"y":0,"z":0}},
                         {"entity":EntitySkeletonCaptainClass,"name":"skeleton_boss","position":{"x":-298429,"y":-61495,"z":28543},"angle":{"x":0,"y":0,"z":0},"data":{"captain":true}},
-                        {"entity":EntityPickupM16Class,"name":"m16_01","position":{"x":-67684,"y":-7975,"z":-13612},"data":{"ammo":false,"pickupOnce":true}},
+                    */
+                        {"json":"entity_pickup_m16","name":"m16_01","position":{"x":-67684,"y":-7975,"z":-13612},"data":{"pickupOnce":true}},
+                        /*
                         {"entity":EntityPickupArmorClass,"name":"armor_01","position":{"x":-121439,"y":-27924,"z":125337},"data":{"pickupOnce":true}}
                      * 
                          */

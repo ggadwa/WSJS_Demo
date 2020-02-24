@@ -1,5 +1,6 @@
 {
     "type":"fps_player",
+    "developer":true,
     "setup":
         {
             "model":"player",
@@ -8,76 +9,76 @@
             "radius":1500,
             "height":4500,
             "eyeOffset":4400,
-            "weight":180
+            "weight":180,
+            "hideMeshes":["Captain_jetpack"]
         },
-    "blocks":
+    "config":
+        {
+            "healthInitialCount":100,
+            "healthMaxCount":100,
+            "armorInitialCount":0,
+            "armorMaxCount":100,
+            "interfaceHealthIcon":"health",
+            "interfaceHealthCount":"health_count",
+            "interfaceArmorIcon":"armor",
+            "interfaceArmorCount":"armor_count",
+            "multiCamera":true,
+            "idleAnimation":[0,50],
+            "runAnimation":[492,518],
+            "maxTurnSpeed":8,
+            "maxLookSpeed":8,
+            "maxLookAngle":80,
+            "forwardAcceleration":15,
+            "forwardDeceleration":30,
+            "forwardMaxSpeed":200,
+            "sideAcceleration":25,
+            "sideDeceleration":50,
+            "sideMaxSpeed":120,
+            "jumpHeight":400,
+            "jumpWaterHeight":400,
+            "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"loop":false},
+            "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"loop":false},
+            "flySwimYReduce":0.5
+        },
+    "weapons":
         [
             {
-                
-                "developer":true,
-                "multiCamera":true,
-                "idleAnimation":[0,50],
-                "runAnimation":[492,518],
-                "maxTurnSpeed":8,
-                "maxLookSpeed":8,
-                "maxLookAngle":80,
-                "forwardAcceleration":15,
-                "forwardDeceleration":30,
-                "forwardMaxSpeed":200,
-                "sideAcceleration":25,
-                "sideDeceleration":50,
-                "sideMaxSpeed":120,
-                "jumpHeight":400,
-                "jumpWaterHeight":400,
-                "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"loop":false},
-                "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"loop":false},
-                "flySwimYReduce":0.5
+                "json":"entity_weapon_pistol",
+                "name":"pistol",
+                "default":true,
+                "inCarousel":true,
+                "fire":"primary",
+                "parentIdleAnimation":[0,50],
+                "parentRunAnimation":[492,518],
+                "parentFireIdleAnimation":[364,401],
+                "parentFireRunAnimation":[523,549],
+                "meshes":["beretta","peen","beretta_top","triger","holder"]
             },
             {
-                "type":"health",
-                "healthInitialCount":100,
-                "armorInitialCount":0
+                "json":"entity_weapon_m16",
+                "name":"m16",
+                "default":false,
+                "inCarousel":true,
+                "fire":"primary",
+                "parentIdleAnimation":[710,760],
+                "parentRunAnimation":[933,955],
+                "parentFireIdleAnimation":[775,815],
+                "parentFireRunAnimation":[865,887],
+                "meshes":["m16_rifle","m16_holder_01","shutter","trigger"]
+            },
+            {
+                "json":"entity_weapon_grenade",
+                "name":"grenade",
+                "default":false,
+                "inCarousel":false,
+                "fire":"tertiary",
+                "parentIdleAnimation":[0,50],
+                "parentRunAnimation":[492,518],
+                "parentFireIdleAnimation":[51,91],
+                "parentFireRunAnimation":[51,91],
+                "meshes":[]
             }
         ],
-        "weapons":
-            [
-                {
-                    "json":"entity_weapon_pistol",
-                    "name":"pistol",
-                    "default":true,
-                    "inCarousel":true,
-                    "fire":"primary",
-                    "parentIdleAnimation":[0,50],
-                    "parentRunAnimation":[492,518],
-                    "parentFireIdleAnimation":[364,401],
-                    "parentFireRunAnimation":[523,549],
-                    "meshes":["beretta","peen","beretta_top","triger","holder"]
-                },
-                {
-                    "json":"entity_weapon_m16",
-                    "name":"m16",
-                    "default":false,
-                    "inCarousel":true,
-                    "fire":"primary",
-                    "parentIdleAnimation":[710,760],
-                    "parentRunAnimation":[933,955],
-                    "parentFireIdleAnimation":[775,815],
-                    "parentFireRunAnimation":[865,887],
-                    "meshes":["m16_rifle","m16_holder_01","shutter","trigger"]
-                },
-                {
-                    "json":"entity_weapon_grenade",
-                    "name":"grenade",
-                    "default":false,
-                    "inCarousel":false,
-                    "fire":"tertiary",
-                    "parentIdleAnimation":[0,50],
-                    "parentRunAnimation":[492,518],
-                    "parentFireIdleAnimation":[51,91],
-                    "parentFireRunAnimation":[51,91],
-                    "meshes":[]
-                }
-            ],
     "interface":
         {
             "elements":

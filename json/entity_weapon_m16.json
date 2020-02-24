@@ -8,31 +8,29 @@
             "radius":5000,
             "height":11000,
             "eyeOffset":0,
-            "weight":0
+            "weight":0,
+            "hideMeshes":[]
         },
-    "blocks":
-        [
-            {
-                "type":"weapon",
-                "handOffset":{"x":100,"y":-8500,"z":-2000},
-                "handAngle":{"x":0,"y":-10,"z":0},
-                "interfaceCrosshair":"m16_crosshair",
-                "interfaceAmmoIcon":"m16_bullet",
-                "interfaceAmmoCount":"m16_bullet_count",
-                "ammoInitialCount":100,
-                "ammoMaxCount":300,
-                "fireType":"hit_scan",
-                "fireMethod":"primary",
-                "fireWait":200,
-                "damage":5,
-                "distance":100000,
-                "hitFilter":["player","remote","bot","monster"],
-                "hitEffect":"effect_hit",
-                "fireSound":{"name":"m16_fire","rate":1.0,"randomRateAdd":0.4,"loop":false},
-                "idleAnimation":[77,127],
-                "fireAnimation":[128,143]
-            }
-        ],
+    "config":
+        {
+            "handOffset":{"x":100,"y":-8500,"z":-2000},
+            "handAngle":{"x":0,"y":-10,"z":0},
+            "interfaceCrosshair":"m16_crosshair",
+            "interfaceAmmoIcon":"m16_bullet",
+            "interfaceAmmoText":"m16_bullet_count",
+            "interfaceAmmoCount":null,
+            "ammoInitialCount":100,
+            "ammoMaxCount":300,
+            "fireType":"hit_scan",
+            "fireMethod":"primary",
+            "fireWait":200,
+            "damage":5,
+            "distance":100000,
+            "hitEffect":"effect_hit",
+            "fireSound":{"name":"m16_fire","rate":1.0,"randomRateAdd":0.4,"loop":false},
+            "idleAnimation":[77,127],
+            "fireAnimation":[128,143]
+        },
     "interface":
         {
             "elements":

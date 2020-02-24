@@ -294,7 +294,7 @@ export default class MapDualCastlesClass extends ProjectMapClass
                     ],
                 "entities":
                     [
-                        {"entity":EntityPlayerClass,"name":"Player","position":{"x":-28000,"y":24124,"z":0},"angle":{"x":0,"y":90,"z":0}},
+                        {"entity":EntityPlayerClass,"name":"Player","position":{"x":-28000,"y":24124,"z":0},"angle":{"x":0,"y":90,"z":0},"player":true},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_01","position":{"x":-28242,"y":24839,"z":-28541},"data":{"ammo":true}},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_02","position":{"x":28074,"y":24839,"z":28166},"data":{"ammo":true}},
                         {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_03","position":{"x":-28105,"y":24839,"z":28435},"data":{"ammo":true}},

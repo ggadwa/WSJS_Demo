@@ -8,23 +8,24 @@
             "radius":500,
             "height":500,
             "eyeOffset":0,
-            "weight":30
+            "weight":30,
+            "hideMeshes":[]
         },
-    "blocks":
-        [
-            {
-                "lifeTick":3000,
-                "speed":450,
-                "spins":true,
-                "stopOnHit":false,
-                "canRoll":true,
-                "rollDeceleration":0.95,
-                "canBounce":true,
-                "bounceFactor":0.8,
-                "bounceSound":{"name":"grenade_bounce","rate":1.0,"randomRateAdd":0.1,"loop":false},
-                "canReflect":true,
-                "reflectSound":{"name":"grenade_bounce","rate":1.2,"randomRateAdd":0.1,"loop":false},
-                "hitEffect":"effect_explosion"
-            }
-        ]
+    "config":
+        {
+            "lifeTick":3000,
+            "speed":450,
+            "spins":false,
+            "spinRate":0,
+            "tumbles":true,
+            "stopOnHit":false,
+            "canRoll":true,
+            "rollDeceleration":0.95,
+            "canBounce":true,
+            "bounceFactor":0.8,
+            "bounceSound":{"name":"grenade_bounce","rate":1.0,"randomRateAdd":0.1,"loop":false},
+            "canReflect":true,
+            "reflectSound":{"name":"grenade_bounce","rate":1.2,"randomRateAdd":0.1,"loop":false},
+            "hitEffect":"effect_explosion"
+        }
 }

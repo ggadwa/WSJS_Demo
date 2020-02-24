@@ -239,7 +239,7 @@ export default class EntityMonsterBaseClass extends ProjectEntityClass
             this.fireVector.rotateX(null,this.fireAngle.x);
             this.fireVector.rotateY(null,this.fireAngle.y);
 
-            if (!this.rayCollision(this.firePosition,this.fireVector,this.fireHitPoint,null,null)) return;
+            if (!this.rayCollision(this.firePosition,this.fireVector,this.fireHitPoint)) return;
             if (this.hitEntity!==player) return;
         }
         
