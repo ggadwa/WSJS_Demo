@@ -56,7 +56,9 @@
                 "parentIdleAnimation":[0,50],
                 "parentRunAnimation":[492,518],
                 "parentFireIdleAnimation":[364,401],
-                "parentFireRunAnimation":[523,549],
+                "parentPrimaryFireRunAnimation":[523,549],
+                "parentSecondaryFireRunAnimation":[0,0],
+                "parentTertiaryFireRunAnimation":[0,0],
                 "meshes":["beretta","peen","beretta_top","triger","holder"]
             },
             {
@@ -68,7 +70,9 @@
                 "parentIdleAnimation":[710,760],
                 "parentRunAnimation":[933,955],
                 "parentFireIdleAnimation":[775,815],
-                "parentFireRunAnimation":[865,887],
+                "parentPrimaryFireRunAnimation":[865,887],
+                "parentSecondaryFireRunAnimation":[0,0],
+                "parentTertiaryFireRunAnimation":[0,0],
                 "meshes":["m16_rifle","m16_holder_01","shutter","trigger"]
             },
             {
@@ -80,7 +84,9 @@
                 "parentIdleAnimation":[0,50],
                 "parentRunAnimation":[492,518],
                 "parentFireIdleAnimation":[51,91],
-                "parentFireRunAnimation":[51,91],
+                "parentPrimaryFireRunAnimation":[0,0],
+                "parentSecondaryFireRunAnimation":[0,0],
+                "parentTertiaryFireRunAnimation":[51,91],
                 "meshes":[]
             }
         ],

@@ -27,11 +27,11 @@
             "closeSound":{"name":"chime","rate":0.5,"randomRateAdd":0.0,"loop":false},
             "openActions":
                 [
-                    {"action":"trigger","name":"@trigger","value":0},
-                    {"action":"addAmmo","name":"pistol","value":10},
-                    {"action":"addAmmo","name":"m16","value":50},
-                    {"action":"addAmmo","name":"grenade","value":1},
-                    {"action":"addHealth","name":"","value":25}
+                    {"action":"trigger","name":"@trigger","subName":null,"value":0},
+                    {"action":"addAmmo","name":"pistol","subName":"primary","value":10},
+                    {"action":"addAmmo","name":"m16","subName":"primary","value":50},
+                    {"action":"addAmmo","name":"grenade","subName":"tertiary","value":1},
+                    {"action":"addHealth","name":null,"subName":null,"value":25}
                 ],
             "closeActions":
                 [

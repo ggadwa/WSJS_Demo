@@ -16,20 +16,26 @@
             "handOffset":{"x":100,"y":-8500,"z":-2000},
             "handAngle":{"x":0,"y":-10,"z":0},
             "interfaceCrosshair":"m16_crosshair",
-            "interfaceAmmoIcon":"m16_bullet",
-            "interfaceAmmoText":"m16_bullet_count",
-            "interfaceAmmoCount":null,
+            "idleAnimation":[77,127],
             "ammoInitialCount":100,
             "ammoMaxCount":300,
-            "fireType":"hit_scan",
-            "fireMethod":"primary",
-            "fireWait":200,
-            "damage":5,
-            "distance":100000,
-            "hitEffect":"effect_hit",
-            "fireSound":{"name":"m16_fire","rate":1.0,"randomRateAdd":0.4,"loop":false},
-            "idleAnimation":[77,127],
-            "fireAnimation":[128,143]
+            "primary":
+                {
+                    "type":"hit_scan",
+                    "waitTick":200,
+                    "startRadius":0,
+                    "damage":5,
+                    "distance":100000,
+                    "hitEffect":"effect_hit",
+                    "json":null,
+                    "sound":{"name":"m16_fire","rate":1.0,"randomRateAdd":0.4,"loop":false},
+                    "animation":[128,143],
+                    "interfaceAmmoIcon":"m16_bullet",
+                    "interfaceAmmoText":"m16_bullet_count",
+                    "interfaceAmmoCount":null
+                },
+            "secondary":null,
+            "tertiary":null
         },
     "interface":
         {

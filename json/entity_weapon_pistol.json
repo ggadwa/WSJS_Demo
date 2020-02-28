@@ -16,20 +16,26 @@
             "handOffset":{"x":-800,"y":-12500,"z":-2700},
             "handAngle":{"x":0,"y":-10,"z":0},
             "interfaceCrosshair":"pistol_crosshair",
-            "interfaceAmmoIcon":"pistol_bullet",
-            "interfaceAmmoText":"pistol_bullet_count",
-            "interfaceAmmoCount":null,
+            "idleAnimation":[77,127],
             "ammoInitialCount":15,
             "ammoMaxCount":25,
-            "fireType":"hit_scan",
-            "fireMethod":"primary",
-            "fireWait":900,
-            "damage":20,
-            "distance":100000,
-            "hitEffect":"effect_hit",
-            "fireSound":{"name":"beretta_fire","rate":1.0,"randomRateAdd":0.4,"loop":false},
-            "idleAnimation":[77,127],
-            "fireAnimation":[128,143]
+            "primary":
+                {
+                    "type":"hit_scan",
+                    "waitTick":900,
+                    "startRadius":0,
+                    "damage":20,
+                    "distance":100000,
+                    "hitEffect":"effect_hit",
+                    "json":null,
+                    "sound":{"name":"beretta_fire","rate":1.0,"randomRateAdd":0.4,"loop":false},
+                    "animation":[128,143],
+                    "interfaceAmmoIcon":"pistol_bullet",
+                    "interfaceAmmoText":"pistol_bullet_count",
+                    "interfaceAmmoCount":null
+                },
+            "secondary":null,
+            "tertiary":null
         },
     "interface":
         {
