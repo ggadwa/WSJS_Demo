@@ -9,19 +9,19 @@
             "height":2000,
             "eyeOffset":0,
             "weight":250,
-            "hideMeshes":["m16_holder_02","m16_bullet","m16_bullet01","m16_bullet02","m16_bullet04","m16_bullet05","m16_bullet06","m16_bullet07","m16_bullet08"]
+            "hideMeshes":["m16_rifle","shutter","trigger","m16_holder_01"]
         },
     "config":
         {
             "hideTick":5000,
-            "pickupOnce":"@pickupOnce",
+            "pickupOnce":false,
             "spinTick":5000,
             "floatMove":200,
             "idleAnimation":null,
             "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"loop":false},
             "actions":
                 [
-                    {"action":"addWeapon","weapon":"m16"}
+                    {"action":"addAmmo","weapon":"m16","fireMethod":"primary","count":50}
                 ]
         }
 }

@@ -2,18 +2,18 @@
     "type":"pickup",
     "setup":
         {
-            "model":"m16",
+            "model":"chicken_leg",
             "rotationOrder":"XYZ",
-            "scale":{"x":8000,"y":8000,"z":8000},
-            "radius":2000,
-            "height":2000,
+            "scale":{"x":100,"y":100,"z":100},
+            "radius":1000,
+            "height":1000,
             "eyeOffset":0,
-            "weight":250,
-            "hideMeshes":["m16_holder_02","m16_bullet","m16_bullet01","m16_bullet02","m16_bullet04","m16_bullet05","m16_bullet06","m16_bullet07","m16_bullet08"]
+            "weight":20,
+            "hideMeshes":[]
         },
     "config":
         {
-            "hideTick":5000,
+            "hideTick":10000,
             "pickupOnce":"@pickupOnce",
             "spinTick":5000,
             "floatMove":200,
@@ -21,7 +21,7 @@
             "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"loop":false},
             "actions":
                 [
-                    {"action":"addWeapon","weapon":"m16"}
+                    {"action":"addHealth","count":25}
                 ]
         }
 }

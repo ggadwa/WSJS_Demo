@@ -17,6 +17,7 @@ export default class MapDualCastlesClass extends ProjectMapClass
                 "name":"dual_castles",
                 "scale":700,
                 "bumpHeight":1400,
+                "camera":{"mode":"firstPerson","viewNearZ":500,"viewFarZ":500000},
                 "gravity":{"min":0,"max":1700,"acceleration":0.1},
                 "skyBox":{"size":50000,"bitmap":"textures/skybox.png"},
                 "lights":
@@ -294,23 +295,23 @@ export default class MapDualCastlesClass extends ProjectMapClass
                     ],
                 "entities":
                     [
-                        {"entity":EntityPlayerClass,"name":"Player","position":{"x":-28000,"y":24124,"z":0},"angle":{"x":0,"y":90,"z":0},"player":true},
-                        {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_01","position":{"x":-28242,"y":24839,"z":-28541},"data":{"ammo":true}},
-                        {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_02","position":{"x":28074,"y":24839,"z":28166},"data":{"ammo":true}},
-                        {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_03","position":{"x":-28105,"y":24839,"z":28435},"data":{"ammo":true}},
-                        {"entity":EntityPickupBerettaClass,"name":"beretta_ammo_04","position":{"x":27567,"y":24839,"z":-28819},"data":{"ammo":true}},
-                        {"entity":EntityPickupM16Class,"name":"m16_01","position":{"x":100288,"y":13071,"z":-11516},"data":{"ammo":false}},
-                        {"entity":EntityPickupM16Class,"name":"m16_02","position":{"x":-100348,"y":13008,"z":14111},"data":{"ammo":false}},
-                        {"entity":EntityPickupM16Class,"name":"m16_ammo_01","position":{"x":-66877,"y":24839,"z":108129},"data":{"ammo":true}},
-                        {"entity":EntityPickupM16Class,"name":"m16_ammo_02","position":{"x":66855,"y":24839,"z":-109492},"data":{"ammo":true}},
-                        {"entity":EntityPickupM16Class,"name":"m16_ammo_03","position":{"x":17324,"y":5348,"z":60563},"data":{"ammo":true}},
-                        {"entity":EntityPickupM16Class,"name":"m16_ammo_04","position":{"x":-18407,"y":5454,"z":-58658},"data":{"ammo":true}},
-                        {"entity":EntityPickupGrenadeClass,"name":"grenade_01","position":{"x":16640,"y":29851,"z":136013}},
-                        {"entity":EntityPickupGrenadeClass,"name":"grenade_02","position":{"x":-17541,"y":29851,"z":-136473}},
-                        {"entity":EntityPickupChickenLegClass,"name":"health_01","position":{"x":1468,"y":29851,"z":109299}},
-                        {"entity":EntityPickupChickenLegClass,"name":"health_02","position":{"x":-1789,"y":29851,"z":-108954}},
-                        {"entity":EntityPickupArmorClass,"name":"armor_01","position":{"x":-342,"y":6000,"z":201566},"angle":{"x":90,"y":0,"z":0}},
-                        {"entity":EntityPickupArmorClass,"name":"armor_02","position":{"x":-2819,"y":12000,"z":-222607},"angle":{"x":90,"y":0,"z":0}}
+                        {"json":"entity_player","name":"Player","position":{"x":-28000,"y":24124,"z":0},"angle":{"x":0,"y":90,"z":0},"player":true},
+                        {"json":"entity_pickup_pistol_ammo","name":"pistol_ammo_01","position":{"x":-28242,"y":24839,"z":-28541}},
+                        {"json":"entity_pickup_pistol_ammo","name":"pistol_ammo_02","position":{"x":28074,"y":24839,"z":28166}},
+                        {"json":"entity_pickup_pistol_ammo","name":"pistol_ammo_03","position":{"x":-28105,"y":24839,"z":28435}},
+                        {"json":"entity_pickup_pistol_ammo","name":"pistol_ammo_04","position":{"x":27567,"y":24839,"z":-28819}},
+                        {"json":"entity_pickup_m16","name":"m16_01","position":{"x":100288,"y":13071,"z":-11516},"data":{"pickupOnce":false}},
+                        {"json":"entity_pickup_m16","name":"m16_02","position":{"x":-100348,"y":13008,"z":14111},"data":{"pickupOnce":false}},
+                        {"json":"entity_pickup_m16_ammo","name":"m16_ammo_01","position":{"x":-66877,"y":24839,"z":108129}},
+                        {"json":"entity_pickup_m16_ammo","name":"m16_ammo_02","position":{"x":66855,"y":24839,"z":-109492}},
+                        {"json":"entity_pickup_m16_ammo","name":"m16_ammo_03","position":{"x":17324,"y":5348,"z":60563}},
+                        {"json":"entity_pickup_m16_ammo","name":"m16_ammo_04","position":{"x":-18407,"y":5454,"z":-58658}},
+                        {"json":"entity_pickup_grenade","name":"grenade_01","position":{"x":16640,"y":29851,"z":136013}},
+                        {"json":"entity_pickup_grenade","name":"grenade_02","position":{"x":-17541,"y":29851,"z":-136473}},
+                        {"json":"entity_pickup_health","name":"health_01","position":{"x":1468,"y":29851,"z":109299},"data":{"pickupOnce":false}},
+                        {"json":"entity_pickup_health","name":"health_02","position":{"x":-1789,"y":29851,"z":-108954},"data":{"pickupOnce":false}},
+                        {"json":"entity_pickup_armor","name":"armor_01","position":{"x":-342,"y":6000,"z":201566},"angle":{"x":90,"y":0,"z":0},"data":{"pickupOnce":false}},
+                        {"json":"entity_pickup_armor","name":"armor_02","position":{"x":-2819,"y":12000,"z":-222607},"angle":{"x":90,"y":0,"z":0},"data":{"pickupOnce":false}}
                     ]
             }
         );

@@ -1,6 +1,5 @@
 {
     "type":"fps_monster",
-    "developer":true,
     "setup":
         {
             "model":"spider",
@@ -21,6 +20,12 @@
             "meleeWaitTick":800,
             "meleeDamageTick":500,
             "meleeDamage":5,
+            "projectileDistance":0,
+            "projectileWaitTick":0,
+            "projectileFireTick":0,
+            "projectileJson":null,
+            "projectileData":null,
+            "projectileRequiresSight":false,
             "maxTurnSpeed":8,
             "forwardAcceleration":10,
             "forwardMaxSpeed":150,
@@ -43,6 +48,8 @@
             "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"loop":false},
             "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"loop":false},
             "fallSound":null,
-            "fallSoundWaitCount":0
+            "fallSoundWaitTick":0,
+            "trapMeshName":null,
+            "trapMeshShrink":null
         }
 }

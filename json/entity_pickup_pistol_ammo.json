@@ -2,26 +2,26 @@
     "type":"pickup",
     "setup":
         {
-            "model":"m16",
+            "model":"beretta",
             "rotationOrder":"XYZ",
-            "scale":{"x":8000,"y":8000,"z":8000},
+            "scale":{"x":10000,"y":10000,"z":10000},
             "radius":2000,
             "height":2000,
             "eyeOffset":0,
             "weight":250,
-            "hideMeshes":["m16_holder_02","m16_bullet","m16_bullet01","m16_bullet02","m16_bullet04","m16_bullet05","m16_bullet06","m16_bullet07","m16_bullet08"]
+            "hideMeshes":["beretta","triger","peen","beretta_top","holder"]
         },
     "config":
         {
             "hideTick":5000,
-            "pickupOnce":"@pickupOnce",
+            "pickupOnce":false,
             "spinTick":5000,
             "floatMove":200,
             "idleAnimation":null,
             "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"loop":false},
             "actions":
                 [
-                    {"action":"addWeapon","weapon":"m16"}
+                    {"action":"addAmmo","weapon":"pistol","fireMethod":"primary","count":10}
                 ]
         }
 }

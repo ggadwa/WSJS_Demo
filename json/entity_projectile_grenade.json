@@ -15,6 +15,9 @@
         {
             "lifeTick":3000,
             "speed":450,
+            "damage":0,
+            "floats":false,
+            "followsFloor":false,
             "spins":false,
             "spinRate":0,
             "tumbles":true,
@@ -26,6 +29,9 @@
             "bounceSound":{"name":"grenade_bounce","rate":1.0,"randomRateAdd":0.1,"loop":false},
             "canReflect":true,
             "reflectSound":{"name":"grenade_bounce","rate":1.2,"randomRateAdd":0.1,"loop":false},
-            "hitEffect":"effect_explosion"
+            "spawnSound":null,
+            "hitEffect":"effect_explosion",
+            "trailEffect":null,
+            "trailSpawnTick":0
         }
 }

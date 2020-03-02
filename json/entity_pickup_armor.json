@@ -21,7 +21,7 @@
             "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"loop":false},
             "actions":
                 [
-                    {"action":"addArmor","name":null,"subName":null,"value":100}
+                    {"action":"addArmor","count":100}
                 ]
         }
 }

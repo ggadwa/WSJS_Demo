@@ -1,0 +1,37 @@
+{
+    "type":"projectile",
+    "setup":
+        {
+            "model":"crystal_ball",
+            "rotationOrder":"XYZ",
+            "scale":{"x":20,"y":20,"z":20},
+            "radius":500,
+            "height":500,
+            "eyeOffset":0,
+            "weight":30,
+            "hideMeshes":[]
+        },
+    "config":
+        {
+            "lifeTick":3000,
+            "speed":300,
+            "damage":20,
+            "floats":true,
+            "followsFloor":false,
+            "spins":true,
+            "spinRate":1000,
+            "tumbles":false,
+            "stopOnHit":true,
+            "canRoll":false,
+            "rollDeceleration":0,
+            "canBounce":false,
+            "bounceFactor":0,
+            "bounceSound":null,
+            "canReflect":false,
+            "reflectSound":null,
+            "spawnSound":{"name":"laser","rate":1.0,"randomRateAdd":0.0,"loop":false},
+            "hitEffect":"@hitEffect",
+            "trailEffect":"effect_sparkle",
+            "trailSpawnTick":40
+        }
+}
