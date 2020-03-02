@@ -11,22 +11,19 @@
 
 <script type="module">
     import main from '../../code/main/main.js';
-    import MapDungeonClass from '../scripts/maps/map_dungeon.js';
-    import MapDualCastlesClass from '../scripts/maps/map_dual_castles.js';
     
     window.main=main;
-    window.hardCodedMapClassHack=MapDungeonClass;
 </script>
 
 <script>
 function runDungeon()
 {
-    window.main.run(false,{"startMap":"Dungeon"});
+    window.main.run(false,{"startMap":"map_dungeon"});
 }
 
 function runDualCastle()
 {
-    window.main.run(true,{"startMap":"Dual Castles"});
+    window.main.run(true,{"startMap":"map_dual_castle"});
 }
 </script>
 
