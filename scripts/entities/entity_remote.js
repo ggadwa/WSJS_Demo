@@ -1,10 +1,10 @@
 import PointClass from '../../../code/utility/point.js';
-import ProjectEntityRemoteClass from '../../../code/project/project_entity_remote.js';
+import ProjectEntityClass from '../../../code/project/entity.js';
 import EntityWeaponBerettaClass from '../entities/entity_weapon_beretta.js';
 import EntityWeaponM16Class from '../entities/entity_weapon_m16.js';
 import EntityWeaponGrenadeClass from '../entities/entity_weapon_grenade.js';
 
-export default class EntityRemoteClass extends ProjectEntityRemoteClass
+export default class EntityRemoteClass extends ProjectEntityClass
 {
     initialize()
     {

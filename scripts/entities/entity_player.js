@@ -4,10 +4,9 @@ import ColorClass from '../../../code/utility/color.js';
 import EntityWeaponBerettaClass from '../entities/entity_weapon_beretta.js';
 import EntityWeaponM16Class from '../entities/entity_weapon_m16.js';
 import EntityWeaponGrenadeClass from '../entities/entity_weapon_grenade.js';
-import EntityJsonClass from '../../../code/project/entity_json.js';
-import ProjectEntityClass from '../../../code/project/project_entity.js';
+import ProjectEntityClass from '../../../code/project/entity.js';
 
-export default class EntityPlayerClass extends EntityJsonClass
+export default class EntityPlayerClass extends ProjectEntityClass
 {
     
     getJsonName()

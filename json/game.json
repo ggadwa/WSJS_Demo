@@ -1,6 +1,12 @@
 {
     "name":"wsjs_demo",
+    "developer":true,
     "startMap":"@startMap",
+    "config":
+        {
+            "multiplayerMessageText":"multiplayer_message",
+            "multiplayerMessageWaitTick":5000
+        },
     "jsons":
         [
             "effect_explosion","effect_fire","effect_hit","effect_sparkle","effect_web",

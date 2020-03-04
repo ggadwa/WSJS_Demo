@@ -357,7 +357,7 @@
             {"json":"entity_spider","name":"spider_12","position":{"x":-337269,"y":-56711,"z":41797},"angle":{"x":0,"y":0,"z":0}},
             {"json":"entity_spider","name":"spider_13","position":{"x":-339912,"y":-56720,"z":14092},"angle":{"x":0,"y":0,"z":0}},
             {"json":"entity_skeleton_boss","name":"skeleton_boss","position":{"x":-298429,"y":-61495,"z":28543},"angle":{"x":0,"y":0,"z":0}},
-            {"json":"entity_pickup_m16","name":"m16_01","position":{"x":-67684,"y":-7975,"z":-13612},"data":{"pickupOnce":true}},
+            {"json":"entity_pickup_m16","name":"m16_01","position":{"x":-67684,"y":-7975,"z":-13612},"angle":{"x":0,"y":0,"z":0},"data":{"pickupOnce":true}},
             {"json":"entity_pickup_armor","name":"armor_01","position":{"x":-121439,"y":-27924,"z":125337},"angle":{"x":90,"y":0,"z":0},"data":{"pickupOnce":true}}
         ]
 }

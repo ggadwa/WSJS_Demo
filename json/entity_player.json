@@ -1,6 +1,5 @@
 {
     "type":"fps_player",
-    "developer":true,
     "setup":
         {
             "model":"player",

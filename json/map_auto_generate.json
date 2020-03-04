@@ -73,7 +73,16 @@
         ],
     "entities":
         [
-            {"json":"entity_player","name":"Player","position":null,"angle":null,"player":true},
-            {"json":"entity_ratkin","name":"rat_01","position":null,"angle":null}
+            {"json":"entity_player","name":"Player","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"player":true,"randomStart":true},
+            {"json":"entity_ratkin","name":"rat_01","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
+            {"json":"entity_ratkin","name":"rat_02","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
+            {"json":"entity_ratkin","name":"rat_03","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
+            {"json":"entity_ratkin","name":"rat_04","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
+            {"json":"entity_ratkin","name":"rat_05","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
+            {"json":"entity_ratkin","name":"rat_06","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
+            {"json":"entity_ratkin","name":"rat_07","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
+            {"json":"entity_ratkin","name":"rat_08","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
+            {"json":"entity_ratkin","name":"rat_09","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
+            {"json":"entity_ratkin","name":"rat_10","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true}
         ]
 }
