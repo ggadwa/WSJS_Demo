@@ -38,6 +38,8 @@
             "jumpWaterHeight":400,
             "flySwimYReduce":0.5,
             "damageFlinchWaitTick":500,
+            "fallDamageMinDistance":10000,
+            "fallDamagePercentage":0.05,
             "respawnWaitTick":5000,
             "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"loop":false},
             "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"loop":false},
