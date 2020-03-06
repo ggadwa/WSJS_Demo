@@ -40,11 +40,14 @@
             "damageFlinchWaitTick":500,
             "fallDamageMinDistance":10000,
             "fallDamagePercentage":0.05,
-            "respawnWaitTick":5000,
+            "respawnWaitTick":8000,
             "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"loop":false},
             "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"loop":false},
             "hurtSound":{"name":"hurt","rate":0.5,"randomRateAdd":1.0,"loop":false},
-            "dieSound":{"name":"player_die","rate":0.8,"randomRateAdd":0,"loop":false}
+            "dieSound":{"name":"player_die","rate":0.8,"randomRateAdd":0,"loop":false},
+            "seekNodeDistanceSlop":1000,
+            "seekNodeAngleSlop":35,
+            "targetScanYRange":120
         },
     "weapons":
         [
