@@ -13,41 +13,43 @@
         },
     "config":
         {
-            "healthInitialCount":100,
-            "healthMaxCount":100,
-            "armorInitialCount":0,
-            "armorMaxCount":100,
-            "interfaceHealthIcon":"health",
-            "interfaceHealthCount":"health_count",
-            "interfaceArmorIcon":"armor",
-            "interfaceArmorCount":"armor_count",
-            "multiCamera":true,
             "idleAnimation":[0,50],
             "runAnimation":[492,518],
             "dieAnimation":[209,247],
-            "maxTurnSpeed":8,
-            "maxLookSpeed":8,
-            "maxLookAngle":80,
-            "forwardAcceleration":15,
-            "forwardDeceleration":30,
-            "forwardMaxSpeed":200,
-            "sideAcceleration":25,
-            "sideDeceleration":50,
-            "sideMaxSpeed":120,
-            "jumpHeight":400,
-            "jumpWaterHeight":400,
-            "flySwimYReduce":0.5,
-            "damageFlinchWaitTick":500,
-            "fallDamageMinDistance":10000,
-            "fallDamagePercentage":0.05,
-            "respawnWaitTick":8000,
             "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"loop":false},
             "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"loop":false},
             "hurtSound":{"name":"hurt","rate":0.5,"randomRateAdd":1.0,"loop":false},
             "dieSound":{"name":"player_die","rate":0.8,"randomRateAdd":0,"loop":false},
-            "seekNodeDistanceSlop":1000,
-            "seekNodeAngleSlop":35,
-            "targetScanYRange":120
+        
+            "skills":
+                [
+                    {
+                        "healthInitialCount":100,
+                        "healthMaxCount":100,
+                        "armorInitialCount":0,
+                        "armorMaxCount":100,
+                        "maxTurnSpeed":8,
+                        "maxLookSpeed":8,
+                        "maxLookAngle":80,
+                        "forwardAcceleration":15,
+                        "forwardDeceleration":30,
+                        "forwardMaxSpeed":200,
+                        "sideAcceleration":25,
+                        "sideDeceleration":50,
+                        "sideMaxSpeed":120,
+                        "jumpHeight":400,
+                        "jumpWaterHeight":400,
+                        "flySwimYReduce":0.5,
+                        "damageFlinchWaitTick":500,
+                        "fallDamageMinDistance":10000,
+                        "fallDamagePercentage":0.05,
+                        "respawnWaitTick":8000,
+                        "seekNodeDistanceSlop":1000,
+                        "seekNodeAngleSlop":35,
+                        "targetScanYRange":120,
+                        "targetForgetDistance":60000
+                    }
+                ]
         },
     "weapons":
         [
@@ -93,18 +95,5 @@
                 "parentTertiaryFireRunAnimation":[51,91],
                 "meshes":[]
             }
-        ],
-    "interface":
-        {
-            "elements":
-                [
-                    {"id":"armor","bitmap":"textures/icon_armor.png","width":35,"height":35,"positionMode":"bottomRight","positionOffset":{"x":-40,"y":-80},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true},
-                    {"id":"health","bitmap":"textures/icon_health.png","width":35,"height":35,"positionMode":"bottomRight","positionOffset":{"x":-40,"y":-40},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true}
-                ],
-            "texts":
-                [
-                    {"id":"armor_count","text":"","positionMode":"bottomRight","positionOffset":{"x":-50,"y":-50},"textSize":20,"textAlign":"right","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true},
-                    {"id":"health_count","text":"","positionMode":"bottomRight","positionOffset":{"x":-50,"y":-12},"textSize":20,"textAlign":"right","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true}
-                ]
-        }
+        ]
 }
