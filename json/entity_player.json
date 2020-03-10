@@ -45,7 +45,7 @@
             "thirdPersonCameraDistance":10000,
             "thirdPersonCameraLookAngle":-10,
             "hitIndicator":true,
-            "hitIndicatorFlashTick":2500,
+            "hitIndicatorFlashTick":200,
             "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"loop":false},
             "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"loop":false},
             "hurtSound":{"name":"hurt","rate":0.5,"randomRateAdd":1.0,"loop":false},
