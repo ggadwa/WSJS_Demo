@@ -29,11 +29,11 @@
                         "healthMaxCount":100,
                         "armorInitialCount":0,
                         "armorMaxCount":100,
-                        "maxTurnSpeed":8,
+                        "maxTurnSpeed":2,
                         "forwardAcceleration":15,
                         "forwardDeceleration":30,
-                        "forwardMaxSpeed":200,
-                        "sideAcceleration":25,
+                        "forwardMaxSpeed":75,
+                        "sideAcceleration":5,
                         "sideDeceleration":50,
                         "sideMaxSpeed":120,
                         "jumpHeight":400,
@@ -45,8 +45,10 @@
                         "respawnWaitTick":8000,
                         "seekNodeDistanceSlop":1000,
                         "seekNodeAngleSlop":35,
-                        "targetScanYRange":120,
-                        "targetForgetDistance":60000
+                        "targetScanYRange":60,
+                        "targetForgetDistance":40000,
+                        "targetFireYRange":20,
+                        "targetFireSlop":12
                     },
                     {
                         "comment":"moderate",
@@ -54,10 +56,10 @@
                         "healthMaxCount":100,
                         "armorInitialCount":0,
                         "armorMaxCount":100,
-                        "maxTurnSpeed":8,
+                        "maxTurnSpeed":4,
                         "forwardAcceleration":15,
                         "forwardDeceleration":30,
-                        "forwardMaxSpeed":200,
+                        "forwardMaxSpeed":130,
                         "sideAcceleration":25,
                         "sideDeceleration":50,
                         "sideMaxSpeed":120,
@@ -70,8 +72,10 @@
                         "respawnWaitTick":8000,
                         "seekNodeDistanceSlop":1000,
                         "seekNodeAngleSlop":35,
-                        "targetScanYRange":120,
-                        "targetForgetDistance":60000
+                        "targetScanYRange":90,
+                        "targetForgetDistance":50000,
+                        "targetFireYRange":15,
+                        "targetFireSlop":10
                     },
                     {
                         "comment":"normal",
@@ -96,7 +100,9 @@
                         "seekNodeDistanceSlop":1000,
                         "seekNodeAngleSlop":35,
                         "targetScanYRange":120,
-                        "targetForgetDistance":60000
+                        "targetForgetDistance":60000,
+                        "targetFireYRange":10,
+                        "targetFireSlop":10
                     },
                     {
                         "comment":"skilled",
@@ -104,10 +110,10 @@
                         "healthMaxCount":100,
                         "armorInitialCount":0,
                         "armorMaxCount":100,
-                        "maxTurnSpeed":8,
-                        "forwardAcceleration":15,
+                        "maxTurnSpeed":10,
+                        "forwardAcceleration":20,
                         "forwardDeceleration":30,
-                        "forwardMaxSpeed":200,
+                        "forwardMaxSpeed":220,
                         "sideAcceleration":25,
                         "sideDeceleration":50,
                         "sideMaxSpeed":120,
@@ -120,8 +126,10 @@
                         "respawnWaitTick":8000,
                         "seekNodeDistanceSlop":1000,
                         "seekNodeAngleSlop":35,
-                        "targetScanYRange":120,
-                        "targetForgetDistance":60000
+                        "targetScanYRange":140,
+                        "targetForgetDistance":60000,
+                        "targetFireYRange":8,
+                        "targetFireSlop":8
                     },
                     {
                         "comment":"hard",
@@ -129,10 +137,10 @@
                         "healthMaxCount":100,
                         "armorInitialCount":0,
                         "armorMaxCount":100,
-                        "maxTurnSpeed":8,
-                        "forwardAcceleration":15,
+                        "maxTurnSpeed":12,
+                        "forwardAcceleration":20,
                         "forwardDeceleration":30,
-                        "forwardMaxSpeed":200,
+                        "forwardMaxSpeed":240,
                         "sideAcceleration":25,
                         "sideDeceleration":50,
                         "sideMaxSpeed":120,
@@ -145,8 +153,10 @@
                         "respawnWaitTick":8000,
                         "seekNodeDistanceSlop":1000,
                         "seekNodeAngleSlop":35,
-                        "targetScanYRange":120,
-                        "targetForgetDistance":60000
+                        "targetScanYRange":180,
+                        "targetForgetDistance":60000,
+                        "targetFireYRange":5,
+                        "targetFireSlop":5
                     }
                 ]
         },
