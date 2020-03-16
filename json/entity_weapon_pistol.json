@@ -22,6 +22,7 @@
                     "type":"hit_scan",
                     "ammoInitialCount":15,
                     "ammoMaxCount":25,
+                    "ammoRegenerateTick":-1,
                     "waitTick":900,
                     "startRadius":0,
                     "damage":20,
