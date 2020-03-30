@@ -19,7 +19,8 @@
             {
                 "bitmap":"textures/slime.png","waveSize":1000,"wavePeriod":10000,"waveHeight":50,"waveUVStamp":0.2,
                 "uShift":0.0,"vShift":0.00001,"tint":{"r":0.3,"g":1.0,"b":0.3},
-                "xBound":{"min":-134400,"max":-103600},"yBound":{"min":-19600,"max":-16940},"zBound":{"min":40600,"max":67200}
+                "xBound":{"min":-134400,"max":-103600},"yBound":{"min":-19600,"max":-16940},"zBound":{"min":40600,"max":67200},
+                "gravityFactor":0.1
             }
         ],
     "effects":

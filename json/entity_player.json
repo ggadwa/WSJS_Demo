@@ -45,7 +45,7 @@
             "flyDeceleration":50,
             "flyMaxSpeed":150,
             "jumpHeight":400,
-            "jumpWaterHeight":400,
+            "jumpWaterHeight":500,
             "flySwimYReduce":0.5,
             "damageFlinchWaitTick":500,
             "fallDamageMinDistance":10000,

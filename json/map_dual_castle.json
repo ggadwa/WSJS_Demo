@@ -33,7 +33,8 @@
             {
                 "bitmap":"textures/water.png","waveSize":5000,"wavePeriod":4000,"waveHeight":400,"waveUVStamp":0.1,
                 "uShift":0.00005,"vShift":0.0,"tint":{"r":0.2,"g":0.2,"b":0.5},
-                "xBound":{"min":-215000,"max":215000},"yBound":{"min":-28000,"max":-11500},"zBound":{"min":-40000,"max":75000}
+                "xBound":{"min":-215000,"max":215000},"yBound":{"min":-28000,"max":-11500},"zBound":{"min":-40000,"max":75000},
+                "gravityFactor":0.1
             }
         ],
     "noCollideBitmaps":["birch_tree_branch_color","bush_color","crystal_blue_color","crystal_red_color"],
