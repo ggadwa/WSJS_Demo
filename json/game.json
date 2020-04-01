@@ -5,16 +5,14 @@
     "config":
         {
             "multiplayerMessageText":"multiplayer_message",
-            "multiplayerMessageWaitTick":5000
+            "multiplayerMessageWaitTick":5000,
+            "touchStickSize":256,
+            "touchStickRingBitmap":"textures/stick_ring.png",
+            "touchStickThumbBitmap":"textures/stick_thumb.png",
+            "touchButtonSize":48,
+            "touchMenuPosition":[10,10],
+            "touchMenuBitmap":"textures/menu.png"
         },
-    "jsons":
-        [
-            "effect_explosion","effect_fire","effect_hit","effect_sparkle","effect_web",
-            "entity_player","entity_bot","entity_captain_chest","entity_weapon_pistol","entity_weapon_m16","entity_weapon_grenade","entity_projectile_grenade",
-            "entity_pickup_pistol_ammo","entity_pickup_m16","entity_pickup_m16_ammo","entity_pickup_grenade","entity_pickup_health","entity_pickup_armor",
-            "entity_ratkin","entity_spider","entity_vampire","entity_skeleton","entity_skeleton_boss","entity_projectile_sparkle",
-            "map_dungeon","map_dual_castle","map_auto_generate"
-        ],
     "interface":
         {
             "texts":
@@ -24,7 +22,7 @@
         },
     "bot":
         {
-            "json":"entity_bot",
+            "json":"bot",
             "names":["Caesar","Vespasian","Hadrian","Augustus","Trajan","Tiberius","Caligula","Claudius","Nero","Commodus"]
         }
 }
