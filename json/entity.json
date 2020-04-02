@@ -58,10 +58,10 @@
                 "thirdPersonCameraLookAngle":-10,
                 "hitIndicator":true,
                 "hitIndicatorFlashTick":500,
-                "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"loop":false},
-                "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"loop":false},
-                "hurtSound":{"name":"hurt","rate":0.5,"randomRateAdd":1.0,"loop":false},
-                "dieSound":{"name":"player_die","rate":0.8,"randomRateAdd":0,"loop":false}
+                "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"distance":40000,"loopStart":0,"loopEnd":0,"loop":false},
+                "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"distance":40000,"loopStart":0,"loopEnd":0,"loop":false},
+                "hurtSound":{"name":"hurt","rate":0.5,"randomRateAdd":1.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
+                "dieSound":{"name":"player_die","rate":0.8,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false}
             },
         "weapons":
             [
@@ -142,10 +142,10 @@
                 "idleAnimation":[0,50],
                 "runAnimation":[492,518],
                 "dieAnimation":[209,247],
-                "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"loop":false},
-                "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"loop":false},
-                "hurtSound":{"name":"hurt","rate":0.5,"randomRateAdd":1.0,"loop":false},
-                "dieSound":{"name":"player_die","rate":0.8,"randomRateAdd":0,"loop":false},
+                "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"distance":40000,"loopStart":0,"loopEnd":0,"loop":false},
+                "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"distance":40000,"loopStart":0,"loopEnd":0,"loop":false},
+                "hurtSound":{"name":"hurt","rate":0.5,"randomRateAdd":1.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
+                "dieSound":{"name":"player_die","rate":0.8,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
 
                 "skills":
                     [
@@ -404,7 +404,7 @@
                         "distance":100000,
                         "hitEffect":"hit",
                         "projectileJson":null,
-                        "sound":{"name":"beretta_fire","rate":1.0,"randomRateAdd":0.4,"loop":false},
+                        "sound":{"name":"pistol_fire","rate":1.0,"randomRateAdd":0.4,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false},
                         "animation":[128,143],
                         "interfaceAmmoIcon":"pistol_bullet",
                         "interfaceAmmoText":"pistol_bullet_count",
@@ -458,7 +458,7 @@
                         "distance":100000,
                         "hitEffect":"hit",
                         "projectileJson":null,
-                        "sound":{"name":"m16_fire","rate":1.0,"randomRateAdd":0.4,"loop":false},
+                        "sound":{"name":"m16_fire","rate":1.0,"randomRateAdd":0.4,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false},
                         "animation":[128,143],
                         "interfaceAmmoIcon":"m16_bullet",
                         "interfaceAmmoText":"m16_bullet_count",
@@ -514,7 +514,7 @@
                         "distance":0,
                         "hitEffect":null,
                         "projectileJson":"projectile_grenade",
-                        "sound":{"name":"throw","rate":1.0,"randomRateAdd":0,"loop":false},
+                        "sound":{"name":"throw","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false},
                         "animation":[0,0],
                         "interfaceAmmoIcon":"grenade",
                         "interfaceAmmoText":"grenade_count",
@@ -554,7 +554,7 @@
                 "spinTick":5000,
                 "floatMove":200,
                 "idleAnimation":null,
-                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"loop":false},
+                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
                 "actions":
                     [
                         {"action":"addAmmo","weapon":"pistol","fireMethod":"primary","count":10}
@@ -582,7 +582,7 @@
                 "spinTick":5000,
                 "floatMove":200,
                 "idleAnimation":null,
-                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"loop":false},
+                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
                 "actions":
                     [
                         {"action":"addWeapon","weapon":"m16"}
@@ -610,7 +610,7 @@
                 "spinTick":5000,
                 "floatMove":200,
                 "idleAnimation":null,
-                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"loop":false},
+                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
                 "actions":
                     [
                         {"action":"addAmmo","weapon":"m16","fireMethod":"primary","count":50}
@@ -638,7 +638,7 @@
                 "spinTick":5000,
                 "floatMove":200,
                 "idleAnimation":null,
-                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"loop":false},
+                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
                 "actions":
                     [
                         {"action":"addAmmo","weapon":"grenade","fireMethod":"tertiary","count":1}
@@ -666,7 +666,7 @@
                 "spinTick":5000,
                 "floatMove":200,
                 "idleAnimation":null,
-                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"loop":false},
+                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
                 "actions":
                     [
                         {"action":"addArmor","count":100}
@@ -694,7 +694,7 @@
                 "spinTick":5000,
                 "floatMove":200,
                 "idleAnimation":null,
-                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"loop":false},
+                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
                 "actions":
                     [
                         {"action":"addHealth","count":25}
@@ -730,9 +730,9 @@
                 "rollDeceleration":0.95,
                 "canBounce":true,
                 "bounceFactor":0.8,
-                "bounceSound":{"name":"grenade_bounce","rate":1.0,"randomRateAdd":0.1,"loop":false},
+                "bounceSound":{"name":"grenade_bounce","rate":1.0,"randomRateAdd":0.1,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false},
                 "canReflect":true,
-                "reflectSound":{"name":"grenade_bounce","rate":1.2,"randomRateAdd":0.1,"loop":false},
+                "reflectSound":{"name":"grenade_bounce","rate":1.2,"randomRateAdd":0.1,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false},
                 "spawnSound":null,
                 "hitEffect":"explosion",
                 "trailEffect":null,
@@ -771,7 +771,7 @@
                 "bounceSound":null,
                 "canReflect":false,
                 "reflectSound":null,
-                "spawnSound":{"name":"laser","rate":1.0,"randomRateAdd":0.0,"loop":false},
+                "spawnSound":{"name":"laser","rate":1.0,"randomRateAdd":0.0,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false},
                 "hitEffect":"@hitEffect",
                 "trailEffect":"sparkle",
                 "trailSpawnTick":40
@@ -803,8 +803,8 @@
                 "openAnimation":[65,66],
                 "openingAnimation":[1,65],
                 "closingAnimation":[0,1],
-                "openSound":{"name":"chime","rate":1.0,"randomRateAdd":0.0,"loop":false},
-                "closeSound":{"name":"chime","rate":0.5,"randomRateAdd":0.0,"loop":false},
+                "openSound":{"name":"chime","rate":1.0,"randomRateAdd":0.0,"distance":7000,"loopStart":0,"loopEnd":0,"loop":false},
+                "closeSound":{"name":"chime","rate":0.5,"randomRateAdd":0.0,"distance":7000,"loopStart":0,"loopEnd":0,"loop":false},
                 "openActions":
                     [
                         {"action":"trigger","name":"@trigger"},
@@ -870,13 +870,13 @@
                 "projectileAnimation":[0,0],
                 "hitAnimation":[1186,1221],
                 "deathAnimation":[1306,1371],
-                "wakeUpSound":{"name":"rat_wake_up","rate":1.0,"randomRateAdd":0,"loop":false},
-                "hurtSound":{"name":"rat_wake_up","rate":0.7,"randomRateAdd":0.6,"loop":false},
-                "meleeSound":{"name":"blade","rate":1.0,"randomRateAdd":0,"loop":false},
-                "deathSound":{"name":"rat_die","rate":1.0,"randomRateAdd":0,"loop":false},
-                "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"loop":false},
-                "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"loop":false},
-                "fallSound":{"name":"thud","rate":1.0,"randomRateAdd":0,"loop":false},
+                "wakeUpSound":{"name":"rat_wake_up","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "hurtSound":{"name":"rat_wake_up","rate":0.7,"randomRateAdd":0.6,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "meleeSound":{"name":"blade","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false},
+                "deathSound":{"name":"rat_die","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"distance":40000,"loopStart":0,"loopEnd":0,"loop":false},
+                "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"distance":40000,"loopStart":0,"loopEnd":0,"loop":false},
+                "fallSound":{"name":"thud","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
                 "fallSoundWaitTick":1600,
                 "trapMeshName":null,
                 "trapMeshShrink":null
@@ -934,12 +934,12 @@
                 "projectileAnimation":[0,0],
                 "hitAnimation":[140,164],
                 "deathAnimation":[245,280],
-                "wakeUpSound":{"name":"spider_wake_up","rate":1.0,"randomRateAdd":0,"loop":false},
-                "hurtSound":{"name":"spider_wake_up","rate":0.7,"randomRateAdd":0.6,"loop":false},
-                "meleeSound":{"name":"spider_wake_up","rate":1.2,"randomRateAdd":0.2,"loop":false},
-                "deathSound":{"name":"spider_die","rate":1.0,"randomRateAdd":0,"loop":false},
-                "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"loop":false},
-                "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"loop":false},
+                "wakeUpSound":{"name":"spider_wake_up","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "hurtSound":{"name":"spider_wake_up","rate":0.7,"randomRateAdd":0.6,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "meleeSound":{"name":"spider_wake_up","rate":1.2,"randomRateAdd":0.2,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "deathSound":{"name":"spider_die","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"distance":40000,"loopStart":0,"loopEnd":0,"loop":false},
+                "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"distance":40000,"loopStart":0,"loopEnd":0,"loop":false},
                 "fallSound":null,
                 "fallSoundWaitTick":0,
                 "trapMeshName":null,
@@ -998,13 +998,13 @@
                 "projectileAnimation":[547,597],
                 "hitAnimation":[982,1017],
                 "deathAnimation":[1886,1951],
-                "wakeUpSound":{"name":"vampire_wake_up","rate":1.0,"randomRateAdd":0,"loop":false},
-                "hurtSound":{"name":"vampire_wake_up","rate":0.7,"randomRateAdd":0.6,"loop":false},
-                "meleeSound":{"name":"vampire_wake_up","rate":1.2,"randomRateAdd":0.4,"loop":false},
-                "deathSound":{"name":"vampire_die","rate":1.0,"randomRateAdd":0,"loop":false},
-                "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"loop":false},
-                "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"loop":false},
-                "fallSound":{"name":"thud","rate":1.0,"randomRateAdd":0,"loop":false},
+                "wakeUpSound":{"name":"vampire_wake_up","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "hurtSound":{"name":"vampire_wake_up","rate":0.7,"randomRateAdd":0.6,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "meleeSound":{"name":"vampire_wake_up","rate":1.2,"randomRateAdd":0.4,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "deathSound":{"name":"vampire_die","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"distance":40000,"loopStart":0,"loopEnd":0,"loop":false},
+                "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"distance":40000,"loopStart":0,"loopEnd":0,"loop":false},
+                "fallSound":{"name":"thud","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
                 "fallSoundWaitTick":1600,
                 "trapMeshName":null,
                 "trapMeshShrink":null
@@ -1062,13 +1062,13 @@
                 "projectileAnimation":[4711,4731],
                 "hitAnimation":[4974,5009],
                 "deathAnimation":[3971,4111],
-                "wakeUpSound":{"name":"skeleton_wake_up","rate":1.0,"randomRateAdd":0,"loop":false},
-                "hurtSound":{"name":"skeleton_wake_up","rate":0.7,"randomRateAdd":0.6,"loop":false},
-                "meleeSound":{"name":"blade","rate":1.0,"randomRateAdd":0,"loop":false},
-                "deathSound":{"name":"skeleton_die","rate":1.0,"randomRateAdd":0,"loop":false},
-                "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"loop":false},
-                "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"loop":false},
-                "fallSound":{"name":"thud","rate":1.0,"randomRateAdd":0,"loop":false},
+                "wakeUpSound":{"name":"skeleton_wake_up","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "hurtSound":{"name":"skeleton_wake_up","rate":0.7,"randomRateAdd":0.6,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "meleeSound":{"name":"blade","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false},
+                "deathSound":{"name":"skeleton_die","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"distance":40000,"loopStart":0,"loopEnd":0,"loop":false},
+                "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"distance":40000,"loopStart":0,"loopEnd":0,"loop":false},
+                "fallSound":{"name":"thud","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
                 "fallSoundWaitTick":4200,
                 "trapMeshName":null,
                 "trapMeshShrink":null
@@ -1126,13 +1126,13 @@
                 "projectileAnimation":[4711,4731],
                 "hitAnimation":[4974,5009],
                 "deathAnimation":[3833,3966],
-                "wakeUpSound":{"name":"skeleton_wake_up","rate":1.0,"randomRateAdd":0,"loop":false},
-                "hurtSound":{"name":"skeleton_wake_up","rate":0.7,"randomRateAdd":0.6,"loop":false},
-                "meleeSound":{"name":"blade","rate":1.0,"randomRateAdd":0,"loop":false},
-                "deathSound":{"name":"skeleton_die","rate":1.0,"randomRateAdd":0,"loop":false},
-                "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"loop":false},
-                "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"loop":false},
-                "fallSound":{"name":"thud","rate":1.0,"randomRateAdd":0,"loop":false},
+                "wakeUpSound":{"name":"skeleton_wake_up","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "hurtSound":{"name":"skeleton_wake_up","rate":0.7,"randomRateAdd":0.6,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "meleeSound":{"name":"blade","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false},
+                "deathSound":{"name":"skeleton_die","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "liquidInSound":{"name":"splash","rate":1.0,"randomRateAdd":0,"distance":40000,"loopStart":0,"loopEnd":0,"loop":false},
+                "liquidOutSound":{"name":"splash","rate":0.8,"randomRateAdd":0,"distance":40000,"loopStart":0,"loopEnd":0,"loop":false},
+                "fallSound":{"name":"thud","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
                 "fallSoundWaitTick":4200,
                 "trapMeshName":"stairs_king_00",
                 "trapMeshShrink":{"x":8000,"y":0,"z":8000}
