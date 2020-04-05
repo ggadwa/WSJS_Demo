@@ -30,6 +30,11 @@ function runAutoGenerate()
 {
     window.main.run(false,{"startMap":"auto_generate"});
 }
+
+function runKart()
+{
+    window.main.run(false,{"startMap":"circuit_race"});
+}
 </script>
 
 </head>
@@ -55,6 +60,10 @@ function runAutoGenerate()
     <div class="column">
         <img class="imageClick" src="auto_generate.png" onClick="runAutoGenerate()">
         <div class="imageText">Auto-Generated Map</div>
+    </div>
+    <div class="column">
+        <img class="imageClick" src="auto_generate.png" onClick="runKart()">
+        <div class="imageText">Kart Map</div>
     </div>
 </div>
 

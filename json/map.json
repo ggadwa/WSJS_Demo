@@ -148,7 +148,7 @@
                     "moves":
                         [
                             {"tick":1000,"move":{"x":0,"y":0,"z":0}},
-                            {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"trigger","pauseData":"gate_01","sound":"gate","soundMaxDistance":55000},
+                            {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"trigger","pauseData":"gate_01","sound":{"name":"gate","rate":1.0,"randomRateAdd":0,"distance":55000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"stop"}
                         ]
                 },
@@ -157,7 +157,7 @@
                     "moves":
                         [
                             {"tick":1000,"move":{"x":0,"y":0,"z":0}},
-                            {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"trigger","pauseData":"gate_02","sound":"gate","soundMaxDistance":55000},
+                            {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"trigger","pauseData":"gate_02","sound":{"name":"gate","rate":1.0,"randomRateAdd":0,"distance":55000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"stop"}
                         ]
                 },
@@ -166,7 +166,7 @@
                     "moves":
                         [
                             {"tick":1000,"move":{"x":0,"y":0,"z":0}},
-                            {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"trigger","pauseData":"gate_03","sound":"gate","soundMaxDistance":55000},
+                            {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"trigger","pauseData":"gate_03","sound":{"name":"gate","rate":1.0,"randomRateAdd":0,"distance":55000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"stop"}
                         ]
                 },
@@ -175,7 +175,7 @@
                     "moves":
                         [
                             {"tick":1000,"move":{"x":0,"y":0,"z":0}},
-                            {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"trigger","pauseData":"gate_05","sound":"gate","soundMaxDistance":55000},
+                            {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"trigger","pauseData":"gate_05","sound":{"name":"gate","rate":1.0,"randomRateAdd":0,"distance":55000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"stop"}
                         ]
                 },
@@ -184,7 +184,7 @@
                     "moves":
                         [
                             {"tick":1000,"move":{"x":0,"y":0,"z":0}},
-                            {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"trigger","pauseData":"gate_06","sound":"gate","soundMaxDistance":55000},
+                            {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"trigger","pauseData":"gate_06","sound":{"name":"gate","rate":1.0,"randomRateAdd":0,"distance":55000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"stop"}
                         ]
                 },
@@ -193,7 +193,7 @@
                     "moves":
                         [
                             {"tick":1000,"move":{"x":0,"y":0,"z":0}},
-                            {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"trigger","pauseData":"gate_07","sound":"gate","soundMaxDistance":55000},
+                            {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"trigger","pauseData":"gate_07","sound":{"name":"gate","rate":1.0,"randomRateAdd":0,"distance":55000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"stop"}
                         ]
                 },
@@ -202,7 +202,7 @@
                     "moves":
                         [
                             {"tick":1000,"move":{"x":0,"y":0,"z":0}},
-                            {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"trigger","pauseData":"gate_08","sound":"gate","soundMaxDistance":55000},
+                            {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"trigger","pauseData":"gate_08","sound":{"name":"gate","rate":1.0,"randomRateAdd":0,"distance":55000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"stop"}
                         ]
                 },
@@ -211,7 +211,7 @@
                     "moves":
                         [
                             {"tick":1000,"move":{"x":0,"y":0,"z":0}},
-                            {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"trigger","pauseData":"gate_09","sound":"gate","soundMaxDistance":55000},
+                            {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"trigger","pauseData":"gate_09","sound":{"name":"gate","rate":1.0,"randomRateAdd":0,"distance":55000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":1000,"move":{"x":0,"y":10000,"z":0},"pauseType":"stop"}
                         ]
                 },
@@ -222,8 +222,8 @@
                     "approachOffset":{"x":0,"y":0,"z":-1000},
                     "moves":
                         [
-                            {"tick":1500,"rotate":{"x":0,"y":0,"z":0},"pauseType":"leave","pauseData":18000,"sound":"door","soundMaxDistance":25000},
-                            {"tick":1500,"rotate":{"x":0,"y":85,"z":0},"pauseType":"approach","pauseData":18000,"sound":"door","soundMaxDistance":25000}
+                            {"tick":1500,"rotate":{"x":0,"y":0,"z":0},"pauseType":"leave","pauseData":18000,"sound":{"name":"door","rate":1.0,"randomRateAdd":0,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false}},
+                            {"tick":1500,"rotate":{"x":0,"y":85,"z":0},"pauseType":"approach","pauseData":18000,"sound":{"name":"door","rate":1.0,"randomRateAdd":0,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false}}
                         ]
                 },
                 {
@@ -233,8 +233,8 @@
                     "approachOffset":{"x":-1000,"y":0,"z":0},
                     "moves":
                         [
-                            {"tick":1500,"rotate":{"x":0,"y":0,"z":0},"pauseType":"leave","pauseData":18000,"sound":"door","soundMaxDistance":25000},
-                            {"tick":1500,"rotate":{"x":0,"y":85,"z":0},"pauseType":"approach","pauseData":18000,"sound":"door","soundMaxDistance":25000}
+                            {"tick":1500,"rotate":{"x":0,"y":0,"z":0},"pauseType":"leave","pauseData":18000,"sound":{"name":"door","rate":1.0,"randomRateAdd":0,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false}},
+                            {"tick":1500,"rotate":{"x":0,"y":85,"z":0},"pauseType":"approach","pauseData":18000,"sound":{"name":"door","rate":1.0,"randomRateAdd":0,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false}}
                         ]
                 },
                 {
@@ -244,8 +244,8 @@
                     "approachOffset":{"x":-1000,"y":0,"z":0},
                     "moves":
                         [
-                            {"tick":1500,"rotate":{"x":0,"y":0,"z":0},"pauseType":"leave","pauseData":18000,"sound":"door","soundMaxDistance":25000},
-                            {"tick":1500,"rotate":{"x":0,"y":85,"z":0},"pauseType":"approach","pauseData":18000,"sound":"door","soundMaxDistance":25000}
+                            {"tick":1500,"rotate":{"x":0,"y":0,"z":0},"pauseType":"leave","pauseData":18000,"sound":{"name":"door","rate":1.0,"randomRateAdd":0,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false}},
+                            {"tick":1500,"rotate":{"x":0,"y":85,"z":0},"pauseType":"approach","pauseData":18000,"sound":{"name":"door","rate":1.0,"randomRateAdd":0,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false}}
                         ]
                 },
                 {
@@ -255,8 +255,8 @@
                     "approachOffset":{"x":-1000,"y":0,"z":0},
                     "moves":
                         [
-                            {"tick":1500,"rotate":{"x":0,"y":0,"z":0},"pauseType":"leave","pauseData":18000,"sound":"door","soundMaxDistance":25000},
-                            {"tick":1500,"rotate":{"x":0,"y":85,"z":0},"pauseType":"approach","pauseData":18000,"sound":"door","soundMaxDistance":25000}
+                            {"tick":1500,"rotate":{"x":0,"y":0,"z":0},"pauseType":"leave","pauseData":18000,"sound":{"name":"door","rate":1.0,"randomRateAdd":0,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false}},
+                            {"tick":1500,"rotate":{"x":0,"y":85,"z":0},"pauseType":"approach","pauseData":18000,"sound":{"name":"door","rate":1.0,"randomRateAdd":0,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false}}
                         ]
                 }
             ],
@@ -366,9 +366,9 @@
                     "meshes":["RedPlatform_01"],
                     "moves":
                         [
-                            {"tick":5000,"move":{"x":0,"y":0,"z":0},"sound":"stone_platform","soundMaxDistance":50000},
+                            {"tick":5000,"move":{"x":0,"y":0,"z":0},"sound":{"name":"stone_platform","rate":1.0,"randomRateAdd":0,"distance":60000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":2000,"move":{"x":0,"y":0,"z":0},"trigger":"platform_top"},
-                            {"tick":5000,"move":{"x":0,"y":-12600,"z":0},"sound":"stone_platform","soundMaxDistance":50000},
+                            {"tick":5000,"move":{"x":0,"y":-12600,"z":0},"sound":{"name":"stone_platform","rate":0.8,"randomRateAdd":0,"distance":60000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":2000,"move":{"x":0,"y":-12600,"z":0},"trigger":"platform_bottom"}
                         ]
                 },
@@ -376,9 +376,9 @@
                     "meshes":["RedPlatform_02"],
                     "moves":
                         [
-                            {"tick":4000,"move":{"x":0,"y":0,"z":0},"sound":"stone_platform","soundMaxDistance":50000},
+                            {"tick":4000,"move":{"x":0,"y":0,"z":0},"sound":{"name":"stone_platform","rate":1.0,"randomRateAdd":0,"distance":60000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":2000,"move":{"x":0,"y":0,"z":0}},
-                            {"tick":4000,"move":{"x":0,"y":-12600,"z":0},"sound":"stone_platform","soundMaxDistance":50000},
+                            {"tick":4000,"move":{"x":0,"y":-12600,"z":0},"sound":{"name":"stone_platform","rate":0.8,"randomRateAdd":0,"distance":60000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":2000,"move":{"x":0,"y":-12600,"z":0}}
                         ]
                 },
@@ -386,9 +386,9 @@
                     "meshes":["RedPlatform_03"],
                     "moves":
                         [
-                            {"tick":6000,"move":{"x":0,"y":0,"z":0},"sound":"stone_platform","soundMaxDistance":50000},
+                            {"tick":6000,"move":{"x":0,"y":0,"z":0},"sound":{"name":"stone_platform","rate":1.0,"randomRateAdd":0,"distance":60000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":2000,"move":{"x":0,"y":0,"z":0}},
-                            {"tick":6000,"move":{"x":0,"y":-12600,"z":0},"sound":"stone_platform","soundMaxDistance":50000},
+                            {"tick":6000,"move":{"x":0,"y":-12600,"z":0},"sound":{"name":"stone_platform","rate":0.8,"randomRateAdd":0,"distance":60000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":2000,"move":{"x":0,"y":-12600,"z":0}}
                         ]
                 },
@@ -396,9 +396,9 @@
                     "meshes":["BluePlatform_01"],
                     "moves":
                         [
-                            {"tick":5000,"move":{"x":0,"y":0,"z":0},"sound":"stone_platform","soundMaxDistance":50000},
+                            {"tick":5000,"move":{"x":0,"y":0,"z":0},"sound":{"name":"stone_platform","rate":1.0,"randomRateAdd":0,"distance":60000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":2000,"move":{"x":0,"y":0,"z":0},"trigger":"platform_top"},
-                            {"tick":5000,"move":{"x":0,"y":-12600,"z":0},"sound":"stone_platform","soundMaxDistance":50000},
+                            {"tick":5000,"move":{"x":0,"y":-12600,"z":0},"sound":{"name":"stone_platform","rate":0.8,"randomRateAdd":0,"distance":60000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":2000,"move":{"x":0,"y":-12600,"z":0},"trigger":"platform_bottom"}
                         ]
                 },
@@ -406,9 +406,9 @@
                     "meshes":["BluePlatform_02"],
                     "moves":
                         [
-                            {"tick":4000,"move":{"x":0,"y":0,"z":0},"sound":"stone_platform","soundMaxDistance":50000},
+                            {"tick":4000,"move":{"x":0,"y":0,"z":0},"sound":{"name":"stone_platform","rate":1.0,"randomRateAdd":0,"distance":60000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":2000,"move":{"x":0,"y":0,"z":0}},
-                            {"tick":4000,"move":{"x":0,"y":-12600,"z":0},"sound":"stone_platform","soundMaxDistance":50000},
+                            {"tick":4000,"move":{"x":0,"y":-12600,"z":0},"sound":{"name":"stone_platform","rate":0.8,"randomRateAdd":0,"distance":60000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":2000,"move":{"x":0,"y":-12600,"z":0}}
                         ]
                 },
@@ -416,9 +416,9 @@
                     "meshes":["BluePlatform_03"],
                     "moves":
                         [
-                            {"tick":6000,"move":{"x":0,"y":0,"z":0},"sound":"stone_platform","soundMaxDistance":50000},
+                            {"tick":6000,"move":{"x":0,"y":0,"z":0},"sound":{"name":"stone_platform","rate":1.0,"randomRateAdd":0,"distance":60000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":2000,"move":{"x":0,"y":0,"z":0}},
-                            {"tick":6000,"move":{"x":0,"y":-12600,"z":0},"sound":"stone_platform","soundMaxDistance":50000},
+                            {"tick":6000,"move":{"x":0,"y":-12600,"z":0},"sound":{"name":"stone_platform","rate":0.8,"randomRateAdd":0,"distance":60000,"loopStart":0,"loopEnd":0,"loop":false}},
                             {"tick":2000,"move":{"x":0,"y":-12600,"z":0}}
                         ]
                 }
@@ -594,6 +594,258 @@
                 {"json":"ratkin","name":"rat_08","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
                 {"json":"ratkin","name":"rat_09","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
                 {"json":"ratkin","name":"rat_10","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true}
+            ]
+    },
+    {
+        "name":"circuit_race",
+        "scale":6000,
+        "camera":{"mode":"thirdPersonBehind","thirdPersonDistance":20000,"thirdPersonLookDegree":-20,"viewNearZ":500,"viewFarZ":2500000},
+        "gravity":{"min":0,"max":1700,"acceleration":0.1},
+        "maxFloorCeilingDetectionFactor":0.6,
+        "skyBox":{"size":50000,"bitmap":"textures/skybox_day.png"},
+        "lightMin":{"r":0.2,"g":0.2,"b":0.2},
+        "lightMax":{"r":1.0,"g":1.0,"b":1.0},
+        "lights":
+            [
+                {"position":{"x":-952711,"y":329759,"z":-1194168},"color":{"r":0.2,"g":0.2,"b":0.2},"intensity":8000000,"exponent":0,"ambient":true}
+            ],
+        "effects":
+            [
+                {"json":"spotlight","attachMesh":"lamppost_transp008","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":120000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp048","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":120000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp033","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":120000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp003","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":120000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp043","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":120000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp041","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":120000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp080","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":120000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp078","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":120000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp036","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":120000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp075","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":120000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp073","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":120000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp029","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":120000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp068","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":150000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp024","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":150000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp063","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":150000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp019","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":150000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp058","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":150000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp015","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":150000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp055","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":150000}},
+                {"json":"spotlight","attachMesh":"lamppost_transp054","attachOffset":{"x":0,"y":0,"z":0},"data":{"intensity":150000}}
+            ],
+        "entities":
+            [
+                {"json":"kart_player","name":"kart_player","position":{"x":-658682,"y":1416,"z":-695054},"angle":{"x":0,"y":90,"z":0},"player":true},
+
+
+                {"json":"turbine","name":"turbine_1","position":{"x":103605,"y":82,"z":-279601},"angle":{"x":0,"y":150,"z":0}},
+                {"json":"turbine","name":"turbine_2","position":{"x":-400374,"y":82,"z":-1488877},"angle":{"x":0,"y":40,"z":0}},
+                {"json":"turbine","name":"turbine_3","position":{"x":-373274,"y":82,"z":-1667794},"angle":{"x":0,"y":20,"z":0}},
+                {"json":"turbine","name":"turbine_4","position":{"x":195796,"y":82,"z":-557405},"angle":{"x":0,"y":230,"z":0}},
+                {"json":"turbine","name":"turbine_5","position":{"x":135398,"y":82,"z":-575890},"angle":{"x":0,"y":180,"z":0}},
+                {"json":"turbine","name":"turbine_6","position":{"x":185476,"y":82,"z":-435795},"angle":{"x":0,"y":45,"z":0}},
+                {"json":"turbine","name":"turbine_7","position":{"x":199274,"y":82,"z":-345016},"angle":{"x":0,"y":290,"z":0}},
+                {"json":"turbine","name":"turbine_8","position":{"x":-97922,"y":82,"z":-366713},"angle":{"x":0,"y":95,"z":0}},
+                {"json":"turbine","name":"turbine_8","position":{"x":-658592,"y":82,"z":-878358},"angle":{"x":0,"y":95,"z":0}},
+                {"json":"turbine","name":"turbine_8","position":{"x":-581180,"y":82,"z":-845704},"angle":{"x":0,"y":295,"z":0}}
+            ],
+        "cubes":
+            [
+                {"xBound":{"min":-888152,"max":-861290},"yBound":{"min":-400000,"max":-300000},"zBound":{"min":789510,"max":1189553},"key":"goal"},
+                {"xBound":{"min":-16827,"max":103697},"yBound":{"min":150000,"max":100000},"zBound":{"min":-1563548,"max":-1421454},"key":"mid"}
+            ],
+        "paths":
+            [
+                {"position":{"x":-861290,"y":-355815,"z":1027670},"links":[1,190],"key":"goal"},
+                {"position":{"x":-1158504,"y":-355815,"z":1005902},"links":[0,2]},
+                {"position":{"x":-1421989,"y":-355815,"z":984650},"links":[1,3]},
+                {"position":{"x":-1574519,"y":-355815,"z":972325},"links":[2,4]},
+                {"position":{"x":-1747113,"y":-355815,"z":958382},"links":[3,5]},
+                {"position":{"x":-1876407,"y":-355815,"z":930529},"links":[4,6]},
+                {"position":{"x":-1972206,"y":-355815,"z":889148},"links":[5,7]},
+                {"position":{"x":-2044802,"y":-355815,"z":778139},"links":[6,8]},
+                {"position":{"x":-2013446,"y":-355815,"z":668962},"links":[7,9]},
+                {"position":{"x":-1957344,"y":-355815,"z":621705},"links":[8,10]},
+                {"position":{"x":-1868911,"y":-355815,"z":549295},"links":[9,11]},
+                {"position":{"x":-1816475,"y":-355800,"z":495673},"links":[10,12]},
+                {"position":{"x":-1771022,"y":-355815,"z":341358},"links":[11,13]},
+                {"position":{"x":-1773514,"y":-355815,"z":225988},"links":[12,14]},
+                {"position":{"x":-1773907,"y":-355815,"z":17367},"links":[13,15]},
+                {"position":{"x":-1770332,"y":-355815,"z":-190778},"links":[14,16]},
+                {"position":{"x":-1770533,"y":-355815,"z":-235364},"links":[15,17]},
+                {"position":{"x":-1766582,"y":-355815,"z":-324124},"links":[16,18]},
+                {"position":{"x":-1757672,"y":-355815,"z":-425410},"links":[17,19]},
+                {"position":{"x":-1757456,"y":-355815,"z":-596121},"links":[18,20]},
+                {"position":{"x":-1752684,"y":-355815,"z":-740276},"links":[19,21]},
+                {"position":{"x":-1754092,"y":-355815,"z":-870858},"links":[20,22]},
+                {"position":{"x":-1755296,"y":-355815,"z":-934843},"links":[21,23]},
+                {"position":{"x":-1752970,"y":-355815,"z":-964036},"links":[22,24]},
+                {"position":{"x":-1733877,"y":-355815,"z":-1002775},"links":[23,25]},
+                {"position":{"x":-1710245,"y":-355815,"z":-1025353},"links":[24,26]},
+                {"position":{"x":-1652342,"y":-355815,"z":-1057273},"links":[25,27]},
+                {"position":{"x":-1560750,"y":-355815,"z":-1105800},"links":[26,28]},
+                {"position":{"x":-1468177,"y":-355814,"z":-1163195},"links":[27,29]},
+                {"position":{"x":-1443575,"y":-355814,"z":-1179858},"links":[28,30]},
+                {"position":{"x":-1398084,"y":-355814,"z":-1192511},"links":[29,31]},
+                {"position":{"x":-1360963,"y":-355814,"z":-1193590},"links":[30,32]},
+                {"position":{"x":-1312871,"y":-355814,"z":-1190291},"links":[31,33]},
+                {"position":{"x":-1226961,"y":-355815,"z":-1189860},"links":[32,34]},
+                {"position":{"x":-1167271,"y":-355815,"z":-1190939},"links":[33,35]},
+                {"position":{"x":-1126540,"y":-355815,"z":-1190825},"links":[34,36]},
+                {"position":{"x":-1106121,"y":-355815,"z":-1189179},"links":[35,37]},
+                {"position":{"x":-1076086,"y":-355815,"z":-1172682},"links":[36,38]},
+                {"position":{"x":-1053607,"y":-355815,"z":-1141176},"links":[37,39]},
+                {"position":{"x":-963795,"y":-346279,"z":-995089},"links":[38,40]},
+                {"position":{"x":-897197,"y":-322161,"z":-891394},"links":[39,41]},
+                {"position":{"x":-836254,"y":-294086,"z":-796502},"links":[40,42]},
+                {"position":{"x":-773830,"y":-263038,"z":-698691},"links":[41,43]},
+                {"position":{"x":-707151,"y":-229630,"z":-594760},"links":[42,44]},
+                {"position":{"x":-645776,"y":-197359,"z":-500712},"links":[43,45]},
+                {"position":{"x":-562797,"y":-159496,"z":-413207},"links":[44,46]},
+                {"position":{"x":-484383,"y":-133105,"z":-369769},"links":[45,47]},
+                {"position":{"x":-420527,"y":-116217,"z":-356285},"links":[46,48]},
+                {"position":{"x":-344626,"y":-99233,"z":-361681},"links":[47,49]},
+                {"position":{"x":-283677,"y":-85740,"z":-378315},"links":[48,50]},
+                {"position":{"x":-217412,"y":-71534,"z":-419192},"links":[49,51]},
+                {"position":{"x":-173982,"y":-59917,"z":-488532},"links":[50,52]},
+                {"position":{"x":-161201,"y":-51639,"z":-553765},"links":[51,53]},
+                {"position":{"x":-159795,"y":-44053,"z":-605246},"links":[52,54]},
+                {"position":{"x":-174085,"y":-37723,"z":-657994},"links":[53,55]},
+                {"position":{"x":-202145,"y":-29678,"z":-717653},"links":[54,56]},
+                {"position":{"x":-243023,"y":-21763,"z":-781384},"links":[55,57]},
+                {"position":{"x":-295325,"y":-14208,"z":-846635},"links":[56,58]},
+                {"position":{"x":-333910,"y":-6777,"z":-904741},"links":[57,59]},
+                {"position":{"x":-375312,"y":2191,"z":-962253},"links":[58,60]},
+                {"position":{"x":-408276,"y":12328,"z":-1024709},"links":[59,61]},
+                {"position":{"x":-441209,"y":24501,"z":-1100031},"links":[60,62]},
+                {"position":{"x":-457132,"y":31894,"z":-1145956},"links":[61,63]},
+                {"position":{"x":-468161,"y":40456,"z":-1203969},"links":[62,64]},
+                {"position":{"x":-465518,"y":49517,"z":-1273029},"links":[63,65]},
+                {"position":{"x":-444128,"y":60069,"z":-1348464},"links":[64,66]},
+                {"position":{"x":-405837,"y":69643,"z":-1407663},"links":[65,67]},
+                {"position":{"x":-340558,"y":78490,"z":-1454328},"links":[66,68]},
+                {"position":{"x":-267038,"y":86737,"z":-1483633},"links":[67,69]},
+                {"position":{"x":-219179,"y":90463,"z":-1488638},"links":[68,70]},
+                {"position":{"x":-154430,"y":94808,"z":-1488790},"links":[69,71]},
+                {"position":{"x":-86640,"y":99714,"z":-1488553},"links":[70,72]},
+                {"position":{"x":-38826,"y":102858,"z":-1485266},"links":[71,73]},
+                {"position":{"x":29128,"y":107958,"z":-1474907},"links":[72,74]},
+                {"position":{"x":90645,"y":114727,"z":-1470245},"links":[73,75]},
+                {"position":{"x":165208,"y":126020,"z":-1471142},"links":[74,76]},
+                {"position":{"x":238331,"y":140220,"z":-1480009},"links":[75,77]},
+                {"position":{"x":333291,"y":162091,"z":-1494885},"links":[76,78]},
+                {"position":{"x":420723,"y":184194,"z":-1522028},"links":[77,79]},
+                {"position":{"x":482196,"y":200144,"z":-1543697},"links":[78,80]},
+                {"position":{"x":540709,"y":215593,"z":-1567854},"links":[79,81]},
+                {"position":{"x":617483,"y":234717,"z":-1606178},"links":[80,82]},
+                {"position":{"x":678526,"y":248508,"z":-1643090},"links":[81,83]},
+                {"position":{"x":743782,"y":261453,"z":-1691794},"links":[82,84]},
+                {"position":{"x":803491,"y":270147,"z":-1739762},"links":[83,85]},
+                {"position":{"x":888496,"y":276228,"z":-1820711},"links":[84,86]},
+                {"position":{"x":960794,"y":277798,"z":-1892001},"links":[85,87]},
+                {"position":{"x":1024272,"y":277967,"z":-1955893},"links":[86,88]},
+                {"position":{"x":1077464,"y":277965,"z":-1996871},"links":[87,89]},
+                {"position":{"x":1125469,"y":277967,"z":-2038036},"links":[88,90]},
+                {"position":{"x":1184145,"y":277965,"z":-2090585},"links":[89,91]},
+                {"position":{"x":1230531,"y":277966,"z":-2132183},"links":[90,92]},
+                {"position":{"x":1271521,"y":277966,"z":-2166611},"links":[91,93]},
+                {"position":{"x":1325459,"y":277966,"z":-2202749},"links":[92,94]},
+                {"position":{"x":1369628,"y":277966,"z":-2227367},"links":[93,95]},
+                {"position":{"x":1431315,"y":277966,"z":-2254155},"links":[94,96]},
+                {"position":{"x":1494417,"y":277966,"z":-2273705},"links":[95,97]},
+                {"position":{"x":1551307,"y":277966,"z":-2284373},"links":[96,98]},
+                {"position":{"x":1617259,"y":277965,"z":-2287106},"links":[97,99]},
+                {"position":{"x":1676047,"y":277965,"z":-2281206},"links":[98,100]},
+                {"position":{"x":1742232,"y":277965,"z":-2269508},"links":[99,101]},
+                {"position":{"x":1815775,"y":277965,"z":-2244850},"links":[100,102]},
+                {"position":{"x":1885700,"y":277965,"z":-2206046},"links":[101,103]},
+                {"position":{"x":1939730,"y":277965,"z":-2164766},"links":[102,104]},
+                {"position":{"x":1990261,"y":277965,"z":-2108260},"links":[103,105]},
+                {"position":{"x":2037657,"y":277965,"z":-2037620},"links":[104,106]},
+                {"position":{"x":2054816,"y":277965,"z":-2002612},"links":[105,107]},
+                {"position":{"x":2070230,"y":277965,"z":-1947417},"links":[106,108]},
+                {"position":{"x":2082817,"y":277965,"z":-1889363},"links":[107,109]},
+                {"position":{"x":2086216,"y":277965,"z":-1847622},"links":[108,110]},
+                {"position":{"x":2085320,"y":277965,"z":-1783768},"links":[109,111]},
+                {"position":{"x":2072219,"y":277965,"z":-1717600},"links":[110,112]},
+                {"position":{"x":2056929,"y":277965,"z":-1670106},"links":[111,113]},
+                {"position":{"x":2025009,"y":277965,"z":-1611750},"links":[112,114]},
+                {"position":{"x":2001796,"y":277965,"z":-1569416},"links":[113,115]},
+                {"position":{"x":1962868,"y":277965,"z":-1521797},"links":[114,116]},
+                {"position":{"x":1911631,"y":277964,"z":-1468637},"links":[115,117]},
+                {"position":{"x":1858618,"y":277964,"z":-1415982},"links":[116,118]},
+                {"position":{"x":1814089,"y":277964,"z":-1373093},"links":[117,119]},
+                {"position":{"x":1759498,"y":277964,"z":-1325896},"links":[118,120]},
+                {"position":{"x":1704030,"y":277596,"z":-1277808},"links":[119,121]},
+                {"position":{"x":1652419,"y":275194,"z":-1234358},"links":[120,122]},
+                {"position":{"x":1601195,"y":265257,"z":-1181711},"links":[121,123]},
+                {"position":{"x":1557588,"y":251435,"z":-1145411},"links":[122,124]},
+                {"position":{"x":1481592,"y":221210,"z":-1077989},"links":[123,125]},
+                {"position":{"x":1427629,"y":197102,"z":-1029567},"links":[124,126]},
+                {"position":{"x":1371265,"y":170809,"z":-978985},"links":[125,127]},
+                {"position":{"x":1293154,"y":133436,"z":-908893},"links":[126,128]},
+                {"position":{"x":1234270,"y":102726,"z":-848688},"links":[127,129]},
+                {"position":{"x":1190822,"y":78669,"z":-798772},"links":[128,130]},
+                {"position":{"x":1140395,"y":49856,"z":-737781},"links":[129,131]},
+                {"position":{"x":1108534,"y":31750,"z":-698863},"links":[130,132]},
+                {"position":{"x":1076165,"y":13193,"z":-659327},"links":[131,133]},
+                {"position":{"x":1046644,"y":-2475,"z":-628580},"links":[132,134]},
+                {"position":{"x":1016055,"y":-17510,"z":-600705},"links":[133,135]},
+                {"position":{"x":986193,"y":-32410,"z":-573492},"links":[134,136]},
+                {"position":{"x":956918,"y":-46811,"z":-546813},"links":[135,137]},
+                {"position":{"x":920408,"y":-64843,"z":-513538},"links":[136,138]},
+                {"position":{"x":873622,"y":-87856,"z":-470904},"links":[137,139]},
+                {"position":{"x":824189,"y":-112023,"z":-425856},"links":[138,140]},
+                {"position":{"x":796529,"y":-125876,"z":-400648},"links":[139,141]},
+                {"position":{"x":745419,"y":-147287,"z":-367703},"links":[140,142]},
+                {"position":{"x":720342,"y":-158261,"z":-350705},"links":[141,143]},
+                {"position":{"x":682238,"y":-175081,"z":-320557},"links":[142,144]},
+                {"position":{"x":651124,"y":-189075,"z":-295943},"links":[143,145]},
+                {"position":{"x":621578,"y":-202219,"z":-272561},"links":[144,146]},
+                {"position":{"x":585600,"y":-218092,"z":-244097},"links":[145,147]},
+                {"position":{"x":540567,"y":-237438,"z":-208468},"links":[146,148]},
+                {"position":{"x":489204,"y":-259032,"z":-167837},"links":[147,149]},
+                {"position":{"x":441256,"y":-278520,"z":-129907},"links":[148,150]},
+                {"position":{"x":397307,"y":-295638,"z":-95138},"links":[149,151]},
+                {"position":{"x":346279,"y":-314165,"z":-54768},"links":[150,152]},
+                {"position":{"x":311515,"y":-325960,"z":-27268},"links":[151,153]},
+                {"position":{"x":275349,"y":-337338,"z":3148},"links":[152,154]},
+                {"position":{"x":242210,"y":-345692,"z":31610},"links":[153,155]},
+                {"position":{"x":171906,"y":-355511,"z":92087},"links":[154,156]},
+                {"position":{"x":75127,"y":-355640,"z":175410},"links":[155,157]},
+                {"position":{"x":-7578,"y":-355635,"z":253145},"links":[156,158]},
+                {"position":{"x":-49824,"y":-355635,"z":295277},"links":[157,159]},
+                {"position":{"x":-79560,"y":-355635,"z":345615},"links":[158,160]},
+                {"position":{"x":-89399,"y":-355815,"z":383665},"links":[159,161]},
+                {"position":{"x":-87338,"y":-355815,"z":423933},"links":[160,162]},
+                {"position":{"x":-84273,"y":-355815,"z":453860},"links":[161,163]},
+                {"position":{"x":-68820,"y":-355815,"z":506680},"links":[162,164]},
+                {"position":{"x":-28925,"y":-355815,"z":586854},"links":[163,165]},
+                {"position":{"x":2651,"y":-355815,"z":630909},"links":[164,166]},
+                {"position":{"x":22052,"y":-355815,"z":656723},"links":[165,167]},
+                {"position":{"x":47502,"y":-355815,"z":690581},"links":[166,168]},
+                {"position":{"x":71159,"y":-355815,"z":722062},"links":[167,169]},
+                {"position":{"x":98889,"y":-355815,"z":776752},"links":[168,170]},
+                {"position":{"x":109397,"y":-355815,"z":841593},"links":[169,171]},
+                {"position":{"x":107210,"y":-355815,"z":902354},"links":[170,172]},
+                {"position":{"x":84244,"y":-355815,"z":960302},"links":[171,173]},
+                {"position":{"x":56933,"y":-355815,"z":1008313},"links":[172,174]},
+                {"position":{"x":15148,"y":-355815,"z":1039944},"links":[173,175]},
+                {"position":{"x":-34126,"y":-355815,"z":1063302},"links":[174,176]},
+                {"position":{"x":-86337,"y":-355767,"z":1076133},"links":[175,177]},
+                {"position":{"x":-138343,"y":-355815,"z":1078599},"links":[176,178]},
+                {"position":{"x":-193042,"y":-355815,"z":1077637},"links":[177,179]},
+                {"position":{"x":-262293,"y":-355815,"z":1069794},"links":[178,180]},
+                {"position":{"x":-321186,"y":-355815,"z":1063540},"links":[179,181]},
+                {"position":{"x":-359020,"y":-355815,"z":1060153},"links":[180,182]},
+                {"position":{"x":-427941,"y":-355815,"z":1054010},"links":[181,183]},
+                {"position":{"x":-486015,"y":-355815,"z":1048858},"links":[182,184]},
+                {"position":{"x":-553625,"y":-355815,"z":1042863},"links":[183,185]},
+                {"position":{"x":-615076,"y":-355815,"z":1037418},"links":[184,186]},
+                {"position":{"x":-664374,"y":-355815,"z":1033020},"links":[185,187]},
+                {"position":{"x":-699206,"y":-355815,"z":1029899},"links":[186,188]},
+                {"position":{"x":-739641,"y":-355815,"z":1027494},"links":[187,189]},
+                {"position":{"x":-792933,"y":-355815,"z":1028525},"links":[188,190]},
+                {"position":{"x":-818990,"y":-355815,"z":1028992},"links":[189,0],"key":"end"}
             ]
     }
 
