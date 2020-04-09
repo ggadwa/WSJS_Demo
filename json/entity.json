@@ -217,7 +217,7 @@
                             "targetScanYRange":90,
                             "targetForgetDistance":50000,
                             "targetFireYRange":15,
-                            "targetFireSlop":10
+                            "targetFireSlop":11
                         },
                         {
                             "comment":"normal",
@@ -653,8 +653,8 @@
                 "model":"shield",
                 "rotationOrder":"XYZ",
                 "scale":{"x":80,"y":80,"z":80},
-                "radius":1000,
-                "height":1000,
+                "radius":2500,
+                "height":4000,
                 "eyeOffset":0,
                 "weight":250,
                 "hideMeshes":[]
@@ -1162,7 +1162,6 @@
     {
         "name":"kart_player",
         "type":"kart_player",
-        "developer":true,
         "setup":
             {
                 "model":"mario_kart",
