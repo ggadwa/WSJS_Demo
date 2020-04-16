@@ -4,7 +4,6 @@
         "name":"dungeon",
         "scale":700,
         "bumpHeight":1400,
-        "shadowmap":false,
         "camera":{"mode":"firstPerson","viewNearZ":500,"viewFarZ":500000},
         "gravity":{"min":0,"max":1700,"acceleration":0.1},
         "glows":
@@ -310,7 +309,6 @@
         "name":"dual_castles",
         "scale":700,
         "bumpHeight":1400,
-        "shadowmap":false,
         "camera":{"mode":"firstPerson","viewNearZ":500,"viewFarZ":500000},
         "gravity":{"min":0,"max":1700,"acceleration":0.1},
         "skyBox":{"size":50000,"bitmap":"textures/skybox.png"},
@@ -614,12 +612,11 @@
     {
         "name":"auto_generate",
         "bumpHeight":1400,
-        "shadowmap":true,
         "camera":{"mode":"firstPerson","viewNearZ":500,"viewFarZ":500000},
         "gravity":{"min":0,"max":1700,"acceleration":0.1},
         "autoGenerate":
             {
-                "roomCount":15,
+                "roomCount":3,
                 "segmentSize":10000,
                 "colorScheme":"random",
                 "stairFactor":0.5,
@@ -628,24 +625,13 @@
             },
         "entities":
             [
-                {"json":"player","name":"Player","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"player":true,"randomStart":true},
-                {"json":"ratkin","name":"rat_01","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
-                {"json":"ratkin","name":"rat_02","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
-                {"json":"ratkin","name":"rat_03","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
-                {"json":"ratkin","name":"rat_04","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
-                {"json":"ratkin","name":"rat_05","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
-                {"json":"ratkin","name":"rat_06","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
-                {"json":"ratkin","name":"rat_07","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
-                {"json":"ratkin","name":"rat_08","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
-                {"json":"ratkin","name":"rat_09","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true},
-                {"json":"ratkin","name":"rat_10","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"randomStart":true}
+                {"json":"player","name":"Player","position":{"x":0,"y":0,"z":0},"angle":{"x":0,"y":0,"z":0},"player":true,"randomStart":true}
             ]
     },
     {
         "name":"circuit_race",
         "scale":6000,
-        "bumpHeight":1400,
-        "shadowmap":false,        
+        "bumpHeight":1400,       
         "camera":{"mode":"thirdPersonBehind","thirdPersonDistance":20000,"thirdPersonLookDegree":-20,"viewNearZ":500,"viewFarZ":2500000},
         "gravity":{"min":0,"max":1700,"acceleration":0.1},
         "maxFloorCeilingDetectionFactor":0.6,
