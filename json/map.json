@@ -314,7 +314,7 @@
         "skyBox":{"size":50000,"bitmap":"textures/skybox.png"},
         "lights":
             [
-                {"position":{"x":0,"y":100000,"z":0},"color":{"r":0.2,"g":0.2,"b":0.2},"intensity":300000,"exponent":0.0},
+                {"position":{"x":0,"y":100000,"z":0},"color":{"r":0.2,"g":0.2,"b":0.2},"intensity":300000,"exponent":0.0,"ambient":true},
 
                 {"mesh":"blue_crystal_87","color":{"r":0.3,"g":0.3,"b":0.8},"intensity":80000,"exponent":1.0},
                 {"mesh":"blue_crystal_69","color":{"r":0.3,"g":0.3,"b":0.8},"intensity":90000,"exponent":1.0},
@@ -330,6 +330,8 @@
                 {"position":{"x":-2819,"y":25306,"z":-222607},"color":{"r":0.8,"g":0.4,"b":0.4},"intensity":150000,"exponent":1.5},
                 {"position":{"x":-126357,"y":21545,"z":-116208},"color":{"r":0.8,"g":0.4,"b":0.4},"intensity":170000,"exponent":1.5}
             ],
+        "shadowMapHighlightBitmaps":["crystal_blue_color","crystal_red_color","birch_tree_branch_color","bush_color"],
+        "shadowMapSkipBitmaps":["crystal_blue_color","crystal_red_color"],
         "glows":
             [
                 {"bitmap":"crystal_blue_color","url":"textures/blue_crystal_glow.png","frequency":800,"min":0.2,"max":0.7},

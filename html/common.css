@@ -279,3 +279,22 @@
     font-weight:normal;
     text-align:center;
 }
+
+.dialogMessage {
+    box-sizing:border-box;
+    position:fixed;
+    left:calc(50% - 250px);
+    bottom:5px;
+    width:500px;
+    height:28px;
+    background-color:#000000;
+    border-radius:8px;
+    font-family:Arial;
+    font-size:14pt;
+    font-weight:normal;
+    text-align:center;
+    color:#FFFFFF;
+    text-align:center;
+    padding-top:3px;
+}
+
