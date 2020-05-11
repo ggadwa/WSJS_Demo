@@ -6,15 +6,10 @@
         "bumpHeight":1400,
         "camera":{"mode":"firstPerson","viewNearZ":500,"viewFarZ":500000},
         "gravity":{"min":0,"max":1700,"acceleration":0.1},
-        "glows":
-            [
-                {"bitmap":"crystal_blue_color","url":"textures/blue_crystal_glow.png","frequency":800,"min":0.2,"max":0.7},
-                {"bitmap":"crystal_red_color","url":"textures/red_crystal_glow.png","frequency":800,"min":0.2,"max":0.7}
-            ],
+        "shadowMapHighlightBitmaps":["crystal_blue_color","crystal_red_color"],
+        "shadowMapSkipBitmaps":["crystal_blue_color","crystal_red_color"],
         "noCollideBitmaps":["web_color","crystal_blue_color","crystal_red_color"],
         "simpleCollideMeshes":["LAMP","border_brick_","wood_plank_","pass_woods_","doors_small_","round_wood_shield_","coffin_","big_column_"],
-        "meshSkipBitmaps":["light_glow_color","web_color"],
-        "meshSkipMeshes":["border_brick_72","doors_big_left_07","doors_big_right_07","doors_base_big_07","doors_big_left_08","doors_big_right_08","doors_base_big_010","doors_big_left_010","doors_big_right_010","doors_base_big_010","doors_big_left_013","doors_big_right_013","doors_base_big_013","doors_big_left_015","doors_big_right_015","doors_base_big_015","doors_small_04","doors_base_small_04"],
         "meshNoBumpMeshes":["room_bevel_","cave_pillar_","arc_","big_column_"],
         "liquids":
             [
@@ -314,35 +309,28 @@
         "skyBox":{"size":50000,"bitmap":"textures/skybox.png"},
         "lights":
             [
-                {"position":{"x":0,"y":100000,"z":0},"color":{"r":0.2,"g":0.2,"b":0.2},"intensity":300000,"exponent":0.0,"ambient":true},
+                {"position":{"x":0,"y":100000,"z":0},"color":{"r":0.2,"g":0.2,"b":0.2},"intensity":500000,"exponent":0.0,"ambient":true},
 
                 {"mesh":"blue_crystal_87","color":{"r":0.3,"g":0.3,"b":0.8},"intensity":80000,"exponent":1.0},
                 {"mesh":"blue_crystal_69","color":{"r":0.3,"g":0.3,"b":0.8},"intensity":90000,"exponent":1.0},
                 {"mesh":"blue_crystal_39","color":{"r":0.3,"g":0.3,"b":0.8},"intensity":80000,"exponent":1.0},
                 {"mesh":"blue_crystal_09","color":{"r":0.3,"g":0.3,"b":0.8},"intensity":90000,"exponent":1.0},
-                {"position":{"x":-342,"y":21545,"z":201566},"color":{"r":0.4,"g":0.4,"b":0.8},"intensity":150000,"exponent":1.5},
-                {"position":{"x":127552,"y":22390,"z":125862},"color":{"r":0.4,"g":0.4,"b":0.8},"intensity":170000,"exponent":1.5},
 
                 {"mesh":"red_crystal_33","color":{"r":0.8,"g":0.3,"b":0.3},"intensity":80000,"exponent":1.0},
                 {"mesh":"red_crystal_82","color":{"r":0.8,"g":0.3,"b":0.3},"intensity":90000,"exponent":1.0},
                 {"mesh":"red_crystal_49","color":{"r":0.8,"g":0.3,"b":0.3},"intensity":80000,"exponent":1.0},
-                {"mesh":"red_crystal_73","color":{"r":0.8,"g":0.3,"b":0.3},"intensity":90000,"exponent":1.0},
-                {"position":{"x":-2819,"y":25306,"z":-222607},"color":{"r":0.8,"g":0.4,"b":0.4},"intensity":150000,"exponent":1.5},
-                {"position":{"x":-126357,"y":21545,"z":-116208},"color":{"r":0.8,"g":0.4,"b":0.4},"intensity":170000,"exponent":1.5}
+                {"mesh":"red_crystal_73","color":{"r":0.8,"g":0.3,"b":0.3},"intensity":90000,"exponent":1.0}
             ],
-        "shadowMapHighlightBitmaps":["crystal_blue_color","crystal_red_color","birch_tree_branch_color","bush_color"],
-        "shadowMapSkipBitmaps":["crystal_blue_color","crystal_red_color"],
-        "glows":
-            [
-                {"bitmap":"crystal_blue_color","url":"textures/blue_crystal_glow.png","frequency":800,"min":0.2,"max":0.7},
-                {"bitmap":"crystal_red_color","url":"textures/red_crystal_glow.png","frequency":800,"min":0.2,"max":0.7}
-            ],
+        "shadowMapHighlightBitmaps_unused":["crystal_blue_color","crystal_red_color","birch_tree_branch_color","bush_color"],
+        "shadowMapSkipBitmaps_unused":["crystal_blue_color","crystal_red_color"],
+        "shadowMapHighlightBitmaps":["crystal_blue_color","crystal_red_color","birch_tree_branch_color","bush_color","birch_tree_trunk_color","simple_rock_color","arc_color","window_color","column_color"],
+        "shadowMapSkipBitmaps":["crystal_blue_color","crystal_red_color","birch_tree_branch_color","bush_color","birch_tree_trunk_color","simple_rock_color","arc_color","window_color","column_color"],
         "liquids":
             [
                 {
                     "bitmap":"textures/water.png","waveSize":5000,"wavePeriod":4000,"waveHeight":400,"waveUVStamp":0.1,
                     "uShift":0.00005,"vShift":0.0,"tint":{"r":0.2,"g":0.2,"b":0.5},
-                    "xBound":{"min":-215000,"max":215000},"yBound":{"min":-28000,"max":-11500},"zBound":{"min":-40000,"max":75000},
+                    "xBound":{"min":-215000,"max":215000},"yBound":{"min":-30000,"max":-11500},"zBound":{"min":-40000,"max":43000},
                     "gravityFactor":0.1
                 }
             ],
@@ -352,7 +340,11 @@
         "effects":
             [
                 {"json":"fire","attachMesh":"latern_lamp01","attachOffset":{"x":0,"y":-550,"z":0},"data":{"intensity":40000}},
+                {"json":"fire","attachMesh":"latern_lamp01.001","attachOffset":{"x":0,"y":-550,"z":0},"data":{"intensity":40000}},
+                {"json":"fire","attachMesh":"latern_lamp01.003","attachOffset":{"x":0,"y":-550,"z":0},"data":{"intensity":40000}},
                 {"json":"fire","attachMesh":"latern_lamp02","attachOffset":{"x":0,"y":-550,"z":0},"data":{"intensity":40000}},
+                {"json":"fire","attachMesh":"latern_lamp02.001","attachOffset":{"x":0,"y":-550,"z":0},"data":{"intensity":40000}},
+                {"json":"fire","attachMesh":"latern_lamp02.002","attachOffset":{"x":0,"y":-550,"z":0},"data":{"intensity":40000}},
                 {"json":"fire","attachMesh":"latern_lamp003","attachOffset":{"x":0,"y":-550,"z":0},"data":{"intensity":40000}},
                 {"json":"fire","attachMesh":"latern_lamp004","attachOffset":{"x":0,"y":-550,"z":0},"data":{"intensity":40000}},
                 {"json":"fire","attachMesh":"latern_lamp005","attachOffset":{"x":0,"y":-550,"z":0},"data":{"intensity":40000}},
