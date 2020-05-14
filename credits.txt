@@ -1,0 +1,8 @@
+Coding/Design: Brian Barnes
+Dungeon/Dual Castle Maps/Player/Weapons/Monsters: Mr. Necturus / http://mr-necturus.com
+Circuit Race: polroute66 / cgtrader (heavily edited by Brian Barnes)
+Tree (in Circuit Race): Belina / cgtrader
+Tank: Alexander Smith
+Grenade: Sergei Pavlov / sketchfab
+Misc Textures: textures.com
+Misc Sound Effects: freesound.org
