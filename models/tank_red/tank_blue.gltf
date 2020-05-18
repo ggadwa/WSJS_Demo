@@ -1,0 +1,304 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.1.46",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1,
+                2,
+                3
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "name" : "Light",
+            "rotation" : [
+                0.16907575726509094,
+                0.7558803558349609,
+                -0.27217137813568115,
+                0.570947527885437
+            ],
+            "translation" : [
+                4.076245307922363,
+                5.903861999511719,
+                -1.0054539442062378
+            ]
+        },
+        {
+            "name" : "Camera",
+            "rotation" : [
+                0.483536034822464,
+                0.33687159419059753,
+                -0.20870360732078552,
+                0.7804827094078064
+            ],
+            "translation" : [
+                7.358891487121582,
+                4.958309173583984,
+                6.925790786743164
+            ]
+        },
+        {
+            "mesh" : 0,
+            "name" : "treads_lo.003_Cylinder.009"
+        },
+        {
+            "mesh" : 1,
+            "name" : "tank_lo.004_Cylinder.008"
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                0,
+                0,
+                0
+            ],
+            "name" : "treads",
+            "normalTexture" : {
+                "index" : 0,
+                "texCoord" : 0
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 1,
+                    "texCoord" : 0
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 2,
+                    "texCoord" : 0
+                }
+            }
+        },
+        {
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                0,
+                0,
+                0
+            ],
+            "name" : "tank",
+            "normalTexture" : {
+                "index" : 3,
+                "texCoord" : 0
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 4,
+                    "texCoord" : 0
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 5,
+                    "texCoord" : 0
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "treads_lo.003_Cylinder.009",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "tank_lo.004_Cylinder.008",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 1
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "source" : 0
+        },
+        {
+            "source" : 1
+        },
+        {
+            "source" : 2
+        },
+        {
+            "source" : 3
+        },
+        {
+            "source" : 4
+        },
+        {
+            "source" : 5
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "treads_00_n",
+            "uri" : "textures/treads_00_n.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "treads_00",
+            "uri" : "textures/treads_00.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "treads_00_s",
+            "uri" : "textures/treads_00_s.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tank1_base_n",
+            "uri" : "textures/tank1_base_n.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tank1_red",
+            "uri" : "textures/tank1_red.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tank1_red_s",
+            "uri" : "textures/tank1_red_s.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 304,
+            "max" : [
+                2.710352897644043,
+                1.6849356889724731,
+                4.861437797546387
+            ],
+            "min" : [
+                -2.710793972015381,
+                -0.00782237108796835,
+                -4.151694297790527
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 304,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 304,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 576,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 787,
+            "max" : [
+                2.963157892227173,
+                3.565455913543701,
+                8.158101081848145
+            ],
+            "min" : [
+                -2.963157892227173,
+                0.092466801404953,
+                -4.853150844573975
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 787,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 787,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 2046,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 3648,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3648,
+            "byteOffset" : 3648
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2432,
+            "byteOffset" : 7296
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1152,
+            "byteOffset" : 9728
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9444,
+            "byteOffset" : 10880
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9444,
+            "byteOffset" : 20324
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 6296,
+            "byteOffset" : 29768
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4092,
+            "byteOffset" : 36064
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 40156,
+            "uri" : "tank_blue.bin"
+        }
+    ]
+}

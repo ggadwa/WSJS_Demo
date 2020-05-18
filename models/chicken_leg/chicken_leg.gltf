@@ -1,0 +1,201 @@
+{
+    "asset": {
+        "generator": "FBX2glTF v0.9.6",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "buffers": [
+        {
+            "byteLength": 7716,
+            "uri": "chicken_leg.bin"
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteLength": 1764,
+            "byteOffset": 0,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 2232,
+            "byteOffset": 1764,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 2232,
+            "byteOffset": 3996,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 1488,
+            "byteOffset": 6228,
+            "target": 34962
+        }
+    ],
+    "scenes": [
+        {
+            "name": "Root Scene",
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "componentType": 5123,
+            "type": "SCALAR",
+            "count": 882,
+            "bufferView": 0,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 186,
+            "bufferView": 1,
+            "byteOffset": 0,
+            "min": [
+                -0.13938170671463,
+                -0.0639950558543205,
+                -0.0452350527048111
+            ],
+            "max": [
+                0.13938170671463,
+                0.0639947503805161,
+                0.0452350527048111
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 186,
+            "bufferView": 2,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC2",
+            "count": 186,
+            "bufferView": 3,
+            "byteOffset": 0
+        }
+    ],
+    "images": [
+        {
+            "uri": "textures/food_color.png"
+        },
+        {
+            "uri": "textures/food_normals.png"
+        },
+        {
+            "uri": "textures/food_specular.png"
+        }
+    ],
+    "samplers": [
+        {}
+    ],
+    "textures": [
+        {
+            "sampler": 0,
+            "source": 0
+        },
+        {
+            "sampler": 0,
+            "source": 1
+        },
+        {
+            "sampler": 0,
+            "source": 2
+        }
+    ],
+    "materials": [
+        {
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                0,
+                0,
+                0
+            ],
+            "name" : "food",
+            "normalTexture" : {
+                "index" : 1,
+                "texCoord" : 0
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0,
+                    "texCoord" : 0
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 2,
+                    "texCoord" : 0
+                }
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "Chicken_leg",
+            "primitives": [
+                {
+                    "material": 0,
+                    "mode": 4,
+                    "attributes": {
+                        "NORMAL": 2,
+                        "POSITION": 1,
+                        "TEXCOORD_0": 3
+                    },
+                    "indices": 0
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "name": "RootNode",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                1
+            ]
+        },
+        {
+            "name": "Chicken_leg",
+            "translation": [
+                0.128020763397217,
+                -0.563038170337677,
+                0.193248748779297
+            ],
+            "rotation": [
+                -0.70710688829422,
+                -3.95126633634391e-08,
+                -4.47810322157238e-08,
+                0.707106649875641
+            ],
+            "scale": [
+                100.0,
+                100.0,
+                100.0
+            ],
+            "mesh": 0
+        }
+    ]
+}

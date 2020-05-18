@@ -1164,11 +1164,11 @@
         "type":"kart_player",
         "setup":
             {
-                "model":"mario_kart",
+                "model":"tank_blue",
                 "rotationOrder":"XZY",
-                "scale":{"x":5000,"y":5000,"z":5000},
-                "radius":4500,
-                "height":4000,
+                "scale":{"x":2000,"y":2000,"z":2000},
+                "radius":6000,
+                "height":7000,
                 "eyeOffset":3000,
                 "weight":500,
                 "hideMeshes":[]
@@ -1183,8 +1183,8 @@
         "weapons":
             [
                 {
-                    "json":"weapon_mine",
-                    "name":"mine",
+                    "json":"weapon_tank_shell",
+                    "name":"tank_shell",
                     "parentIdleAnimation":[0,0],
                     "parentRunAnimation":[0,0],
                     "parentFireIdleAnimation":[0,0],
@@ -1214,7 +1214,7 @@
     },
     
     {
-        "name":"weapon_mine",
+        "name":"weapon_tank_shell",
         "type":"weapon",
         "setup":
             {
@@ -1244,12 +1244,12 @@
                         "damage":0,
                         "distance":0,
                         "hitEffect":null,
-                        "projectileJson":"entity_projectile_mine",
+                        "projectileJson":"entity_projectile_tank_shell",
                         "sound":{"name":"throw","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false},
                         "animation":[0,0],
                         "interfaceAmmoIcon":null,
                         "interfaceAmmoText":null,
-                        "interfaceAmmoCount":"mines"
+                        "interfaceAmmoCount":"tank_shells"
                     },
                 "secondary":null,
                 "tertiary":null
@@ -1258,17 +1258,17 @@
             {
                 "counts":
                     [
-                        {"id":"mines","bitmap":"textures/mine.png","count":10,"width":32,"height":32,"positionMode":"topLeft","positionOffset":{"x":5,"y":130},"addOffset":{"x":0,"y":32},"onColor":{"r":1,"g":1,"b":1},"onAlpha":1,"offColor":{"r":0.8,"g":0.8,"b":0.8},"offAlpha":0.7,"show":true}
+                        {"id":"tank_shells","bitmap":"textures/mine.png","count":10,"width":32,"height":32,"positionMode":"topLeft","positionOffset":{"x":5,"y":130},"addOffset":{"x":0,"y":32},"onColor":{"r":1,"g":1,"b":1},"onAlpha":1,"offColor":{"r":0.8,"g":0.8,"b":0.8},"offAlpha":0.7,"show":true}
                     ]
             }
     },
     
     {
-        "name":"mine",
+        "name":"tank_shell",
         "type":"projectile",
         "setup":
             {
-                "model":"mine",
+                "model":"tank_shell",
                 "rotationOrder":"XYZ",
                 "scale":{"x":5,"y":5,"z":5},
                 "radius":5000,
