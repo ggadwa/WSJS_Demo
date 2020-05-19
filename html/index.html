@@ -26,14 +26,14 @@ function runDualCastle()
     window.main.run(true,{"startMap":"dual_castles"});
 }
 
-function runAutoGenerate()
-{
-    window.main.run(false,{"startMap":"auto_generate"});
-}
-
 function runKart()
 {
     window.main.run(false,{"startMap":"circuit_race"});
+}
+
+function runAutoGenerate()
+{
+    window.main.run(false,{"startMap":"auto_generate"});
 }
 </script>
 
@@ -58,12 +58,12 @@ function runKart()
 
 <div class="columnWrapper">
     <div class="column">
-        <img class="imageClick" src="auto_generate.png" onClick="runAutoGenerate()">
-        <div class="imageText">Auto-Generated Map</div>
+        <img class="imageClick" src="circuit_race.png" onClick="runKart()">
+        <div class="imageText">Kart Map</div>
     </div>
     <div class="column">
-        <img class="imageClick" src="auto_generate.png" onClick="runKart()">
-        <div class="imageText">Kart Map</div>
+        <img class="imageClick" src="auto_generate.png" onClick="runAutoGenerate()">
+        <div class="imageText">Auto-Generated Map</div>
     </div>
 </div>
 
