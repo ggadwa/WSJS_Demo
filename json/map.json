@@ -6,15 +6,6 @@
         "bumpHeight":1400,
         "camera":{"mode":"firstPerson","viewNearZ":500,"viewFarZ":500000},
         "gravity":{"min":0,"max":1700,"acceleration":0.1},
-        "liquids":
-            [
-                {
-                    "bitmap":"textures/slime.png","waveSize":1000,"wavePeriod":10000,"waveHeight":50,"waveUVStamp":0.2,
-                    "uShift":0.0,"vShift":0.00001,"tint":{"r":0.3,"g":1.0,"b":0.3},
-                    "xBound":{"min":-134400,"max":-103600},"yBound":{"min":-19600,"max":-16940},"zBound":{"min":40600,"max":67200},
-                    "gravityFactor":0.1
-                }
-            ],
         "effects":
             [
                 {"json":"fire","attachMesh":"LAMP06","attachOffset":{"x":-980,"y":-700,"z":0},"data":{"intensity":23000}},
@@ -222,7 +213,7 @@
                 {"json":"spider","name":"spider_11","position":{"x":-311726,"y":-56714,"z":63405},"angle":{"x":0,"y":0,"z":0}},
                 {"json":"spider","name":"spider_12","position":{"x":-337269,"y":-56711,"z":41797},"angle":{"x":0,"y":0,"z":0}},
                 {"json":"spider","name":"spider_13","position":{"x":-339912,"y":-56720,"z":14092},"angle":{"x":0,"y":0,"z":0}},
-                {"json":"skeleton_boss","name":"skeleton_boss","position":{"x":-298429,"y":-61495,"z":28543},"angle":{"x":0,"y":0,"z":0}},
+                {"json":"dragon_queen","name":"dragon_queen","position":{"x":-298429,"y":-61495,"z":28543},"angle":{"x":0,"y":0,"z":0}},
                 {"json":"pickup_m16","name":"m16_01","position":{"x":-67684,"y":-7975,"z":-13612},"angle":{"x":0,"y":0,"z":0},"data":{"pickupOnce":true}},
                 {"json":"pickup_armor","name":"armor_01","position":{"x":-121439,"y":-27924,"z":125337},"angle":{"x":90,"y":0,"z":0},"data":{"pickupOnce":true}}
             ]
@@ -233,7 +224,6 @@
         "bumpHeight":1400,
         "camera":{"mode":"firstPerson","viewNearZ":500,"viewFarZ":500000},
         "gravity":{"min":0,"max":1700,"acceleration":0.1},
-        "skyBox":{"size":50000,"bitmap":"textures/skybox.png"},
         "lights":
             [
                 {"position":{"x":0,"y":100000,"z":0},"color":{"r":0.2,"g":0.2,"b":0.2},"intensity":500000,"exponent":0.0,"ambient":true},
@@ -249,15 +239,6 @@
                 {"mesh":"red_crystal_49","color":{"r":0.8,"g":0.3,"b":0.3},"intensity":80000,"exponent":1.0},
                 {"mesh":"red_crystal_73","color":{"r":0.8,"g":0.3,"b":0.3},"intensity":90000,"exponent":1.0},
                 {"mesh":"red_crystal_60.001","color":{"r":0.8,"g":0.3,"b":0.3},"intensity":90000,"exponent":1.0}
-            ],
-        "liquids":
-            [
-                {
-                    "bitmap":"textures/water.png","waveSize":5000,"wavePeriod":4000,"waveHeight":400,"waveUVStamp":0.1,
-                    "uShift":0.00005,"vShift":0.0,"tint":{"r":0.2,"g":0.2,"b":0.5},
-                    "xBound":{"min":-215000,"max":215000},"yBound":{"min":-30000,"max":-11500},"zBound":{"min":-39000,"max":43000},
-                    "gravityFactor":0.1
-                }
             ],
         "effects":
             [
@@ -530,7 +511,7 @@
         "gravity":{"min":0,"max":1700,"acceleration":0.1},
         "autoGenerate":
             {
-                "roomCount":3,
+                "roomCount":15,
                 "segmentSize":10000,
                 "colorScheme":"random",
                 "stairFactor":0.5,
@@ -549,7 +530,6 @@
         "camera":{"mode":"thirdPersonBehind","thirdPersonDistance":20000,"thirdPersonLookDegree":-20,"viewNearZ":500,"viewFarZ":2500000},
         "gravity":{"min":0,"max":1700,"acceleration":0.1},
         "maxFloorCeilingDetectionFactor":0.6,
-        "skyBox":{"size":50000,"bitmap":"textures/skybox_day.png"},
         "lightMin":{"r":0.2,"g":0.2,"b":0.2},
         "lightMax":{"r":1.0,"g":1.0,"b":1.0},
         "lights":
