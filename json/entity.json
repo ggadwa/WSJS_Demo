@@ -26,9 +26,6 @@
                 "interfaceArmorCount":"armor_count",
                 "multiCamera":true,
                 "cameraFirstPerson":true,
-                "idleAnimation":[0,50],
-                "runAnimation":[492,518],
-                "dieAnimation":[209,247],
                 "maxTurnSpeed":8,
                 "maxLookSpeed":8,
                 "maxLookAngle":80,
@@ -57,9 +54,7 @@
                 "thirdPersonCameraDistance":10000,
                 "thirdPersonCameraLookAngle":-10,
                 "hitIndicator":true,
-                "hitIndicatorFlashTick":500,
-                "hurtSound":{"name":"hurt","rate":0.5,"randomRateAdd":1.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
-                "dieSound":{"name":"player_die","rate":0.8,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false}
+                "hitIndicatorFlashTick":500
             },
         "weapons":
             [
@@ -118,6 +113,17 @@
                         {"id":"armor_count","text":"","positionMode":"bottomRight","positionOffset":{"x":-50,"y":-50},"textSize":20,"textAlign":"right","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true},
                         {"id":"health_count","text":"","positionMode":"bottomRight","positionOffset":{"x":-50,"y":-12},"textSize":20,"textAlign":"right","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true}
                     ]
+            },
+        "animations":
+            {
+                "idleAnimation":[0,50],
+                "runAnimation":[492,518],
+                "dieAnimation":[209,247]                
+            },
+        "sounds":
+            {
+                "hurtSound":{"name":"hurt","rate":0.5,"randomRateAdd":1.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
+                "dieSound":{"name":"player_die","rate":0.8,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false}
             }
     },
 
@@ -137,12 +143,6 @@
             },
         "config":
             {
-                "idleAnimation":[0,50],
-                "runAnimation":[492,518],
-                "dieAnimation":[209,247],
-                "hurtSound":{"name":"hurt","rate":0.5,"randomRateAdd":1.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
-                "dieSound":{"name":"player_die","rate":0.8,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
-
                 "skills":
                     [
                         {
@@ -366,7 +366,18 @@
                     "parentTertiaryFireRunAnimation":[51,91],
                     "meshes":[]
                 }
-            ]
+            ],
+        "animations":
+            {
+                "idleAnimation":[0,50],
+                "runAnimation":[492,518],
+                "dieAnimation":[209,247]                
+            },
+        "sounds":
+            {
+                "hurtSound":{"name":"hurt","rate":0.5,"randomRateAdd":1.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
+                "dieSound":{"name":"player_die","rate":0.8,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false}
+            }
     },
     {
         "name":"weapon_pistol",
@@ -387,7 +398,6 @@
                 "handOffset":{"x":-800,"y":-12500,"z":-2700},
                 "handAngle":{"x":0,"y":-10,"z":0},
                 "interfaceCrosshair":"pistol_crosshair",
-                "idleAnimation":[77,127],
                 "primary":
                     {
                         "type":"hit_scan",
@@ -408,6 +418,10 @@
                     },
                 "secondary":null,
                 "tertiary":null
+            },
+        "animations":
+            {
+                "idleAnimation":[77,127]
             },
         "interface":
             {
@@ -441,7 +455,6 @@
                 "handOffset":{"x":100,"y":-8500,"z":-2000},
                 "handAngle":{"x":0,"y":-10,"z":0},
                 "interfaceCrosshair":"m16_crosshair",
-                "idleAnimation":[77,127],
                 "primary":
                     {
                         "type":"hit_scan",
@@ -462,6 +475,10 @@
                     },
                 "secondary":null,
                 "tertiary":null
+            },
+        "animations":
+            {
+                "idleAnimation":[77,127]
             },
         "interface":
             {
@@ -495,7 +512,6 @@
                 "handOffset":{"x":0,"y":0,"z":0},
                 "handAngle":{"x":0,"y":0,"z":0},
                 "interfaceCrosshair":null,
-                "idleAnimation":[0,0],
                 "primary":null,
                 "secondary":null,
                 "tertiary":
@@ -516,6 +532,10 @@
                         "interfaceAmmoText":"grenade_count",
                         "interfaceAmmoCount":null
                     }
+            },
+        "animations":
+            {
+                "idleAnimation":[0,0]
             },
         "interface":
             {
@@ -549,12 +569,18 @@
                 "pickupOnce":false,
                 "spinTick":5000,
                 "floatMove":200,
-                "idleAnimation":null,
-                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
                 "actions":
                     [
                         {"action":"addAmmo","weapon":"pistol","fireMethod":"primary","count":10}
                     ]
+            },
+        "animations":
+            {
+                "idleAnimation":null
+            },
+        "sounds":
+            {
+                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false}
             }
     },
     {
@@ -577,12 +603,18 @@
                 "pickupOnce":"@pickupOnce",
                 "spinTick":5000,
                 "floatMove":200,
-                "idleAnimation":null,
-                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
                 "actions":
                     [
                         {"action":"addWeapon","weapon":"m16"}
                     ]
+            },
+        "animations":
+            {
+                "idleAnimation":null
+            },
+        "sounds":
+            {
+                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false}
             }
     },
     {
@@ -605,12 +637,18 @@
                 "pickupOnce":false,
                 "spinTick":5000,
                 "floatMove":200,
-                "idleAnimation":null,
-                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
                 "actions":
                     [
                         {"action":"addAmmo","weapon":"m16","fireMethod":"primary","count":50}
                     ]
+            },
+        "animations":
+            {
+                "idleAnimation":null
+            },
+        "sounds":
+            {
+                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false}
             }
     },
     {
@@ -633,12 +671,18 @@
                 "pickupOnce":false,
                 "spinTick":5000,
                 "floatMove":200,
-                "idleAnimation":null,
-                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
                 "actions":
                     [
                         {"action":"addAmmo","weapon":"grenade","fireMethod":"tertiary","count":1}
                     ]
+            },
+        "animations":
+            {
+                "idleAnimation":null                
+            },
+        "sounds":
+            {
+                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false}
             }
     },
     {
@@ -661,12 +705,18 @@
                 "pickupOnce":"@pickupOnce",
                 "spinTick":5000,
                 "floatMove":200,
-                "idleAnimation":null,
-                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
                 "actions":
                     [
                         {"action":"addArmor","count":100}
                     ]
+            },
+        "animations":
+            {
+                "idleAnimation":null
+            },
+        "sounds":
+            {
+                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false}
             }
     },
     {
@@ -689,12 +739,18 @@
                 "pickupOnce":"@pickupOnce",
                 "spinTick":5000,
                 "floatMove":200,
-                "idleAnimation":null,
-                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
                 "actions":
                     [
                         {"action":"addHealth","count":25}
                     ]
+            },
+        "animations":
+            {
+                "idleAnimation":null
+            },
+        "sounds":
+            {
+                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false}
             }
     },
     {
@@ -725,14 +781,17 @@
                 "canRoll":true,
                 "rollDeceleration":0.95,
                 "canBounce":true,
-                "bounceFactor":0.8,
-                "bounceSound":{"name":"grenade_bounce","rate":1.0,"randomRateAdd":0.1,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false},
+                "bounceFactor":0.8,  
                 "canReflect":true,
-                "reflectSound":{"name":"grenade_bounce","rate":1.2,"randomRateAdd":0.1,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false},
-                "spawnSound":null,
                 "hitEffect":"explosion",
                 "trailEffect":null,
                 "trailSpawnTick":0
+            },
+        "sounds":
+            {
+                "bounceSound":{"name":"grenade_bounce","rate":1.0,"randomRateAdd":0.1,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false},
+                "reflectSound":{"name":"grenade_bounce","rate":1.2,"randomRateAdd":0.1,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false},
+                "spawnSound":null
             }
     },
     {
@@ -764,13 +823,16 @@
                 "rollDeceleration":0,
                 "canBounce":false,
                 "bounceFactor":0,
-                "bounceSound":null,
                 "canReflect":false,
-                "reflectSound":null,
-                "spawnSound":{"name":"laser","rate":1.0,"randomRateAdd":0.0,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false},
                 "hitEffect":"@hitEffect",
                 "trailEffect":"sparkle",
                 "trailSpawnTick":40
+            },
+        "sounds":
+            {
+                "bounceSound":null,
+                "reflectSound":null,
+                "spawnSound":{"name":"laser","rate":1.0,"randomRateAdd":0.0,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false}
             }
     },
     {
@@ -795,12 +857,6 @@
                 "openOnActionKey":true,
                 "openDistance":8000,
                 "openPause":2500,
-                "closedAnimation":[0,1],
-                "openAnimation":[65,66],
-                "openingAnimation":[1,65],
-                "closingAnimation":[0,1],
-                "openSound":{"name":"chime","rate":1.0,"randomRateAdd":0.0,"distance":7000,"loopStart":0,"loopEnd":0,"loop":false},
-                "closeSound":{"name":"chime","rate":0.5,"randomRateAdd":0.0,"distance":7000,"loopStart":0,"loopEnd":0,"loop":false},
                 "openActions":
                     [
                         {"action":"trigger","name":"@trigger"},
@@ -812,6 +868,18 @@
                 "closeActions":
                     [
                     ]
+            },
+        "animations":
+            {
+                "closedAnimation":[0,1],
+                "openAnimation":[65,66],
+                "openingAnimation":[1,65],
+                "closingAnimation":[0,1]
+            },
+        "sounds":
+            {
+                "openSound":{"name":"chime","rate":1.0,"randomRateAdd":0.0,"distance":7000,"loopStart":0,"loopEnd":0,"loop":false},
+                "closeSound":{"name":"chime","rate":0.5,"randomRateAdd":0.0,"distance":7000,"loopStart":0,"loopEnd":0,"loop":false}      
             }
     },
     {
@@ -832,14 +900,13 @@
             {
                 "startHealth":80,
                 "wakeUpDistance":25000,
-                "fallAsleepDistance":75000,
+                "idleDistance":75000,
                 "meleeDistance":5000,
                 "meleeWaitTick":1500,
                 "meleeDamageTick":500,
                 "meleeDamage":20,
                 "projectileDistance":0,
                 "projectileWaitTick":0,
-                "projectileFireTick":0,
                 "projectileFirePosition":[0,0,0],
                 "projectileJson":null,
                 "projectileData":null,
@@ -858,24 +925,37 @@
                 "jumpWaitTick":0,
                 "jumpHeight":0,
                 "angleYProjectileRange":5,
-                "angleYMeleeRange":15,
-                "damageFlinchWaitTick":500,
-                "meleeMovementFreezeTick":1000,
-                "projectileMovementFreezeTick":1000,
-                "damageMovementFreezeTick":1000,
+                "angleYMeleeRange":15
+            },
+        "animations":
+            {
+                "sleepAnimation":[1694,1729],
+                "wakeUpAnimation":[1839,1889],
                 "idleAnimation":[1694,1729],
                 "walkAnimation":[1465,1501],
-                "melee1Animation":[440,475],
-                "melee2Animation":[560,595],
+                "meleeLeftAnimation":[440,475],
+                "meleeRightAnimation":[560,595],
                 "projectileAnimation":[0,0],
                 "hitAnimation":[1186,1221],
                 "deathAnimation":[1306,1371],
+                "meleeLeftHitFrame":455,
+                "meleeRightHitFrame":575,
+                "projectileFireFrame":0,
+                "deathFallSoundFrame":1354
+            },
+        "sounds":
+            {
                 "wakeUpSound":{"name":"rat_wake_up","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
                 "hurtSound":{"name":"rat_wake_up","rate":0.7,"randomRateAdd":0.6,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
                 "meleeSound":{"name":"blade","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false},
                 "deathSound":{"name":"rat_die","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
-                "fallSound":{"name":"thud","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
-                "fallSoundWaitTick":1600
+                "fallSound":{"name":"thud","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false}
+            },
+        "triggers":
+            {
+                "wakeUpSetTrigger":null,
+                "deathSetTrigger":null,
+                "showTrigger":null
             }
     },
     {
@@ -896,14 +976,12 @@
             {
                 "startHealth":40,
                 "wakeUpDistance":35000,
-                "fallAsleepDistance":75000,
+                "idleDistance":75000,
                 "meleeDistance":5000,
                 "meleeWaitTick":800,
-                "meleeDamageTick":500,
                 "meleeDamage":5,
                 "projectileDistance":0,
                 "projectileWaitTick":0,
-                "projectileFireTick":0,
                 "projectileFirePosition":[0,0,0],
                 "projectileJson":null,
                 "projectileData":null,
@@ -920,26 +998,39 @@
                 "sideMaxSpeed":100,
                 "slideMoveTick":2000,
                 "jumpWaitTick":2000,
-                "jumpHeight":300,
+                "jumpHeight":250,
                 "angleYProjectileRange":5,
-                "angleYMeleeRange":15,
-                "damageFlinchWaitTick":500,
-                "meleeMovementFreezeTick":1000,
-                "projectileMovementFreezeTick":1000,
-                "damageMovementFreezeTick":1000,
+                "angleYMeleeRange":15
+            },
+        "animations":
+            {
+                "sleepAnimation":[284,385],
+                "wakeUpAnimation":[165,195],
                 "idleAnimation":[284,385],
                 "walkAnimation":[0,40],
-                "melee1Animation":[83,111],
-                "melee2Animation":[112,139],
+                "meleeLeftAnimation":[83,111],
+                "meleeRightAnimation":[112,139],
                 "projectileAnimation":[0,0],
                 "hitAnimation":[140,164],
                 "deathAnimation":[245,280],
+                "meleeLeftHitFrame":93,
+                "meleeRightHitFrame":122,
+                "projectileFireFrame":0,
+                "deathFallSoundFrame":0
+            },
+        "sounds":
+            {
                 "wakeUpSound":{"name":"spider_wake_up","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
                 "hurtSound":{"name":"spider_wake_up","rate":0.7,"randomRateAdd":0.6,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
                 "meleeSound":{"name":"spider_wake_up","rate":1.2,"randomRateAdd":0.2,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
                 "deathSound":{"name":"spider_die","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
-                "fallSound":null,
-                "fallSoundWaitTick":0
+                "fallSound":null
+            },
+        "triggers":
+            {
+                "wakeUpSetTrigger":null,
+                "deathSetTrigger":null,
+                "showTrigger":"@showTrigger"
             }
     },
     {
@@ -960,14 +1051,12 @@
             {
                 "startHealth":240,
                 "wakeUpDistance":50000,
-                "fallAsleepDistance":75000,
+                "idleDistance":75000,
                 "meleeDistance":6000,
                 "meleeWaitTick":2500,
-                "meleeDamageTick":500,
                 "meleeDamage":20,
                 "projectileDistance":40000,
                 "projectileWaitTick":5000,
-                "projectileFireTick":500,
                 "projectileFirePosition":[0,4100,3500],
                 "projectileJson":"projectile_sparkle",
                 "projectileData":{"hitEffect":"hit"},
@@ -986,24 +1075,37 @@
                 "jumpWaitTick":0,
                 "jumpHeight":0,
                 "angleYProjectileRange":5,
-                "angleYMeleeRange":15,
-                "damageFlinchWaitTick":500,
-                "meleeMovementFreezeTick":1000,
-                "projectileMovementFreezeTick":1000,
-                "damageMovementFreezeTick":1000,
+                "angleYMeleeRange":15
+            },
+        "animations":
+            {
+                "sleepAnimation":[2,100],
+                "wakeUpAnimation":[496,546],
                 "idleAnimation":[2,100],
                 "walkAnimation":[2045,2081],
-                "melee1Animation":[706,741],
-                "melee2Animation":[598,633],
+                "meleeLeftAnimation":[706,741],
+                "meleeRightAnimation":[598,633],
                 "projectileAnimation":[547,597],
                 "hitAnimation":[982,1017],
                 "deathAnimation":[1886,1951],
+                "meleeLeftHitFrame":721,
+                "meleeRightHitFrame":613,
+                "projectileFireFrame":562,
+                "deathFallSoundFrame":1934
+            },
+        "sounds":
+            {
                 "wakeUpSound":{"name":"vampire_wake_up","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
                 "hurtSound":{"name":"vampire_wake_up","rate":0.7,"randomRateAdd":0.6,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
                 "meleeSound":{"name":"vampire_wake_up","rate":1.2,"randomRateAdd":0.4,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
                 "deathSound":{"name":"vampire_die","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
-                "fallSound":{"name":"thud","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
-                "fallSoundWaitTick":1600
+                "fallSound":{"name":"thud","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false}
+            },
+        "triggers":
+            {
+                "wakeUpSetTrigger":null,
+                "deathSetTrigger":null,
+                "showTrigger":null
             }
     },
     {
@@ -1024,14 +1126,12 @@
             {
                 "startHealth":160,
                 "wakeUpDistance":25000,
-                "fallAsleepDistance":75000,
+                "idleDistance":75000,
                 "meleeDistance":5000,
                 "meleeWaitTick":3000,
-                "meleeDamageTick":500,
                 "meleeDamage":20,
                 "projectileDistance":0,
                 "projectileWaitTick":0,
-                "projectileFireTick":0,
                 "projectileFirePosition":[0,0,0],
                 "projectileJson":null,
                 "projectileData":null,
@@ -1050,24 +1150,37 @@
                 "jumpWaitTick":0,
                 "jumpHeight":0,
                 "angleYProjectileRange":5,
-                "angleYMeleeRange":15,
-                "damageFlinchWaitTick":500,
-                "meleeMovementFreezeTick":1000,
-                "projectileMovementFreezeTick":1000,
-                "damageMovementFreezeTick":1000,
+                "angleYMeleeRange":15
+            },
+        "animations":
+            {
+                "sleepAnimation":[6370,6470],
+                "wakeUpAnimation":[0,50],
                 "idleAnimation":[6370,6470],
                 "walkAnimation":[5683,5719],
-                "melee1Animation":[5299,5334],
-                "melee2Animation":[5335,5370],
+                "meleeLeftAnimation":[5299,5334],
+                "meleeRightAnimation":[5335,5370],
                 "projectileAnimation":[4711,4731],
                 "hitAnimation":[4974,5009],
                 "deathAnimation":[3971,4111],
+                "meleeLeftHitFrame":5314,
+                "meleeRightHitFrame":5350,
+                "projectileFireFrame":0,
+                "deathFallSoundFrame":4097
+            },
+        "sounds":
+            {
                 "wakeUpSound":{"name":"skeleton_wake_up","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
                 "hurtSound":{"name":"skeleton_wake_up","rate":0.7,"randomRateAdd":0.6,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
                 "meleeSound":{"name":"blade","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false},
                 "deathSound":{"name":"skeleton_die","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
-                "fallSound":{"name":"thud","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
-                "fallSoundWaitTick":4200
+                "fallSound":{"name":"thud","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false}
+            },
+        "triggers":
+            {
+                "wakeUpSetTrigger":null,
+                "deathSetTrigger":null,
+                "showTrigger":null
             }
     },
     {
@@ -1087,15 +1200,13 @@
         "config":
             {
                 "startHealth":500,
-                "wakeUpDistance":35000,
-                "fallAsleepDistance":75000,
+                "wakeUpDistance":5000,
+                "idleDistance":75000,
                 "meleeDistance":6000,
                 "meleeWaitTick":3000,
-                "meleeDamageTick":500,
                 "meleeDamage":20,
                 "projectileDistance":60000,
                 "projectileWaitTick":6000,
-                "projectileFireTick":2000,
                 "projectileFirePosition":[0,5000,2500],
                 "projectileJson":"projectile_sparkle",
                 "projectileData":{"hitEffect":"explosion"},
@@ -1114,24 +1225,37 @@
                 "jumpWaitTick":0,
                 "jumpHeight":0,
                 "angleYProjectileRange":5,
-                "angleYMeleeRange":15,
-                "damageFlinchWaitTick":500,            
-                "meleeMovementFreezeTick":4000,
-                "projectileMovementFreezeTick":3500,
-                "damageMovementFreezeTick":1000,
+                "angleYMeleeRange":15
+            },
+        "animations":
+            {
+                "sleepAnimation":[1154,1274],
+                "wakeUpAnimation":[1275,1345],
                 "idleAnimation":[248,398],
                 "walkAnimation":[2010,2060],
-                "melee1Animation":[2445,2480],
-                "melee2Animation":[2589,2624],
+                "meleeLeftAnimation":[2445,2480],
+                "meleeRightAnimation":[2589,2624],
                 "projectileAnimation":[399,484],
                 "hitAnimation":[1497,1557],
-                "deathAnimation":[3849,3989],
-                "wakeUpSound":{"name":"skeleton_wake_up","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
-                "hurtSound":{"name":"skeleton_wake_up","rate":0.7,"randomRateAdd":0.6,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "deathAnimation":[3849,3980],
+                "meleeLeftHitFrame":2460,
+                "meleeRightHitFrame":2604,
+                "projectileFireFrame":459,
+                "deathFallSoundFrame":3975
+            },
+        "sounds":
+            {
+                "wakeUpSound":{"name":"skeleton_wake_up","rate":2.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "hurtSound":{"name":"skeleton_wake_up","rate":1.7,"randomRateAdd":0.6,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
                 "meleeSound":{"name":"blade","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false},
-                "deathSound":{"name":"skeleton_die","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
-                "fallSound":{"name":"thud","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
-                "fallSoundWaitTick":4200
+                "deathSound":{"name":"skeleton_die","rate":3.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "fallSound":{"name":"thud","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false}
+            },
+        "triggers":
+            {
+                "wakeUpSetTrigger":"queen_wake",
+                "deathSetTrigger":"queen_dead",
+                "showTrigger":null
             }
     },
     
@@ -1150,6 +1274,9 @@
                 "hideMeshes":[]
             },
         "config":
+            {
+            },
+        "animations":
             {
                 "idleAnimation":[0,100]
             }
@@ -1170,6 +1297,9 @@
                 "hideMeshes":[]
             },
         "config":
+            {
+            },
+        "sounds":
             {
                 "engineSound":{"name":"engine","rate":0.5,"randomRateAdd":0,"distance":1000,"loopStart":0.948,"loopEnd":1.994,"loop":true},
                 "skidSound":{"name":"skid","rate":1.0,"randomRateAdd":0,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false},
@@ -1228,7 +1358,6 @@
                 "handOffset":{"x":0,"y":0,"z":0},
                 "handAngle":{"x":0,"y":0,"z":0},
                 "interfaceCrosshair":null,
-                "idleAnimation":[0,0],
                 "primary":
                     {
                         "type":"projectile",
@@ -1249,6 +1378,11 @@
                     },
                 "secondary":null,
                 "tertiary":null
+            },
+        "animations":
+            {
+                "idleAnimation":[0,0]
+                    
             },
         "interface":
             {
@@ -1288,13 +1422,16 @@
                 "rollDeceleration":0,
                 "canBounce":false,
                 "bounceFactor":0,
-                "bounceSound":null,
                 "canReflect":true,
-                "reflectSound":{"name":"mine_crash","rate":1.0,"randomRateAdd":0.4,"distance":80000,"loopStart":0,"loopEnd":0,"loop":false},
-                "spawnSound":null,
                 "hitEffect":"effect_explosion",
                 "trailEffect":null,
                 "trailSpawnTick":0
+            },
+        "sounds":
+            {
+                "bounceSound":null,
+                "reflectSound":{"name":"mine_crash","rate":1.0,"randomRateAdd":0.4,"distance":80000,"loopStart":0,"loopEnd":0,"loop":false},
+                "spawnSound":null
             }
     }
 
