@@ -1340,6 +1340,47 @@
     },
     
     {
+        "name":"kart_bot",
+        "type":"kart_bot",
+        "setup":
+            {
+                "model":"tank_red",
+                "rotationOrder":"XZY",
+                "scale":{"x":2000,"y":2000,"z":2000},
+                "radius":6000,
+                "height":7000,
+                "eyeOffset":3000,
+                "weight":500,
+                "hideMeshes":[]
+            },
+        "config":
+            {
+                "targetScanYRange":15
+            },
+        "sounds":
+            {
+                "engineSound":{"name":"engine","rate":0.5,"randomRateAdd":0,"distance":1000,"loopStart":0.948,"loopEnd":1.994,"loop":true},
+                "skidSound":{"name":"skid","rate":1.0,"randomRateAdd":0,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false},
+                "crashKartSound":{"name":"crash","rate":1.0,"randomRateAdd":0.2,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false},
+                "crashWallSound":{"name":"crash","rate":0.8,"randomRateAdd":0.2,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false}
+            },
+        "weapons":
+            [
+                {
+                    "json":"weapon_tank_shell",
+                    "name":"tank_shell",
+                    "parentIdleAnimation":[0,0],
+                    "parentRunAnimation":[0,0],
+                    "parentFireIdleAnimation":[0,0],
+                    "parentPrimaryFireRunAnimation":[0,0],
+                    "parentSecondaryFireRunAnimation":[0,0],
+                    "parentTertiaryFireRunAnimation":[0,0],
+                    "meshes":[]
+                }
+            ]
+    },
+    
+    {
         "name":"weapon_tank_shell",
         "type":"weapon",
         "setup":
