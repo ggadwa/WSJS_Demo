@@ -401,8 +401,8 @@
                 "primary":
                     {
                         "type":"hit_scan",
-                        "ammoInitialCount":15,
-                        "ammoMaxCount":25,
+                        "ammoInitialCount":25,
+                        "ammoMaxCount":50,
                         "ammoRegenerateTick":-1,
                         "waitTick":900,
                         "startRadius":0,
@@ -860,7 +860,7 @@
                 "openActions":
                     [
                         {"action":"trigger","name":"@trigger"},
-                        {"action":"addAmmo","weapon":"pistol","fireMethod":"primary","count":10},
+                        {"action":"addAmmo","weapon":"pistol","fireMethod":"primary","count":15},
                         {"action":"addAmmo","weapon":"m16","fireMethod":"primary","count":50},
                         {"action":"addAmmo","weapon":"grenade","fireMethod":"tertiary","count":1},
                         {"action":"addHealth","count":25}
@@ -899,7 +899,7 @@
         "config":
             {
                 "startHealth":80,
-                "wakeUpDistance":25000,
+                "wakeUpDistance":30000,
                 "idleDistance":75000,
                 "meleeDistance":5000,
                 "meleeWaitTick":1500,
