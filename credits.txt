@@ -1,6 +1,7 @@
 Coding/Design: Brian Barnes
-Dungeon/Dual Castle Maps/Player/Weapons/Monsters: Mr. Necturus / http://mr-necturus.com
-Circuit Race: polroute66 / cgtrader (heavily edited by Brian Barnes)
+Dungeon Map/Dual Castle Map/Player/Weapons/Monsters: Mr. Necturus / http://mr-necturus.com
+Circuit Race Map (Original model): polroute66 / cgtrader (heavily modified by Brian Barnes)
+Factories (in Circuit Race): Daniel Mikulik / cgtrader
 Tree (in Circuit Race): Belina / cgtrader
 Tank: Alexander Smith
 Grenade: Sergei Pavlov / sketchfab

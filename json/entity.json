@@ -397,6 +397,8 @@
             {
                 "handOffset":{"x":-800,"y":-12500,"z":-2700},
                 "handAngle":{"x":0,"y":-10,"z":0},
+                "fireOffsetAdd":{"x":0,"y":0,"z":0},
+                "fireAngleAdd":{"x":0,"y":0,"z":0},
                 "interfaceCrosshair":"pistol_crosshair",
                 "primary":
                     {
@@ -405,7 +407,6 @@
                         "ammoMaxCount":50,
                         "ammoRegenerateTick":-1,
                         "waitTick":900,
-                        "startRadius":0,
                         "damage":20,
                         "distance":100000,
                         "hitEffect":"hit",
@@ -454,6 +455,8 @@
             {
                 "handOffset":{"x":100,"y":-8500,"z":-2000},
                 "handAngle":{"x":0,"y":-10,"z":0},
+                "fireOffsetAdd":{"x":0,"y":0,"z":0},
+                "fireAngleAdd":{"x":0,"y":0,"z":0},
                 "interfaceCrosshair":"m16_crosshair",
                 "primary":
                     {
@@ -462,7 +465,6 @@
                         "ammoMaxCount":300,
                         "ammoRegenerateTick":-1,
                         "waitTick":200,
-                        "startRadius":0,
                         "damage":5,
                         "distance":100000,
                         "hitEffect":"hit",
@@ -511,6 +513,8 @@
             {
                 "handOffset":{"x":0,"y":0,"z":0},
                 "handAngle":{"x":0,"y":0,"z":0},
+                "fireOffsetAdd":{"x":0,"y":0,"z":2000},
+                "fireAngleAdd":{"x":0,"y":0,"z":0},
                 "interfaceCrosshair":null,
                 "primary":null,
                 "secondary":null,
@@ -521,7 +525,6 @@
                         "ammoMaxCount":5,
                         "ammoRegenerateTick":-1,
                         "waitTick":1000,
-                        "startRadius":2500,
                         "damage":0,
                         "distance":0,
                         "hitEffect":null,
@@ -569,6 +572,9 @@
                 "pickupOnce":false,
                 "spinTick":5000,
                 "floatMove":200,
+                "randomPosition":false,
+                "randomPositionAdd":{"x":0,"y":0,"z":0},
+                "randomPositionOffset":{"x":0,"y":0,"z":0},
                 "actions":
                     [
                         {"action":"addAmmo","weapon":"pistol","fireMethod":"primary","count":10}
@@ -603,6 +609,9 @@
                 "pickupOnce":"@pickupOnce",
                 "spinTick":5000,
                 "floatMove":200,
+                "randomPosition":false,
+                "randomPositionAdd":{"x":0,"y":0,"z":0},
+                "randomPositionOffset":{"x":0,"y":0,"z":0},
                 "actions":
                     [
                         {"action":"addWeapon","weapon":"m16"}
@@ -637,6 +646,9 @@
                 "pickupOnce":false,
                 "spinTick":5000,
                 "floatMove":200,
+                "randomPosition":false,
+                "randomPositionAdd":{"x":0,"y":0,"z":0},
+                "randomPositionOffset":{"x":0,"y":0,"z":0},
                 "actions":
                     [
                         {"action":"addAmmo","weapon":"m16","fireMethod":"primary","count":50}
@@ -671,6 +683,9 @@
                 "pickupOnce":false,
                 "spinTick":5000,
                 "floatMove":200,
+                "randomPosition":false,
+                "randomPositionAdd":{"x":0,"y":0,"z":0},
+                "randomPositionOffset":{"x":0,"y":0,"z":0},
                 "actions":
                     [
                         {"action":"addAmmo","weapon":"grenade","fireMethod":"tertiary","count":1}
@@ -705,6 +720,9 @@
                 "pickupOnce":"@pickupOnce",
                 "spinTick":5000,
                 "floatMove":200,
+                "randomPosition":false,
+                "randomPositionAdd":{"x":0,"y":0,"z":0},
+                "randomPositionOffset":{"x":0,"y":0,"z":0},
                 "actions":
                     [
                         {"action":"addArmor","count":100}
@@ -739,6 +757,9 @@
                 "pickupOnce":"@pickupOnce",
                 "spinTick":5000,
                 "floatMove":200,
+                "randomPosition":false,
+                "randomPositionAdd":{"x":0,"y":0,"z":0},
+                "randomPositionOffset":{"x":0,"y":0,"z":0},
                 "actions":
                     [
                         {"action":"addHealth","count":25}
@@ -843,7 +864,7 @@
                 "model":"captain_chest",
                 "rotationOrder":"XYZ",
                 "scale":{"x":50,"y":50,"z":50},
-                "radius":2800,
+                "radius":2200,
                 "height":2200,
                 "eyeOffset":0,
                 "weight":250,
@@ -900,6 +921,7 @@
             {
                 "startHealth":80,
                 "wakeUpDistance":30000,
+                "wakeUpOnOtherWakeUpDistance":30000,
                 "idleDistance":75000,
                 "meleeDistance":5000,
                 "meleeWaitTick":1500,
@@ -921,6 +943,7 @@
                 "sideAcceleration":4,
                 "sideDeceleration":2,
                 "sideMaxSpeed":40,
+                "damageSpeedFactor":0.25,
                 "slideMoveTick":2000,
                 "jumpWaitTick":0,
                 "jumpHeight":0,
@@ -976,6 +999,7 @@
             {
                 "startHealth":40,
                 "wakeUpDistance":35000,
+                "wakeUpOnOtherWakeUpDistance":30000,
                 "idleDistance":75000,
                 "meleeDistance":5000,
                 "meleeWaitTick":800,
@@ -996,6 +1020,7 @@
                 "sideAcceleration":8,
                 "sideDeceleration":6,
                 "sideMaxSpeed":100,
+                "damageSpeedFactor":0,
                 "slideMoveTick":2000,
                 "jumpWaitTick":2000,
                 "jumpHeight":250,
@@ -1051,6 +1076,7 @@
             {
                 "startHealth":240,
                 "wakeUpDistance":50000,
+                "wakeUpOnOtherWakeUpDistance":50000,
                 "idleDistance":75000,
                 "meleeDistance":6000,
                 "meleeWaitTick":2500,
@@ -1071,6 +1097,7 @@
                 "sideAcceleration":4,
                 "sideDeceleration":2,
                 "sideMaxSpeed":60,
+                "damageSpeedFactor":0,
                 "slideMoveTick":2000,
                 "jumpWaitTick":0,
                 "jumpHeight":0,
@@ -1126,6 +1153,7 @@
             {
                 "startHealth":160,
                 "wakeUpDistance":25000,
+                "wakeUpOnOtherWakeUpDistance":25000,
                 "idleDistance":75000,
                 "meleeDistance":5000,
                 "meleeWaitTick":3000,
@@ -1146,6 +1174,7 @@
                 "sideAcceleration":4,
                 "sideDeceleration":2,
                 "sideMaxSpeed":80,
+                "damageSpeedFactor":0,
                 "slideMoveTick":2000,
                 "jumpWaitTick":0,
                 "jumpHeight":0,
@@ -1200,7 +1229,8 @@
         "config":
             {
                 "startHealth":500,
-                "wakeUpDistance":5000,
+                "wakeUpDistance":6000,
+                "wakeUpOnOtherWakeUpDistance":6000,
                 "idleDistance":75000,
                 "meleeDistance":6000,
                 "meleeWaitTick":3000,
@@ -1221,6 +1251,7 @@
                 "sideAcceleration":4,
                 "sideDeceleration":2,
                 "sideMaxSpeed":80,
+                "damageSpeedFactor":1.0,
                 "slideMoveTick":2000,
                 "jumpWaitTick":0,
                 "jumpHeight":0,
@@ -1245,10 +1276,10 @@
             },
         "sounds":
             {
-                "wakeUpSound":{"name":"skeleton_wake_up","rate":2.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
-                "hurtSound":{"name":"skeleton_wake_up","rate":1.7,"randomRateAdd":0.6,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
-                "meleeSound":{"name":"blade","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false},
-                "deathSound":{"name":"skeleton_die","rate":3.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "wakeUpSound":{"name":"queen_scream","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "hurtSound":{"name":"queen_hurt","rate":1.0,"randomRateAdd":0.6,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
+                "meleeSound":{"name":"queen_hurt","rate":0.7,"randomRateAdd":0.2,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false},
+                "deathSound":{"name":"queen_scream","rate":0.5,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false},
                 "fallSound":{"name":"thud","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false}
             },
         "triggers":
@@ -1258,30 +1289,6 @@
                 "showTrigger":null
             }
     },
-    
-    {
-        "name":"turbine",
-        "type":"decoration",
-        "setup":
-            {
-                "model":"turbine",
-                "rotationOrder":"XYZ",
-                "scale":{"x":4000,"y":4000,"z":4000},
-                "radius":2800,
-                "height":2200,
-                "eyeOffset":0,
-                "weight":1000,
-                "hideMeshes":[]
-            },
-        "config":
-            {
-            },
-        "animations":
-            {
-                "idleAnimation":[0,100]
-            }
-    },
-    
     {
         "name":"kart_player",
         "type":"kart_player",
@@ -1301,7 +1308,7 @@
             },
         "sounds":
             {
-                "engineSound":{"name":"engine","rate":0.5,"randomRateAdd":0,"distance":1000,"loopStart":0.948,"loopEnd":1.994,"loop":true},
+                "engineSound":{"name":"tank_engine","rate":0.5,"randomRateAdd":0,"distance":1000,"loopStart":0.948,"loopEnd":1.994,"loop":true},
                 "skidSound":{"name":"skid","rate":1.0,"randomRateAdd":0,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false},
                 "crashKartSound":{"name":"crash","rate":1.0,"randomRateAdd":0.2,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false},
                 "crashWallSound":{"name":"crash","rate":0.8,"randomRateAdd":0.2,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false}
@@ -1359,7 +1366,7 @@
             },
         "sounds":
             {
-                "engineSound":{"name":"engine","rate":0.5,"randomRateAdd":0,"distance":1000,"loopStart":0.948,"loopEnd":1.994,"loop":true},
+                "engineSound":{"name":"tank_engine","rate":0.5,"randomRateAdd":0,"distance":1000,"loopStart":0.948,"loopEnd":1.994,"loop":true},
                 "skidSound":{"name":"skid","rate":1.0,"randomRateAdd":0,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false},
                 "crashKartSound":{"name":"crash","rate":1.0,"randomRateAdd":0.2,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false},
                 "crashWallSound":{"name":"crash","rate":0.8,"randomRateAdd":0.2,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false}
@@ -1398,6 +1405,8 @@
             {
                 "handOffset":{"x":0,"y":0,"z":0},
                 "handAngle":{"x":0,"y":0,"z":0},
+                "fireOffsetAdd":{"x":0,"y":2000,"z":8000},
+                "fireAngleAdd":{"x":-20,"y":0,"z":0},
                 "interfaceCrosshair":null,
                 "primary":
                     {
@@ -1406,12 +1415,11 @@
                         "ammoMaxCount":10,
                         "ammoRegenerateTick":10000,
                         "waitTick":1000,
-                        "startRadius":10000,
                         "damage":0,
                         "distance":0,
                         "hitEffect":null,
-                        "projectileJson":"entity_projectile_tank_shell",
-                        "sound":{"name":"throw","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false},
+                        "projectileJson":"projectile_tank_shell",
+                        "sound":{"name":"tank_fire","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false},
                         "animation":[0,0],
                         "interfaceAmmoIcon":null,
                         "interfaceAmmoText":null,
@@ -1433,47 +1441,119 @@
                     ]
             }
     },
-    
     {
-        "name":"tank_shell",
+        "name":"projectile_tank_shell",
         "type":"projectile",
         "setup":
             {
                 "model":"tank_shell",
                 "rotationOrder":"XYZ",
-                "scale":{"x":5,"y":5,"z":5},
-                "radius":5000,
-                "height":5000,
+                "scale":{"x":500,"y":500,"z":500},
+                "radius":1000,
+                "height":1000,
                 "eyeOffset":0,
-                "weight":30,
+                "weight":100,
                 "hideMeshes":[]
             },
         "config":
             {
                 "lifeTick":8000,
-                "speed":750,
+                "speed":2100,
                 "damage":0,
                 "floats":false,
-                "followsFloor":true,
-                "spins":true,
-                "spinRate":1000,
+                "followsFloor":false,
+                "spins":false,
+                "spinRate":0,
                 "tumbles":false,
-                "stopOnHit":false,
+                "stopOnHit":true,
                 "canRoll":false,
                 "rollDeceleration":0,
                 "canBounce":false,
                 "bounceFactor":0,
-                "canReflect":true,
-                "hitEffect":"effect_explosion",
-                "trailEffect":null,
-                "trailSpawnTick":0
+                "canReflect":false,
+                "hitEffect":"explosion",
+                "trailEffect":"exhaust",
+                "trailSpawnTick":40
             },
         "sounds":
             {
                 "bounceSound":null,
-                "reflectSound":{"name":"mine_crash","rate":1.0,"randomRateAdd":0.4,"distance":80000,"loopStart":0,"loopEnd":0,"loop":false},
+                "reflectSound":null,
                 "spawnSound":null
             }
+    },
+    {
+        "name":"pickup_star",
+        "type":"pickup",
+        "setup":
+            {
+                "model":"star",
+                "rotationOrder":"XYZ",
+                "scale":{"x":1000,"y":1000,"z":1000},
+                "radius":2000,
+                "height":2000,
+                "eyeOffset":0,
+                "weight":100,
+                "hideMeshes":[]
+            },
+        "config":
+            {
+                "hideTick":5000,
+                "pickupOnce":false,
+                "spinTick":5000,
+                "floatMove":200,
+                "randomPosition":true,
+                "randomPositionAdd":{"x":0,"y":4000,"z":0},
+                "randomPositionOffset":{"x":12000,"y":0,"z":12000},
+                "actions":
+                    [
+                        {"action":"addAmmo","weapon":"pistol","fireMethod":"primary","count":10}
+                    ]
+            },
+        "animations":
+            {
+                "idleAnimation":null
+            },
+        "sounds":
+            {
+                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false}
+            }
+    },
+    {
+        "name":"pickup_shell",
+        "type":"pickup",
+        "setup":
+            {
+                "model":"tank_shell",
+                "rotationOrder":"XYZ",
+                "scale":{"x":1000,"y":1000,"z":1000},
+                "radius":2000,
+                "height":2000,
+                "eyeOffset":0,
+                "weight":100,
+                "hideMeshes":[]
+            },
+        "config":
+            {
+                "hideTick":5000,
+                "pickupOnce":false,
+                "spinTick":5000,
+                "floatMove":200,
+                "randomPosition":true,
+                "randomPositionAdd":{"x":0,"y":4000,"z":0},
+                "randomPositionOffset":{"x":12000,"y":0,"z":12000},
+                "actions":
+                    [
+                        {"action":"addAmmo","weapon":"pistol","fireMethod":"primary","count":10}
+                    ]
+            },
+        "animations":
+            {
+                "idleAnimation":null
+            },
+        "sounds":
+            {
+                "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false}
+            }
     }
-
 ]
