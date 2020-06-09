@@ -1,5 +1,4 @@
 [
-
     {
         "name":"player",
         "type":"fps_player",
@@ -24,8 +23,6 @@
                 "interfaceHealthCount":"health_count",
                 "interfaceArmorIcon":"armor",
                 "interfaceArmorCount":"armor_count",
-                "multiCamera":true,
-                "cameraFirstPerson":true,
                 "maxTurnSpeed":8,
                 "maxLookSpeed":8,
                 "maxLookAngle":80,
@@ -51,8 +48,11 @@
                 "fallDamageMinDistance":10000,
                 "fallDamagePercentage":0.002,
                 "respawnWaitTick":8000,
-                "thirdPersonCameraDistance":10000,
-                "thirdPersonCameraLookAngle":-10,
+                "isThirdPersonCamera":true,
+                "thirdPersonCameraDistance":15000,
+                "thirdPersonCameraLookAngle":{"x":90,"y":0,"z":0},
+                "isTopDownCameraOnDeath":true,
+                "topDownCameraDistance":10000,
                 "hitIndicator":true,
                 "hitIndicatorFlashTick":500
             },
@@ -126,7 +126,6 @@
                 "dieSound":{"name":"player_die","rate":0.8,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false}
             }
     },
-
     {
         "name":"bot",
         "type":"fps_bot",
@@ -399,6 +398,7 @@
                 "handAngle":{"x":0,"y":-10,"z":0},
                 "fireOffsetAdd":{"x":0,"y":0,"z":0},
                 "fireAngleAdd":{"x":0,"y":0,"z":0},
+                "botFireRange":[0,0],
                 "interfaceCrosshair":"pistol_crosshair",
                 "primary":
                     {
@@ -457,6 +457,7 @@
                 "handAngle":{"x":0,"y":-10,"z":0},
                 "fireOffsetAdd":{"x":0,"y":0,"z":0},
                 "fireAngleAdd":{"x":0,"y":0,"z":0},
+                "botFireRange":[0,0],
                 "interfaceCrosshair":"m16_crosshair",
                 "primary":
                     {
@@ -515,6 +516,7 @@
                 "handAngle":{"x":0,"y":0,"z":0},
                 "fireOffsetAdd":{"x":0,"y":0,"z":2000},
                 "fireAngleAdd":{"x":0,"y":0,"z":0},
+                "botFireRange":[15000,50000],
                 "interfaceCrosshair":null,
                 "primary":null,
                 "secondary":null,
@@ -1305,6 +1307,8 @@
             },
         "config":
             {
+                "thirdPersonCameraDistance":30000,
+                "thirdPersonCameraLookAngle":{"x":-20,"y":180,"z":0}
             },
         "sounds":
             {
@@ -1554,6 +1558,40 @@
         "sounds":
             {
                 "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false}
+            }
+    },
+    {
+        "name":"platform_player",
+        "type":"platform_player",
+        "setup":
+            {
+                "model":"player",
+                "rotationOrder":"XYZ",
+                "scale":{"x":3000,"y":3000,"z":3000},
+                "radius":1500,
+                "height":4500,
+                "eyeOffset":4400,
+                "weight":180,
+                "hideMeshes":["Captain_jetpack"]
+            },
+        "config":
+            {
+                "thirdPersonCameraDistance":20000,
+                "thirdPersonCameraLookAngle":{"x":0,"y":0,"z":90}
+            },
+        "interface":
+            {
+            },
+        "animations":
+            {
+                "idleAnimation":[0,50],
+                "runAnimation":[492,518],
+                "dieAnimation":[209,247]                
+            },
+        "sounds":
+            {
+                "hurtSound":{"name":"hurt","rate":0.5,"randomRateAdd":1.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
+                "dieSound":{"name":"player_die","rate":0.8,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false}
             }
     }
 ]

@@ -155,13 +155,6 @@
     
     {
         "name":"spotlight",
-        "light":
-            {
-                "frames":
-                    [
-                        {"tick":0,"color":{"r":1,"g":1.0,"b":0.8},"intensity":"@intensity","exponent":0.3}
-                    ]
-            },
         "billboards":
             [
                 {
