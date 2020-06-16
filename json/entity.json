@@ -175,7 +175,7 @@
                             "seekNodeDistanceSlop":1000,
                             "seekNodeAngleSlop":35,
                             "targetScanYRange":60,
-                            "targetForgetDistance":40000,
+                            "targetForgetDistance":60000,
                             "targetFireYRange":20,
                             "targetFireSlop":12
                         },
@@ -210,7 +210,7 @@
                             "seekNodeDistanceSlop":1000,
                             "seekNodeAngleSlop":35,
                             "targetScanYRange":90,
-                            "targetForgetDistance":50000,
+                            "targetForgetDistance":80000,
                             "targetFireYRange":15,
                             "targetFireSlop":11
                         },
@@ -245,7 +245,7 @@
                             "seekNodeDistanceSlop":1000,
                             "seekNodeAngleSlop":35,
                             "targetScanYRange":120,
-                            "targetForgetDistance":60000,
+                            "targetForgetDistance":100000,
                             "targetFireYRange":10,
                             "targetFireSlop":10
                         },
@@ -280,7 +280,7 @@
                             "seekNodeDistanceSlop":1000,
                             "seekNodeAngleSlop":35,
                             "targetScanYRange":140,
-                            "targetForgetDistance":60000,
+                            "targetForgetDistance":100000,
                             "targetFireYRange":8,
                             "targetFireSlop":8
                         },
@@ -315,7 +315,7 @@
                             "seekNodeDistanceSlop":1000,
                             "seekNodeAngleSlop":35,
                             "targetScanYRange":180,
-                            "targetForgetDistance":60000,
+                            "targetForgetDistance":100000,
                             "targetFireYRange":5,
                             "targetFireSlop":5
                         }
@@ -330,9 +330,9 @@
                     "inCarousel":true,
                     "initiallyAvailable":true,
                     "parentIdleAnimation":[0,50],
-                    "parentRunAnimation":[492,518],
+                    "parentRunAnimation":[406,442],
                     "parentFireIdleAnimation":[364,401],
-                    "parentPrimaryFireRunAnimation":[523,549],
+                    "parentPrimaryFireRunAnimation":[554,594],
                     "parentSecondaryFireRunAnimation":[0,0],
                     "parentTertiaryFireRunAnimation":[0,0],
                     "meshes":["beretta","peen","beretta_top","triger","holder"]
@@ -344,9 +344,9 @@
                     "inCarousel":true,
                     "initiallyAvailable":false,
                     "parentIdleAnimation":[710,760],
-                    "parentRunAnimation":[933,955],
+                    "parentRunAnimation":[960,996],
                     "parentFireIdleAnimation":[775,815],
-                    "parentPrimaryFireRunAnimation":[865,887],
+                    "parentPrimaryFireRunAnimation":[892,928],
                     "parentSecondaryFireRunAnimation":[0,0],
                     "parentTertiaryFireRunAnimation":[0,0],
                     "meshes":["m16_rifle","m16_holder_01","shutter","trigger"]
@@ -358,7 +358,7 @@
                     "inCarousel":false,
                     "initiallyAvailable":true,
                     "parentIdleAnimation":[0,50],
-                    "parentRunAnimation":[492,518],
+                    "parentRunAnimation":[960,996],
                     "parentFireIdleAnimation":[51,91],
                     "parentPrimaryFireRunAnimation":[0,0],
                     "parentSecondaryFireRunAnimation":[0,0],
@@ -369,7 +369,7 @@
         "animations":
             {
                 "idleAnimation":[0,50],
-                "runAnimation":[492,518],
+                "runAnimation":[406,442],
                 "dieAnimation":[209,247]                
             },
         "sounds":
@@ -514,9 +514,9 @@
             {
                 "handOffset":{"x":0,"y":0,"z":0},
                 "handAngle":{"x":0,"y":0,"z":0},
-                "fireOffsetAdd":{"x":0,"y":0,"z":2000},
-                "fireAngleAdd":{"x":0,"y":0,"z":0},
-                "botFireRange":[15000,50000],
+                "fireOffsetAdd":{"x":0,"y":-500,"z":2000},
+                "fireAngleAdd":{"x":5,"y":0,"z":0},
+                "botFireRange":[15000,60000],
                 "interfaceCrosshair":null,
                 "primary":null,
                 "secondary":null,
@@ -1411,6 +1411,7 @@
                 "handAngle":{"x":0,"y":0,"z":0},
                 "fireOffsetAdd":{"x":0,"y":2000,"z":8000},
                 "fireAngleAdd":{"x":-20,"y":0,"z":0},
+                "botFireRange":[0,0],
                 "interfaceCrosshair":null,
                 "primary":
                     {
