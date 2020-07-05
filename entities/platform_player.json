@@ -1,0 +1,33 @@
+{
+    "type":"platform_player",
+    "setup":
+        {
+            "model":"player",
+            "rotationOrder":"XYZ",
+            "scale":{"x":3000,"y":3000,"z":3000},
+            "radius":1500,
+            "height":4500,
+            "eyeOffset":4400,
+            "weight":180,
+            "hideMeshes":["Captain_jetpack"]
+        },
+    "config":
+        {
+            "thirdPersonCameraDistance":15000,
+            "thirdPersonCameraLookAngle":{"x":0,"y":0,"z":90}
+        },
+    "interface":
+        {
+        },
+    "animations":
+        {
+            "idleAnimation":[0,50],
+            "runAnimation":[492,518],
+            "dieAnimation":[209,247]                
+        },
+    "sounds":
+        {
+            "hurtSound":{"name":"hurt","rate":0.5,"randomRateAdd":1.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false},
+            "dieSound":{"name":"player_die","rate":0.8,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false}
+        }
+}

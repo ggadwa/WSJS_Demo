@@ -1,0 +1,36 @@
+{
+    "type":"pickup",
+    "setup":
+        {
+            "model":"m16",
+            "rotationOrder":"XYZ",
+            "scale":{"x":8000,"y":8000,"z":8000},
+            "radius":2000,
+            "height":2000,
+            "eyeOffset":0,
+            "weight":250,
+            "hideMeshes":["m16_holder_02","m16_bullet","m16_bullet01","m16_bullet02","m16_bullet04","m16_bullet05","m16_bullet06","m16_bullet07","m16_bullet08"]
+        },
+    "config":
+        {
+            "hideTick":5000,
+            "pickupOnce":"@pickupOnce",
+            "spinTick":5000,
+            "floatMove":200,
+            "randomPosition":false,
+            "randomPositionAdd":{"x":0,"y":0,"z":0},
+            "randomPositionOffset":{"x":0,"y":0,"z":0},
+            "actions":
+                [
+                    {"action":"addWeapon","weapon":"m16"}
+                ]
+        },
+    "animations":
+        {
+            "idleAnimation":null
+        },
+    "sounds":
+        {
+            "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false}
+        }
+}

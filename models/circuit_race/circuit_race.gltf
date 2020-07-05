@@ -10495,7 +10495,7 @@
         },
         {
             "mesh" : 459,
-            "name" : "pickup_star.005",
+            "name" : "pickup_shell",
             "translation" : [
                 -137.6458740234375,
                 35.728599548339844,
@@ -10504,7 +10504,7 @@
         },
         {
             "mesh" : 460,
-            "name" : "pickup_star.006",
+            "name" : "pickup_shell.001",
             "translation" : [
                 -133.73886108398438,
                 35.728599548339844,
@@ -10513,7 +10513,7 @@
         },
         {
             "mesh" : 461,
-            "name" : "pickup_star.007",
+            "name" : "pickup_shell.002",
             "translation" : [
                 -130.4178924560547,
                 35.728599548339844,
@@ -10522,7 +10522,7 @@
         },
         {
             "mesh" : 462,
-            "name" : "pickup_star.008",
+            "name" : "pickup_shell.003",
             "translation" : [
                 -126.70622253417969,
                 35.728599548339844,
@@ -10531,7 +10531,7 @@
         },
         {
             "mesh" : 463,
-            "name" : "pickup_star.009",
+            "name" : "pickup_shell.004",
             "translation" : [
                 -123.18990325927734,
                 35.728599548339844,
@@ -17830,7 +17830,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"pickup_shell\"}"
             },
-            "name" : "pickup_star.005",
+            "name" : "pickup_shell",
             "primitives" : [
                 {
                     "attributes" : {
@@ -17847,7 +17847,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"pickup_shell\"}"
             },
-            "name" : "pickup_star.007",
+            "name" : "pickup_shell.001",
             "primitives" : [
                 {
                     "attributes" : {
@@ -17864,7 +17864,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"pickup_shell\"}"
             },
-            "name" : "pickup_star.008",
+            "name" : "pickup_shell.002",
             "primitives" : [
                 {
                     "attributes" : {
@@ -17881,7 +17881,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"pickup_shell\"}"
             },
-            "name" : "pickup_star.009",
+            "name" : "pickup_shell.003",
             "primitives" : [
                 {
                     "attributes" : {
@@ -17898,7 +17898,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"pickup_shell\"}"
             },
-            "name" : "pickup_star.010",
+            "name" : "pickup_shell.004",
             "primitives" : [
                 {
                     "attributes" : {

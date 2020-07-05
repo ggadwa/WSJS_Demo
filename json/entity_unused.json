@@ -411,11 +411,14 @@
                         "distance":100000,
                         "hitEffect":"hit",
                         "projectileJson":null,
-                        "sound":{"name":"pistol_fire","rate":1.0,"randomRateAdd":0.4,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false},
                         "animation":[128,143],
                         "interfaceAmmoIcon":"pistol_bullet",
                         "interfaceAmmoText":"pistol_bullet_count",
-                        "interfaceAmmoCount":null
+                        "interfaceAmmoCount":null,
+                        "sounds":
+                            {
+                                "fire":{"name":"pistol_fire","rate":1.0,"randomRateAdd":0.4,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false}
+                            }
                     },
                 "secondary":null,
                 "tertiary":null
@@ -470,11 +473,14 @@
                         "distance":100000,
                         "hitEffect":"hit",
                         "projectileJson":null,
-                        "sound":{"name":"m16_fire","rate":1.0,"randomRateAdd":0.4,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false},
                         "animation":[128,143],
                         "interfaceAmmoIcon":"m16_bullet",
                         "interfaceAmmoText":"m16_bullet_count",
-                        "interfaceAmmoCount":null
+                        "interfaceAmmoCount":null,
+                        "sounds":
+                            {
+                                "fire":{"name":"m16_fire","rate":1.0,"randomRateAdd":0.4,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false}
+                            }
                     },
                 "secondary":null,
                 "tertiary":null
@@ -531,11 +537,14 @@
                         "distance":0,
                         "hitEffect":null,
                         "projectileJson":"projectile_grenade",
-                        "sound":{"name":"throw","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false},
                         "animation":[0,0],
                         "interfaceAmmoIcon":"grenade",
                         "interfaceAmmoText":"grenade_count",
-                        "interfaceAmmoCount":null
+                        "interfaceAmmoCount":null,
+                        "sounds":
+                            {
+                                "fire":{"name":"throw","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false}
+                            }
                     }
             },
         "animations":
@@ -1310,7 +1319,10 @@
                 "thirdPersonCameraDistance":30000,
                 "thirdPersonCameraLookAngle":{"x":-20,"y":180,"z":0},
                 "maxSpeedItemCount":10,
-                "interfaceSpeedItem":"stars"
+                "interfaceSpeedItem":"stars",
+                "smokeThickness":2,
+                "smokeAngles":[135,225],
+                "smokeEffect":"tire_smoke"
             },
         "sounds":
             {
@@ -1368,7 +1380,10 @@
             },
         "config":
             {
-                "targetScanYRange":15
+                "targetScanYRange":15,
+                "smokeThickness":2,
+                "smokeAngles":[135,225],
+                "smokeEffect":"tire_smoke"
             },
         "sounds":
             {
@@ -1426,11 +1441,14 @@
                         "distance":0,
                         "hitEffect":null,
                         "projectileJson":"projectile_tank_shell",
-                        "sound":{"name":"tank_fire","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false},
                         "animation":[0,0],
                         "interfaceAmmoIcon":null,
                         "interfaceAmmoText":null,
-                        "interfaceAmmoCount":"tank_shells"
+                        "interfaceAmmoCount":"tank_shells",
+                        "sounds":
+                            {
+                                "fire":{"name":"tank_fire","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false}
+                            }
                     },
                 "secondary":null,
                 "tertiary":null

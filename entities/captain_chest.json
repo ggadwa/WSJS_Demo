@@ -1,0 +1,46 @@
+{
+    "type":"container",
+    "setup":
+        {
+            "model":"captain_chest",
+            "rotationOrder":"XYZ",
+            "scale":{"x":50,"y":50,"z":50},
+            "radius":2200,
+            "height":2200,
+            "eyeOffset":0,
+            "weight":250,
+            "hideMeshes":[]
+        },
+    "config":
+        {
+
+            "startOpened":false,
+            "openOnce":true,
+            "openOnActionKey":true,
+            "openDistance":8000,
+            "openPause":2500,
+            "openActions":
+                [
+                    {"action":"trigger","name":"@trigger"},
+                    {"action":"addAmmo","weapon":"pistol","fireMethod":"primary","count":15},
+                    {"action":"addAmmo","weapon":"m16","fireMethod":"primary","count":50},
+                    {"action":"addAmmo","weapon":"grenade","fireMethod":"tertiary","count":1},
+                    {"action":"addHealth","count":25}
+                ],
+            "closeActions":
+                [
+                ]
+        },
+    "animations":
+        {
+            "closedAnimation":[0,1],
+            "openAnimation":[65,66],
+            "openingAnimation":[1,65],
+            "closingAnimation":[0,1]
+        },
+    "sounds":
+        {
+            "openSound":{"name":"chime","rate":1.0,"randomRateAdd":0.0,"distance":7000,"loopStart":0,"loopEnd":0,"loop":false},
+            "closeSound":{"name":"chime","rate":0.5,"randomRateAdd":0.0,"distance":7000,"loopStart":0,"loopEnd":0,"loop":false}      
+        }
+}
