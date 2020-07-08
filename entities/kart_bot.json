@@ -28,7 +28,8 @@
     "weapons":
         [
             {
-                "json":"weapon_tank_shell",
+                "weaponJson":"weapon_tank_shell",
+                "weaponData":null,
                 "name":"tank_shell",
                 "parentIdleAnimation":[0,0],
                 "parentRunAnimation":[0,0],

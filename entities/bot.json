@@ -195,7 +195,8 @@
     "weapons":
         [
             {
-                "json":"weapon_pistol",
+                "weaponJson":"weapon_pistol",
+                "weaponData":null,
                 "name":"pistol",
                 "default":true,
                 "inCarousel":true,
@@ -209,7 +210,8 @@
                 "meshes":["beretta","peen","beretta_top","triger","holder"]
             },
             {
-                "json":"weapon_m16",
+                "weaponJson":"weapon_m16",
+                "weaponData":null,
                 "name":"m16",
                 "default":false,
                 "inCarousel":true,
@@ -223,7 +225,8 @@
                 "meshes":["m16_rifle","m16_holder_01","shutter","trigger"]
             },
             {
-                "json":"weapon_grenade",
+                "weaponJson":"weapon_grenade",
+                "weaponData":null,
                 "name":"grenade",
                 "default":false,
                 "inCarousel":false,
