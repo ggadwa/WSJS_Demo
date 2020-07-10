@@ -25057,7 +25057,7 @@
         },
         {
             "mesh" : 1154,
-            "name" : "SkyBox",
+            "name" : "Sky",
             "scale" : [
                 9.464054107666016,
                 9.464054107666016,
@@ -44991,7 +44991,7 @@
             "extras" : {
                 "wsjsSky" : "{\"size\":50000}"
             },
-            "name" : "SkyBox",
+            "name" : "Sky",
             "primitives" : [
                 {
                     "attributes" : {
@@ -46160,8 +46160,8 @@
         },
         {
             "mimeType" : "image/png",
-            "name" : "skybox",
-            "uri" : "textures/skybox.png"
+            "name" : "sky_dome_night",
+            "uri" : "textures/sky_dome_night.png"
         }
     ],
     "accessors" : [
