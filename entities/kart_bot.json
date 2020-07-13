@@ -14,6 +14,13 @@
     "config":
         {
             "targetScanYRange":15,
+            "maxSpeedItemCount":10,
+            "rigidBodyMaxDrop":3000,
+            "rigidBodyMaxAngle":25,
+            "rigidBodyTransformPerTick":0.025,
+            "engineSoundRateMin":0.5,
+            "engineSoundRateAdd":0.8,
+            "engineSoundRateAirIncrease":0.2,
             "smokeThickness":2,
             "smokeAngles":[135,225],
             "smokeEffect":"tire_smoke"

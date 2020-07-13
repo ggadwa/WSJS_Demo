@@ -17,6 +17,12 @@
             "thirdPersonCameraLookAngle":{"x":-20,"y":180,"z":0},
             "maxSpeedItemCount":10,
             "interfaceSpeedItem":"stars",
+            "rigidBodyMaxDrop":3000,
+            "rigidBodyMaxAngle":25,
+            "rigidBodyTransformPerTick":0.025,
+            "engineSoundRateMin":0.5,
+            "engineSoundRateAdd":0.8,
+            "engineSoundRateAirIncrease":0.2,
             "smokeThickness":2,
             "smokeAngles":[135,225],
             "smokeEffect":"tire_smoke"
