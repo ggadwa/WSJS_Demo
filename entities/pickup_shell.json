@@ -31,6 +31,6 @@
         },
     "sounds":
         {
-            "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false}
+            "pickupSound":{"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false}
         }
 }

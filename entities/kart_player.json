@@ -26,7 +26,15 @@
             "engineSoundRateAirIncrease":0.2,
             "smokeThickness":2,
             "smokeAngles":[135,225],
-            "smokeEffect":"tire_smoke"
+            "smokeEffect":"tire_smoke",
+            "wheelMaxTurnAngle":3,
+            "leftWheelBones":["left"],
+            "rightWheelBones":["right"]
+        },
+    "animations":
+        {
+            "idleAnimation":[0,60],
+            "driveAnimation":[60,100]             
         },
     "sounds":
         {
