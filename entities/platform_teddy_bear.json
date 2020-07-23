@@ -1,24 +1,24 @@
 {
-    "type":"platform_player",
+    "type":"platform_monster",
     "setup":
         {
-            "model":"player",
+            "model":"ratkin_skeleton",
             "rotationOrder":"XYZ",
             "scale":{"x":3000,"y":3000,"z":3000},
-            "radius":1500,
-            "height":4500,
+            "radius":1200,
+            "height":3500,
             "eyeOffset":4400,
-            "weight":150,
-            "hideMeshes":["Captain_jetpack"]
+            "weight":180,
+            "hideMeshes":["Slave_Pick01","Slave_Pick"]
         },
     "config":
         {
-            "walkSpeed":150,
-            "runSpeed":200,
-            "turnSpeed":20,
-            "jumpHeight":600,
-            "thirdPersonCameraDistance":15000,
-            "thirdPersonCameraLookAngle":{"x":0,"y":0,"z":90}
+            "walkSpeed":100,
+            "chaseSpeed":110,
+            "turnSpeed":10,
+            "initialWalkDirection":-1,
+            "jumpHeight":0,
+            "patrolDistance":8000
         },
     "interface":
         {
@@ -26,7 +26,7 @@
     "animations":
         {
             "idleAnimation":[0,50],
-            "walkAnimation":[492,518],
+            "walkAnimation":[1465,1501],
             "dieAnimation":[209,247]                
         },
     "sounds":

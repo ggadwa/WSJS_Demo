@@ -13,6 +13,20 @@
         },
     "config":
         {
+            "maxTurnSpeed":1.5,
+            "driftMaxTurnSpeed":2.5,
+            "forwardAcceleration":8,
+            "forwardDeceleration":25,
+            "forwardMaxSpeed":1500,
+            "reverseAcceleration":5,
+            "reverseDeceleration":35,
+            "reverseMaxSpeed":1000,
+            "forwardBrakeDeceleration":50,
+            "reverseBrakeDeceleration":50,
+            "jumpHeight":1000,
+            "bounceWaitCount":20,
+            "spinOutSpeed":6,
+            "driftDecelerationFactor":0.99,
             "thirdPersonCameraDistance":30000,
             "thirdPersonCameraLookAngle":{"x":-20,"y":180,"z":0},
             "maxSpeedItemCount":10,
@@ -28,6 +42,7 @@
             "smokeAngles":[135,225],
             "smokeEffect":"tire_smoke",
             "wheelMaxTurnAngle":3,
+            "wheelRotateFactor":0,
             "leftWheelBones":["left"],
             "rightWheelBones":["right"]
         },

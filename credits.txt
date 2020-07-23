@@ -5,6 +5,7 @@ Factories (in Circuit Race): Daniel Mikulik / cgtrader
 Tree (in Circuit Race): Belina / cgtrader
 Tank: Alexander Smith
 Grenade: Sergei Pavlov / sketchfab
+Platform Map Pieces: Iomeen
 Misc Textures: textures.com
 Misc Sound Effects: freesound.org
 Sky Domes: hdrihaven.com/
