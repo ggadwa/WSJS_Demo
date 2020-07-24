@@ -24,7 +24,7 @@
                     "type":"projectile",
                     "ammoInitialCount":0,
                     "ammoMaxCount":3,
-                    "ammoRegenerateTick":0,
+                    "ammoRegenerateTick":-1,
                     "waitTick":1000,
                     "damage":0,
                     "distance":0,

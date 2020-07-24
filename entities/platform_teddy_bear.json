@@ -17,7 +17,8 @@
             "chaseSpeed":110,
             "turnSpeed":10,
             "initialWalkDirection":-1,
-            "jumpHeight":0,
+            "jumpHeight":200,
+            "jumpWaitTick":2000,
             "patrolDistance":8000
         },
     "interface":

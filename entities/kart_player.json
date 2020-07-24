@@ -63,7 +63,7 @@
             {
                 "weaponJson":"weapon_tank_shell",
                 "weaponData":null,
-                "name":"tank_shell",
+                "name":"weapon_tank_shell",
                 "parentIdleAnimation":[0,0],
                 "parentRunAnimation":[0,0],
                 "parentFireIdleAnimation":[0,0],
