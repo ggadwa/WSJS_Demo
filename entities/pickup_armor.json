@@ -3,6 +3,7 @@
     "setup":
         {
             "model":"shield",
+            "frameRate":30,
             "rotationOrder":"XYZ",
             "scale":{"x":80,"y":80,"z":80},
             "radius":2500,

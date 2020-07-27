@@ -3,6 +3,7 @@
     "setup":
         {
             "model":"captain_chest",
+            "frameRate":30,
             "rotationOrder":"XYZ",
             "scale":{"x":50,"y":50,"z":50},
             "radius":2200,

@@ -3,6 +3,7 @@
     "setup":
         {
             "model":"player",
+            "frameRate":30,
             "rotationOrder":"XYZ",
             "scale":{"x":3000,"y":3000,"z":3000},
             "radius":1500,
@@ -243,6 +244,7 @@
     "animations":
         {
             "idleAnimation":[0,50],
+            "waitAnimation":[960,996],
             "runAnimation":[406,442],
             "dieAnimation":[209,247]                
         },

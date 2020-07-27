@@ -3,6 +3,7 @@
     "setup":
         {
             "model":"m16",
+            "frameRate":30,
             "rotationOrder":"XYZ",
             "scale":{"x":8000,"y":8000,"z":8000},
             "radius":2000,

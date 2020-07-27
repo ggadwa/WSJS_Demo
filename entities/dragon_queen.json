@@ -3,6 +3,7 @@
     "setup":
         {
             "model":"dragon_queen",
+            "frameRate":30,
             "rotationOrder":"XYZ",
             "scale":{"x":3300,"y":3300,"z":3300},
             "radius":1500,

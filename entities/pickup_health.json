@@ -3,6 +3,7 @@
     "setup":
         {
             "model":"chicken_leg",
+            "frameRate":30,
             "rotationOrder":"XYZ",
             "scale":{"x":100,"y":100,"z":100},
             "radius":1000,

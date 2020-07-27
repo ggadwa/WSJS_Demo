@@ -3,10 +3,11 @@
     "setup":
         {
             "model":"tank_red",
+            "frameRate":30,
             "rotationOrder":"XZY",
             "scale":{"x":2000,"y":2000,"z":2000},
-            "radius":6000,
-            "height":7000,
+            "radius":5000,
+            "height":5000,
             "eyeOffset":3000,
             "weight":500,
             "hideMeshes":[]
@@ -39,17 +40,16 @@
             "smokeThickness":2,
             "smokeAngles":[135,225],
             "smokeEffect":"tire_smoke",
-            "wheelMaxTurnAngle":3,
-            "wheelRotateFactor":0,
-            "leftWheelBones":["left"],
-            "rightWheelBones":["right"],
             "pathNodeSlop":5000,
             "driftMinAngle":10
         },
     "animations":
         {
-            "idleAnimation":[0,60],
-            "driveAnimation":[60,100]             
+            "idleAnimation":[175,275],
+            "driveAnimation":[380,400],
+            "turnLeftAnimation":[405,425],
+            "turnRightAnimation":[435,455],
+            "spinOutAnimation":[275,375]
         },
     "sounds":
         {

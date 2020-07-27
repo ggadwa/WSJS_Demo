@@ -3,6 +3,7 @@
     "setup":
         {
             "model":null,
+            "frameRate":30,
             "rotationOrder":"XYZ",
             "scale":{"x":0,"y":0,"z":0},
             "radius":5000,

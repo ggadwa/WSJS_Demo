@@ -3,6 +3,7 @@
     "setup":
         {
             "model":"player",
+            "frameRate":30,
             "rotationOrder":"XYZ",
             "scale":{"x":3000,"y":3000,"z":3000},
             "radius":1500,

@@ -3,6 +3,7 @@
     "setup":
         {
             "model":"vampire_patriarch",
+            "frameRate":30,
             "rotationOrder":"XYZ",
             "scale":{"x":5000,"y":5000,"z":5000},
             "radius":2000,

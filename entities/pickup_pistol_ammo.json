@@ -3,6 +3,7 @@
     "setup":
         {
             "model":"beretta",
+            "frameRate":30,
             "rotationOrder":"XYZ",
             "scale":{"x":10000,"y":10000,"z":10000},
             "radius":2000,

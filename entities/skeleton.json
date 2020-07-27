@@ -3,6 +3,7 @@
     "setup":
         {
             "model":"skeleton_captain",
+            "frameRate":30,
             "rotationOrder":"XYZ",
             "scale":{"x":35,"y":35,"z":35},
             "radius":1500,

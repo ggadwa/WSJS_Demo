@@ -2,21 +2,22 @@
     "type":"platform_player",
     "setup":
         {
-            "model":"player",
+            "model":"robot",
+            "frameRate":30,
             "rotationOrder":"XYZ",
-            "scale":{"x":3000,"y":3000,"z":3000},
+            "scale":{"x":5000,"y":5000,"z":5000},
             "radius":1500,
             "height":4500,
             "eyeOffset":4400,
-            "weight":150,
-            "hideMeshes":["Captain_jetpack"]
+            "weight":450,
+            "hideMeshes":[]
         },
     "config":
         {
-            "walkSpeed":150,
-            "runSpeed":200,
+            "walkSpeed":200,
+            "runSpeed":250,
             "turnSpeed":20,
-            "jumpHeight":600,
+            "jumpHeight":1100,
             "thirdPersonCameraDistance":15000,
             "thirdPersonCameraLookAngle":{"x":0,"y":0,"z":90}
         },
@@ -25,9 +26,13 @@
         },
     "animations":
         {
-            "idleAnimation":[0,50],
-            "walkAnimation":[492,518],
-            "dieAnimation":[209,247]                
+            "idleAnimation":[1830,1930],
+            "walkAnimation":[80,110],
+            "runAnimation":[290,310],
+            "jumpAnimation":[627,628],
+            "fallAnimation":[5410,5500],
+            "hurtAnimation":[630,640],
+            "dieAnimation":[720,770]                
         },
     "sounds":
         {
