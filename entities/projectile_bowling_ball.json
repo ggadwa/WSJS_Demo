@@ -2,10 +2,10 @@
     "type":"projectile",
     "setup":
         {
-            "model":"tank_shell",
+            "model":"bowling_ball",
             "frameRate":30,
             "rotationOrder":"XYZ",
-            "scale":{"x":500,"y":500,"z":500},
+            "scale":{"x":2000,"y":2000,"z":2000},
             "radius":1000,
             "height":1000,
             "eyeOffset":0,
@@ -15,22 +15,22 @@
     "config":
         {
             "lifeTick":8000,
-            "speed":2100,
+            "speed":2200,
             "damage":0,
             "floats":false,
-            "followsFloor":false,
+            "followsFloor":true,
             "spins":false,
             "spinRate":0,
             "tumbles":false,
             "stopOnHit":true,
-            "canRoll":false,
-            "rollDeceleration":0,
+            "canRoll":true,
+            "rollDeceleration":1.0,
             "canBounce":false,
             "bounceFactor":0,
-            "canReflect":false,
+            "canReflect":true,
             "hitEffect":"explosion",
             "trailEffect":"exhaust",
-            "trailSpawnTick":40
+            "trailSpawnTick":30
         },
     "sounds":
         {

@@ -1,6 +1,6 @@
 {
     "asset" : {
-        "generator" : "Khronos glTF Blender I/O v1.1.46",
+        "generator" : "Khronos glTF Blender I/O v1.2.75",
         "version" : "2.0"
     },
     "extensionsUsed" : [
@@ -17828,7 +17828,7 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"pickup_shell\"}"
+                "wsjsEntity" : "{\"entity\":\"pickup_bowling_ball\"}"
             },
             "name" : "pickup_shell",
             "primitives" : [
@@ -17845,7 +17845,7 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"pickup_shell\"}"
+                "wsjsEntity" : "{\"entity\":\"pickup_bowling_ball\"}"
             },
             "name" : "pickup_shell.001",
             "primitives" : [
@@ -17862,7 +17862,7 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"pickup_shell\"}"
+                "wsjsEntity" : "{\"entity\":\"pickup_bowling_ball\"}"
             },
             "name" : "pickup_shell.002",
             "primitives" : [
@@ -17879,7 +17879,7 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"pickup_shell\"}"
+                "wsjsEntity" : "{\"entity\":\"pickup_bowling_ball\"}"
             },
             "name" : "pickup_shell.003",
             "primitives" : [
@@ -17896,7 +17896,7 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"pickup_shell\"}"
+                "wsjsEntity" : "{\"entity\":\"pickup_bowling_ball\"}"
             },
             "name" : "pickup_shell.004",
             "primitives" : [

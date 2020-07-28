@@ -2,10 +2,10 @@
     "type":"pickup",
     "setup":
         {
-            "model":"tank_shell",
+            "model":"bowling_ball",
             "frameRate":30,
             "rotationOrder":"XYZ",
-            "scale":{"x":1000,"y":1000,"z":1000},
+            "scale":{"x":2000,"y":2000,"z":2000},
             "radius":2000,
             "height":2000,
             "eyeOffset":0,
@@ -23,7 +23,7 @@
             "randomPositionOffset":{"x":12000,"y":0,"z":12000},
             "actions":
                 [
-                    {"action":"addAmmo","weapon":"weapon_tank_shell","fireMethod":"primary","count":1}
+                    {"action":"addAmmo","weapon":"weapon_bowling_ball","fireMethod":"primary","count":1}
                 ]
         },
     "animations":

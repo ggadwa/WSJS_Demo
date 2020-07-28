@@ -2,10 +2,10 @@
     "type":"kart_bot",
     "setup":
         {
-            "model":"tank_red",
+            "model":"retro_car_red",
             "frameRate":30,
             "rotationOrder":"XZY",
-            "scale":{"x":2000,"y":2000,"z":2000},
+            "scale":{"x":5000,"y":5000,"z":5000},
             "radius":5000,
             "height":5000,
             "eyeOffset":3000,
@@ -61,9 +61,9 @@
     "weapons":
         [
             {
-                "weaponJson":"weapon_tank_shell",
+                "weaponJson":"weapon_bowling_ball",
                 "weaponData":null,
-                "name":"weapon_tank_shell",
+                "name":"weapon_bowling_ball",
                 "parentIdleAnimation":[0,0],
                 "parentRunAnimation":[0,0],
                 "parentFireIdleAnimation":[0,0],

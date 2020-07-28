@@ -2,7 +2,7 @@
     "type":"kart_player",
     "setup":
         {
-            "model":"retro_car",
+            "model":"retro_car_blue",
             "frameRate":30,
             "rotationOrder":"XZY",
             "scale":{"x":5000,"y":5000,"z":5000},
@@ -61,9 +61,9 @@
     "weapons":
         [
             {
-                "weaponJson":"weapon_tank_shell",
+                "weaponJson":"weapon_bowling_ball",
                 "weaponData":null,
-                "name":"weapon_tank_shell",
+                "name":"weapon_bowling_ball",
                 "parentIdleAnimation":[0,0],
                 "parentRunAnimation":[0,0],
                 "parentFireIdleAnimation":[0,0],

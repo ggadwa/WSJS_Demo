@@ -1,6 +1,6 @@
 {
     "asset" : {
-        "generator" : "Khronos glTF Blender I/O v1.1.46",
+        "generator" : "Khronos glTF Blender I/O v1.2.75",
         "version" : "2.0"
     },
     "scene" : 0,
@@ -8,13 +8,58 @@
         {
             "name" : "Scene",
             "nodes" : [
-                0,
-                1,
-                2
+                4,
+                5,
+                6
             ]
         }
     ],
     "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "defaultMaterial"
+        },
+        {
+            "children" : [
+                0
+            ],
+            "name" : "g"
+        },
+        {
+            "children" : [
+                1
+            ],
+            "name" : "Collada visual scene group",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071068286895752
+            ]
+        },
+        {
+            "children" : [
+                2
+            ],
+            "name" : "RootNode (model correction matrix)"
+        },
+        {
+            "children" : [
+                3
+            ],
+            "name" : "RootNode (gltf orientation matrix)",
+            "rotation" : [
+                -0.7071067690849304,
+                0,
+                0,
+                0.7071067690849304
+            ],
+            "translation" : [
+                0,
+                0.9623212218284607,
+                0
+            ]
+        },
         {
             "name" : "Light",
             "rotation" : [
@@ -42,10 +87,6 @@
                 4.958309173583984,
                 6.925790786743164
             ]
-        },
-        {
-            "mesh" : 0,
-            "name" : "Cylinder.002"
         }
     ],
     "materials" : [
@@ -56,18 +97,22 @@
                 0,
                 0
             ],
-            "name" : "_untitled",
+            "name" : "DefaultMaterial",
             "normalTexture" : {
                 "index" : 0,
                 "texCoord" : 0
             },
+            "occlusionTexture" : {
+                "index" : 1,
+                "texCoord" : 0
+            },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 1,
+                    "index" : 2,
                     "texCoord" : 0
                 },
                 "metallicRoughnessTexture" : {
-                    "index" : 2,
+                    "index" : 1,
                     "texCoord" : 0
                 }
             }
@@ -75,7 +120,7 @@
     ],
     "meshes" : [
         {
-            "name" : "Cylinder.002",
+            "name" : "defaultMaterial",
             "primitives" : [
                 {
                     "attributes" : {
@@ -103,82 +148,82 @@
     "images" : [
         {
             "mimeType" : "image/png",
-            "name" : "tankshell_n",
-            "uri" : "textures/tankshell_n.png"
+            "name" : "DefaultMaterial_normal",
+            "uri" : "textures/DefaultMaterial_normal.png"
         },
         {
             "mimeType" : "image/png",
-            "name" : "tankshell",
-            "uri" : "textures/tankshell.png"
+            "name" : "DefaultMaterial_metallicRoughness",
+            "uri" : "textures/DefaultMaterial_metallicRoughness.png"
         },
         {
             "mimeType" : "image/png",
-            "name" : "tankshell_s",
-            "uri" : "textures/tankshell_s.png"
+            "name" : "DefaultMaterial_baseColor",
+            "uri" : "textures/DefaultMaterial_baseColor.png"
         }
     ],
     "accessors" : [
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 54,
+            "count" : 993,
             "max" : [
-                0.9999999403953552,
-                2.0053701400756836,
-                4.452393054962158
+                1,
+                1,
+                0.9978410005569458
             ],
             "min" : [
-                -1.0000004768371582,
-                0.005370199680328369,
-                -4.110619068145752
+                -1,
+                -1,
+                -0.9978410005569458
             ],
             "type" : "VEC3"
         },
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 54,
+            "count" : 993,
             "type" : "VEC3"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 54,
+            "count" : 993,
             "type" : "VEC2"
         },
         {
             "bufferView" : 3,
             "componentType" : 5123,
-            "count" : 192,
+            "count" : 4746,
             "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 648,
+            "byteLength" : 11916,
             "byteOffset" : 0
         },
         {
             "buffer" : 0,
-            "byteLength" : 648,
-            "byteOffset" : 648
+            "byteLength" : 11916,
+            "byteOffset" : 11916
         },
         {
             "buffer" : 0,
-            "byteLength" : 432,
-            "byteOffset" : 1296
+            "byteLength" : 7944,
+            "byteOffset" : 23832
         },
         {
             "buffer" : 0,
-            "byteLength" : 384,
-            "byteOffset" : 1728
+            "byteLength" : 9492,
+            "byteOffset" : 31776
         }
     ],
     "buffers" : [
         {
-            "byteLength" : 2112,
-            "uri" : "tank_shell.bin"
+            "byteLength" : 41268,
+            "uri" : "bowling_ball.bin"
         }
     ]
 }

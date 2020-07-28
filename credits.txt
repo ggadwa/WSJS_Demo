@@ -1,11 +1,13 @@
 Coding/Design: Brian Barnes
 Dungeon Map/Dual Castle Map/Player/Weapons/Monsters: Mr. Necturus / mr-necturus.com (some map modifications by Brian Barnes)
 Circuit Race Map (Original model): polroute66 / cgtrader (heavily modified by Brian Barnes)
+Platform Map: Brian Barnes
 Factories (in Circuit Race): Daniel Mikulik / cgtrader
 Tree (in Circuit Race): Belina / cgtrader
-Tank: Alexander Smith
+Retro Car, Robot, Pumpkin: 3DRT.com @ sketchfab
+Bowling ball: Diversant-ka / sketchfab
 Grenade: Sergei Pavlov / sketchfab
 Platform Map Pieces: Iomeen
 Misc Textures: textures.com
 Misc Sound Effects: freesound.org
-Sky Domes: hdrihaven.com/
+Sky Domes: hdrihaven.com
