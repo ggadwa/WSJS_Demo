@@ -2,7 +2,7 @@
     "type":"platform_monster",
     "setup":
         {
-            "model":"pumpkin",
+            "model":"rocky",
             "frameRate":30,
             "rotationOrder":"XYZ",
             "scale":{"x":4500,"y":4500,"z":4500},
@@ -14,15 +14,15 @@
         },
     "config":
         {
-            "walkSpeed":100,
+            "walkSpeed":50,
             "chaseSpeed":110,
-            "turnSpeed":10,
+            "turnSpeed":5,
             "initialWalkDirection":-1,
-            "jumpHeight":200,
+            "jumpHeight":0,
             "jumpWaitTick":2000,
             "patrolDistance":8000,
-            "stompable":true,
-            "stompBounceFactor":0.9,
+            "stompable":false,
+            "stompBounceFactor":1.8,
             "disappearShrinkFactor":0.97,
             "disappearEffectFrame":15,
             "disappearEffect":"flash"

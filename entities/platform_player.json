@@ -18,6 +18,8 @@
             "runSpeed":250,
             "turnSpeed":20,
             "jumpHeight":1100,
+            "stompable":false,
+            "stompBounceFactor":0,
             "thirdPersonCameraDistance":15000,
             "thirdPersonCameraLookAngle":{"x":0,"y":0,"z":90}
         },

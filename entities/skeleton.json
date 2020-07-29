@@ -54,7 +54,7 @@
             "meleeRightAnimation":[5335,5370],
             "projectileAnimation":[4711,4731],
             "hitAnimation":[4974,5009],
-            "deathAnimation":[3971,4111],
+            "dieAnimation":[3971,4111],
             "meleeLeftHitFrame":5314,
             "meleeRightHitFrame":5350,
             "projectileFireFrame":0,
