@@ -22,7 +22,7 @@
             "jumpWaitTick":2000,
             "patrolDistance":8000,
             "stompable":true,
-            "stompBounceFactor":0.9,
+            "stompBounceHeight":500,
             "disappearShrinkFactor":0.97,
             "disappearEffectFrame":15,
             "disappearEffect":"flash"

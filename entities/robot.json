@@ -9,7 +9,7 @@
             "radius":1500,
             "height":4500,
             "eyeOffset":4400,
-            "weight":450,
+            "weight":400,
             "hideMeshes":[]
         },
     "config":
@@ -17,11 +17,13 @@
             "walkSpeed":200,
             "runSpeed":250,
             "turnSpeed":20,
-            "jumpHeight":1100,
+            "jumpHeight":1000,
             "stompable":false,
-            "stompBounceFactor":0,
-            "thirdPersonCameraDistance":15000,
-            "thirdPersonCameraLookAngle":{"x":0,"y":0,"z":90}
+            "stompBounceHeight":0,
+            "platformCameraDistance":15000,
+            "platformCameraYUpMoveFactor":0.1,
+            "platformCameraYDownMoveFactor":0.3,
+            "platformCameraJumpPause":true
         },
     "interface":
         {
