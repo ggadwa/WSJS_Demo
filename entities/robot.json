@@ -18,10 +18,8 @@
             "runSpeed":250,
             "turnSpeed":20,
             "jumpHeight":1000,
-            "stompable":false,
-            "stompBounceHeight":0,
             "platformCameraDistance":15000,
-            "platformCameraYUpMoveFactor":0.1,
+            "platformCameraYUpMoveFactor":0.2,
             "platformCameraYDownMoveFactor":0.3,
             "platformCameraJumpPause":true
         },
@@ -36,6 +34,7 @@
             "jumpAnimation":[627,628],
             "fallAnimation":[5410,5500],
             "hurtAnimation":[630,640],
+            "shovedAnimation":[640,655],
             "dieAnimation":[720,770]                
         },
     "sounds":
