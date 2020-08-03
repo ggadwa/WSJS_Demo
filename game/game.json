@@ -1,5 +1,5 @@
 {
-    "name":"wsjs_demo",
+    "name":"wsjs_demo_fps",
     "developer":true,
     "startMap":"@startMap",
     "config":
@@ -28,13 +28,13 @@
         },
     "entities":
         [
-            "bot","captain_chest","dragon_queen","kart_bot","kart_player","pickup_armor","pickup_grenade","pickup_health",
-            "pickup_m16","pickup_m16_ammo","pickup_pistol_ammo","pickup_bowling_ball","pickup_star","robot","player",
-            "projectile_grenade","projectile_sparkle","projectile_bowling_ball","ratkin","skeleton","spider","vampire",
-            "weapon_grenade","weapon_m16","weapon_pistol","weapon_bowling_ball","pumpkin","rocky","star"
+            "bot","captain_chest","dragon_queen","pickup_armor","pickup_grenade","pickup_health",
+            "pickup_m16","pickup_m16_ammo","pickup_pistol_ammo","player",
+            "projectile_grenade","projectile_sparkle","ratkin","skeleton","spider","vampire",
+            "weapon_grenade","weapon_m16","weapon_pistol"
         ],
     "effects":
         [
-            "exhaust","explosion","fire","fountain","hit","sparkle","spotlight","tire_smoke","flash"
+            "explosion","fire","fountain","hit","sparkle"
         ]
 }

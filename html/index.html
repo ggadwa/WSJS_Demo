@@ -4,8 +4,9 @@
 
 <head>
 <meta charset="utf-8">
-<title>WSJS Demonstration Project</title>
-<link rel="stylesheet" type="text/css" href="common.css">
+<title>WSJS FPS Demonstration</title>
+<link rel="stylesheet" type="text/css" href="demo.css">
+<link rel="stylesheet" type="text/css" href="../../code/html/common.css">
 
 <!-- the script -->
 
@@ -16,24 +17,9 @@
 </script>
 
 <script>
-function runDungeon()
+function run(multiPlayer,mapName)
 {
-    window.main.run(false,{"startMap":"dungeon"});
-}
-
-function runDualCastle()
-{
-    window.main.run(true,{"startMap":"dual_castles"});
-}
-
-function runKart()
-{
-    window.main.run(false,{"startMap":"circuit_race"});
-}
-
-function runPlatformer()
-{
-    window.main.run(false,{"startMap":"platformer"});
+    window.main.run(multiPlayer,{"startMap":mapName});
 }
 </script>
 
@@ -45,26 +31,14 @@ function runPlatformer()
 
 <div class="header">Demonstration Map Picker</div>
 
-<div class="columnWrapper">
-    <div class="column">
-        <img class="imageClick" src="dungeon.png" onClick="runDungeon()">
-        <div class="imageText">First Person Shooter Map</div>
-    </div>
-    <div class="column">
-        <img class="imageClick" src="dual_castles.png" onClick="runDualCastle()">
-        <div class="imageText">Multiplayer\Bot Map</div>
-    </div>
+<div class="imageWrapper">
+    <img class="imageClick" src="dungeon.png" onClick="run(false,'dungeon')">
 </div>
 
-<div class="columnWrapper">
-    <div class="column">
-        <img class="imageClick" src="circuit_race.png" onClick="runKart()">
-        <div class="imageText">Kart Map</div>
-    </div>
-    <div class="column">
-        <img class="imageClick" src="auto_generate.png" onClick="runPlatformer()">
-        <div class="imageText">Platformer Map</div>
-    </div>
+<div class="line"></div>
+
+<div class="imageWrapper">
+    <img class="imageClick" src="dual_castles.png" onClick="run(true,'dual_castles')">
 </div>
 
 <!-- controls -->
@@ -125,9 +99,11 @@ function runPlatformer()
 <div class="header">Links</div>
 
 <div class="line">
-    <a href="https://twitter.com/ggadwa">@ggadwa</a><br>
+    <a href="../../demo_platformer/html/index.html">Platformer Demonstration</a><br>
+    <a href="../../demo_kart/html/index.html">Kart Demonstration</a><br>
     <a href="https://github.com/ggadwa/WSJS">GitHub Engine Source Code</a><br>
-    <a href="https://github.com/ggadwa/WSJS_Demo">GitHub Demo Source Code</a><br>
+    <a href="https://github.com/ggadwa/WSJS_Demo">GitHub FPS Demo Source Code</a><br>
+    <a href="https://twitter.com/ggadwa">@ggadwa</a><br>
     <div>Check credits.txt in the demo source code for credits</div>
 </div>
 
