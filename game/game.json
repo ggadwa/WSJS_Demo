@@ -7,6 +7,9 @@
             "multiplayerMessageText":"multiplayer_message",
             "multiplayerMessageWaitTick":5000,
             "interfaceHitBitmap":"textures/interface_hit.png",
+            "sequenceStart":null,
+            "sequenceWin":null,
+            "sequenceLoss":null,
             "touchStickSize":256,
             "touchStickRingBitmap":"textures/stick_ring.png",
             "touchStickThumbBitmap":"textures/stick_thumb.png",
@@ -36,5 +39,8 @@
     "effects":
         [
             "explosion","fire","fountain","hit","sparkle"
+        ],
+    "sequences":
+        [
         ]
 }
