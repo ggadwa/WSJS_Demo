@@ -28,6 +28,8 @@
             "canBounce":true,
             "bounceFactor":0.8,  
             "canReflect":true,
+            "trackList":null,
+            "trackSpeed":0,
             "hitEffect":"explosion",
             "trailEffect":null,
             "trailSpawnTick":0
