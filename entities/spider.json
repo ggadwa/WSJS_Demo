@@ -42,7 +42,9 @@
             "jumpWaitTick":2000,
             "jumpHeight":250,
             "angleYProjectileRange":5,
-            "angleYMeleeRange":15
+            "angleYMeleeRange":15,
+            "idlePath":null,
+            "stalkByPath":false
         },
     "animations":
         {
