@@ -27,6 +27,7 @@
             "projectileJson":"projectile_sparkle",
             "projectileData":{"hitEffect":"hit"},
             "projectileRequiresSight":true,
+            "noSelfDamage":false,
             "maxTurnSpeed":5,
             "forwardAcceleration":4,
             "forwardDeceleration":2,
@@ -44,7 +45,10 @@
             "angleYProjectileRange":5,
             "angleYMeleeRange":15,
             "idlePath":"@idlePath",
-            "stalkByPath":false
+            "stalkByPath":false,
+            "seekNodeDistanceSlop":1000,
+            "seekNodeAngleSlop":35,
+            "seekPauseDistance":4000
         },
     "animations":
         {

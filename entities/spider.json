@@ -27,6 +27,7 @@
             "projectileJson":null,
             "projectileData":null,
             "projectileRequiresSight":false,
+            "noSelfDamage":false,
             "maxTurnSpeed":8,
             "forwardAcceleration":10,
             "forwardDeceleration":8,
@@ -44,7 +45,10 @@
             "angleYProjectileRange":5,
             "angleYMeleeRange":15,
             "idlePath":null,
-            "stalkByPath":false
+            "stalkByPath":false,
+            "seekNodeDistanceSlop":1000,
+            "seekNodeAngleSlop":35,
+            "seekPauseDistance":4000
         },
     "animations":
         {

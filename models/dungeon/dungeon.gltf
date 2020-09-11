@@ -118,8 +118,7 @@
                 1229,
                 1230,
                 1231,
-                1232,
-                1233
+                1232
             ]
         }
     ],
@@ -23923,21 +23922,6 @@
         },
         {
             "mesh" : 1091,
-            "name" : "captain_chest.009",
-            "rotation" : [
-                0,
-                0.6984800100326538,
-                0,
-                0.7156295776367188
-            ],
-            "translation" : [
-                -490.5471496582031,
-                -79.97050476074219,
-                39.63134002685547
-            ]
-        },
-        {
-            "mesh" : 1092,
             "name" : "captain_chest.010",
             "rotation" : [
                 0,
@@ -23952,7 +23936,7 @@
             ]
         },
         {
-            "mesh" : 1093,
+            "mesh" : 1092,
             "name" : "Ratkin",
             "rotation" : [
                 0,
@@ -23967,7 +23951,7 @@
             ]
         },
         {
-            "mesh" : 1094,
+            "mesh" : 1093,
             "name" : "Ratkin.002",
             "rotation" : [
                 0,
@@ -23982,7 +23966,7 @@
             ]
         },
         {
-            "mesh" : 1095,
+            "mesh" : 1094,
             "name" : "Ratkin.001",
             "rotation" : [
                 0,
@@ -23997,7 +23981,7 @@
             ]
         },
         {
-            "mesh" : 1096,
+            "mesh" : 1095,
             "name" : "Ratkin.003",
             "rotation" : [
                 0,
@@ -24012,7 +23996,7 @@
             ]
         },
         {
-            "mesh" : 1097,
+            "mesh" : 1096,
             "name" : "Spider.003",
             "rotation" : [
                 0,
@@ -24027,7 +24011,7 @@
             ]
         },
         {
-            "mesh" : 1098,
+            "mesh" : 1097,
             "name" : "Spider.005",
             "rotation" : [
                 0,
@@ -24042,7 +24026,7 @@
             ]
         },
         {
-            "mesh" : 1099,
+            "mesh" : 1098,
             "name" : "Spider.004",
             "rotation" : [
                 0,
@@ -24057,7 +24041,7 @@
             ]
         },
         {
-            "mesh" : 1100,
+            "mesh" : 1099,
             "name" : "Spider.001",
             "rotation" : [
                 0,
@@ -24072,7 +24056,7 @@
             ]
         },
         {
-            "mesh" : 1101,
+            "mesh" : 1100,
             "name" : "m16",
             "rotation" : [
                 0,
@@ -24087,7 +24071,7 @@
             ]
         },
         {
-            "mesh" : 1102,
+            "mesh" : 1101,
             "name" : "Spider",
             "rotation" : [
                 0,
@@ -24102,7 +24086,7 @@
             ]
         },
         {
-            "mesh" : 1103,
+            "mesh" : 1102,
             "name" : "Spider.002",
             "rotation" : [
                 0,
@@ -24117,7 +24101,7 @@
             ]
         },
         {
-            "mesh" : 1104,
+            "mesh" : 1103,
             "name" : "Vampire",
             "rotation" : [
                 0,
@@ -24132,7 +24116,7 @@
             ]
         },
         {
-            "mesh" : 1105,
+            "mesh" : 1104,
             "name" : "Skeleton.001",
             "rotation" : [
                 0,
@@ -24147,7 +24131,7 @@
             ]
         },
         {
-            "mesh" : 1106,
+            "mesh" : 1105,
             "name" : "Skeleton.002",
             "rotation" : [
                 0,
@@ -24162,7 +24146,7 @@
             ]
         },
         {
-            "mesh" : 1107,
+            "mesh" : 1106,
             "name" : "Skeleton.003",
             "rotation" : [
                 0,
@@ -24177,7 +24161,7 @@
             ]
         },
         {
-            "mesh" : 1108,
+            "mesh" : 1107,
             "name" : "Skeleton.005",
             "rotation" : [
                 0,
@@ -24192,7 +24176,7 @@
             ]
         },
         {
-            "mesh" : 1109,
+            "mesh" : 1108,
             "name" : "Skeleton.006",
             "rotation" : [
                 0,
@@ -24207,7 +24191,7 @@
             ]
         },
         {
-            "mesh" : 1110,
+            "mesh" : 1109,
             "name" : "Vampire.001",
             "rotation" : [
                 0,
@@ -24222,7 +24206,7 @@
             ]
         },
         {
-            "mesh" : 1111,
+            "mesh" : 1110,
             "name" : "Spider.006",
             "rotation" : [
                 0,
@@ -24237,7 +24221,7 @@
             ]
         },
         {
-            "mesh" : 1112,
+            "mesh" : 1111,
             "name" : "Spider.007",
             "rotation" : [
                 0,
@@ -24252,7 +24236,7 @@
             ]
         },
         {
-            "mesh" : 1113,
+            "mesh" : 1112,
             "name" : "Spider.008",
             "rotation" : [
                 0,
@@ -24267,7 +24251,7 @@
             ]
         },
         {
-            "mesh" : 1114,
+            "mesh" : 1113,
             "name" : "Spider.009",
             "rotation" : [
                 0,
@@ -24282,7 +24266,7 @@
             ]
         },
         {
-            "mesh" : 1115,
+            "mesh" : 1114,
             "name" : "Skeleton.007",
             "rotation" : [
                 0,
@@ -24297,7 +24281,7 @@
             ]
         },
         {
-            "mesh" : 1116,
+            "mesh" : 1115,
             "name" : "Shield",
             "rotation" : [
                 0.7071067690849304,
@@ -24312,7 +24296,7 @@
             ]
         },
         {
-            "mesh" : 1117,
+            "mesh" : 1116,
             "name" : "Ratkin.004",
             "rotation" : [
                 0,
@@ -24327,7 +24311,7 @@
             ]
         },
         {
-            "mesh" : 1118,
+            "mesh" : 1117,
             "name" : "Ratkin.005",
             "rotation" : [
                 0,
@@ -24342,7 +24326,7 @@
             ]
         },
         {
-            "mesh" : 1119,
+            "mesh" : 1118,
             "name" : "Ratkin.006",
             "rotation" : [
                 0,
@@ -24357,7 +24341,7 @@
             ]
         },
         {
-            "mesh" : 1120,
+            "mesh" : 1119,
             "name" : "Ratkin.007",
             "rotation" : [
                 0,
@@ -24372,7 +24356,7 @@
             ]
         },
         {
-            "mesh" : 1121,
+            "mesh" : 1120,
             "name" : "Spider.010",
             "rotation" : [
                 0,
@@ -24387,7 +24371,7 @@
             ]
         },
         {
-            "mesh" : 1122,
+            "mesh" : 1121,
             "name" : "Spider.011",
             "rotation" : [
                 0,
@@ -24402,7 +24386,7 @@
             ]
         },
         {
-            "mesh" : 1123,
+            "mesh" : 1122,
             "name" : "Spider.012",
             "rotation" : [
                 0,
@@ -24417,7 +24401,7 @@
             ]
         },
         {
-            "mesh" : 1124,
+            "mesh" : 1123,
             "name" : "Dragon_Queen",
             "translation" : [
                 -437.95306396484375,
@@ -24426,7 +24410,7 @@
             ]
         },
         {
-            "mesh" : 1125,
+            "mesh" : 1124,
             "name" : "MapDef",
             "translation" : [
                 -30.164474487304688,
@@ -42835,7 +42819,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"captain_chest\",\"data\":{\"trigger\":null}}"
             },
-            "name" : "captain_chest.009",
+            "name" : "captain_chest.010",
             "primitives" : [
                 {
                     "attributes" : {
@@ -42850,9 +42834,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"captain_chest\",\"data\":{\"trigger\":null}}"
+                "wsjsEntity" : "{\"entity\":\"ratkin\"}"
             },
-            "name" : "captain_chest.010",
+            "name" : "Ratkin",
             "primitives" : [
                 {
                     "attributes" : {
@@ -42869,7 +42853,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"ratkin\"}"
             },
-            "name" : "Ratkin",
+            "name" : "Ratkin.002",
             "primitives" : [
                 {
                     "attributes" : {
@@ -42886,7 +42870,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"ratkin\"}"
             },
-            "name" : "Ratkin.002",
+            "name" : "Ratkin.001",
             "primitives" : [
                 {
                     "attributes" : {
@@ -42903,7 +42887,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"ratkin\"}"
             },
-            "name" : "Ratkin.001",
+            "name" : "Ratkin.003",
             "primitives" : [
                 {
                     "attributes" : {
@@ -42918,9 +42902,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"ratkin\"}"
+                "wsjsEntity" : "{\"entity\":\"spider\",\"data\":{\"showTrigger\":null}}"
             },
-            "name" : "Ratkin.003",
+            "name" : "Spider.003",
             "primitives" : [
                 {
                     "attributes" : {
@@ -42937,7 +42921,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"spider\",\"data\":{\"showTrigger\":null}}"
             },
-            "name" : "Spider.003",
+            "name" : "Spider.005",
             "primitives" : [
                 {
                     "attributes" : {
@@ -42954,7 +42938,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"spider\",\"data\":{\"showTrigger\":null}}"
             },
-            "name" : "Spider.005",
+            "name" : "Spider.004",
             "primitives" : [
                 {
                     "attributes" : {
@@ -42971,7 +42955,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"spider\",\"data\":{\"showTrigger\":null}}"
             },
-            "name" : "Spider.004",
+            "name" : "Spider.001",
             "primitives" : [
                 {
                     "attributes" : {
@@ -42986,9 +42970,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"spider\",\"data\":{\"showTrigger\":null}}"
+                "wsjsEntity" : "{\"entity\":\"pickup_m16\",\"data\":{\"pickupOnce\":true}}"
             },
-            "name" : "Spider.001",
+            "name" : "m16",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43003,9 +42987,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"pickup_m16\",\"data\":{\"pickupOnce\":true}}"
+                "wsjsEntity" : "{\"entity\":\"spider\",\"data\":{\"showTrigger\":null}}"
             },
-            "name" : "m16",
+            "name" : "Spider",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43022,7 +43006,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"spider\",\"data\":{\"showTrigger\":null}}"
             },
-            "name" : "Spider",
+            "name" : "Spider.002",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43037,9 +43021,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"spider\",\"data\":{\"showTrigger\":null}}"
+                "wsjsEntity" : "{\"entity\":\"vampire\",\"data\":{\"idlePath\":[\"vampire_1_1\",\"vampire_1_2\",\"vampire_1_3\"]}}"
             },
-            "name" : "Spider.002",
+            "name" : "Vampire",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43054,9 +43038,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"vampire\",\"data\":{\"idlePath\":[\"vampire_1_1\",\"vampire_1_2\",\"vampire_1_3\"]}}"
+                "wsjsEntity" : "{\"entity\":\"skeleton\"}"
             },
-            "name" : "Vampire",
+            "name" : "Skeleton.001",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43073,7 +43057,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"skeleton\"}"
             },
-            "name" : "Skeleton.001",
+            "name" : "Skeleton.002",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43090,7 +43074,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"skeleton\"}"
             },
-            "name" : "Skeleton.002",
+            "name" : "Skeleton.003",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43107,7 +43091,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"skeleton\"}"
             },
-            "name" : "Skeleton.003",
+            "name" : "Skeleton.005",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43124,7 +43108,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"skeleton\"}"
             },
-            "name" : "Skeleton.005",
+            "name" : "Skeleton.006",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43139,9 +43123,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"skeleton\"}"
+                "wsjsEntity" : "{\"entity\":\"vampire\",\"data\":{\"idlePath\":[\"vampire_2_1\",\"vampire_2_2\",\"vampire_2_3\"]}}"
             },
-            "name" : "Skeleton.006",
+            "name" : "Vampire.001",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43156,9 +43140,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"vampire\",\"data\":{\"idlePath\":[\"vampire_2_1\",\"vampire_2_2\",\"vampire_2_3\"]}}"
+                "wsjsEntity" : "{\"entity\":\"spider\",\"data\":{\"showTrigger\":null}}"
             },
-            "name" : "Vampire.001",
+            "name" : "Spider.006",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43173,9 +43157,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"spider\",\"data\":{\"showTrigger\":null}}"
+                "wsjsEntity" : "{\"entity\":\"spider\",\"show\":false,\"data\":{\"showTrigger\":\"queen_wake\"}}"
             },
-            "name" : "Spider.006",
+            "name" : "Spider.007",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43190,9 +43174,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"spider\",\"show\":false,\"data\":{\"showTrigger\":\"queen_wake\"}}"
+                "wsjsEntity" : "{\"entity\":\"spider\",\"data\":{\"showTrigger\":null}}"
             },
-            "name" : "Spider.007",
+            "name" : "Spider.008",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43209,7 +43193,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"spider\",\"data\":{\"showTrigger\":null}}"
             },
-            "name" : "Spider.008",
+            "name" : "Spider.009",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43224,9 +43208,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"spider\",\"data\":{\"showTrigger\":null}}"
+                "wsjsEntity" : "{\"entity\":\"skeleton\"}"
             },
-            "name" : "Spider.009",
+            "name" : "Skeleton.007",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43241,9 +43225,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"skeleton\"}"
+                "wsjsEntity" : "{\"entity\":\"pickup_armor\",\"data\":{\"pickupOnce\":true}}"
             },
-            "name" : "Skeleton.007",
+            "name" : "Shield",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43258,9 +43242,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"pickup_armor\",\"data\":{\"pickupOnce\":true}}"
+                "wsjsEntity" : "{\"entity\":\"ratkin\"}"
             },
-            "name" : "Shield",
+            "name" : "Ratkin.004",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43277,7 +43261,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"ratkin\"}"
             },
-            "name" : "Ratkin.004",
+            "name" : "Ratkin.005",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43294,7 +43278,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"ratkin\"}"
             },
-            "name" : "Ratkin.005",
+            "name" : "Ratkin.006",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43311,7 +43295,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"ratkin\"}"
             },
-            "name" : "Ratkin.006",
+            "name" : "Ratkin.007",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43326,9 +43310,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"ratkin\"}"
+                "wsjsEntity" : "{\"entity\":\"spider\",\"show\":false,\"data\":{\"showTrigger\":\"queen_wake\"}}"
             },
-            "name" : "Ratkin.007",
+            "name" : "Spider.010",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43345,7 +43329,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"spider\",\"show\":false,\"data\":{\"showTrigger\":\"queen_wake\"}}"
             },
-            "name" : "Spider.010",
+            "name" : "Spider.011",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43362,7 +43346,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"spider\",\"show\":false,\"data\":{\"showTrigger\":\"queen_wake\"}}"
             },
-            "name" : "Spider.011",
+            "name" : "Spider.012",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43377,9 +43361,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"spider\",\"show\":false,\"data\":{\"showTrigger\":\"queen_wake\"}}"
+                "wsjsEntity" : "{\"entity\":\"dragon_queen\"}"
             },
-            "name" : "Spider.012",
+            "name" : "Dragon_Queen",
             "primitives" : [
                 {
                     "attributes" : {
@@ -43394,32 +43378,15 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"dragon_queen\"}"
-            },
-            "name" : "Dragon_Queen",
-            "primitives" : [
-                {
-                    "attributes" : {
-                        "POSITION" : 4631,
-                        "NORMAL" : 4632,
-                        "TEXCOORD_0" : 4633
-                    },
-                    "indices" : 4360,
-                    "material" : 19
-                }
-            ]
-        },
-        {
-            "extras" : {
                 "wsjsMap" : "{\"scale\":700,\"bumpHeight\":1400,\"view\":{\"nearZ\":500,\"farZ\":500000},\"gravity\":{\"min\":0,\"max\":1700,\"acceleration\":0.1}}"
             },
             "name" : "MapDef",
             "primitives" : [
                 {
                     "attributes" : {
-                        "POSITION" : 4634,
-                        "NORMAL" : 4635,
-                        "TEXCOORD_0" : 4636
+                        "POSITION" : 4631,
+                        "NORMAL" : 4632,
+                        "TEXCOORD_0" : 4633
                     },
                     "indices" : 4360,
                     "material" : 19
@@ -85603,34 +85570,6 @@
             "componentType" : 5126,
             "count" : 24,
             "type" : "VEC2"
-        },
-        {
-            "bufferView" : 4634,
-            "componentType" : 5126,
-            "count" : 24,
-            "max" : [
-                1,
-                1,
-                1
-            ],
-            "min" : [
-                -1,
-                -1,
-                -1
-            ],
-            "type" : "VEC3"
-        },
-        {
-            "bufferView" : 4635,
-            "componentType" : 5126,
-            "count" : 24,
-            "type" : "VEC3"
-        },
-        {
-            "bufferView" : 4636,
-            "componentType" : 5126,
-            "count" : 24,
-            "type" : "VEC2"
         }
     ],
     "bufferViews" : [
@@ -108803,26 +108742,11 @@
             "buffer" : 0,
             "byteLength" : 192,
             "byteOffset" : 7599228
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 288,
-            "byteOffset" : 7599420
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 288,
-            "byteOffset" : 7599708
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 192,
-            "byteOffset" : 7599996
         }
     ],
     "buffers" : [
         {
-            "byteLength" : 7600188,
+            "byteLength" : 7599420,
             "uri" : "dungeon.bin"
         }
     ]
