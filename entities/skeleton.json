@@ -12,9 +12,18 @@
             "weight":250,
             "hideMeshes":["SH_Sword_E01","SH_Shield_E02","Hair","SH_Helmet_E","SH_Shield_E01","SH_Chest_E","SH_Shoulders_E","SH_Gloves_E","SH_LegsArmor_E","SH_Boots_E"]
         },
+    "physics":
+        {
+            "maxBumpCount":2,
+            "floorRiseHeight":2000,
+            "collisionSpokeCount":48,
+            "collisionHeightSegmentCount":4,
+            "collisionHeightMargin":10
+        },
     "config":
         {
             "startHealth":160,
+            "startAsleep":false,
             "wakeUpDistance":25000,
             "wakeUpOnOtherWakeUpDistance":25000,
             "idleDistance":75000,
@@ -42,6 +51,8 @@
             "slideMoveTick":2000,
             "jumpWaitTick":0,
             "jumpHeight":0,
+            "canBump":true,
+            "canSlide":true,
             "angleYProjectileRange":5,
             "angleYMeleeRange":15,
             "idlePath":null,

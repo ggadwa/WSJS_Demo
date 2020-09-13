@@ -12,6 +12,14 @@
             "weight":180,
             "hideMeshes":["Captain_jetpack"]
         },
+    "physics":
+        {
+            "maxBumpCount":2,
+            "floorRiseHeight":2000,
+            "collisionSpokeCount":48,
+            "collisionHeightSegmentCount":4,
+            "collisionHeightMargin":10
+        },
     "config":
         {
             "healthInitialCount":100,

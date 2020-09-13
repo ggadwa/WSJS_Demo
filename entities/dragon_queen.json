@@ -12,9 +12,18 @@
             "weight":250,
             "hideMeshes":["EDQ_shield01","EDQ_shield02","EDQ_sword01","EDQ_sword02"]
         },
+    "physics":
+        {
+            "maxBumpCount":2,
+            "floorRiseHeight":2000,
+            "collisionSpokeCount":48,
+            "collisionHeightSegmentCount":4,
+            "collisionHeightMargin":10
+        },
     "config":
         {
             "startHealth":500,
+            "startAsleep":true,
             "wakeUpDistance":6000,
             "wakeUpOnOtherWakeUpDistance":6000,
             "idleDistance":75000,
@@ -42,6 +51,8 @@
             "slideMoveTick":2000,
             "jumpWaitTick":0,
             "jumpHeight":0,
+            "canBump":true,
+            "canSlide":true,
             "angleYProjectileRange":5,
             "angleYMeleeRange":15,
             "idlePath":null,

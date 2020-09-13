@@ -12,9 +12,18 @@
             "weight":180,
             "hideMeshes":["Slave_Pick01"]
         },
+    "physics":
+        {
+            "maxBumpCount":2,
+            "floorRiseHeight":2000,
+            "collisionSpokeCount":48,
+            "collisionHeightSegmentCount":4,
+            "collisionHeightMargin":10
+        },
     "config":
         {
             "startHealth":80,
+            "startAsleep":false,
             "wakeUpDistance":30000,
             "wakeUpOnOtherWakeUpDistance":30000,
             "idleDistance":75000,
@@ -43,6 +52,8 @@
             "slideMoveTick":2000,
             "jumpWaitTick":0,
             "jumpHeight":0,
+            "canBump":true,
+            "canSlide":true,
             "angleYProjectileRange":5,
             "angleYMeleeRange":15,
             "idlePath":null,

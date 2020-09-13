@@ -12,6 +12,14 @@
             "weight":250,
             "hideMeshes":["m16_holder_02","m16_bullet","m16_bullet01","m16_bullet02","m16_bullet04","m16_bullet05","m16_bullet06","m16_bullet07","m16_bullet08"]
         },
+    "physics":
+        {
+            "maxBumpCount":0,
+            "floorRiseHeight":2000,
+            "collisionSpokeCount":8,
+            "collisionHeightSegmentCount":2,
+            "collisionHeightMargin":10
+        },
     "config":
         {
             "hideTick":5000,

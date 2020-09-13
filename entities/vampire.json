@@ -12,11 +12,20 @@
             "weight":250,
             "hideMeshes":[]
         },
+    "physics":
+        {
+            "maxBumpCount":2,
+            "floorRiseHeight":2000,
+            "collisionSpokeCount":48,
+            "collisionHeightSegmentCount":4,
+            "collisionHeightMargin":10
+        },
     "config":
         {
             "startHealth":240,
-            "wakeUpDistance":50000,
-            "wakeUpOnOtherWakeUpDistance":50000,
+            "startAsleep":false,
+            "wakeUpDistance":25000,
+            "wakeUpOnOtherWakeUpDistance":0,
             "idleDistance":75000,
             "meleeDistance":6000,
             "meleeWaitTick":2500,
@@ -42,11 +51,13 @@
             "slideMoveTick":2000,
             "jumpWaitTick":0,
             "jumpHeight":0,
+            "canBump":true,
+            "canSlide":true,
             "angleYProjectileRange":5,
             "angleYMeleeRange":15,
             "idlePath":"@idlePath",
             "stalkByPath":false,
-            "seekNodeDistanceSlop":1000,
+            "seekNodeDistanceSlop":2000,
             "seekNodeAngleSlop":35,
             "seekPauseDistance":4000
         },
