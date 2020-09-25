@@ -2,6 +2,10 @@
     "name":"wsjs_demo_fps",
     "developer":true,
     "startMap":"@startMap",
+    "title":
+        {
+            "background":"textures/title.png"
+        },
     "config":
         {
             "multiplayerMessageText":"multiplayer_message",
