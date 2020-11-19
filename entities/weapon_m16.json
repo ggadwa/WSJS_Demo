@@ -54,17 +54,5 @@
     "animations":
         {
             "idleAnimation":[77,127]
-        },
-    "interface":
-        {
-            "elements":
-                [
-                    {"id":"m16_crosshair","bitmap":"textures/crosshair_x.png","width":8,"height":8,"positionMode":"middle","positionOffset":{"x":-4,"y":-4},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true},
-                    {"id":"m16_bullet","bitmap":"textures/icon_m16_bullet.png","width":25,"height":50,"positionMode":"bottomLeft","positionOffset":{"x":5,"y":-110},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true}
-                ],
-            "texts":
-                [
-                    {"id":"m16_bullet_count","text":"","positionMode":"bottomLeft","positionOffset":{"x":35,"y":-70},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true}
-                ]
         }
 }

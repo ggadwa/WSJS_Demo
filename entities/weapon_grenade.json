@@ -54,16 +54,5 @@
     "animations":
         {
             "idleAnimation":[0,0]
-        },
-    "interface":
-        {
-            "elements":
-                [
-                    {"id":"grenade","bitmap":"textures/icon_grenade.png","width":25,"height":50,"positionMode":"bottomLeft","positionOffset":{"x":5,"y":-55},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true}
-                ],
-            "texts":
-                [
-                    {"id":"grenade_count","text":"","positionMode":"bottomLeft","positionOffset":{"x":35,"y":-15},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true}
-                ]
         }
 }

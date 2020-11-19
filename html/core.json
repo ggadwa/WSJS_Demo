@@ -24,7 +24,22 @@
         {
             "texts":
                 [
-                    {"id":"multiplayer_message","text":"","positionMode":"topLeft","positionOffset":{"x":5,"y":25},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true}
+                    {"id":"multiplayer_message","text":"","positionMode":"topLeft","positionOffset":{"x":5,"y":25},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true},
+                    {"id":"armor_count","text":"","positionMode":"bottomRight","positionOffset":{"x":-50,"y":-50},"textSize":20,"textAlign":"right","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true},
+                    {"id":"health_count","text":"","positionMode":"bottomRight","positionOffset":{"x":-50,"y":-12},"textSize":20,"textAlign":"right","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true},
+                    {"id":"pistol_bullet_count","text":"","positionMode":"bottomLeft","positionOffset":{"x":35,"y":-125},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true},
+                    {"id":"m16_bullet_count","text":"","positionMode":"bottomLeft","positionOffset":{"x":35,"y":-70},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true},
+                    {"id":"grenade_count","text":"","positionMode":"bottomLeft","positionOffset":{"x":35,"y":-15},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true}
+                ],
+            "elements":
+                [
+                    {"id":"armor","bitmap":"textures/icon_armor.png","width":35,"height":35,"positionMode":"bottomRight","positionOffset":{"x":-40,"y":-80},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true},
+                    {"id":"health","bitmap":"textures/icon_health.png","width":35,"height":35,"positionMode":"bottomRight","positionOffset":{"x":-40,"y":-40},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true},
+                    {"id":"pistol_crosshair","bitmap":"textures/crosshair_dot.png","width":8,"height":8,"positionMode":"middle","positionOffset":{"x":-4,"y":-4},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true},
+                    {"id":"pistol_bullet","bitmap":"textures/icon_beretta_bullet.png","width":25,"height":50,"positionMode":"bottomLeft","positionOffset":{"x":5,"y":-165},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true},
+                    {"id":"m16_crosshair","bitmap":"textures/crosshair_x.png","width":8,"height":8,"positionMode":"middle","positionOffset":{"x":-4,"y":-4},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true},
+                    {"id":"m16_bullet","bitmap":"textures/icon_m16_bullet.png","width":25,"height":50,"positionMode":"bottomLeft","positionOffset":{"x":5,"y":-110},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true},
+                    {"id":"grenade","bitmap":"textures/icon_grenade.png","width":25,"height":50,"positionMode":"bottomLeft","positionOffset":{"x":5,"y":-55},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true}
                 ]
         },
     "bot":
