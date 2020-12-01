@@ -5,6 +5,7 @@
     "multiplayerMaps":["dual_castles"],
     "title":
         {
+            "clickSound":"click",
             "playButton":{"title":"Play","x":0.75,"y":0.66,"width":0.24,"height":0.1},
             "multiplayerButton":{"title":"Multiplayer","x":0.75,"y":0.77,"width":0.24,"height":0.1,"show":true},
             "setupButton":{"title":"Setup","x":0.75,"y":0.88,"width":0.24,"height":0.1,"show":true}
@@ -13,9 +14,9 @@
         {
             "multiplayerMessageText":"multiplayer_message",
             "multiplayerMessageWaitTick":5000,
-            "sequenceStart":null,
-            "sequenceWon":null,
-            "sequenceLost":null,
+            "startActions":null,
+            "wonActions":null,
+            "lostActions":null,
             "touchStickSize":256,
             "touchButtonSize":48,
             "touchMenuPosition":[10,10]
