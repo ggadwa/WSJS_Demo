@@ -19,7 +19,7 @@
             "lostActions":null,
             "touchStickSize":256,
             "touchButtonSize":48,
-            "touchMenuPosition":[10,10]
+            "touchMenuPosition":[0.01,0.01]
         },
     "interface":
         {
