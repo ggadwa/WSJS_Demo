@@ -19,7 +19,9 @@
             "lostActions":null,
             "touchStickSize":256,
             "touchButtonSize":48,
-            "touchMenuPosition":[0.01,0.01]
+            "touchMenuPosition":[0.01,0.01],
+            "touchShowLeftStick":true,
+            "touchShowRightStick":true
         },
     "interface":
         {
