@@ -37,7 +37,8 @@
             "bounceFactor":0,
             "canReflect":false,
             "trackList":["fps_player"],
-            "trackSpeed":1,
+            "trackMaxAngle":360,
+            "trackSpeed":"@trackSpeed",
             "hitEffect":"@hitEffect",
             "trailEffect":"sparkle",
             "trailSpawnTick":40

@@ -37,6 +37,7 @@
             "bounceFactor":0.8,  
             "canReflect":true,
             "trackList":null,
+            "trackMaxAngle":0,
             "trackSpeed":0,
             "hitEffect":"explosion",
             "trailEffect":null,

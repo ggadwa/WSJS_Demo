@@ -34,7 +34,7 @@
             "projectileWaitTick":6000,
             "projectileFirePosition":[0,5000,2500],
             "projectileJson":"projectile_sparkle",
-            "projectileData":{"hitEffect":"explosion"},
+            "projectileData":{"trackSpeed":50,"hitEffect":"explosion"},
             "projectileRequiresSight":false,
             "noSelfDamage":true,
             "maxTurnSpeed":8,
