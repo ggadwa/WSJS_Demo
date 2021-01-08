@@ -51,6 +51,7 @@
             "damageSpeedFactor":0.25,
             "slideMoveTick":2000,
             "jumpWaitTick":0,
+            "jumpWaitTickRandomAdd":0,
             "jumpHeight":0,
             "canBump":true,
             "canSlide":true,
