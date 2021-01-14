@@ -1,5 +1,4 @@
 {
-    "name":"wsjs_demo_fps",
     "developer":true,
     "startMap":"dungeon",
     "multiplayerMaps":["dual_castles"],
@@ -7,7 +6,7 @@
         {
             "font":"Arial",
             "clickSound":"click",
-            "menu":{"textSize":80,"highlightTextSize":85,"color":{"r":1,"g":1,"b":0},"highlightColor":{"r":1,"g":0.5,"b":0}},
+            "menu":{"textSize":80,"highlightTextSize":82,"color":{"r":0.4,"g":0.4,"b":0.9},"highlightColor":{"r":0.8,"g":0.2,"b":0.9},"alignX":"left","alignY":"middle"},
             "playButton":{"title":"Single Player Game","show":true},
             "multiplayerButton":{"title":"Multiplayer Game","show":true},
             "setupButton":{"title":"Setup","show":true},
@@ -19,7 +18,10 @@
             "multiplayerMessageWaitTick":5000,
             "startActions":null,
             "wonActions":null,
-            "lostActions":null,
+            "lostActions":
+                [
+                    {"action":"sequence","name":"lost"}
+                ],
             "touchStickSize":256,
             "touchButtonSize":48,
             "touchMenuPosition":[0.01,0.01],
@@ -66,5 +68,6 @@
         ],
     "sequences":
         [
+            "lost"
         ]
 }

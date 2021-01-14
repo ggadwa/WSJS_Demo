@@ -24,7 +24,7 @@
         {
             "handOffset":{"x":0,"y":0,"z":0},
             "handAngle":{"x":0,"y":0,"z":0},
-            "fireOffsetAdd":{"x":0,"y":-500,"z":2000},
+            "fireOffsetAdd":{"x":0,"y":-500,"z":3500},
             "fireAngleAdd":{"x":5,"y":0,"z":0},
             "botFireRange":[15000,60000],
             "interfaceCrosshair":null,

@@ -36,6 +36,8 @@
             "canBounce":true,
             "bounceFactor":0.8,  
             "canReflect":true,
+            "reflectFactor":0.8,
+            "canBeClimbed":true,
             "trackList":null,
             "trackMaxAngle":0,
             "trackSpeed":0,
