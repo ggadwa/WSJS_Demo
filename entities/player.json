@@ -10,7 +10,7 @@
             "height":4500,
             "eyeOffset":4400,
             "weight":180,
-            "hideMeshes":["Captain_jetpack"]
+            "hideMeshes":["Captain_jetpack","Captain_body"]
         },
     "physics":
         {

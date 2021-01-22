@@ -3287,13 +3287,13 @@
             "uri": "textures/eye_color.png"
         },
         {
-            "uri": "textures/armor_a_color.png"
+            "uri": "textures/armor_color.png"
         },
         {
-            "uri": "textures/armor_a_normals.png"
+            "uri": "textures/armor_normals.png"
         },
         {
-            "uri": "textures/armor_a_specular.png"
+            "uri": "textures/armor_specular.png"
         },
         {
             "uri": "textures/battle_suit_color.png"

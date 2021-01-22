@@ -10,7 +10,7 @@
             "height":6200,
             "eyeOffset":6000,
             "weight":250,
-            "hideMeshes":["SH_Sword_E01","SH_Shield_E02","Hair","SH_Helmet_E","SH_Shield_E01","SH_Chest_E","SH_Shoulders_E","SH_Gloves_E","SH_LegsArmor_E","SH_Boots_E"]
+            "hideMeshes":["SH_Sword_E01","SH_Shield_E02","Hair","SH_Shield_E01","SH_Chest_E"]
         },
     "physics":
         {
