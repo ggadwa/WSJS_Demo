@@ -1,5 +1,5 @@
 {
-    "type":"fps_bot",
+    "type":"fps_player",
     "setup":
         {
             "model":"player",
@@ -10,7 +10,7 @@
             "height":4500,
             "eyeOffset":4400,
             "weight":180,
-            "hideMeshes":["Captain_jetpack"]
+            "hideMeshes":["Captain_jetpack","Captain_body"]
         },
     "physics":
         {
@@ -22,39 +22,46 @@
         },
     "config":
         {
-            "comment":"normal",
             "healthInitialCount":100,
             "healthMaxCount":100,
             "armorInitialCount":0,
             "armorMaxCount":100,
+            "interfaceHealthIcon":"health",
+            "interfaceHealthCount":"health_count",
+            "interfaceArmorIcon":"armor",
+            "interfaceArmorCount":"armor_count",
             "maxTurnSpeed":8,
+            "maxLookSpeed":8,
+            "maxLookAngle":80,
             "forwardAcceleration":15,
             "forwardDeceleration":30,
             "forwardMaxSpeed":200,
             "backwardAcceleration":10,
             "backwardDeceleration":25,
-            "backwardMaxSpeed":190,
+            "backwardMaxSpeed":180,
             "sideAcceleration":25,
             "sideDeceleration":50,
             "sideMaxSpeed":120,
             "swimAcceleration":10,
             "swimDeceleration":70,
-            "swimMaxSpeed":50,
+            "swimMaxSpeed":100,
             "flyAcceleration":30,
             "flyDeceleration":50,
-            "flyMaxSpeed":100,
+            "flyMaxSpeed":150,
             "jumpHeight":400,
-            "jumpWaterHeight":400,
+            "jumpWaterHeight":500,
+            "flySwimYReduce":0.5,
             "damageFlinchWaitTick":500,
             "fallDamageMinDistance":10000,
-            "fallDamagePercentage":0.05,
+            "fallDamagePercentage":0.002,
             "respawnWaitTick":8000,
-            "seekNodeDistanceSlop":1000,
-            "seekNodeAngleSlop":35,
-            "targetScanYRange":120,
-            "targetForgetDistance":100000,
-            "targetFireYRange":10,
-            "targetFireSlop":10
+            "isThirdPersonCamera":true,
+            "thirdPersonCameraDistance":15000,
+            "thirdPersonCameraLookAngle":{"x":90,"y":0,"z":0},
+            "isTopDownCameraOnDeath":true,
+            "topDownCameraDistance":10000,
+            "hitIndicator":true,
+            "hitIndicatorFlashTick":500
         },
     "weapons":
         [
@@ -66,9 +73,9 @@
                 "inCarousel":true,
                 "initiallyAvailable":true,
                 "parentIdleAnimation":[0,50],
-                "parentRunAnimation":[406,442],
+                "parentRunAnimation":[492,518],
                 "parentFireIdleAnimation":[364,401],
-                "parentPrimaryFireRunAnimation":[554,594],
+                "parentPrimaryFireRunAnimation":[523,549],
                 "parentSecondaryFireRunAnimation":[0,0],
                 "parentTertiaryFireRunAnimation":[0,0],
                 "meshes":["beretta","peen","beretta_top","triger","holder"]
@@ -81,9 +88,9 @@
                 "inCarousel":true,
                 "initiallyAvailable":false,
                 "parentIdleAnimation":[710,760],
-                "parentRunAnimation":[960,996],
+                "parentRunAnimation":[933,955],
                 "parentFireIdleAnimation":[775,815],
-                "parentPrimaryFireRunAnimation":[892,928],
+                "parentPrimaryFireRunAnimation":[865,887],
                 "parentSecondaryFireRunAnimation":[0,0],
                 "parentTertiaryFireRunAnimation":[0,0],
                 "meshes":["m16_rifle","m16_holder_01","shutter","trigger"]
@@ -96,7 +103,7 @@
                 "inCarousel":false,
                 "initiallyAvailable":true,
                 "parentIdleAnimation":[0,50],
-                "parentRunAnimation":[960,996],
+                "parentRunAnimation":[492,518],
                 "parentFireIdleAnimation":[51,91],
                 "parentPrimaryFireRunAnimation":[0,0],
                 "parentSecondaryFireRunAnimation":[0,0],
@@ -107,8 +114,7 @@
     "animations":
         {
             "idleAnimation":[0,50],
-            "waitAnimation":[960,996],
-            "runAnimation":[406,442],
+            "runAnimation":[492,518],
             "dieAnimation":[209,247]                
         },
     "sounds":

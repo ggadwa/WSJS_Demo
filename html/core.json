@@ -15,6 +15,7 @@
         },
     "config":
         {
+            "multiplayerDefaultCharacter":"Bob",
             "multiplayerMessageText":"multiplayer_message",
             "multiplayerMessageWaitTick":5000,
             "startActions":null,
@@ -51,11 +52,16 @@
                     {"id":"grenade","bitmap":"textures/icon_grenade.png","width":25,"height":50,"positionMode":"bottomLeft","positionOffset":{"x":5,"y":-55},"color":{"r":1,"g":1,"b":1},"alpha":1,"show":true}
                 ]
         },
-    "bot":
-        {
-            "json":"bot",
-            "names":["Caesar","Vespasian","Hadrian","Augustus","Trajan","Tiberius","Caligula","Claudius","Nero","Commodus"]
-        },
+    "characters":
+        [
+            {"name":"Al","bitmap":"textures/player_al.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
+            {"name":"Bob","bitmap":"textures/player_bob.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
+            {"name":"Dan","bitmap":"textures/player_dan.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
+            {"name":"Greg","bitmap":"textures/player_greg.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
+            {"name":"Jack","bitmap":"textures/player_jack.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
+            {"name":"Larry","bitmap":"textures/player_larry.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
+            {"name":"Mike","bitmap":"textures/player_mike.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}}
+        ],
     "entities":
         [
             "bot","captain_chest","dragon_queen","pickup_armor","pickup_grenade","pickup_health",

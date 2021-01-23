@@ -37,6 +37,7 @@
             "projectileData":{"trackSpeed":0,"hitEffect":"hit"},
             "projectileRequiresSight":true,
             "noSelfDamage":false,
+            "hitAnimationPercentage":0.8,
             "maxTurnSpeed":5,
             "forwardAcceleration":4,
             "forwardDeceleration":2,

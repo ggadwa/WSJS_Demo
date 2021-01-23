@@ -37,6 +37,7 @@
             "projectileData":null,
             "projectileRequiresSight":false,
             "noSelfDamage":false,
+            "hitAnimationPercentage":0.8,
             "maxTurnSpeed":8,
             "forwardAcceleration":4,
             "forwardDeceleration":2,
