@@ -55,6 +55,7 @@
             "jumpHeight":250,
             "canBump":false,
             "canSlide":true,
+            "canBePushed":true,
             "angleYProjectileRange":5,
             "angleYMeleeRange":15,
             "idlePath":null,

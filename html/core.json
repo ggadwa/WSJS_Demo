@@ -54,13 +54,13 @@
         },
     "characters":
         [
-            {"name":"Al","bitmap":"textures/player_al.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
-            {"name":"Bob","bitmap":"textures/player_bob.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
-            {"name":"Dan","bitmap":"textures/player_dan.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
-            {"name":"Greg","bitmap":"textures/player_greg.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
-            {"name":"Jack","bitmap":"textures/player_jack.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
-            {"name":"Larry","bitmap":"textures/player_larry.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
-            {"name":"Mike","bitmap":"textures/player_mike.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}}
+            {"name":"Al","bitmap":"textures/character_al.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
+            {"name":"Bob","bitmap":"textures/character_bob.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
+            {"name":"Dan","bitmap":"textures/character_dan.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
+            {"name":"Greg","bitmap":"textures/character_greg.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
+            {"name":"Jack","bitmap":"textures/character_jack.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
+            {"name":"Larry","bitmap":"textures/character_larry.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
+            {"name":"Mike","bitmap":"textures/character_mike.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}}
         ],
     "entities":
         [
