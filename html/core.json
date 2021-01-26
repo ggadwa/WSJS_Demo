@@ -54,13 +54,13 @@
         },
     "characters":
         [
-            {"name":"Al","bitmap":"textures/character_al.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
-            {"name":"Bob","bitmap":"textures/character_bob.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
-            {"name":"Dan","bitmap":"textures/character_dan.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
-            {"name":"Greg","bitmap":"textures/character_greg.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
-            {"name":"Jack","bitmap":"textures/character_jack.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
-            {"name":"Larry","bitmap":"textures/character_larry.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}},
-            {"name":"Mike","bitmap":"textures/character_mike.png","playerJson":"multiplayer","botJson":"bot","data":{"healthMax":50}}
+            {"name":"Al","bitmap":"textures/character_al.png","playerJson":"multiplayer","botJson":"bot","data":{"forwardMaxSpeed":100,"maxTurnSpeed":5,"healthMaxCount":50,"armorMaxCount":50,"targetScanYRange":80,"targetFireYRange":15,"targetFireSlop":15}},
+            {"name":"Bob","bitmap":"textures/character_bob.png","playerJson":"multiplayer","botJson":"bot","data":{"forwardMaxSpeed":220,"maxTurnSpeed":8,"healthMaxCount":100,"armorMaxCount":75,"targetScanYRange":120,"targetFireYRange":10,"targetFireSlop":10}},
+            {"name":"Dan","bitmap":"textures/character_dan.png","playerJson":"multiplayer","botJson":"bot","data":{"forwardMaxSpeed":220,"maxTurnSpeed":8,"healthMaxCount":100,"armorMaxCount":100,"targetScanYRange":100,"targetFireYRange":15,"targetFireSlop":15}},
+            {"name":"Greg","bitmap":"textures/character_greg.png","playerJson":"multiplayer","botJson":"bot","data":{"forwardMaxSpeed":160,"maxTurnSpeed":7,"healthMaxCount":150,"armorMaxCount":100,"targetScanYRange":120,"targetFireYRange":10,"targetFireSlop":10}},
+            {"name":"Jack","bitmap":"textures/character_jack.png","playerJson":"multiplayer","botJson":"bot","data":{"forwardMaxSpeed":200,"maxTurnSpeed":8,"healthMaxCount":150,"armorMaxCount":150,"targetScanYRange":120,"targetFireYRange":15,"targetFireSlop":10}},
+            {"name":"Larry","bitmap":"textures/character_larry.png","playerJson":"multiplayer","botJson":"bot","data":{"forwardMaxSpeed":200,"maxTurnSpeed":8,"healthMaxCount":100,"armorMaxCount":100,"targetScanYRange":120,"targetFireYRange":5,"targetFireSlop":0}},
+            {"name":"Mike","bitmap":"textures/character_mike.png","playerJson":"multiplayer","botJson":"bot","data":{"forwardMaxSpeed":180,"maxTurnSpeed":7,"healthMaxCount":75,"armorMaxCount":100,"targetScanYRange":160,"targetFireYRange":5,"targetFireSlop":0}}
         ],
     "entities":
         [
