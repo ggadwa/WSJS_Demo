@@ -67,8 +67,7 @@
                 1325,
                 1326,
                 1327,
-                1328,
-                1329
+                1328
             ]
         }
     ],
@@ -25378,15 +25377,6 @@
         },
         {
             "mesh" : 1184,
-            "name" : "player",
-            "translation" : [
-                40.043296813964844,
-                35.64613342285156,
-                -1.6126785278320312
-            ]
-        },
-        {
-            "mesh" : 1185,
             "name" : "m16",
             "translation" : [
                 142.93899536132812,
@@ -25395,7 +25385,7 @@
             ]
         },
         {
-            "mesh" : 1186,
+            "mesh" : 1185,
             "name" : "m16.001",
             "translation" : [
                 -143.60995483398438,
@@ -25404,7 +25394,7 @@
             ]
         },
         {
-            "mesh" : 1187,
+            "mesh" : 1186,
             "name" : "pistol_ammo",
             "translation" : [
                 -39.15522003173828,
@@ -25413,7 +25403,7 @@
             ]
         },
         {
-            "mesh" : 1188,
+            "mesh" : 1187,
             "name" : "pistol_ammo.001",
             "translation" : [
                 40.666908264160156,
@@ -25422,7 +25412,7 @@
             ]
         },
         {
-            "mesh" : 1189,
+            "mesh" : 1188,
             "name" : "pistol_ammo.002",
             "translation" : [
                 95.54461669921875,
@@ -25431,7 +25421,7 @@
             ]
         },
         {
-            "mesh" : 1190,
+            "mesh" : 1189,
             "name" : "pistol_ammo.003",
             "translation" : [
                 -95.59196472167969,
@@ -25440,7 +25430,7 @@
             ]
         },
         {
-            "mesh" : 1191,
+            "mesh" : 1190,
             "name" : "m16_ammo",
             "translation" : [
                 95.54461669921875,
@@ -25449,7 +25439,7 @@
             ]
         },
         {
-            "mesh" : 1192,
+            "mesh" : 1191,
             "name" : "m16_ammo.001",
             "translation" : [
                 -95.72917175292969,
@@ -25458,7 +25448,7 @@
             ]
         },
         {
-            "mesh" : 1193,
+            "mesh" : 1192,
             "name" : "m16_ammo.002",
             "translation" : [
                 7.786814212799072,
@@ -25467,7 +25457,7 @@
             ]
         },
         {
-            "mesh" : 1194,
+            "mesh" : 1193,
             "name" : "m16_ammo.003",
             "translation" : [
                 -5.665925979614258,
@@ -25476,7 +25466,7 @@
             ]
         },
         {
-            "mesh" : 1195,
+            "mesh" : 1194,
             "name" : "pistol_grenade",
             "translation" : [
                 -23.931636810302734,
@@ -25485,7 +25475,7 @@
             ]
         },
         {
-            "mesh" : 1196,
+            "mesh" : 1195,
             "name" : "pistol_grenade.001",
             "translation" : [
                 24.016921997070312,
@@ -25494,7 +25484,7 @@
             ]
         },
         {
-            "mesh" : 1197,
+            "mesh" : 1196,
             "name" : "health",
             "translation" : [
                 1.6737020015716553,
@@ -25503,7 +25493,7 @@
             ]
         },
         {
-            "mesh" : 1198,
+            "mesh" : 1197,
             "name" : "health.001",
             "translation" : [
                 -1.616536021232605,
@@ -25512,7 +25502,7 @@
             ]
         },
         {
-            "mesh" : 1199,
+            "mesh" : 1198,
             "name" : "armor",
             "rotation" : [
                 0.7071068286895752,
@@ -25527,7 +25517,7 @@
             ]
         },
         {
-            "mesh" : 1200,
+            "mesh" : 1199,
             "name" : "armor.001",
             "rotation" : [
                 0.7071068286895752,
@@ -25542,7 +25532,7 @@
             ]
         },
         {
-            "mesh" : 1201,
+            "mesh" : 1200,
             "name" : "MapDef",
             "scale" : [
                 6.36868953704834,
@@ -25556,7 +25546,7 @@
             ]
         },
         {
-            "mesh" : 1202,
+            "mesh" : 1201,
             "name" : "effect_fountain",
             "translation" : [
                 -0.03333684802055359,
@@ -25565,7 +25555,7 @@
             ]
         },
         {
-            "mesh" : 1203,
+            "mesh" : 1202,
             "name" : "liquid_fountain",
             "scale" : [
                 5.655560493469238,
@@ -45524,9 +45514,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"player\"}"
+                "wsjsEntity" : "{\"entity\":\"pickup_m16\",\"data\":{\"pickupOnce\":false}}"
             },
-            "name" : "player",
+            "name" : "m16",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45543,7 +45533,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"pickup_m16\",\"data\":{\"pickupOnce\":false}}"
             },
-            "name" : "m16",
+            "name" : "m16.001",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45558,9 +45548,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"pickup_m16\",\"data\":{\"pickupOnce\":false}}"
+                "wsjsEntity" : "{\"entity\":\"pickup_pistol_ammo\"}"
             },
-            "name" : "m16.001",
+            "name" : "pistol_ammo",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45577,7 +45567,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"pickup_pistol_ammo\"}"
             },
-            "name" : "pistol_ammo",
+            "name" : "pistol_ammo.001",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45594,7 +45584,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"pickup_pistol_ammo\"}"
             },
-            "name" : "pistol_ammo.001",
+            "name" : "pistol_ammo.002",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45611,7 +45601,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"pickup_pistol_ammo\"}"
             },
-            "name" : "pistol_ammo.002",
+            "name" : "pistol_ammo.003",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45626,9 +45616,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"pickup_pistol_ammo\"}"
+                "wsjsEntity" : "{\"entity\":\"pickup_m16_ammo\"}"
             },
-            "name" : "pistol_ammo.003",
+            "name" : "m16_ammo",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45645,7 +45635,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"pickup_m16_ammo\"}"
             },
-            "name" : "m16_ammo",
+            "name" : "m16_ammo.001",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45662,7 +45652,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"pickup_m16_ammo\"}"
             },
-            "name" : "m16_ammo.001",
+            "name" : "m16_ammo.002",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45679,7 +45669,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"pickup_m16_ammo\"}"
             },
-            "name" : "m16_ammo.002",
+            "name" : "m16_ammo.003",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45694,9 +45684,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"pickup_m16_ammo\"}"
+                "wsjsEntity" : "{\"entity\":\"pickup_grenade\"}"
             },
-            "name" : "m16_ammo.003",
+            "name" : "pistol_grenade",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45713,7 +45703,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"pickup_grenade\"}"
             },
-            "name" : "pistol_grenade",
+            "name" : "pistol_grenade.001",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45728,9 +45718,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"pickup_grenade\"}"
+                "wsjsEntity" : "{\"entity\":\"pickup_health\",\"data\":{\"pickupOnce\":false}}"
             },
-            "name" : "pistol_grenade.001",
+            "name" : "health",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45747,7 +45737,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"pickup_health\",\"data\":{\"pickupOnce\":false}}"
             },
-            "name" : "health",
+            "name" : "health.001",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45762,9 +45752,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"pickup_health\",\"data\":{\"pickupOnce\":false}}"
+                "wsjsEntity" : "{\"entity\":\"pickup_armor\",\"data\":{\"pickupOnce\":false}}"
             },
-            "name" : "health.001",
+            "name" : "armor",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45781,7 +45771,7 @@
             "extras" : {
                 "wsjsEntity" : "{\"entity\":\"pickup_armor\",\"data\":{\"pickupOnce\":false}}"
             },
-            "name" : "armor",
+            "name" : "armor.001",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45796,9 +45786,9 @@
         },
         {
             "extras" : {
-                "wsjsEntity" : "{\"entity\":\"pickup_armor\",\"data\":{\"pickupOnce\":false}}"
+                "wsjsMap" : "{\"scale\":700,\"bumpHeight\":1400,\"view\":{\"nearZ\":500,\"farZ\":500000},\"gravity\":{\"min\":0,\"max\":1700,\"acceleration\":0.1}}"
             },
-            "name" : "armor.001",
+            "name" : "MapDef",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45813,9 +45803,9 @@
         },
         {
             "extras" : {
-                "wsjsMap" : "{\"scale\":700,\"bumpHeight\":1400,\"view\":{\"nearZ\":500,\"farZ\":500000},\"gravity\":{\"min\":0,\"max\":1700,\"acceleration\":0.1}}"
+                "wsjsEffect" : "{\"effect\":\"fountain\"}"
             },
-            "name" : "MapDef",
+            "name" : "effect_fountain",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45830,32 +45820,15 @@
         },
         {
             "extras" : {
-                "wsjsEffect" : "{\"effect\":\"fountain\"}"
-            },
-            "name" : "effect_fountain",
-            "primitives" : [
-                {
-                    "attributes" : {
-                        "POSITION" : 5149,
-                        "NORMAL" : 5150,
-                        "TEXCOORD_0" : 5151
-                    },
-                    "indices" : 2929,
-                    "material" : 22
-                }
-            ]
-        },
-        {
-            "extras" : {
                 "wsjsLiquid" : "{\"waveSize\":500,\"wavePeriod\":4000,\"waveHeight\":50,\"waveUVStamp\":0.1}"
             },
             "name" : "liquid_fountain",
             "primitives" : [
                 {
                     "attributes" : {
-                        "POSITION" : 5152,
-                        "NORMAL" : 5153,
-                        "TEXCOORD_0" : 5154
+                        "POSITION" : 5149,
+                        "NORMAL" : 5150,
+                        "TEXCOORD_0" : 5151
                     },
                     "indices" : 2929,
                     "material" : 17
@@ -92346,34 +92319,6 @@
             "componentType" : 5126,
             "count" : 24,
             "type" : "VEC2"
-        },
-        {
-            "bufferView" : 5152,
-            "componentType" : 5126,
-            "count" : 24,
-            "max" : [
-                1,
-                1,
-                1
-            ],
-            "min" : [
-                -1,
-                -1,
-                -1
-            ],
-            "type" : "VEC3"
-        },
-        {
-            "bufferView" : 5153,
-            "componentType" : 5126,
-            "count" : 24,
-            "type" : "VEC3"
-        },
-        {
-            "bufferView" : 5154,
-            "componentType" : 5126,
-            "count" : 24,
-            "type" : "VEC2"
         }
     ],
     "bufferViews" : [
@@ -118136,21 +118081,6 @@
             "buffer" : 0,
             "byteLength" : 192,
             "byteOffset" : 8318736
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 288,
-            "byteOffset" : 8318928
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 288,
-            "byteOffset" : 8319216
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 192,
-            "byteOffset" : 8319504
         }
     ],
     "samplers" : [
@@ -118161,7 +118091,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 8319696,
+            "byteLength" : 8318928,
             "uri" : "dual_castles.bin"
         }
     ]

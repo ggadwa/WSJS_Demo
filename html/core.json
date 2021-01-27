@@ -1,7 +1,10 @@
 {
     "developer":true,
     "startMap":"dungeon",
-    "multiplayerMaps":["dual_castles"],
+    "multiplayerMaps":
+        [
+            "dual_castles"
+        ],
     "title":
         {
             "font":"Arial",
@@ -54,18 +57,18 @@
         },
     "characters":
         [
-            {"name":"Al","bitmap":"textures/character_al.png","playerJson":"multiplayer","botJson":"bot","data":{"forwardMaxSpeed":100,"maxTurnSpeed":5,"healthMaxCount":50,"armorMaxCount":50,"targetScanYRange":80,"targetFireYRange":15,"targetFireSlop":15}},
-            {"name":"Bob","bitmap":"textures/character_bob.png","playerJson":"multiplayer","botJson":"bot","data":{"forwardMaxSpeed":220,"maxTurnSpeed":8,"healthMaxCount":100,"armorMaxCount":75,"targetScanYRange":120,"targetFireYRange":10,"targetFireSlop":10}},
-            {"name":"Dan","bitmap":"textures/character_dan.png","playerJson":"multiplayer","botJson":"bot","data":{"forwardMaxSpeed":220,"maxTurnSpeed":8,"healthMaxCount":100,"armorMaxCount":100,"targetScanYRange":100,"targetFireYRange":15,"targetFireSlop":15}},
-            {"name":"Greg","bitmap":"textures/character_greg.png","playerJson":"multiplayer","botJson":"bot","data":{"forwardMaxSpeed":160,"maxTurnSpeed":7,"healthMaxCount":150,"armorMaxCount":100,"targetScanYRange":120,"targetFireYRange":10,"targetFireSlop":10}},
-            {"name":"Jack","bitmap":"textures/character_jack.png","playerJson":"multiplayer","botJson":"bot","data":{"forwardMaxSpeed":200,"maxTurnSpeed":8,"healthMaxCount":150,"armorMaxCount":150,"targetScanYRange":120,"targetFireYRange":15,"targetFireSlop":10}},
-            {"name":"Larry","bitmap":"textures/character_larry.png","playerJson":"multiplayer","botJson":"bot","data":{"forwardMaxSpeed":200,"maxTurnSpeed":8,"healthMaxCount":100,"armorMaxCount":100,"targetScanYRange":120,"targetFireYRange":5,"targetFireSlop":0}},
-            {"name":"Mike","bitmap":"textures/character_mike.png","playerJson":"multiplayer","botJson":"bot","data":{"forwardMaxSpeed":180,"maxTurnSpeed":7,"healthMaxCount":75,"armorMaxCount":100,"targetScanYRange":160,"targetFireYRange":5,"targetFireSlop":0}}
+            {"name":"Al","bitmap":"textures/character_al.png","playerJson":"multiplayer","botJson":"bot","data":{"model":"player_al","forwardMaxSpeed":100,"maxTurnSpeed":5,"healthMaxCount":50,"armorMaxCount":50,"targetScanYRange":80,"targetFireYRange":15,"targetFireSlop":15}},
+            {"name":"Bob","bitmap":"textures/character_bob.png","playerJson":"multiplayer","botJson":"bot","data":{"model":"player_bob","forwardMaxSpeed":220,"maxTurnSpeed":8,"healthMaxCount":100,"armorMaxCount":75,"targetScanYRange":120,"targetFireYRange":10,"targetFireSlop":10}},
+            {"name":"Dan","bitmap":"textures/character_dan.png","playerJson":"multiplayer","botJson":"bot","data":{"model":"player_dan","forwardMaxSpeed":220,"maxTurnSpeed":8,"healthMaxCount":100,"armorMaxCount":100,"targetScanYRange":100,"targetFireYRange":15,"targetFireSlop":15}},
+            {"name":"Greg","bitmap":"textures/character_greg.png","playerJson":"multiplayer","botJson":"bot","data":{"model":"player_greg","forwardMaxSpeed":160,"maxTurnSpeed":7,"healthMaxCount":150,"armorMaxCount":100,"targetScanYRange":120,"targetFireYRange":10,"targetFireSlop":10}},
+            {"name":"Jack","bitmap":"textures/character_jack.png","playerJson":"multiplayer","botJson":"bot","data":{"model":"player_jack","forwardMaxSpeed":200,"maxTurnSpeed":8,"healthMaxCount":150,"armorMaxCount":150,"targetScanYRange":120,"targetFireYRange":15,"targetFireSlop":10}},
+            {"name":"Larry","bitmap":"textures/character_larry.png","playerJson":"multiplayer","botJson":"bot","data":{"model":"player_larry","forwardMaxSpeed":200,"maxTurnSpeed":8,"healthMaxCount":100,"armorMaxCount":100,"targetScanYRange":120,"targetFireYRange":5,"targetFireSlop":0}},
+            {"name":"Mike","bitmap":"textures/character_mike.png","playerJson":"multiplayer","botJson":"bot","data":{"model":"player_mike","forwardMaxSpeed":180,"maxTurnSpeed":7,"healthMaxCount":75,"armorMaxCount":100,"targetScanYRange":160,"targetFireYRange":5,"targetFireSlop":0}}
         ],
     "entities":
         [
             "bot","captain_chest","dragon_queen","pickup_armor","pickup_grenade","pickup_health",
-            "pickup_m16","pickup_m16_ammo","pickup_pistol_ammo","player",
+            "pickup_m16","pickup_m16_ammo","pickup_pistol_ammo","player","multiplayer",
             "projectile_grenade","projectile_sparkle","ratkin","skeleton","spider","vampire",
             "weapon_grenade","weapon_m16","weapon_pistol"
         ],
