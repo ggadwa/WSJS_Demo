@@ -86,7 +86,7 @@
                 "name":"m16",
                 "default":false,
                 "inCarousel":true,
-                "initiallyAvailable":false,
+                "initiallyAvailable":true,
                 "parentIdleAnimation":[710,760],
                 "parentRunAnimation":[933,955],
                 "parentFireIdleAnimation":[775,815],

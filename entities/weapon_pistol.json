@@ -53,6 +53,10 @@
         },
     "animations":
         {
-            "idleAnimation":[77,127]
+            "idleAnimation":[76,126],
+            "idleWalk":[225,261],
+            "raiseAnimation":[0,24],
+            "lowerAnimatin":[25,49],
+            "reloadAnimation":[160,225]
         }
 }

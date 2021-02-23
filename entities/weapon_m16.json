@@ -23,7 +23,7 @@
     "config":
         {
             "handOffset":{"x":100,"y":-8500,"z":-2000},
-            "handAngle":{"x":0,"y":-10,"z":0},
+            "handAngle":{"x":0,"y":-20,"z":0},
             "fireOffsetAdd":{"x":0,"y":0,"z":0},
             "fireAngleAdd":{"x":0,"y":0,"z":0},
             "botFireRange":[0,0],
@@ -53,6 +53,10 @@
         },
     "animations":
         {
-            "idleAnimation":[77,127]
+            "idleAnimation":[76,126],
+            "idleWalk":[240,269],
+            "raiseAnimation":[0,24],
+            "lowerAnimatin":[25,49],
+            "reloadAnimation":[160,225]
         }
 }
