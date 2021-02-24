@@ -22,7 +22,7 @@
         },
     "config":
         {
-            "handOffset":{"x":100,"y":-8500,"z":-2000},
+            "handOffset":{"x":0,"y":-8500,"z":-2000},
             "handAngle":{"x":0,"y":-20,"z":0},
             "fireOffsetAdd":{"x":0,"y":0,"z":0},
             "fireAngleAdd":{"x":0,"y":0,"z":0},
@@ -34,6 +34,7 @@
                     "ammoInitialCount":100,
                     "ammoMaxCount":300,
                     "ammoRegenerateTick":-1,
+                    "clipSize":25,
                     "waitTick":200,
                     "damage":5,
                     "distance":100000,
@@ -54,9 +55,9 @@
     "animations":
         {
             "idleAnimation":[76,126],
-            "idleWalk":[240,269],
+            "idleWalkAnimation":[300,336],
             "raiseAnimation":[0,24],
-            "lowerAnimatin":[25,49],
-            "reloadAnimation":[160,225]
+            "lowerAnimation":[25,49],
+            "reloadAnimation":[150,299]
         }
 }
