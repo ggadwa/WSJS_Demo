@@ -22,7 +22,7 @@
         },
     "config":
         {
-            "handOffset":{"x":-800,"y":-12500,"z":-3300},
+            "handOffset":{"x":-800,"y":-12500,"z":-2700},
             "handAngle":{"x":0,"y":-10,"z":0},
             "fireOffsetAdd":{"x":0,"y":0,"z":0},
             "fireAngleAdd":{"x":0,"y":0,"z":0},
@@ -31,10 +31,10 @@
             "primary":
                 {
                     "type":"hit_scan",
-                    "ammoInitialCount":25,
+                    "ammoInitialCount":30,
                     "ammoMaxCount":50,
                     "ammoRegenerateTick":-1,
-                    "clipSize":6,
+                    "ammoClipSize":10,
                     "waitTick":900,
                     "damage":20,
                     "distance":100000,
@@ -55,9 +55,13 @@
     "animations":
         {
             "idleAnimation":[76,126],
-            "idleWalkAnimation":[225,261],
+            "idleWalkAnimation":null,
             "raiseAnimation":[0,24],
             "lowerAnimation":[25,49],
             "reloadAnimation":[160,225]
+        },
+    "sounds":
+        {
+            "reloadSound":{"name":"chime","rate":1.0,"randomRateAdd":0.0,"distance":7000,"loopStart":0,"loopEnd":0,"loop":false}  
         }
 }

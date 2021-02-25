@@ -34,7 +34,7 @@
                     "ammoInitialCount":100,
                     "ammoMaxCount":300,
                     "ammoRegenerateTick":-1,
-                    "clipSize":25,
+                    "ammoClipSize":25,
                     "waitTick":200,
                     "damage":5,
                     "distance":100000,
@@ -58,6 +58,10 @@
             "idleWalkAnimation":[300,336],
             "raiseAnimation":[0,24],
             "lowerAnimation":[25,49],
-            "reloadAnimation":[150,299]
+            "reloadAnimation":[159,299]
+        },
+    "sounds":
+        {
+            "reloadSound":{"name":"chime","rate":1.0,"randomRateAdd":0.0,"distance":7000,"loopStart":0,"loopEnd":0,"loop":false}  
         }
 }

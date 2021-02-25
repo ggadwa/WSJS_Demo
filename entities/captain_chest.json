@@ -31,7 +31,7 @@
             "openActions":
                 [
                     {"action":"trigger","name":"@trigger"},
-                    {"action":"addAmmo","weapon":"pistol","fireMethod":"primary","count":15},
+                    {"action":"addAmmo","weapon":"pistol","fireMethod":"primary","count":20},
                     {"action":"addAmmo","weapon":"m16","fireMethod":"primary","count":50},
                     {"action":"addAmmo","weapon":"grenade","fireMethod":"tertiary","count":1},
                     {"action":"addHealth","count":25}
