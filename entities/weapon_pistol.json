@@ -10,7 +10,7 @@
             "height":11000,
             "eyeOffset":0,
             "weight":0,
-            "hideMeshes":[]
+            "hideMeshes":["holder01","bullet_02","bullet_03"]
         },
     "physics":
         {
@@ -62,6 +62,6 @@
         },
     "sounds":
         {
-            "reloadSound":{"name":"chime","rate":1.0,"randomRateAdd":0.0,"distance":7000,"loopStart":0,"loopEnd":0,"loop":false}  
+            "reloadSound":{"name":"pistol_reload","rate":1.0,"randomRateAdd":0.0,"distance":7000,"loopStart":0,"loopEnd":0,"loop":false}  
         }
 }

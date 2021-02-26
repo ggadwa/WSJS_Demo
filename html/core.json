@@ -1,6 +1,10 @@
 {
     "developer":true,
     "startMap":"dungeon",
+    "multiplayerGames":
+        [
+            "Death Match"
+        ],
     "multiplayerMaps":
         [
             "dual_castles"
