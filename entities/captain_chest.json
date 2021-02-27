@@ -42,10 +42,10 @@
         },
     "animations":
         {
-            "closedAnimation":[0,1],
-            "openAnimation":[65,66],
-            "openingAnimation":[1,65],
-            "closingAnimation":[0,1]
+            "closedAnimation":{"startFrame":0,"endFrame":1},
+            "openAnimation":{"startFrame":65,"endFrame":66},
+            "openingAnimation":{"startFrame":1,"endFrame":65},
+            "closingAnimation":{"startFrame":0,"endFrame":1}
         },
     "sounds":
         {

@@ -42,7 +42,7 @@
                     "distance":0,
                     "hitEffect":null,
                     "projectileJson":"projectile_grenade",
-                    "animation":[0,0],
+                    "animation":{"startFrame":0,"endFrame":0},
                     "interfaceAmmoIcon":"grenade",
                     "interfaceAmmoText":"grenade_count",
                     "interfaceAmmoCount":null,

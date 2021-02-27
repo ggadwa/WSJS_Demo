@@ -72,12 +72,12 @@
                 "default":true,
                 "inCarousel":true,
                 "initiallyAvailable":true,
-                "parentIdleAnimation":[0,50],
-                "parentRunAnimation":[492,518],
-                "parentFireIdleAnimation":[364,401],
-                "parentPrimaryFireRunAnimation":[523,549],
-                "parentSecondaryFireRunAnimation":[0,0],
-                "parentTertiaryFireRunAnimation":[0,0],
+                "parentIdleAnimation":{"startFrame":0,"endFrame":50},
+                "parentRunAnimation":{"startFrame":492,"endFrame":518},
+                "parentFireIdleAnimation":{"startFrame":364,"endFrame":401},
+                "parentPrimaryFireRunAnimation":{"startFrame":523,"endFrame":549},
+                "parentSecondaryFireRunAnimation":{"startFrame":0,"endFrame":0},
+                "parentTertiaryFireRunAnimation":{"startFrame":0,"endFrame":0},
                 "meshes":["beretta","peen","beretta_top","triger","holder"]
             },
             {
@@ -87,12 +87,12 @@
                 "default":false,
                 "inCarousel":true,
                 "initiallyAvailable":true,
-                "parentIdleAnimation":[710,760],
-                "parentRunAnimation":[933,955],
-                "parentFireIdleAnimation":[775,815],
-                "parentPrimaryFireRunAnimation":[865,887],
-                "parentSecondaryFireRunAnimation":[0,0],
-                "parentTertiaryFireRunAnimation":[0,0],
+                "parentIdleAnimation":{"startFrame":710,"endFrame":760},
+                "parentRunAnimation":{"startFrame":933,"endFrame":955},
+                "parentFireIdleAnimation":{"startFrame":775,"endFrame":815},
+                "parentPrimaryFireRunAnimation":{"startFrame":865,"endFrame":887},
+                "parentSecondaryFireRunAnimation":{"startFrame":0,"endFrame":0},
+                "parentTertiaryFireRunAnimation":{"startFrame":0,"endFrame":0},
                 "meshes":["m16_rifle","m16_holder_01","shutter","trigger"]
             },
             {
@@ -102,20 +102,20 @@
                 "default":false,
                 "inCarousel":false,
                 "initiallyAvailable":true,
-                "parentIdleAnimation":[0,50],
-                "parentRunAnimation":[492,518],
-                "parentFireIdleAnimation":[51,91],
-                "parentPrimaryFireRunAnimation":[0,0],
-                "parentSecondaryFireRunAnimation":[0,0],
-                "parentTertiaryFireRunAnimation":[51,91],
+                "parentIdleAnimation":{"startFrame":0,"endFrame":50},
+                "parentRunAnimation":{"startFrame":492,"endFrame":518},
+                "parentFireIdleAnimation":{"startFrame":51,"endFrame":91},
+                "parentPrimaryFireRunAnimation":{"startFrame":0,"endFrame":0},
+                "parentSecondaryFireRunAnimation":{"startFrame":0,"endFrame":0},
+                "parentTertiaryFireRunAnimation":{"startFrame":51,"endFrame":91},
                 "meshes":[]
             }
         ],
     "animations":
         {
-            "idleAnimation":[0,50],
-            "runAnimation":[492,518],
-            "dieAnimation":[209,247]                
+            "idleAnimation":{"startFrame":0,"endFrame":50},
+            "runAnimation":{"startFrame":492,"endFrame":518},
+            "dieAnimation":{"startFrame":209,"endFrame":247}                
         },
     "sounds":
         {

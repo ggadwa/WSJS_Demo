@@ -40,7 +40,7 @@
                     "distance":100000,
                     "hitEffect":"hit",
                     "projectileJson":null,
-                    "animation":[128,143],
+                    "animation":{"startFrame":128,"endFrame":143},
                     "interfaceAmmoIcon":"m16_bullet",
                     "interfaceAmmoText":"m16_bullet_count",
                     "interfaceAmmoCount":null,
@@ -54,11 +54,11 @@
         },
     "animations":
         {
-            "idleAnimation":[76,126],
-            "idleWalkAnimation":[300,336],
-            "raiseAnimation":[0,24],
-            "lowerAnimation":[25,49],
-            "reloadAnimation":[159,299]
+            "idleAnimation":{"startFrame":76,"endFrame":126},
+            "idleWalkAnimation":{"startFrame":300,"endFrame":336},
+            "raiseAnimation":{"startFrame":0,"endFrame":24},
+            "lowerAnimation":{"startFrame":25,"endFrame":49},
+            "reloadAnimation":{"startFrame":159,"endFrame":299}
         },
     "sounds":
         {
