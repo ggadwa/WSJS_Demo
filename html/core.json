@@ -44,8 +44,10 @@
                     {"id":"multiplayer_message","text":"","positionMode":"topLeft","positionOffset":{"x":5,"y":25},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true},
                     {"id":"armor_count","text":"","positionMode":"bottomRight","positionOffset":{"x":-50,"y":-50},"textSize":20,"textAlign":"right","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true},
                     {"id":"health_count","text":"","positionMode":"bottomRight","positionOffset":{"x":-50,"y":-12},"textSize":20,"textAlign":"right","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true},
-                    {"id":"pistol_bullet_count","text":"","positionMode":"bottomLeft","positionOffset":{"x":35,"y":-125},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true},
-                    {"id":"m16_bullet_count","text":"","positionMode":"bottomLeft","positionOffset":{"x":35,"y":-70},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true},
+                    {"id":"pistol_clip_count","text":"","positionMode":"bottomLeft","positionOffset":{"x":35,"y":-135},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true},
+                    {"id":"pistol_bullet_count","text":"","positionMode":"bottomLeft","positionOffset":{"x":35,"y":-115},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true},
+                    {"id":"m16_clip_count","text":"","positionMode":"bottomLeft","positionOffset":{"x":35,"y":-80},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true},
+                    {"id":"m16_bullet_count","text":"","positionMode":"bottomLeft","positionOffset":{"x":35,"y":-60},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true},
                     {"id":"grenade_count","text":"","positionMode":"bottomLeft","positionOffset":{"x":35,"y":-15},"textSize":20,"textAlign":"left","color":{"r":1,"g":1,"b":0},"alpha":1,"show":true}
                 ],
             "elements":

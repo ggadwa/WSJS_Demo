@@ -31,16 +31,29 @@
             "primary":
                 {
                     "type":"hit_scan",
-                    "ammoInitialCount":100,
-                    "ammoMaxCount":300,
+                    "usesClips":true,
+                    "clipInitialCount":4,
+                    "clipMaxCount":12,
+                    "clipSize":25,
+                    "clipAmmoInitialCount":25,
                     "ammoRegenerateTick":-1,
-                    "ammoClipSize":25,
                     "waitTick":200,
                     "damage":5,
                     "distance":100000,
                     "hitEffect":"hit",
                     "projectileJson":null,
-                    "animation":{"startFrame":128,"endFrame":143},
+                    "animation":
+                        {
+                            "startFrame":128,
+                            "endFrame":143,
+                            "actionFrame":0,
+                            "meshes":
+                                [
+                                ]
+                        },
+                    "interfaceClipIcon":null,
+                    "interfaceClipText":"m16_clip_count",
+                    "interfaceClipCount":null,
                     "interfaceAmmoIcon":"m16_bullet",
                     "interfaceAmmoText":"m16_bullet_count",
                     "interfaceAmmoCount":null,
@@ -54,11 +67,56 @@
         },
     "animations":
         {
-            "idleAnimation":{"startFrame":76,"endFrame":126},
-            "idleWalkAnimation":{"startFrame":300,"endFrame":336},
-            "raiseAnimation":{"startFrame":0,"endFrame":24},
-            "lowerAnimation":{"startFrame":25,"endFrame":49},
-            "reloadAnimation":{"startFrame":159,"endFrame":299}
+            "idleAnimation":
+                {
+                    "startFrame":76,
+                    "endFrame":126,
+                    "actionFrame":0,
+                    "meshes":
+                        [
+                        ]
+                },
+            "idleWalkAnimation":
+                {
+                    "startFrame":300,
+                    "endFrame":336,
+                    "actionFrame":0,
+                    "meshes":
+                        [
+                        ]
+                },
+            "raiseAnimation":
+                {
+                    "startFrame":0,
+                    "endFrame":24,
+                    "actionFrame":0,
+                    "meshes":
+                        [
+                        ]
+                },
+            "lowerAnimation":
+                {
+                    "startFrame":25,
+                    "endFrame":49,
+                    "actionFrame":0,
+                    "meshes":
+                        [
+                        ]
+                },
+            "reloadAnimation":
+                {
+                    "startFrame":149,
+                    "endFrame":299,
+                    "meshes":
+                        [
+                            {"name":"m16_holder_01","hide":[[187,225]]},
+                            {"name":"m16_holder_02","hide":[[0,187],[225,299]]},
+                            {"name":"m16_bullet","hide":[[0,187],[225,299]]},
+                            {"name":"m16_bullet01","hide":[[0,187],[225,299]]},
+                            {"name":"m16_bullet02","hide":[[0,187],[225,299]]},
+                            {"name":"m16_bullet03","hide":[[0,187],[225,299]]}
+                        ]
+                }
         },
     "sounds":
         {

@@ -72,12 +72,60 @@
                 "default":true,
                 "inCarousel":true,
                 "initiallyAvailable":true,
-                "parentIdleAnimation":{"startFrame":0,"endFrame":50},
-                "parentRunAnimation":{"startFrame":492,"endFrame":518},
-                "parentFireIdleAnimation":{"startFrame":364,"endFrame":401},
-                "parentPrimaryFireRunAnimation":{"startFrame":523,"endFrame":549},
-                "parentSecondaryFireRunAnimation":{"startFrame":0,"endFrame":0},
-                "parentTertiaryFireRunAnimation":{"startFrame":0,"endFrame":0},
+                "parentIdleAnimation":
+                    {
+                        "startFrame":0,
+                        "endFrame":50,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
+                "parentRunAnimation":
+                    {
+                        "startFrame":492,
+                        "endFrame":518,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
+                "parentFireIdleAnimation":
+                    {
+                        "startFrame":364,
+                        "endFrame":401,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
+                "parentPrimaryFireRunAnimation":
+                    {
+                        "startFrame":523,
+                        "endFrame":549,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
+                "parentSecondaryFireRunAnimation":
+                    {
+                        "startFrame":0,
+                        "endFrame":0,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
+                "parentTertiaryFireRunAnimation":
+                    {
+                        "startFrame":0,
+                        "endFrame":0,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
                 "meshes":["beretta","peen","beretta_top","triger","holder"]
             },
             {
@@ -86,13 +134,61 @@
                 "name":"m16",
                 "default":false,
                 "inCarousel":true,
-                "initiallyAvailable":false,
-                "parentIdleAnimation":{"startFrame":710,"endFrame":760},
-                "parentRunAnimation":{"startFrame":933,"endFrame":955},
-                "parentFireIdleAnimation":{"startFrame":775,"endFrame":815},
-                "parentPrimaryFireRunAnimation":{"startFrame":865,"endFrame":887},
-                "parentSecondaryFireRunAnimation":{"startFrame":0,"endFrame":0},
-                "parentTertiaryFireRunAnimation":{"startFrame":0,"endFrame":0},
+                "initiallyAvailable":true,
+                "parentIdleAnimation":
+                    {
+                        "startFrame":710,
+                        "endFrame":760,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
+                "parentRunAnimation":
+                    {
+                        "startFrame":933,
+                        "endFrame":955,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
+                "parentFireIdleAnimation":
+                    {
+                        "startFrame":775,
+                        "endFrame":815,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
+                "parentPrimaryFireRunAnimation":
+                    {
+                        "startFrame":865,
+                        "endFrame":887,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
+                "parentSecondaryFireRunAnimation":
+                    {
+                        "startFrame":0,
+                        "endFrame":0,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
+                "parentTertiaryFireRunAnimation":
+                    {
+                        "startFrame":0,
+                        "endFrame":0,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
                 "meshes":["m16_rifle","m16_holder_01","shutter","trigger"]
             },
             {
@@ -102,20 +198,92 @@
                 "default":false,
                 "inCarousel":false,
                 "initiallyAvailable":true,
-                "parentIdleAnimation":{"startFrame":0,"endFrame":50},
-                "parentRunAnimation":{"startFrame":492,"endFrame":518},
-                "parentFireIdleAnimation":{"startFrame":51,"endFrame":91},
-                "parentPrimaryFireRunAnimation":{"startFrame":0,"endFrame":0},
-                "parentSecondaryFireRunAnimation":{"startFrame":0,"endFrame":0},
-                "parentTertiaryFireRunAnimation":{"startFrame":51,"endFrame":91},
+                "parentIdleAnimation":
+                    {
+                        "startFrame":0,
+                        "endFrame":50,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
+                "parentRunAnimation":
+                    {
+                        "startFrame":492,
+                        "endFrame":518,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
+                "parentFireIdleAnimation":
+                    {
+                        "startFrame":51,
+                        "endFrame":91,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
+                "parentPrimaryFireRunAnimation":
+                    {
+                        "startFrame":0,
+                        "endFrame":0,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
+                "parentSecondaryFireRunAnimation":
+                    {
+                        "startFrame":0,
+                        "endFrame":0,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
+                "parentTertiaryFireRunAnimation":
+                    {
+                        "startFrame":51,
+                        "endFrame":91,
+                        "actionFrame":0,
+                        "meshes":
+                            [
+                            ]
+                    },
                 "meshes":[]
             }
         ],
     "animations":
         {
-            "idleAnimation":{"startFrame":0,"endFrame":50},
-            "runAnimation":{"startFrame":492,"endFrame":518},
-            "dieAnimation":{"startFrame":209,"endFrame":247}                
+            "idleAnimation":
+                {
+                    "startFrame":0,
+                    "endFrame":50,
+                    "actionFrame":0,
+                    "meshes":
+                        [
+                        ]
+                },
+            "runAnimation":
+                {
+                    "startFrame":492,
+                    "endFrame":518,
+                    "actionFrame":0,
+                    "meshes":
+                        [
+                        ]
+                },
+            "dieAnimation":
+                {
+                    "startFrame":209,
+                    "endFrame":247,
+                    "actionFrame":0,
+                    "meshes":
+                        [
+                        ]
+                }                
         },
     "sounds":
         {

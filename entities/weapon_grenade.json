@@ -33,16 +33,29 @@
             "tertiary":
                 {
                     "type":"projectile",
-                    "ammoInitialCount":3,
-                    "ammoMaxCount":5,
+                    "usesClips":false,
+                    "clipInitialCount":1,
+                    "clipMaxCount":1,
+                    "clipSize":5,
+                    "clipAmmoInitialCount":3,
                     "ammoRegenerateTick":-1,
-                    "ammoClipSize":-1,
                     "waitTick":1000,
                     "damage":0,
                     "distance":0,
                     "hitEffect":null,
                     "projectileJson":"projectile_grenade",
-                    "animation":{"startFrame":0,"endFrame":0},
+                    "animation":
+                        {
+                            "startFrame":0,
+                            "endFrame":0,
+                            "actionFrame":0,
+                            "meshes":
+                                [
+                                ]
+                        },
+                    "interfaceClipIcon":null,
+                    "interfaceClipText":null,
+                    "interfaceClipCount":null,
                     "interfaceAmmoIcon":"grenade",
                     "interfaceAmmoText":"grenade_count",
                     "interfaceAmmoCount":null,

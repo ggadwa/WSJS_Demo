@@ -31,7 +31,7 @@
             "randomPositionOffset":{"x":0,"y":0,"z":0},
             "actions":
                 [
-                    {"action":"addAmmo","weapon":"m16","fireMethod":"primary","count":25}
+                    {"action":"addClip","weapon":"m16","fireMethod":"primary","count":1}
                 ]
         },
     "animations":

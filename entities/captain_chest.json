@@ -31,8 +31,8 @@
             "openActions":
                 [
                     {"action":"trigger","name":"@trigger"},
-                    {"action":"addAmmo","weapon":"pistol","fireMethod":"primary","count":20},
-                    {"action":"addAmmo","weapon":"m16","fireMethod":"primary","count":50},
+                    {"action":"addClip","weapon":"pistol","fireMethod":"primary","count":2},
+                    {"action":"addClip","weapon":"m16","fireMethod":"primary","count":2},
                     {"action":"addAmmo","weapon":"grenade","fireMethod":"tertiary","count":1},
                     {"action":"addHealth","count":25}
                 ],
@@ -42,10 +42,42 @@
         },
     "animations":
         {
-            "closedAnimation":{"startFrame":0,"endFrame":1},
-            "openAnimation":{"startFrame":65,"endFrame":66},
-            "openingAnimation":{"startFrame":1,"endFrame":65},
-            "closingAnimation":{"startFrame":0,"endFrame":1}
+            "closedAnimation":
+                {
+                    "startFrame":0,
+                    "endFrame":1,
+                    "actionFrame":0,
+                    "meshes":
+                        [
+                        ]
+                },
+            "openAnimation":
+                {
+                    "startFrame":65,
+                    "endFrame":66,
+                    "actionFrame":0,
+                    "meshes":
+                        [
+                        ]
+                },
+            "openingAnimation":
+                {
+                    "startFrame":1,
+                    "endFrame":65,
+                    "actionFrame":0,
+                    "meshes":
+                        [
+                        ]
+                },
+            "closingAnimation":
+                {
+                    "startFrame":0,
+                    "endFrame":1,
+                    "actionFrame":0,
+                    "meshes":
+                        [
+                        ]
+                }
         },
     "sounds":
         {
