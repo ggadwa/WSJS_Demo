@@ -49,9 +49,7 @@
                             "startFrame":0,
                             "endFrame":0,
                             "actionFrame":0,
-                            "meshes":
-                                [
-                                ]
+                            "meshes":null
                         },
                     "interfaceClipIcon":null,
                     "interfaceClipText":null,

@@ -71,81 +71,63 @@
                     "startFrame":6370,
                     "endFrame":6470,
                     "actionFrame":0,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 },
             "wakeUpAnimation":
                 {
                     "startFrame":0,
                     "endFrame":50,
                     "actionFrame":0,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 },
             "idleAnimation":
                 {
                     "startFrame":6370,
                     "endFrame":6470,
                     "actionFrame":0,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 },
             "walkAnimation":
                 {
                     "startFrame":5683,
                     "endFrame":5719,
                     "actionFrame":0,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 },
             "meleeLeftAnimation":
                 {
                     "startFrame":5299,
                     "endFrame":5334,
                     "actionFrame":5314,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 },
             "meleeRightAnimation":
                 {
                     "startFrame":5335,
                     "endFrame":5370,
                     "actionFrame":5350,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 },
             "projectileAnimation":
                 {
                     "startFrame":4711,
                     "endFrame":4731,
                     "actionFrame":0,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 },
             "hitAnimation":
                 {
                     "startFrame":4974,
                     "endFrame":5009,
                     "actionFrame":0,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 },
             "dieAnimation":
                 {
                     "startFrame":3971,
                     "endFrame":4111,
                     "actionFrame":4097,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 }
         },
     "sounds":

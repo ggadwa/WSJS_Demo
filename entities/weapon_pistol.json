@@ -22,7 +22,7 @@
         },
     "config":
         {
-            "handOffset":{"x":-800,"y":-12500,"z":-2700},
+            "handOffset":{"x":-800,"y":-12500,"z":-3000},
             "handAngle":{"x":0,"y":-10,"z":0},
             "fireOffsetAdd":{"x":0,"y":0,"z":0},
             "fireAngleAdd":{"x":0,"y":0,"z":0},
@@ -47,9 +47,7 @@
                             "startFrame":128,
                             "endFrame":143,
                             "actionFrame":0,
-                            "meshes":
-                                [
-                                ]
+                            "meshes":null
                         },
                     "interfaceClipIcon":null,
                     "interfaceClipText":"pistol_clip_count",
@@ -72,36 +70,28 @@
                     "startFrame":76,
                     "endFrame":126,
                     "actionFrame":0,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 },
             "idleWalkAnimation":
                 {
                     "startFrame":225,
                     "endFrame":261,
                     "actionFrame":0,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 },
             "raiseAnimation":
                 {
                     "startFrame":0,
                     "endFrame":24,
                     "actionFrame":0,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 },
             "lowerAnimation":
                 {
                     "startFrame":25,
                     "endFrame":49,
                     "actionFrame":0,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 },
             "reloadAnimation":
                 {

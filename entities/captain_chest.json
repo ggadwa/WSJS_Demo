@@ -47,36 +47,28 @@
                     "startFrame":0,
                     "endFrame":1,
                     "actionFrame":0,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 },
             "openAnimation":
                 {
                     "startFrame":65,
                     "endFrame":66,
                     "actionFrame":0,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 },
             "openingAnimation":
                 {
                     "startFrame":1,
                     "endFrame":65,
                     "actionFrame":0,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 },
             "closingAnimation":
                 {
                     "startFrame":0,
                     "endFrame":1,
                     "actionFrame":0,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 }
         },
     "sounds":

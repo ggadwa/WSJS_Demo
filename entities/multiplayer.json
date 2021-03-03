@@ -77,54 +77,42 @@
                         "startFrame":0,
                         "endFrame":50,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "parentRunAnimation":
                     {
                         "startFrame":492,
                         "endFrame":518,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "parentFireIdleAnimation":
                     {
                         "startFrame":364,
                         "endFrame":401,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "parentPrimaryFireRunAnimation":
                     {
                         "startFrame":523,
                         "endFrame":549,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "parentSecondaryFireRunAnimation":
                     {
                         "startFrame":0,
                         "endFrame":0,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "parentTertiaryFireRunAnimation":
                     {
                         "startFrame":0,
                         "endFrame":0,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "meshes":["beretta","peen","beretta_top","triger","holder"]
             },
@@ -140,54 +128,42 @@
                         "startFrame":710,
                         "endFrame":760,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "parentRunAnimation":
                     {
                         "startFrame":933,
                         "endFrame":955,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "parentFireIdleAnimation":
                     {
                         "startFrame":775,
                         "endFrame":815,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "parentPrimaryFireRunAnimation":
                     {
                         "startFrame":865,
                         "endFrame":887,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "parentSecondaryFireRunAnimation":
                     {
                         "startFrame":0,
                         "endFrame":0,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "parentTertiaryFireRunAnimation":
                     {
                         "startFrame":0,
                         "endFrame":0,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "meshes":["m16_rifle","m16_holder_01","shutter","trigger"]
             },
@@ -203,54 +179,42 @@
                         "startFrame":0,
                         "endFrame":50,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "parentRunAnimation":
                     {
                         "startFrame":492,
                         "endFrame":518,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "parentFireIdleAnimation":
                     {
                         "startFrame":51,
                         "endFrame":91,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "parentPrimaryFireRunAnimation":
                     {
                         "startFrame":0,
                         "endFrame":0,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "parentSecondaryFireRunAnimation":
                     {
                         "startFrame":0,
                         "endFrame":0,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "parentTertiaryFireRunAnimation":
                     {
                         "startFrame":51,
                         "endFrame":91,
                         "actionFrame":0,
-                        "meshes":
-                            [
-                            ]
+                        "meshes":null
                     },
                 "meshes":[]
             }
@@ -262,27 +226,21 @@
                     "startFrame":0,
                     "endFrame":50,
                     "actionFrame":0,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 },
             "runAnimation":
                 {
                     "startFrame":492,
                     "endFrame":518,
                     "actionFrame":0,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 },
             "dieAnimation":
                 {
                     "startFrame":209,
                     "endFrame":247,
                     "actionFrame":0,
-                    "meshes":
-                        [
-                        ]
+                    "meshes":null
                 }                
         },
     "sounds":
