@@ -32,6 +32,8 @@ export default class CaptainChestClass extends EntityClass
         
     run()
     {
+        let player;
+        
         super.run();
         
             // nothing to do if opened
@@ -42,7 +44,9 @@ export default class CaptainChestClass extends EntityClass
             // if close enough to player
             
         if ((!this.isKeyDown('e')) && (!this.isTouchStickLeftClick())) return;
-        if (this.position.distance(this.getPlayer().position)>this.openDistance) return;
+        
+        player=this.getPlayer();
+        if (this.position.distance(player.position)>this.openDistance) return;
         
             // opening
 
@@ -55,10 +59,11 @@ export default class CaptainChestClass extends EntityClass
             // the actions
             
         this.setTrigger(this.data.trigger);
-        this.addClip('pistol','primary',2);
-        this.addClip('m16','primary',2);
-        this.addAmmo('grenade','tertiary',1);
-        this.addHealth(25);
+        
+        player.findHeldEntityByName('pistol').addClip(2);
+        player.findHeldEntityByName('m16').addClip(2);
+        player.findHeldEntityByName('grenade').addAmmo(1);
+        player.addHealth(25);
     }
     
     drawSetup()
