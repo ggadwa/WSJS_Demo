@@ -8,23 +8,11 @@ export default class WeaponM16Class extends EntityClass
     {
         super(core,name,json,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
         
-        this.FIRE_TYPE_HIT_SCAN=0;
-        this.FIRE_TYPE_PROJECTILE=1;
-        
-        this.FIRE_TYPE_LIST=['hit_scan','projectile'];
-        
-        this.FIRE_METHOD_ANY=-1;
-        this.FIRE_METHOD_PRIMARY=0;
-        this.FIRE_METHOD_SECONDARY=1;
-        this.FIRE_METHOD_TERTIARY=2;
-        
         this.idleAnimation=null;
         this.idleWalkAnimation=null;
         this.raiseAnimation=null;
         this.lowerAnimation=null;
         this.reloadAnimation=null;
-        
-        this.interfaceCrosshair=null;
         
         this.initiallyAvailable=false;
         this.available=false;
@@ -46,37 +34,13 @@ export default class WeaponM16Class extends EntityClass
         this.parentFireRunAnimation=null;
         this.parentFireFreezeMovement=false;
         
-        this.usesClips=this.core.game.lookupValue(fireObj.usesClips,weapon.data,false);
-        this.clipInitialCount=this.core.game.lookupValue(fireObj.clipInitialCount,weapon.data,0);
-        this.clipMaxCount=this.core.game.lookupValue(fireObj.clipMaxCount,weapon.data,0);
-        this.clipSize=this.core.game.lookupValue(fireObj.clipSize,weapon.data,0);
-        this.clipAmmoInitialCount=this.core.game.lookupValue(fireObj.clipAmmoInitialCount,weapon.data,-1);
-        this.ammoRegenerateTick=this.core.game.lookupValue(fireObj.ammoRegenerateTick,weapon.data,-1);
-        
         this.clipCount=0;
         this.ammoInClipCount=0;
         
-        this.interfaceAmmoIcon=this.core.game.lookupValue(fireObj.interfaceAmmoIcon,weapon.data,null);
-        this.interfaceAmmoText=this.core.game.lookupValue(fireObj.interfaceAmmoText,weapon.data,null);
-        this.interfaceAmmoCount=this.core.game.lookupValue(fireObj.interfaceAmmoCount,weapon.data,null);
-        this.interfaceClipIcon=this.core.game.lookupValue(fireObj.interfaceClipIcon,weapon.data,null);
-        this.interfaceClipText=this.core.game.lookupValue(fireObj.interfaceClipText,weapon.data,null);
-        this.interfaceClipCount=this.core.game.lookupValue(fireObj.interfaceClipCount,weapon.data,null);
-                
-        this.type=weapon.FIRE_TYPE_LIST.indexOf(this.core.game.lookupValue(fireObj.type,weapon.data,null));
-        this.waitTick=this.core.game.lookupValue(fireObj.waitTick,weapon.data,0);
-        
-        this.damage=this.core.game.lookupValue(fireObj.damage,weapon.data,0);
-        this.distance=this.core.game.lookupValue(fireObj.distance,weapon.data,0);
-        this.hitEffect=this.core.game.lookupValue(fireObj.hitEffect,weapon.data,null);
-        
-        this.projectileJson=this.core.game.lookupValue(fireObj.projectileJson,weapon.data,null);
-        
-        this.animation=this.core.game.lookupAnimationValue(fireObj.animation);
-        this.fireSound=this.core.game.lookupSoundValue(fireObj.sounds.fire);
+        this.fireAnimation={"startFrame":128,"endFrame":143,"actionFrame":0,"meshes":null};
+        this.fireSound={"name":"m16_fire","rate":1.0,"randomRateAdd":0.4,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false};
         
         this.lastFireTimestamp=0;
-        this.lastRegenerateTimestamp=0;
             
             // pre-allocates
         
@@ -97,8 +61,6 @@ export default class WeaponM16Class extends EntityClass
         this.reloadAnimation=this.core.game.lookupAnimationValue(this.json.animations.reloadAnimation);
         
         this.reloadSound=this.core.game.lookupSoundValue(this.json.sounds.reloadSound);
-        
-        this.interfaceCrosshair=this.core.game.lookupValue(this.json.config.interfaceCrosshair,this.data);
        
             // model setup, skip if no model
             
@@ -134,11 +96,10 @@ export default class WeaponM16Class extends EntityClass
         
         this.available=this.initiallyAvailable;
         
-        this.clipCount=this.clipInitialCount;
-        this.ammoInClipCount=this.clipAmmoInitialCount;
+        this.clipCount=4;
+        this.ammoInClipCount=25;
         
         this.lastFireTimestamp=0;
-        this.lastRegenerateTimestamp=this.core.game.timestamp+this.ammoRegenerateTick;
         
         this.inStandIdle=false
         if (this.model!==null) this.queueIdleAnimation();
@@ -150,52 +111,24 @@ export default class WeaponM16Class extends EntityClass
         
     addClip(count)
     {
-        if ((this.interfaceClipIcon!==null) && (this.weapon.heldBy===this.core.game.map.entityList.getPlayer())) {
-            this.pulseElement(this.interfaceClipIcon,500,10);
-        }
-        else {      // if no clip icon, flash the ammo icon if one
-            if ((this.interfaceAmmoIcon!==null) && (this.weapon.heldBy===this.core.game.map.entityList.getPlayer())) this.pulseElement(this.interfaceAmmoIcon,500,10);
-        }
+        if (this.heldBy===this.core.game.map.entityList.getPlayer()) this.pulseElement('m16_bullet',500,10);
         
         this.clipCount+=count;
-        if (this.clipCount>this.clipMaxCount) this.clipCount=this.clipMaxCount;
+        if (this.clipCount>12) this.clipCount=12;
     }
     
     addAmmo(count)
     {
-        if ((this.interfaceAmmoIcon!==null) && (this.weapon.heldBy===this.core.game.map.entityList.getPlayer())) this.pulseElement(this.interfaceAmmoIcon,500,10);
+        if (this.heldBy===this.core.game.map.entityList.getPlayer()) this.pulseElement('m16_bullet',500,10);
         
         this.ammoInClipCount+=count;
-        if (this.ammoInClipCount>this.clipSize) this.ammoInClipCount=this.clipSize;
+        if (this.ammoInClipCount>25) this.ammoInClipCount=25;
     }
     
     hasAnyAmmo()
     {
         if (this.clipCount===0) return(false);
         return(this.ammoInClipCount!==0);
-    }
-    
-    updateUI()
-    {
-        if (this.interfaceClipText!==null) this.updateText(this.interfaceClipText,this.clipCount);
-        if (this.interfaceClipCount!==null) this.setCount(this.interfaceClipCount,this.clipCount);
-        if (this.interfaceAmmoText!==null) this.updateText(this.interfaceAmmoText,this.ammoInClipCount);
-        if (this.interfaceAmmoCount!==null) this.setCount(this.interfaceAmmoCount,this.ammoInClipCount);
-    }
-    
-    resetRegenerateAmmo()
-    {
-        this.lastRegenerateTimestamp=this.core.game.timestamp+this.ammoRegenerateTick;
-    }
-    
-    regenerateAmmo()
-    {
-        if (this.ammoRegenerateTick!==-1) {
-            if (this.core.game.timestamp>this.lastRegenerateTimestamp) {
-                this.lastRegenerateTimestamp=this.core.game.timestamp+this.ammoRegenerateTick;
-                this.addAmmo(1);
-            }
-        }
     }
     
         //
@@ -302,7 +235,7 @@ export default class WeaponM16Class extends EntityClass
         this.firePoint.setFromPoint(firePosition);
         this.fireAng.setFromAddPoint(fireAngle,this.fireAngleAdd);
         
-        this.fireVector.setFromValues(0,0,fire.distance);
+        this.fireVector.setFromValues(0,0,100000);
         this.fireVector.rotateX(null,this.fireAng.x);
         
         y=this.fireAng.y;
@@ -319,19 +252,17 @@ export default class WeaponM16Class extends EntityClass
                 
             if (parentEntity.hitEntity) {
                 if (parentEntity.hitEntity.damage!==undefined) {
-                    parentEntity.hitEntity.damage(parentEntity,fire.damage,this.fireHitPoint);
+                    parentEntity.hitEntity.damage(parentEntity,5,this.fireHitPoint);
                 }
             }
             
                 // hit effect
                 // push effect point towards entity firing so it shows up better
 
-            if (fire.hitEffect!==null) {
-                this.fireVector.normalize();
-                this.fireVector.scale(-100);
-                this.fireHitPoint.addPoint(this.fireVector);
-                this.addEffect(this,fire.hitEffect,this.fireHitPoint,null,true);
-            }
+            this.fireVector.normalize();
+            this.fireVector.scale(-100);
+            this.fireHitPoint.addPoint(this.fireVector);
+            this.addEffect(this,'hit',this.fireHitPoint,null,true);
         }
     }
     
@@ -341,36 +272,31 @@ export default class WeaponM16Class extends EntityClass
         
     isFirePaused()
     {
-        return((this.lastFireTimestamp+this.waitTick)>this.core.game.timestamp);
+        return((this.lastFireTimestamp+200)>this.core.game.timestamp);
     }
     
     fire(firePosition,fireAngle)
     {
+        let parentEntity=this.heldBy;
+        
         if (this.ammoInClipCount===0) return(false);
-        
-        
-            this.fireForType(this.heldBy,this.primary,this.parentPrimaryFireRunAnimation,this.parentPrimaryFireFreezeMovement,firePosition,fireAngle);
             
-            
-        if ((this.lastFireTimestamp+this.waitTick)>this.core.game.timestamp) return;
+        if (this.isFirePaused()) return(false);
         this.lastFireTimestamp=this.core.game.timestamp;
         
             // fire
             
         this.ammoInClipCount--;
-        this.resetRegenerateAmmo();
         
         this.playSoundAtPosition(firePosition,this.fireSound);
            
            // weapon animation
            
-        if (this.model!==null) {
-            if (this.parentFireRunAnimation!==null) this.startAnimation(this.parentFireRunAnimation);
-            this.queueIdleAnimation();
-        }
+        this.startAnimation(this.fireAnimation);
+        this.queueIdleAnimation();
         
             // parent animation
-            
+            /*
         if (parentEntity.model!==null) {
             if (!parentEntity.isAnimationQueued()) {   // don't do this if we have a queue, which means another fire is still going on
                 if ((parentEntity.movement.x!==0) || (parentEntity.movement.z!==0)) {
@@ -386,7 +312,7 @@ export default class WeaponM16Class extends EntityClass
                 }
             }
         }
-        
+        */
             // and the fire method
             
         this.hitScan(parentEntity,firePosition,fireAngle);
@@ -400,7 +326,6 @@ export default class WeaponM16Class extends EntityClass
      
     needClipChange()
     {
-        if (!this.usesClips) return(false);
         if (this.clipCount===0) return(false);
         return(this.ammoInClipCount===0);
     }
@@ -410,7 +335,7 @@ export default class WeaponM16Class extends EntityClass
             // update the clip
             
         this.clipCount--;
-        this.ammoInClipCount=this.clipSize;
+        this.ammoInClipCount=25;
         
             // play sound and animation
             
@@ -424,28 +349,20 @@ export default class WeaponM16Class extends EntityClass
         
     run()
     {
-        let parentEntity=this.heldBy;
-      
         super.run();
-        
-            // do any ammo regen
-            
-        this.regenerateAmmo();
         
             // update any UI if player
             
-        if (parentEntity===this.core.game.map.entityList.getPlayer()) {
-            if (this.interfaceCrosshair!==null) this.showElement(this.interfaceCrosshair,((this.show)&&(this.cameraIsFirstPerson())));
-            this.updateUI();
+        if (this.heldBy===this.core.game.map.entityList.getPlayer()) {
+            this.showElement('m16_crosshair',((this.show)&&(this.cameraIsFirstPerson())));
+            this.updateText('m16_clip_count',this.clipCount);
+            this.updateText('m16_bullet_count',this.ammoInClipCount);
         }
     }
         
     drawSetup()
     {
-        if (this.model===null) return(false);
-        
         this.setModelDrawAttributes(this.handOffset,this.handAngle,this.scale,true);
-        
         return(this.cameraIsFirstPerson());
     }
 

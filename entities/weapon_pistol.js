@@ -39,7 +39,7 @@ export default class WeaponPistolClass extends EntityClass
         this.clipCount=0;
         this.ammoInClipCount=0;
         
-        this.animation={"startFrame":128,"endFrame":143,"actionFrame":0,"meshes":null};
+        this.fireAnimation={"startFrame":128,"endFrame":143,"actionFrame":0,"meshes":null};
         this.fireSound={"name":"pistol_fire","rate":1.0,"randomRateAdd":0.4,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false};
         
         this.lastFireTimestamp=0;
@@ -83,10 +83,19 @@ export default class WeaponPistolClass extends EntityClass
             // some items added to entity so fire methods
             // can have access to parent animations
             
-        this.parentIdleAnimation=null;
-        this.parentRunAnimation=null; 
-        this.parentFireIdleAnimation=null;
-        this.parentFireRunAnimation=null;
+        this.parentIdleAnimation={
+                        "startFrame":0,
+                        "endFrame":50,
+                        "actionFrame":0,
+                        "meshes":null};
+        this.parentRunAnimation={
+                        "startFrame":492,
+                        "endFrame":518,
+                        "actionFrame":0,
+                        "meshes":null
+                    };
+        this.parentFireIdleAnimation={"startFrame":364,"endFrame":401,"actionFrame":0,"meshes":null};
+        this.parentFireRunAnimation={"startFrame":523,"endFrame":549,"actionFrame":0,"meshes":null};
         this.parentFireFreezeMovement=false;
         
         return(true);    
@@ -113,7 +122,7 @@ export default class WeaponPistolClass extends EntityClass
         
     addClip(count)
     {
-        if (this.weapon.heldBy===this.core.game.map.entityList.getPlayer()) this.pulseElement('pistol_bullet',500,10);
+        if (this.heldBy===this.core.game.map.entityList.getPlayer()) this.pulseElement('pistol_bullet',500,10);
         
         this.clipCount+=count;
         if (this.clipCount>5) this.clipCount=5;
@@ -121,7 +130,7 @@ export default class WeaponPistolClass extends EntityClass
     
     addAmmo(count)
     {
-        if (this.weapon.heldBy===this.core.game.map.entityList.getPlayer()) this.pulseElement('pistol_bullet',500,10);
+        if (this.heldBy===this.core.game.map.entityList.getPlayer()) this.pulseElement('pistol_bullet',500,10);
         
         this.ammoInClipCount+=count;
         if (this.ammoInClipCount>10) this.ammoInClipCount=10;
@@ -279,13 +288,11 @@ export default class WeaponPistolClass extends EntityClass
     
     fire(firePosition,fireAngle)
     {
+        let parentEntity=this.heldBy;
+        
         if (this.ammoInClipCount===0) return(false);
-        
-        
-            this.fireForType(this.heldBy,this.primary,this.parentPrimaryFireRunAnimation,this.parentPrimaryFireFreezeMovement,firePosition,fireAngle);
             
-            
-        if (this.isFirePaused()) return;
+        if (this.isFirePaused()) return(false);
         this.lastFireTimestamp=this.core.game.timestamp;
         
             // fire
@@ -296,13 +303,12 @@ export default class WeaponPistolClass extends EntityClass
            
            // weapon animation
            
-        if (this.model!==null) {
-            if (this.parentFireRunAnimation!==null) this.startAnimation(this.parentFireRunAnimation);
-            this.queueIdleAnimation();
-        }
+        this.startAnimation(this.fireAnimation);
+        this.queueIdleAnimation();
         
             // parent animation
             
+            /*
         if (parentEntity.model!==null) {
             if (!parentEntity.isAnimationQueued()) {   // don't do this if we have a queue, which means another fire is still going on
                 if ((parentEntity.movement.x!==0) || (parentEntity.movement.z!==0)) {
@@ -318,7 +324,7 @@ export default class WeaponPistolClass extends EntityClass
                 }
             }
         }
-        
+        */
             // and the fire method
             
         this.hitScan(parentEntity,firePosition,fireAngle);
@@ -355,13 +361,11 @@ export default class WeaponPistolClass extends EntityClass
         
     run()
     {
-        let parentEntity=this.heldBy;
-      
         super.run();
         
             // update any UI if player
             
-        if (parentEntity===this.core.game.map.entityList.getPlayer()) {
+        if (this.heldBy===this.core.game.map.entityList.getPlayer()) {
             this.showElement('pistol_crosshair',((this.show)&&(this.cameraIsFirstPerson())));
             this.updateText('pistol_clip_count',this.clipCount);    
             this.updateText('pistol_bullet_count',this.ammoInClipCount);
@@ -370,10 +374,7 @@ export default class WeaponPistolClass extends EntityClass
         
     drawSetup()
     {
-        if (this.model===null) return(false);
-        
         this.setModelDrawAttributes(this.handOffset,this.handAngle,this.scale,true);
-        
         return(this.cameraIsFirstPerson());
     }
 

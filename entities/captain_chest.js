@@ -68,13 +68,7 @@ export default class CaptainChestClass extends EntityClass
     
     drawSetup()
     {
-        if (this.model===null) return(false);
-        
-        this.modelEntityAlter.position.setFromPoint(this.position);
-        this.modelEntityAlter.angle.setFromPoint(this.angle);
-        this.modelEntityAlter.scale.setFromPoint(this.scale);
-        this.modelEntityAlter.inCameraSpace=false;
-
+        this.setModelDrawAttributes(this.position,this.angle,this.scale,false);
         return(this.modelEntityAlter.boundBoxInFrustum());
     }
 }
