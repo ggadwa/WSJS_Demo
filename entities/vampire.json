@@ -33,7 +33,7 @@
             "projectileDistance":40000,
             "projectileWaitTick":5000,
             "projectileFirePosition":[0,4100,3500],
-            "projectileJson":"projectile_sparkle",
+            "projectileJson":"projectile_vampire",
             "projectileData":{"trackSpeed":0,"hitEffect":"hit"},
             "projectileRequiresSight":true,
             "noSelfDamage":false,
