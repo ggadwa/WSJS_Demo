@@ -16,7 +16,6 @@ export default class ProjectileQueenClass extends EntityClass
 
         this.motion=new PointClass(0,0,0);
         this.trackMotion=new PointClass(0,0,0);
-        this.combinedMotion=new PointClass(0,0,0);
         this.drawAngle=new PointClass(0,0,0);
         
         Object.seal(this);
@@ -31,8 +30,6 @@ export default class ProjectileQueenClass extends EntityClass
         
         this.motion.setFromValues(0,0,300);
         this.motion.rotate(this.angle);
-        
-        this.trackMotion.setFromValues(0,0,0);
         
         this.playSound(this.spawnSound);
     }
@@ -56,7 +53,7 @@ export default class ProjectileQueenClass extends EntityClass
         
     run()
     {
-        let y,player;
+        let player;
         
         super.run();
         
@@ -76,20 +73,19 @@ export default class ProjectileQueenClass extends EntityClass
         
             // track player
             
-        this.trackMotion.setFromValues(0,0,0);
-        
         player=this.getPlayer();
-        this.trackMotion.x=Math.sign(player.position.x-this.position.x)*50.0;
-        y=player.position.y+Math.trunc(player.height);
-        this.trackMotion.y=Math.sign(y-this.position.y)*50.0;
-        this.trackMotion.z=Math.sign(player.position.z-this.position.z)*50.0;
+        this.trackMotion.x=player.position.x-this.position.x;
+        this.trackMotion.y=(player.position.y+(player.height*0.5))-this.position.y;
+        this.trackMotion.z=player.position.z-this.position.z;
+        this.trackMotion.normalize();
+        this.trackMotion.scale(15.0);
+        
+        this.motion.addPoint(this.trackMotion);
         
             // move sparkle
             
-        this.combinedMotion.setFromAddPoint(this.motion,this.trackMotion);
-        
-        this.moveInMapXZ(this.combinedMotion,false,false);
-        this.moveInMapY(this.combinedMotion,1.0,true);
+        this.moveInMapXZ(this.motion,false,false);
+        this.moveInMapY(this.motion,1.0,true);
         
             // any collisions stop sparkle
 

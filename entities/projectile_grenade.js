@@ -8,7 +8,6 @@ export default class EntityProjectileClass extends EntityClass
         super(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
         
         this.lifeTimestamp=0;
-        this.canBeClimbed=true;
         this.rolling=false;
         this.stopped=false;
         
@@ -87,7 +86,7 @@ export default class EntityProjectileClass extends EntityClass
             if ((!this.stopped) && (this.bounceSound!==null)) this.playSound(this.bounceSound);
             
             this.position.setFromPoint(this.savePoint);
-            this.floorBounce(this.motion);
+            this.floorBounce(this.motion,0.8);
             
             if (this.motion.y===0) this.rolling=true;
             
