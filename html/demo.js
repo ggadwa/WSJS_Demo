@@ -11,9 +11,38 @@ import ProjectileQueenClass from '../entities/projectile_queen.js';
 
 export default class DemoClass extends ProjectClass
 {
-    mapCube(name)
+    mapModels(mapName,singlePlayer)
     {
-        switch (name) {
+        if (singlePlayer) {
+            return(['captain_chest','crystal_ball','dragon_queen','grenade',
+                    'hand_beretta','hand_m16','m16','player','ratkin_skeleton',
+                    'shield','skeleton_captain','spider','vampire_patriarch']);
+        }
+        else {
+            return(['beretta','chicken_leg','grenade','hand_beretta','hand_m16','m16',
+                    'player_al','player_bob','player_dan','player_greg','player_jack',
+                    'player_larry','player_mike','shield']);
+        }
+    }
+    
+    mapSounds(mapName,singlePlayer)
+    {
+        if (singlePlayer) {
+            return(['blade','chime','door','explosion','gate','grenade_bounce','hurt','laser','m16_fire',
+                    'm16_reload','pickup','pistol_fire','pistol_reload','player_die','queen_hurt','queen_scream',
+                    'rat_die','rat_wake_up','skeleton_die','skeleton_wake_up','spider_die','spider_wake_up',
+                    'splash','stone_platform','throw','thud','vampire_die','vampire_wake_up']);
+        }
+        else {
+            return(['chime','door','explosion','grenade_bounce','hurt','m16_fire',
+                    'm16_reload','pickup','pistol_fire','pistol_reload','player_die','splash',
+                    'stone_platform','throw','thud']);
+        }
+    }
+    
+    mapCube(mapName,cubeName)
+    {
+        switch (cubeName) {
             case 'kill':
                 return(KillClass);
         }
@@ -21,14 +50,14 @@ export default class DemoClass extends ProjectClass
         return(null);
     }
     
-    mapEffect(name)
+    mapEffect(mapName,effectName)
     {
         return(null);
     }
 
-    mapEntity(name)
+    mapEntity(mapName,entityName)
     {
-        switch (name) {
+        switch (entityName) {
             case 'captain_chest':
                 return(CaptainChestClass);
             case 'pickup_m16':
