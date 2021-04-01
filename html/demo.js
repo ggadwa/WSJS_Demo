@@ -1,5 +1,10 @@
 import ProjectClass from '../../../code/main/project.js';
 import KillClass from '../cubes/kill.js';
+import ExplosionClass from '../effects/explosion.js';
+import FireClass from '../effects/fire.js';
+import FountainClass from '../effects/fountain.js';
+import HitClass from '../effects/hit.js';
+import SparkleClass from '../effects/sparkle.js';
 import CaptainChestClass from '../entities/captain_chest.js';
 import PickupM16Class from '../entities/pickup_m16.js';
 import WeaponPistolClass from '../entities/weapon_pistol.js';
@@ -23,6 +28,11 @@ export default class DemoClass extends ProjectClass
                     'player_al','player_bob','player_dan','player_greg','player_jack',
                     'player_larry','player_mike','shield']);
         }
+    }
+    
+    mapBitmaps(mapName,singlePlayer)
+    {
+        return(['textures/particle_smoke.png','textures/particle_blob.png','textures/particle_hit.png','textures/particle_glow.png']);
     }
     
     mapSounds(mapName,singlePlayer)
@@ -52,6 +62,19 @@ export default class DemoClass extends ProjectClass
     
     mapEffect(mapName,effectName)
     {
+        switch (effectName) {
+            case 'explosion':
+                return(ExplosionClass);
+            case 'fire':
+                return(FireClass);
+            case 'fountain':
+                return(FountainClass);
+            case 'hit':
+                return(HitClass);
+            case 'sparkle':
+                return(SparkleClass);
+        }
+        
         return(null);
     }
 
