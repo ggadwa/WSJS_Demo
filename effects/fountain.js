@@ -9,43 +9,38 @@ export default class FountainClass extends EffectClass
         super(core,spawnedBy,position,data,mapSpawn,show);
         
         this.lifeTick=-1;
-    
-        this.billboards=
-            [
-                {
-                    "bitmap":"textures/particle_smoke.png","mode":"transparent","grid":"4","gridPeriod":500,"gridOffset":0,
-                    "frames":
-                        [
-                            {"tick":0,"width":2200,"height":8500,"rotate":354,"color":{"r":0.2,"g":0.2,"b":1},"alpha":0.7},
-                            {"tick":1000,"width":2200,"height":9000,"rotate":359,"color":{"r":0.2,"g":0.2,"b":1},"alpha":0.7},
-                            {"tick":1500,"width":2200,"height":8500,"rotate":354,"color":{"r":0.2,"g":0.2,"b":1},"alpha":0.7},
-                            {"tick":2000,"width":2200,"height":9500,"rotate":359,"color":{"r":0.2,"g":0.2,"b":1},"alpha":0.7},
-                            {"tick":2300,"width":2200,"height":8500,"rotate":354,"color":{"r":0.2,"g":0.2,"b":1},"alpha":0.7}
-                        ]
-                },
-                {
-                    "bitmap":"textures/particle_smoke.png","mode":"transparent","grid":"4","gridPeriod":400,"gridOffset":0,
-                    "frames":
-                        [
-                            {"tick":0,"width":1900,"height":7500,"rotate":1,"color":{"r":0.5,"g":0.5,"b":1},"alpha":0.7},
-                            {"tick":1000,"width":1900,"height":8000,"rotate":5,"color":{"r":0.5,"g":0.5,"b":1},"alpha":0.7},
-                            {"tick":1500,"width":1900,"height":7500,"rotate":1,"color":{"r":0.5,"g":0.5,"b":1},"alpha":0.7},
-                            {"tick":2000,"width":1900,"height":8500,"rotate":5,"color":{"r":0.5,"g":0.5,"b":1},"alpha":0.7},
-                            {"tick":2300,"width":1900,"height":7500,"rotate":1,"color":{"r":0.5,"g":0.5,"b":1},"alpha":0.7}
-                        ]
-                },
-                {
-                    "bitmap":"textures/particle_smoke.png","mode":"transparent","grid":"4","gridPeriod":400,"gridOffset":0,
-                    "frames":
-                        [
-                            {"tick":0,"width":3000,"height":9500,"rotate":0,"color":{"r":0.2,"g":0.2,"b":1},"alpha":0.5},
-                            {"tick":1000,"width":3000,"height":9000,"rotate":0,"color":{"r":0.2,"g":0.2,"b":1},"alpha":0.5},
-                            {"tick":1500,"width":3000,"height":8500,"rotate":0,"color":{"r":0.2,"g":0.2,"b":1},"alpha":0.5},
-                            {"tick":2000,"width":3000,"height":9500,"rotate":0,"color":{"r":0.2,"g":0.2,"b":1},"alpha":0.5},
-                            {"tick":2300,"width":3000,"height":8500,"rotate":0,"color":{"r":0.2,"g":0.2,"b":1},"alpha":0.5}
-                        ]
-                }
-            ];
+        
+        this.addBillboard('textures/particle_smoke.png',this.DRAW_MODE_TRANSPARENT)
+                .setGrid(4,500,0)
+                .addBillboardFrame(0,2400,8500,-6,new ColorClass(0.2,0.2,1.0),0.6)
+                .addBillboardFrame(1000,2400,9000,-1,new ColorClass(0.2,0.2,1.0),0.6)
+                .addBillboardFrame(1500,2400,8500,-4,new ColorClass(0.2,0.2,1.0),0.6)
+                .addBillboardFrame(2000,2400,9500,-1,new ColorClass(0.2,0.2,1.0),0.6)
+                .addBillboardFrame(2300,2400,8500,-6,new ColorClass(0.2,0.2,1.0),0.6);
+        
+        this.addBillboard('textures/particle_smoke.png',this.DRAW_MODE_TRANSPARENT)
+                .setGrid(4,500,0)
+                .addBillboardFrame(0,2400,8500,6,new ColorClass(0.2,0.2,1.0),0.6)
+                .addBillboardFrame(1000,2400,9000,1,new ColorClass(0.2,0.2,1.0),0.6)
+                .addBillboardFrame(1500,2400,8500,4,new ColorClass(0.2,0.2,1.0),0.6)
+                .addBillboardFrame(2000,2400,9500,1,new ColorClass(0.2,0.2,1.0),0.6)
+                .addBillboardFrame(2300,2400,8500,6,new ColorClass(0.2,0.2,1.0),0.6);
+        
+        this.addBillboard('textures/particle_smoke.png',this.DRAW_MODE_TRANSPARENT)
+                .setGrid(4,450,0)
+                .addBillboardFrame(0,1900,7500,2,new ColorClass(0.5,0.5,1.0),0.7)
+                .addBillboardFrame(800,1900,8000,0,new ColorClass(0.5,0.5,1.0),0.7)
+                .addBillboardFrame(1300,1900,7500,-2,new ColorClass(0.5,0.5,1.0),0.7)
+                .addBillboardFrame(1800,1900,8500,0,new ColorClass(0.5,0.5,1.0),0.7)
+                .addBillboardFrame(2300,1900,7500,2,new ColorClass(0.5,0.5,1.0),0.7);
+        
+        this.addBillboard('textures/particle_smoke.png',this.DRAW_MODE_TRANSPARENT)
+                .setGrid(4,400,0)
+                .addBillboardFrame(0,3000,9500,0,new ColorClass(0.2,0.2,1.0),0.5)
+                .addBillboardFrame(1100,3000,9000,1,new ColorClass(0.2,0.2,1.0),0.5)
+                .addBillboardFrame(1600,3000,8500,0,new ColorClass(0.2,0.2,1.0),0.5)
+                .addBillboardFrame(1900,3000,9500,-1,new ColorClass(0.2,0.2,1.0),0.5)
+                .addBillboardFrame(2300,3000,8500,0,new ColorClass(0.2,0.2,1.0),0.5);
     }
 
 }
