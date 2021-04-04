@@ -5,8 +5,31 @@ export default class CaptainChestClass extends EntityClass
 {
     constructor(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
     {
-        super(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
+        super(core,name,null,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
         
+            // model
+        
+        this.modelName='captain_chest';
+        this.frameRate=30;
+        this.rotationOrder=this.MODEL_ROTATION_ORDER_XYZ;
+        this.scale.setFromValues(50,50,50);
+        this.radius=2200;
+        this.height=2200;
+        this.eyeOffset=0;
+        this.weight=250;
+        this.modelHideMeshes=[];
+        
+            // physics
+            
+        this.maxBumpCount=0;
+        this.floorRiseHeight=2000;
+        this.collisionSpokeCount=8;
+        this.collisionHeightSegmentCount=2;
+        this.collisionHeightMargin=10;
+        this.canBeClimbed=false;
+
+            // animations
+            
         this.openAnimation={"startFrame":65,"endFrame":66,"actionFrame":0,"meshes":null};
         this.openingAnimation={"startFrame":1,"endFrame":65,"actionFrame":0,"meshes":null};
         this.closedAnimation={"startFrame":0,"endFrame":1,"actionFrame":0,"meshes":null};

@@ -19,7 +19,7 @@ export default class PickupM16Class extends EntityClass
         this.height=2000;
         this.eyeOffset=0;
         this.weight=250;
-        this.modelHideMeshes=['m16_holder_02','m16_bullet','m16_bullet01','m16_bullet02','m16_bullet04','m16_bullet05','m16_bullet06','m16_bullet07','m16_bullet08'];
+        this.modelHideMeshes=['m16_rifle','shutter','trigger','m16_holder_01'];
         
             // physics
             
@@ -35,7 +35,7 @@ export default class PickupM16Class extends EntityClass
         this.originalY=0;
         this.reappearTick=0;
         
-        this.pickupSound={"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false};
+        this.pickupSound={"name":"pickup","rate":1.25,"randomRateAdd":0.0,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false};
         
         Object.seal(this);
     }
@@ -69,20 +69,15 @@ export default class PickupM16Class extends EntityClass
         this.angle.y=this.core.game.getPeriodicLinear(5000,360);
         
             // check for collisions from
-            // entities that has weapons
+            // entities that can add ammo
             
         if (this.touchEntity===null) return;
-        if (this.touchEntity.addWeapon===undefined) return;
+        if (this.touchEntity.addClip===undefined) return;
         
-            // pickup and add weapon
-        
-        if (this.touchEntity.hasWeapon('m16')) {
-            this.touchEntity.addClip('m16',1);
-        }
-        else {
-            this.touchEntity.addWeapon('m16');
-        }
-        
+            // pickup and add ammo
+            
+        this.touchEntity.addClip('m16',1);
+            
         this.show=false;
         this.reappearTick=this.core.game.timestamp+5000;
         
