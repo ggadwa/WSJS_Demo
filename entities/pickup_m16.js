@@ -69,22 +69,22 @@ export default class PickupM16Class extends EntityClass
         this.angle.y=this.core.game.getPeriodicLinear(5000,360);
         
             // check for collisions from
-            // entities that has weapons
+            // entities that has weapon
             
         if (this.touchEntity===null) return;
-        if (this.touchEntity.addWeapon===undefined) return;
+        if (this.touchEntity.m16Weapon===undefined) return;
         
-            // pickup and add weapon
+            // pickup and add weapon or clip
         
-        if (this.touchEntity.hasWeapon('m16')) {
-            this.touchEntity.addClip('m16',1);
+        if (this.touchEntity.m16Weapon.available) {
+            this.touchEntity.addM16Clip(1);
         }
         else {
-            this.touchEntity.addWeapon('m16');
+            this.touchEntity.addM16Weapon();
         }
         
         this.show=false;
-        this.reappearTick=this.core.game.timestamp+5000;
+        this.reappearTick=this.core.game.timestamp+10000;
         
         this.touchEntity.playSound(this.pickupSound);
     }

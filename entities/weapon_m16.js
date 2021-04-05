@@ -14,7 +14,6 @@ export default class WeaponM16Class extends EntityClass
         this.lowerAnimation=null;
         this.reloadAnimation=null;
         
-        this.initiallyAvailable=false;
         this.available=false;
         this.fireYSlop=0;
         

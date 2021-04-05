@@ -16,7 +16,6 @@ export default class WeaponGrenadeClass extends EntityClass
         
         this.interfaceCrosshair=null;
         
-        this.initiallyAvailable=false;
         this.available=false;
         
         this.lastFireTimestamp=0;

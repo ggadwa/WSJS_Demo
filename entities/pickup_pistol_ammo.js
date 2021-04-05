@@ -1,7 +1,7 @@
 import PointClass from '../../../code/utility/point.js';
 import EntityClass from '../../../code/game/entity.js';
 
-export default class PickupM16Class extends EntityClass
+export default class PickupPistolAmmoClass extends EntityClass
 {
     constructor(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
     {
@@ -56,7 +56,7 @@ export default class PickupM16Class extends EntityClass
             // unless pickupOnce is on
             
         if (!this.show) {
-            if (this.data.pickupOnce) return;
+            if ((this.data!==null) && (this.data.pickupOnce)) return;
             if (this.core.game.timestamp<this.reappearTick) return;
 
             this.touchEntity=null;          // clear any touches
@@ -69,14 +69,14 @@ export default class PickupM16Class extends EntityClass
         this.angle.y=this.core.game.getPeriodicLinear(5000,360);
         
             // check for collisions from
-            // entities that can add ammo
+            // entities that has weapon
             
         if (this.touchEntity===null) return;
-        if (this.touchEntity.addClip===undefined) return;
+        if (this.touchEntity.pistolWeapon===undefined) return;
         
             // pickup and add ammo
             
-        this.touchEntity.addClip('pistol',1);
+        this.touchEntity.addPistolClip(1);
             
         this.show=false;
         this.reappearTick=this.core.game.timestamp+5000;

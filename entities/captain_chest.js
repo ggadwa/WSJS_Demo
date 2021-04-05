@@ -83,9 +83,9 @@ export default class CaptainChestClass extends EntityClass
             
         this.setTrigger(this.data.trigger);
         
-        player.findHeldEntityByName('pistol').addClip(2);
-        player.findHeldEntityByName('m16').addClip(2);
-        player.findHeldEntityByName('grenade').addAmmo(1);
+        player.addPistolClip(2);
+        player.addM16Clip(2);
+        player.addGrenadeAmmo(1);
         player.addHealth(25);
     }
     

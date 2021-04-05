@@ -7,6 +7,11 @@ import HitClass from '../effects/hit.js';
 import SparkleClass from '../effects/sparkle.js';
 import CaptainChestClass from '../entities/captain_chest.js';
 import PickupM16Class from '../entities/pickup_m16.js';
+import PickupPistolAmmoClass from '../entities/pickup_pistol_ammo.js';
+import PickupM16AmmoClass from '../entities/pickup_m16_ammo.js';
+import PickupGrenadeClass from '../entities/pickup_grenade.js';
+import PickupArmorClass from '../entities/pickup_armor.js';
+import PickupHealthClass from '../entities/pickup_health.js';
 import WeaponPistolClass from '../entities/weapon_pistol.js';
 import WeaponM16Class from '../entities/weapon_m16.js';
 import WeaponGrenadeClass from '../entities/weapon_grenade.js';
@@ -85,6 +90,16 @@ export default class DemoClass extends ProjectClass
                 return(CaptainChestClass);
             case 'pickup_m16':
                 return(PickupM16Class);
+            case 'pickup_pistol_ammo':
+                return(PickupPistolAmmoClass);
+            case 'pickup_m16_ammo':
+                return(PickupM16AmmoClass);
+            case 'pickup_grenade':
+                return(PickupGrenadeClass);
+            case 'pickup_health':
+                return(PickupHealthClass);
+            case 'pickup_armor':
+                return(PickupArmorClass);
             case 'weapon_pistol':
                 return(WeaponPistolClass);
             case 'weapon_m16':

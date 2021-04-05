@@ -1,7 +1,7 @@
 import PointClass from '../../../code/utility/point.js';
 import EntityClass from '../../../code/game/entity.js';
 
-export default class PickupM16AmmoClass extends EntityClass
+export default class PickupHealthClass extends EntityClass
 {
     constructor(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
     {
@@ -11,15 +11,15 @@ export default class PickupM16AmmoClass extends EntityClass
         
             // model
         
-        this.modelName='m16';
+        this.modelName='chicken_leg';
         this.frameRate=30;
         this.rotationOrder=this.MODEL_ROTATION_ORDER_XYZ;
-        this.scale.setFromValues(8000,8000,8000);
-        this.radius=2000;
-        this.height=2000;
+        this.scale.setFromValues(100,100,100);
+        this.radius=1000;
+        this.height=1000;
         this.eyeOffset=0;
         this.weight=250;
-        this.modelHideMeshes=['m16_rifle','shutter','trigger','m16_holder_01'];
+        this.modelHideMeshes=[];
         
             // physics
             
@@ -35,7 +35,7 @@ export default class PickupM16AmmoClass extends EntityClass
         this.originalY=0;
         this.reappearTick=0;
         
-        this.pickupSound={"name":"pickup","rate":1.25,"randomRateAdd":0.0,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false};
+        this.pickupSound={"name":"pickup","rate":0.8,"randomRateAdd":0.0,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false};
         
         Object.seal(this);
     }
@@ -69,17 +69,17 @@ export default class PickupM16AmmoClass extends EntityClass
         this.angle.y=this.core.game.getPeriodicLinear(5000,360);
         
             // check for collisions from
-            // entities that has weapon
+            // entities that has health
             
         if (this.touchEntity===null) return;
-        if (this.touchEntity.m16Weapon===undefined) return;
+        if (this.touchEntity.addHealth===undefined) return;
         
-            // pickup and add ammo
+            // pickup and add health
             
-        this.touchEntity.addM16Clip(1);
+        this.touchEntity.addHealth(25);
             
         this.show=false;
-        this.reappearTick=this.core.game.timestamp+5000;
+        this.reappearTick=this.core.game.timestamp+10000;
         
         this.touchEntity.playSound(this.pickupSound);
     }

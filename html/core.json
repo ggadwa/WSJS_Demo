@@ -73,8 +73,7 @@
         ],
     "entities":
         [
-            "bot","dragon_queen","pickup_armor","pickup_grenade","pickup_health",
-            "player","multiplayer",
+            "bot","dragon_queen","player","multiplayer",
             "projectile_grenade","projectile_vampire","projectile_queen","ratkin","skeleton","spider","vampire",
             "weapon_grenade","weapon_m16","weapon_pistol"
         ],

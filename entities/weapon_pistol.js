@@ -16,7 +16,6 @@ export default class WeaponPistolClass extends EntityClass
         
         this.interfaceCrosshair=null;
         
-        this.initiallyAvailable=false;
         this.available=false;
         this.fireYSlop=0;
         

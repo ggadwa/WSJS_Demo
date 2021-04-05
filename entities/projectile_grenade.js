@@ -1,7 +1,7 @@
 import PointClass from '../../../code/utility/point.js';
 import EntityClass from '../../../code/game/entity.js';
 
-export default class EntityProjectileClass extends EntityClass
+export default class EntityGrenadeClass extends EntityClass
 {
     constructor(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
     {

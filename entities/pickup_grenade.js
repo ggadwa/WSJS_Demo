@@ -1,7 +1,7 @@
 import PointClass from '../../../code/utility/point.js';
 import EntityClass from '../../../code/game/entity.js';
 
-export default class PickupM16AmmoClass extends EntityClass
+export default class PickupGrenadeClass extends EntityClass
 {
     constructor(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
     {
@@ -11,15 +11,15 @@ export default class PickupM16AmmoClass extends EntityClass
         
             // model
         
-        this.modelName='m16';
+        this.modelName='grenade';
         this.frameRate=30;
         this.rotationOrder=this.MODEL_ROTATION_ORDER_XYZ;
-        this.scale.setFromValues(8000,8000,8000);
-        this.radius=2000;
-        this.height=2000;
+        this.scale.setFromValues(250,250,250);
+        this.radius=800;
+        this.height=800;
         this.eyeOffset=0;
         this.weight=250;
-        this.modelHideMeshes=['m16_rifle','shutter','trigger','m16_holder_01'];
+        this.modelHideMeshes=[];
         
             // physics
             
@@ -35,7 +35,7 @@ export default class PickupM16AmmoClass extends EntityClass
         this.originalY=0;
         this.reappearTick=0;
         
-        this.pickupSound={"name":"pickup","rate":1.25,"randomRateAdd":0.0,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false};
+        this.pickupSound={"name":"pickup","rate":1.0,"randomRateAdd":0.0,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false};
         
         Object.seal(this);
     }
@@ -72,14 +72,14 @@ export default class PickupM16AmmoClass extends EntityClass
             // entities that has weapon
             
         if (this.touchEntity===null) return;
-        if (this.touchEntity.m16Weapon===undefined) return;
+        if (this.touchEntity.grenadeWeapon===undefined) return;
         
             // pickup and add ammo
             
-        this.touchEntity.addM16Clip(1);
+        this.touchEntity.addGrenadeAmmo(1);
             
         this.show=false;
-        this.reappearTick=this.core.game.timestamp+5000;
+        this.reappearTick=this.core.game.timestamp+10000;
         
         this.touchEntity.playSound(this.pickupSound);
     }
