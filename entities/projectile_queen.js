@@ -5,8 +5,31 @@ export default class ProjectileQueenClass extends EntityClass
 {
     constructor(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
     {
-        super(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
+        super(core,name,null,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
         
+            // model
+        
+        this.modelName='crystal_ball';
+        this.frameRate=30;
+        this.rotationOrder=this.MODEL_ROTATION_ORDER_XYZ;
+        this.scale.setFromValues(20,20,20);
+        this.radius=500;
+        this.height=500;
+        this.eyeOffset=0;
+        this.weight=30;
+        this.modelHideMeshes=[];
+        
+            // physics
+            
+        this.maxBumpCount=0;
+        this.floorRiseHeight=2000;
+        this.collisionSpokeCount=24;
+        this.collisionHeightSegmentCount=4;
+        this.collisionHeightMargin=10;
+        this.canBeClimbed=false;
+
+            // variables
+            
         this.lifeTimestamp=0;
         this.nextTrailTick=0;
         

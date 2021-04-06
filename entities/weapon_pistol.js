@@ -14,8 +14,6 @@ export default class WeaponPistolClass extends EntityClass
         this.lowerAnimation=null;
         this.reloadAnimation=null;
         
-        this.interfaceCrosshair=null;
-        
         this.available=false;
         this.fireYSlop=0;
         
@@ -38,10 +36,10 @@ export default class WeaponPistolClass extends EntityClass
         this.clipCount=0;
         this.ammoInClipCount=0;
         
+            // sounds
+            
         this.fireAnimation={"startFrame":128,"endFrame":143,"actionFrame":0,"meshes":null};
         this.fireSound={"name":"pistol_fire","rate":1.0,"randomRateAdd":0.4,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false};
-        
-        this.lastFireTimestamp=0;
             
             // pre-allocates
         
@@ -121,24 +119,14 @@ export default class WeaponPistolClass extends EntityClass
         
     addClip(count)
     {
-        if (this.heldBy===this.core.game.map.entityList.getPlayer()) this.pulseElement('pistol_bullet',500,10);
-        
         this.clipCount+=count;
         if (this.clipCount>5) this.clipCount=5;
     }
     
     addAmmo(count)
     {
-        if (this.heldBy===this.core.game.map.entityList.getPlayer()) this.pulseElement('pistol_bullet',500,10);
-        
         this.ammoInClipCount+=count;
         if (this.ammoInClipCount>10) this.ammoInClipCount=10;
-    }
-    
-    hasAnyAmmo()
-    {
-        if (this.clipCount===0) return(false);
-        return(this.ammoInClipCount!==0);
     }
     
         //
@@ -357,19 +345,6 @@ export default class WeaponPistolClass extends EntityClass
         //
         // main run
         //
-        
-    run()
-    {
-        super.run();
-        
-            // update any UI if player
-            
-        if (this.heldBy===this.core.game.map.entityList.getPlayer()) {
-            this.showElement('pistol_crosshair',((this.show)&&(this.cameraIsFirstPerson())));
-            this.updateText('pistol_clip_count',this.clipCount);    
-            this.updateText('pistol_bullet_count',this.ammoInClipCount);
-        }
-    }
         
     drawSetup()
     {

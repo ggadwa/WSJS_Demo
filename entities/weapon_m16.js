@@ -36,10 +36,10 @@ export default class WeaponM16Class extends EntityClass
         this.clipCount=0;
         this.ammoInClipCount=0;
         
+            // sounds
+            
         this.fireAnimation={"startFrame":128,"endFrame":143,"actionFrame":0,"meshes":null};
         this.fireSound={"name":"m16_fire","rate":1.0,"randomRateAdd":0.4,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false};
-        
-        this.lastFireTimestamp=0;
             
             // pre-allocates
         
@@ -93,8 +93,6 @@ export default class WeaponM16Class extends EntityClass
     {
         super.ready();
         
-        this.available=this.initiallyAvailable;
-        
         this.clipCount=4;
         this.ammoInClipCount=25;
         
@@ -110,24 +108,14 @@ export default class WeaponM16Class extends EntityClass
         
     addClip(count)
     {
-        if (this.heldBy===this.core.game.map.entityList.getPlayer()) this.pulseElement('m16_bullet',500,10);
-        
         this.clipCount+=count;
         if (this.clipCount>12) this.clipCount=12;
     }
     
     addAmmo(count)
     {
-        if (this.heldBy===this.core.game.map.entityList.getPlayer()) this.pulseElement('m16_bullet',500,10);
-        
         this.ammoInClipCount+=count;
         if (this.ammoInClipCount>25) this.ammoInClipCount=25;
-    }
-    
-    hasAnyAmmo()
-    {
-        if (this.clipCount===0) return(false);
-        return(this.ammoInClipCount!==0);
     }
     
         //
@@ -345,19 +333,6 @@ export default class WeaponM16Class extends EntityClass
         //
         // main run
         //
-        
-    run()
-    {
-        super.run();
-        
-            // update any UI if player
-            
-        if (this.heldBy===this.core.game.map.entityList.getPlayer()) {
-            this.showElement('m16_crosshair',((this.show)&&(this.cameraIsFirstPerson())));
-            this.updateText('m16_clip_count',this.clipCount);
-            this.updateText('m16_bullet_count',this.ammoInClipCount);
-        }
-    }
         
     drawSetup()
     {
