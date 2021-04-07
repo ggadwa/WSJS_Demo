@@ -74,8 +74,7 @@
     "entities":
         [
             "bot","dragon_queen","player","multiplayer",
-            "ratkin","skeleton","spider","vampire",
-            "weapon_m16","weapon_pistol"
+            "ratkin","skeleton","spider","vampire"
         ],
     "effects":
         [

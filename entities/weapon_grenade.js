@@ -36,8 +36,6 @@ export default class WeaponGrenadeClass extends EntityClass
         this.ammoCount=0;
         this.lastFireTimestamp=0;
         
-        this.botFireRange=new BoundClass(15000,60000);
-        
             // sounds
             
         this.fireSound={"name":"throw","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false};

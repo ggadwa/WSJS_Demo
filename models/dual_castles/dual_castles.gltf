@@ -1,6 +1,6 @@
 {
     "asset" : {
-        "generator" : "Khronos glTF Blender I/O v1.4.40",
+        "generator" : "Khronos glTF Blender I/O v1.5.17",
         "version" : "2.0"
     },
     "extensionsUsed" : [
@@ -25574,17 +25574,14 @@
             "doubleSided" : true,
             "name" : "wood",
             "normalTexture" : {
-                "index" : 0,
-                "texCoord" : 0
+                "index" : 0
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 1,
-                    "texCoord" : 0
+                    "index" : 1
                 },
                 "metallicRoughnessTexture" : {
-                    "index" : 2,
-                    "texCoord" : 0
+                    "index" : 2
                 }
             }
         },
@@ -25596,8 +25593,7 @@
             "name" : "bush",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 3,
-                    "texCoord" : 0
+                    "index" : 3
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -25607,17 +25603,14 @@
             "doubleSided" : true,
             "name" : "birch_tree_trunk",
             "normalTexture" : {
-                "index" : 4,
-                "texCoord" : 0
+                "index" : 4
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 5,
-                    "texCoord" : 0
+                    "index" : 5
                 },
                 "metallicRoughnessTexture" : {
-                    "index" : 6,
-                    "texCoord" : 0
+                    "index" : 6
                 }
             }
         },
@@ -25629,8 +25622,7 @@
             "name" : "birch_tree_branch",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 7,
-                    "texCoord" : 0
+                    "index" : 7
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -25644,14 +25636,12 @@
                 1
             ],
             "emissiveTexture" : {
-                "index" : 8,
-                "texCoord" : 0
+                "index" : 8
             },
             "name" : "crystal_blue",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 9,
-                    "texCoord" : 0
+                    "index" : 9
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -25661,17 +25651,14 @@
             "doubleSided" : true,
             "name" : "patterns",
             "normalTexture" : {
-                "index" : 10,
-                "texCoord" : 0
+                "index" : 10
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 11,
-                    "texCoord" : 0
+                    "index" : 11
                 },
                 "metallicRoughnessTexture" : {
-                    "index" : 12,
-                    "texCoord" : 0
+                    "index" : 12
                 }
             }
         },
@@ -25679,17 +25666,14 @@
             "doubleSided" : true,
             "name" : "arc",
             "normalTexture" : {
-                "index" : 13,
-                "texCoord" : 0
+                "index" : 13
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 14,
-                    "texCoord" : 0
+                    "index" : 14
                 },
                 "metallicRoughnessTexture" : {
-                    "index" : 15,
-                    "texCoord" : 0
+                    "index" : 15
                 }
             }
         },
@@ -25701,14 +25685,12 @@
                 1
             ],
             "emissiveTexture" : {
-                "index" : 16,
-                "texCoord" : 0
+                "index" : 16
             },
             "name" : "crystal_red",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 17,
-                    "texCoord" : 0
+                    "index" : 17
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -25718,17 +25700,14 @@
             "doubleSided" : true,
             "name" : "simple_rock",
             "normalTexture" : {
-                "index" : 18,
-                "texCoord" : 0
+                "index" : 18
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 19,
-                    "texCoord" : 0
+                    "index" : 19
                 },
                 "metallicRoughnessTexture" : {
-                    "index" : 20,
-                    "texCoord" : 0
+                    "index" : 20
                 }
             }
         },
@@ -25736,17 +25715,14 @@
             "doubleSided" : true,
             "name" : "pavement",
             "normalTexture" : {
-                "index" : 21,
-                "texCoord" : 0
+                "index" : 21
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 22,
-                    "texCoord" : 0
+                    "index" : 22
                 },
                 "metallicRoughnessTexture" : {
-                    "index" : 23,
-                    "texCoord" : 0
+                    "index" : 23
                 }
             }
         },
@@ -25754,17 +25730,14 @@
             "doubleSided" : true,
             "name" : "rough_brick",
             "normalTexture" : {
-                "index" : 24,
-                "texCoord" : 0
+                "index" : 24
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 25,
-                    "texCoord" : 0
+                    "index" : 25
                 },
                 "metallicRoughnessTexture" : {
-                    "index" : 26,
-                    "texCoord" : 0
+                    "index" : 26
                 }
             }
         },
@@ -25772,17 +25745,14 @@
             "doubleSided" : true,
             "name" : "wall",
             "normalTexture" : {
-                "index" : 27,
-                "texCoord" : 0
+                "index" : 27
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 28,
-                    "texCoord" : 0
+                    "index" : 28
                 },
                 "metallicRoughnessTexture" : {
-                    "index" : 29,
-                    "texCoord" : 0
+                    "index" : 29
                 }
             }
         },
@@ -25790,17 +25760,14 @@
             "doubleSided" : true,
             "name" : "floor",
             "normalTexture" : {
-                "index" : 30,
-                "texCoord" : 0
+                "index" : 30
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 31,
-                    "texCoord" : 0
+                    "index" : 31
                 },
                 "metallicRoughnessTexture" : {
-                    "index" : 32,
-                    "texCoord" : 0
+                    "index" : 32
                 }
             }
         },
@@ -25808,17 +25775,14 @@
             "doubleSided" : true,
             "name" : "roof_metal",
             "normalTexture" : {
-                "index" : 33,
-                "texCoord" : 0
+                "index" : 33
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 34,
-                    "texCoord" : 0
+                    "index" : 34
                 },
                 "metallicRoughnessTexture" : {
-                    "index" : 35,
-                    "texCoord" : 0
+                    "index" : 35
                 }
             }
         },
@@ -25826,17 +25790,14 @@
             "doubleSided" : true,
             "name" : "column",
             "normalTexture" : {
-                "index" : 36,
-                "texCoord" : 0
+                "index" : 36
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 37,
-                    "texCoord" : 0
+                    "index" : 37
                 },
                 "metallicRoughnessTexture" : {
-                    "index" : 38,
-                    "texCoord" : 0
+                    "index" : 38
                 }
             }
         },
@@ -25853,12 +25814,10 @@
                             ]
                         }
                     },
-                    "index" : 39,
-                    "texCoord" : 0
+                    "index" : 39
                 },
                 "metallicRoughnessTexture" : {
-                    "index" : 40,
-                    "texCoord" : 0
+                    "index" : 40
                 }
             }
         },
@@ -25866,17 +25825,14 @@
             "doubleSided" : true,
             "name" : "pillar",
             "normalTexture" : {
-                "index" : 41,
-                "texCoord" : 0
+                "index" : 41
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 42,
-                    "texCoord" : 0
+                    "index" : 42
                 },
                 "metallicRoughnessTexture" : {
-                    "index" : 43,
-                    "texCoord" : 0
+                    "index" : 43
                 }
             }
         },
@@ -25893,8 +25849,7 @@
                             ]
                         }
                     },
-                    "index" : 44,
-                    "texCoord" : 0
+                    "index" : 44
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -25904,8 +25859,7 @@
             "doubleSided" : true,
             "name" : "river_bed",
             "normalTexture" : {
-                "index" : 45,
-                "texCoord" : 0
+                "index" : 45
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
@@ -25917,12 +25871,10 @@
                             ]
                         }
                     },
-                    "index" : 46,
-                    "texCoord" : 0
+                    "index" : 46
                 },
                 "metallicRoughnessTexture" : {
-                    "index" : 47,
-                    "texCoord" : 0
+                    "index" : 47
                 }
             }
         },
@@ -25934,8 +25886,7 @@
             "name" : "web",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 48,
-                    "texCoord" : 0
+                    "index" : 48
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -25945,17 +25896,14 @@
             "doubleSided" : true,
             "name" : "window",
             "normalTexture" : {
-                "index" : 49,
-                "texCoord" : 0
+                "index" : 49
             },
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 50,
-                    "texCoord" : 0
+                    "index" : 50
                 },
                 "metallicRoughnessTexture" : {
-                    "index" : 51,
-                    "texCoord" : 0
+                    "index" : 51
                 }
             }
         },
@@ -25964,8 +25912,7 @@
             "name" : "SkyBox",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 52,
-                    "texCoord" : 0
+                    "index" : 52
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -45786,7 +45733,7 @@
         },
         {
             "extras" : {
-                "wsjsMap" : "{\"scale\":700,\"bumpHeight\":1400,\"view\":{\"nearZ\":500,\"farZ\":500000},\"gravity\":{\"min\":0,\"max\":1700,\"acceleration\":0.1}}"
+                "wsjsMap" : "{\"scale\":700,\"bumpHeight\":1400,\"view\":{\"nearZ\":500,\"farZ\":500000},\"gravity\":{\"min\":0,\"max\":1700,\"acceleration\":0.1},\"ambientSound\":{\"name\":\"wind\",\"rate\":1.0,\"randomRateAdd\":0.0,\"distance\":0,\"loopStart\":0,\"loopEnd\":7.627,\"loop\":true}}"
             },
             "name" : "MapDef",
             "primitives" : [
@@ -118086,7 +118033,7 @@
     "samplers" : [
         {
             "magFilter" : 9729,
-            "minFilter" : 9986
+            "minFilter" : 9987
         }
     ],
     "buffers" : [

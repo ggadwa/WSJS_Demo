@@ -6,89 +6,75 @@ export default class WeaponM16Class extends EntityClass
 {
     constructor(core,name,json,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
     {
-        super(core,name,json,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
+        super(core,name,null,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
         
-        this.idleAnimation=null;
-        this.idleWalkAnimation=null;
-        this.raiseAnimation=null;
-        this.lowerAnimation=null;
-        this.reloadAnimation=null;
+            // model
+        
+        this.modelName='hand_m16';
+        this.frameRate=30;
+        this.rotationOrder=this.MODEL_ROTATION_ORDER_XYZ;
+        this.scale.setFromValues(5000,5000,5000);
+        this.radius=5000;
+        this.height=11000;
+        this.eyeOffset=0;
+        this.weight=0;
+        this.modelHideMeshes=['m16_holder_02','m16_bullet','m16_bullet01','m16_bullet02','m16_bullet03'];
+        
+            // physics
+            
+        this.maxBumpCount=0;
+        this.floorRiseHeight=2000;
+        this.collisionSpokeCount=8;
+        this.collisionHeightSegmentCount=2;
+        this.collisionHeightMargin=10;
+        this.canBeClimbed=false;
+
+            // variables
         
         this.available=false;
-        this.fireYSlop=0;
         
+        this.clipCount=0;
+        this.ammoInClipCount=0;
         this.lastFireTimestamp=0;
         
         this.inStandIdle=false;
         
-        this.handOffset=new PointClass(0,0,0);
-        this.handAngle=new PointClass(0,0,0);
-        this.fireOffsetAdd=new PointClass(0,0,0);
-        this.fireAngleAdd=new PointClass(0,0,0);
-        this.botFireRange=new BoundClass(0,0);
+        this.handOffset=new PointClass(0,-8500,-2000);
+        this.handAngle=new PointClass(0,-20,0);
         
-        this.parentIdleAnimation=null;
-        this.parentRunAnimation=null; 
-        this.parentFireIdleAnimation=null;
-        this.parentFireRunAnimation=null;
-        this.parentFireFreezeMovement=false;
-        
-        this.clipCount=0;
-        this.ammoInClipCount=0;
+            // animations
+            
+        this.idleAnimation={"startFrame":76,"endFrame":126,"actionFrame":0,"meshes":null};
+        this.fireAnimation={"startFrame":128,"endFrame":143,"actionFrame":0,"meshes":null};
+        this.idleWalkAnimation={"startFrame":300,"endFrame":336,"actionFrame":0,"meshes":null};
+        this.raiseAnimation={"startFrame":0,"endFrame":24,"actionFrame":0,"meshes":null};
+        this.lowerAnimation={"startFrame":25,"endFrame":49,"actionFrame":0,"meshes":null};
+        this.reloadAnimation={
+                    "startFrame":149,
+                    "endFrame":299,
+                    "meshes":
+                        [
+                            {"name":"m16_holder_01","hide":[[187,225]]},
+                            {"name":"m16_holder_02","hide":[[0,187],[225,299]]},
+                            {"name":"m16_bullet","hide":[[0,187],[225,299]]},
+                            {"name":"m16_bullet01","hide":[[0,187],[225,299]]},
+                            {"name":"m16_bullet02","hide":[[0,187],[225,299]]},
+                            {"name":"m16_bullet03","hide":[[0,187],[225,299]]}
+                        ]
+                };
         
             // sounds
             
-        this.fireAnimation={"startFrame":128,"endFrame":143,"actionFrame":0,"meshes":null};
         this.fireSound={"name":"m16_fire","rate":1.0,"randomRateAdd":0.4,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false};
+        this.reloadSound={"name":"m16_reload","rate":1.0,"randomRateAdd":0.0,"distance":7000,"loopStart":0,"loopEnd":0,"loop":false};
             
             // pre-allocates
         
         this.firePoint=new PointClass(0,0,0);
-        this.fireAng=new PointClass(0,0,0);
         this.fireVector=new PointClass(0,0,0);
         this.fireHitPoint=new PointClass(0,0,0);
     }
 
-    initialize()
-    {
-        if (!super.initialize()) return(false);
-        
-        this.idleAnimation=this.core.game.lookupAnimationValue(this.json.animations.idleAnimation);
-        this.idleWalkAnimation=this.core.game.lookupAnimationValue(this.json.animations.idleWalkAnimation);
-        this.raiseAnimation=this.core.game.lookupAnimationValue(this.json.animations.raiseAnimation);
-        this.lowerAnimation=this.core.game.lookupAnimationValue(this.json.animations.lowerAnimation);
-        this.reloadAnimation=this.core.game.lookupAnimationValue(this.json.animations.reloadAnimation);
-        
-        this.reloadSound=this.core.game.lookupSoundValue(this.json.sounds.reloadSound);
-       
-            // model setup, skip if no model
-            
-        if (this.model!==null) {
-            this.handOffset=new PointClass(this.json.config.handOffset.x,this.json.config.handOffset.y,this.json.config.handOffset.z);
-            this.handAngle=new PointClass(this.json.config.handAngle.x,this.json.config.handAngle.y,this.json.config.handAngle.z);
-        }
-        
-            // fire setup
-        
-        this.fireOffsetAdd=new PointClass(this.json.config.fireOffsetAdd.x,this.json.config.fireOffsetAdd.y,this.json.config.fireOffsetAdd.z);
-        this.fireAngleAdd=new PointClass(this.json.config.fireAngleAdd.x,this.json.config.fireAngleAdd.y,this.json.config.fireAngleAdd.z);
-                    
-            // misc bot setup
-            
-        this.botFireRange.setFromValues(this.json.config.botFireRange[0],this.json.config.botFireRange[1]);
-        
-            // some items added to entity so fire methods
-            // can have access to parent animations
-            
-        this.parentIdleAnimation=null;
-        this.parentRunAnimation=null; 
-        this.parentFireIdleAnimation=null;
-        this.parentFireRunAnimation=null;
-        this.parentFireFreezeMovement=false;
-        
-        return(true);    
-    }
-    
     ready()
     {
         super.ready();
@@ -99,7 +85,7 @@ export default class WeaponM16Class extends EntityClass
         this.lastFireTimestamp=0;
         
         this.inStandIdle=false
-        if (this.model!==null) this.queueIdleAnimation();
+        this.queueIdleAnimation();
     }
     
         //
@@ -124,8 +110,6 @@ export default class WeaponM16Class extends EntityClass
         
     queueIdleAnimation()
     {
-        if (this.model===null) return;
-        
         if (this.heldBy!==null) {
             this.inStandIdle=(this.heldBy.movement.length()===0)||(this.idleWalkAnimation===null);
         }
@@ -140,8 +124,6 @@ export default class WeaponM16Class extends EntityClass
     
     startIdleAnimation()
     {
-        if (this.model===null) return;
-        
         this.inStandIdle=true;
         if (this.idleAnimation!==null) this.startAnimation(this.idleAnimation);
     }
@@ -149,8 +131,6 @@ export default class WeaponM16Class extends EntityClass
     setIdleAnimation()
     {
         let nextStandIdle;
-        
-        if (this.model===null) return;
         
         nextStandIdle=true;
         
@@ -172,8 +152,6 @@ export default class WeaponM16Class extends EntityClass
     
     runLowerAnimation()
     {
-        if (this.model===null) return(0);
-        
         if (this.lowerAnimation!=null) {
             this.startAnimation(this.lowerAnimation);
             this.queueIdleAnimation();
@@ -185,8 +163,6 @@ export default class WeaponM16Class extends EntityClass
     
     runRaiseAnimation()
     {
-        if (this.model===null) return;
-        
         if (this.raiseAnimation!=null) {
             this.startAnimation(this.raiseAnimation);
             this.queueIdleAnimation();
@@ -198,8 +174,6 @@ export default class WeaponM16Class extends EntityClass
     
     runReloadAnimation()
     {
-        if (this.model===null) return;
-        
         if (this.reloadAnimation!=null) {
             this.startAnimation(this.reloadAnimation);
             this.queueIdleAnimation();
@@ -215,23 +189,13 @@ export default class WeaponM16Class extends EntityClass
         
     hitScan(parentEntity,firePosition,fireAngle)
     {
-        let y;
-        
             // the hit scan
           
         this.firePoint.setFromPoint(firePosition);
-        this.fireAng.setFromAddPoint(fireAngle,this.fireAngleAdd);
         
         this.fireVector.setFromValues(0,0,100000);
-        this.fireVector.rotateX(null,this.fireAng.x);
-        
-        y=this.fireAng.y;
-        if (this.fireYSlop!==0) {
-            y+=(this.fireYSlop-(Math.random()*(this.fireYSlop*2)));
-            if (y<0) y=360+y;
-            if (y>360) y-=360;
-        }
-        this.fireVector.rotateY(null,y);
+        this.fireVector.rotateX(null,fireAngle.x);
+        this.fireVector.rotateY(null,fireAngle.y);
         
         if (parentEntity.rayCollision(this.firePoint,this.fireVector,this.fireHitPoint)) {
             
@@ -281,25 +245,7 @@ export default class WeaponM16Class extends EntityClass
            
         this.startAnimation(this.fireAnimation);
         this.queueIdleAnimation();
-        
-            // parent animation
-            /*
-        if (parentEntity.model!==null) {
-            if (!parentEntity.isAnimationQueued()) {   // don't do this if we have a queue, which means another fire is still going on
-                if ((parentEntity.movement.x!==0) || (parentEntity.movement.z!==0)) {
-                    if (this.fireAnimation!==null) {
-                        parentEntity.interuptAnimation(this.parentFireRunAnimation);
-                        if ((this.parentFireFreezeMovement) && (parentEntity.movementFreezeTick!==undefined)) {
-                            parentEntity.movementFreezeTick=this.core.game.timestamp+parentEntity.getAnimationTickCount(this.parentFireRunAnimation);
-                        }
-                    }
-                }
-                else {
-                    if (this.parentFireIdleAnimation!==null) parentEntity.interuptAnimation(this.parentFireIdleAnimation);
-                }
-            }
-        }
-        */
+
             // and the fire method
             
         this.hitScan(parentEntity,firePosition,fireAngle);

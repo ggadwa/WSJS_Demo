@@ -35,6 +35,8 @@ export default class PickupArmorClass extends EntityClass
         this.originalY=0;
         this.reappearTick=0;
         
+            // sounds
+            
         this.pickupSound={"name":"pickup","rate":0.8,"randomRateAdd":0.0,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false};
         
         Object.seal(this);
