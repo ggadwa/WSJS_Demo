@@ -33,7 +33,7 @@
             "meleeDamage":20,
             "projectileDistance":60000,
             "projectileWaitTick":6000,
-            "projectileFirePosition":[0,5000,2500],
+            "projectileFirePosition":[0,5800,2500],
             "projectileJson":"projectile_queen",
             "projectileData":{"trackSpeed":50,"hitEffect":"explosion"},
             "projectileRequiresSight":false,
@@ -116,7 +116,7 @@
                     "startFrame":399,
                     "endFrame":484,
                     "actionFrame":459,
-                    "actionFrame":0,
+                    "actionFrame":435,
                     "meshes":null
                 },
             "hitAnimation":
