@@ -43864,7 +43864,7 @@
         },
         {
             "extras" : {
-                "wsjsMap" : "{\"scale\":700,\"bumpHeight\":1400,\"view\":{\"nearZ\":500,\"farZ\":500000},\"gravity\":{\"min\":0,\"max\":1700,\"acceleration\":0.1}}"
+                "wsjsMap" : "{\"scale\":700,\"bumpHeight\":1400,\"view\":{\"nearZ\":500,\"farZ\":500000},\"gravity\":{\"min\":0,\"max\":1700,\"acceleration\":0.1},\"ambientSound\":{\"name\":\"dungeon\",\"rate\":1.0,\"randomRateAdd\":0.0,\"distance\":0,\"loopStart\":0,\"loopEnd\":14.884,\"loop\":true}}"
             },
             "name" : "MapDef",
             "primitives" : [

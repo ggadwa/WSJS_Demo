@@ -22,7 +22,7 @@ export default class FireClass extends EffectClass
                 .addBillboardFrame(10000,6600,6600,180,new ColorClass(1.0,1.0,1.0),0.6)
                 .addBillboardFrame(20000,6000,6000,360,new ColorClass(1.0,1.0,1.0),0.65);
         
-                // red flame
+            // red flame
                 
         this.addBillboard('textures/particle_blob.png',this.DRAW_MODE_TRANSPARENT)
                 .setGrid(4,500,0)
@@ -30,7 +30,7 @@ export default class FireClass extends EffectClass
                 .addBillboardFrame(1000,640,900,0,new ColorClass(1.0,0.2,0.2),1.0)
                 .addBillboardFrame(2000,800,840,0,new ColorClass(1.0,0.2,0.2),1.0);
         
-                // red 2 flame
+            // red 2 flame
                 
         this.addBillboard('textures/particle_blob.png',this.DRAW_MODE_TRANSPARENT)
                 .setGrid(4,500,1)
@@ -38,13 +38,17 @@ export default class FireClass extends EffectClass
                 .addBillboardFrame(1000,780,640,0,new ColorClass(1.0,0.2,0.2),1.0)
                 .addBillboardFrame(2000,800,840,0,new ColorClass(1.0,0.2,0.2),1.0);
         
-                // orange flame
+            // orange flame
                 
         this.addBillboard('textures/particle_blob.png',this.DRAW_MODE_TRANSPARENT)
                 .setGrid(4,500,2)
                 .addBillboardFrame(0,400,460,0,new ColorClass(1.0,0.5,0.0),1.0)
                 .addBillboardFrame(1000,360,400,0,new ColorClass(1.0,0.5,0.0),1.0)
                 .addBillboardFrame(2000,400,460,0,new ColorClass(1.0,0.5,0.0),1.0);
+        
+            // ambient sound
+                
+        this.addAmbientSound('fire',1.0,0.0,12000,0.0,1.807,true);
     }
 
 }

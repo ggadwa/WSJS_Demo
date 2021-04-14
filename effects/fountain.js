@@ -41,6 +41,10 @@ export default class FountainClass extends EffectClass
                 .addBillboardFrame(1600,3000,8500,0,new ColorClass(0.2,0.2,1.0),0.5)
                 .addBillboardFrame(1900,3000,9500,-1,new ColorClass(0.2,0.2,1.0),0.5)
                 .addBillboardFrame(2300,3000,8500,0,new ColorClass(0.2,0.2,1.0),0.5);
+        
+            // ambient sound
+                
+        this.addAmbientSound('liquid',1.0,0.0,40000,0.0,1.242,true);
     }
 
 }

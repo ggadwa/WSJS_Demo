@@ -46,12 +46,12 @@ export default class DemoClass extends ProjectClass
             return(['blade','chime','door','explosion','gate','grenade_bounce','hurt','laser','m16_fire',
                     'm16_reload','pickup','pistol_fire','pistol_reload','player_die','queen_hurt','queen_scream',
                     'rat_die','rat_wake_up','skeleton_die','skeleton_wake_up','spider_die','spider_wake_up',
-                    'splash','stone_platform','throw','thud','vampire_die','vampire_wake_up']);
+                    'splash','stone_platform','throw','thud','vampire_die','vampire_wake_up','dungeon','fire']);
         }
         else {
             return(['chime','door','explosion','grenade_bounce','hurt','m16_fire',
                     'm16_reload','pickup','pistol_fire','pistol_reload','player_die','splash',
-                    'stone_platform','throw','thud']);
+                    'stone_platform','throw','thud','wind','fire','liquid']);
         }
     }
     

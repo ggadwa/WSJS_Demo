@@ -61,15 +61,13 @@ export default class ExplosionClass extends EffectClass
         this.startSound={"name":"explosion","rate":1.0,"randomRateAdd":-0.4,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false};
     }
     
-    initialize()
+    ready()
     {
-        if (!super.initialize()) return(false);
+        super.ready();
         
         this.playSound(this.startSound);
         this.shakeCamera(30000,40,2000);
         this.damageForRadius(20000,50);
-        
-        return(true);
     }
 
 }

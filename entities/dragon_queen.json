@@ -100,7 +100,6 @@
                     "startFrame":2445,
                     "endFrame":2480,
                     "actionFrame":2460,
-                    "actionFrame":0,
                     "meshes":null
                 },
             "meleeRightAnimation":
@@ -108,14 +107,12 @@
                     "startFrame":2589,
                     "endFrame":2624,
                     "actionFrame":2604,
-                    "actionFrame":0,
                     "meshes":null
                 },
             "projectileAnimation":
                 {
                     "startFrame":399,
                     "endFrame":484,
-                    "actionFrame":459,
                     "actionFrame":435,
                     "meshes":null
                 },
@@ -131,7 +128,6 @@
                     "startFrame":3849,
                     "endFrame":3980,
                     "actionFrame":3975,
-                    "actionFrame":0,
                     "meshes":null
                 }
         },
