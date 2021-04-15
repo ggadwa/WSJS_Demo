@@ -5,6 +5,8 @@ import FireClass from '../effects/fire.js';
 import FountainClass from '../effects/fountain.js';
 import HitClass from '../effects/hit.js';
 import SparkleClass from '../effects/sparkle.js';
+import PlayerClass from '../entities/player.js';
+import BotClass from '../entities/bot.js';
 import CaptainChestClass from '../entities/captain_chest.js';
 import PickupM16Class from '../entities/pickup_m16.js';
 import PickupPistolAmmoClass from '../entities/pickup_pistol_ammo.js';
@@ -18,6 +20,11 @@ import WeaponGrenadeClass from '../entities/weapon_grenade.js';
 import ProjectileGrenadeClass from '../entities/projectile_grenade.js';
 import ProjectileVampireClass from '../entities/projectile_vampire.js';
 import ProjectileQueenClass from '../entities/projectile_queen.js';
+import DragonQueenClass from '../entities/dragon_queen.js';
+import RatkinClass from '../entities/ratkin.js';
+import SkeletonClass from '../entities/skeleton.js';
+import SpiderClass from '../entities/spider.js';
+import VampireClass from '../entities/vampire.js';
 
 export default class DemoClass extends ProjectClass
 {
@@ -86,6 +93,10 @@ export default class DemoClass extends ProjectClass
     mapEntity(mapName,entityName)
     {
         switch (entityName) {
+            case 'player':
+                return(PlayerClass);
+            case 'bot':
+                return(BotClass);
             case 'captain_chest':
                 return(CaptainChestClass);
             case 'pickup_m16':
@@ -112,6 +123,16 @@ export default class DemoClass extends ProjectClass
                 return(ProjectileVampireClass);
             case 'projectile_queen':
                 return(ProjectileQueenClass);
+            case 'dragon_queen':
+                return(DragonQueenClass);
+            case 'ratkin':
+                return(RatkinClass);
+            case 'skeleton':
+                return(SkeletonClass);
+            case 'spider':
+                return(SpiderClass);
+            case 'vampire':
+                return(VampireClass);
         }
 
         return(null);
