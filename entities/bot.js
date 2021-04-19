@@ -11,6 +11,28 @@ export default class BotClass extends EntityClass
         
         this.isBot=true;
         
+            // model
+        
+        this.modelName=data.model;
+        this.frameRate=30;
+        this.rotationOrder=this.MODEL_ROTATION_ORDER_XYZ;
+        this.scale.setFromValues(3000,3000,3000);
+        this.radius=1500;
+        this.height=4500;
+        this.eyeOffset=4400;
+        this.weight=180;
+        this.modelHideMeshes=['Captain_jetpack','Captain_body'];
+        
+            // physics
+            
+        this.maxBumpCount=2;
+        this.floorRiseHeight=2000;
+        this.collisionSpokeCount=48;
+        this.collisionHeightSegmentCount=2;
+        this.collisionHeightMargin=10;
+        this.canBeClimbed=false;
+
+        
         this.health=0;
         this.healthInitialCount=0;
         this.healthMaxCount=0;
