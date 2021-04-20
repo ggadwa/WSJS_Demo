@@ -179,7 +179,7 @@ export default class MonsterBaseClass extends EntityClass
         this.seekNodeDistanceSlop=this.core.game.lookupValue(this.json.config.seekNodeDistanceSlop,this.data,0);
         this.seekNodeAngleSlop=this.core.game.lookupValue(this.json.config.seekNodeAngleSlop,this.data,0);
         this.seekPauseDistance=this.core.game.lookupValue(this.json.config.seekPauseDistance,this.data,0);
-        
+/*        
         this.sleepAnimation=this.core.game.lookupAnimationValue(this.json.animations.sleepAnimation);
         this.wakeUpAnimation=this.core.game.lookupAnimationValue(this.json.animations.wakeUpAnimation);
         this.idleAnimation=this.core.game.lookupAnimationValue(this.json.animations.idleAnimation);
@@ -195,7 +195,7 @@ export default class MonsterBaseClass extends EntityClass
         this.meleeSound=this.core.game.lookupSoundValue(this.json.sounds.meleeSound);
         this.deathSound=this.core.game.lookupSoundValue(this.json.sounds.deathSound);
         this.fallSound=this.core.game.lookupSoundValue(this.json.sounds.fallSound);
-        
+*/
         this.wakeUpSetTriggerName=this.core.game.lookupValue(this.json.triggers.wakeUpSetTrigger,this.data,null);
         this.deathSetTriggerName=this.core.game.lookupValue(this.json.triggers.deathSetTrigger,this.data,null);
         this.showTriggerName=this.core.game.lookupValue(this.json.triggers.showTrigger,this.data,null);
