@@ -5,7 +5,7 @@ export default class DragonQueenClass extends MonsterBaseClass
 {
     constructor(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
     {
-        super(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
+        super(core,name,null,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
         
             // model
         
@@ -28,8 +28,57 @@ export default class DragonQueenClass extends MonsterBaseClass
         this.collisionHeightMargin=10;
         this.canBeClimbed=false;
         
-        
-        
+            // monster base settings
+            
+        this.startHealth=500;
+        this.startAsleep=true;
+        this.wakeUpDistance=6000;
+        this.wakeUpOnOtherWakeUpDistance=6000;
+        this.idleDistance=-1;
+            
+        this.meleeDistance=6000;
+        this.meleeWaitTick=3000;
+        this.meleeDamage=20;
+            
+        this.projectileDistance=60000;
+        this.projectileWaitTick=6000;
+        this.projectileFirePosition=new PointClass(0,5800,2500);
+        this.projectileJson='projectile_queen';
+        this.projectileData=null;
+        this.projectileRequiresSight=false;
+        this.noSelfDamage=true;
+        this.hitAnimationPercentage=0.4;
+            
+        this.maxTurnSpeed=4;
+        this.forwardAcceleration=4;
+        this.forwardDeceleration=2;
+        this.forwardMaxSpeed=100;
+        this.reverseAcceleration=4;
+        this.reverseDeceleration=2;
+        this.reverseMaxSpeed=20;
+        this.sideAcceleration=4;
+        this.sideDeceleration=2;
+        this.sideMaxSpeed=80;
+        this.damageSpeedFactor=1.0;
+        this.slideMoveTick=2000;
+        this.jumpWaitTick=0;
+        this.jumpWaitTickRandomAdd=0;
+        this.jumpHeight=0;
+        this.canBump=true;
+        this.canSlide=true;
+        this.canBePushed=false;
+        this.angleYProjectileRange=5;
+        this.angleYMeleeRange=15;
+            
+        this.idlePath=null;
+        this.stalkByPath=true;
+        this.seekNodeDistanceSlop=1000;
+        this.seekNodeAngleSlop=35;
+        this.seekPauseDistance=4000;
+
+        this.wakeUpSetTriggerName='queen_wake';
+        this.deathSetTriggerName='queen_dead';
+        this.showTriggerName=null;
         
             // animations
             

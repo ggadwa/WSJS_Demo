@@ -5,7 +5,7 @@ export default class RatkinClass extends MonsterBaseClass
 {
     constructor(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
     {
-        super(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
+        super(core,name,null,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
         
             // model
         
@@ -28,7 +28,56 @@ export default class RatkinClass extends MonsterBaseClass
         this.collisionHeightMargin=10;
         this.canBeClimbed=false;
         
+            // monster base settings
         
+        this.startHealth=80;
+        this.startAsleep=false;
+        this.wakeUpDistance=30000;
+        this.wakeUpOnOtherWakeUpDistance=30000;
+        this.idleDistance=75000;
+            
+        this.meleeDistance=5000;
+        this.meleeWaitTick=1500;
+        this.meleeDamage=20;
+        this.projectileDistance=0;
+        this.projectileWaitTick=0;
+        this.projectileFirePosition=new PointClass(0,0,0);
+        this.projectileJson=null;
+        this.projectileData=null;
+        this.projectileRequiresSight=false;
+        this.noSelfDamage=false;
+        this.hitAnimationPercentage=1.0;
+            
+        this.maxTurnSpeed=3;
+        this.forwardAcceleration=4;
+        this.forwardDeceleration=2;
+        this.forwardMaxSpeed=50;
+        this.reverseAcceleration=4;
+        this.reverseDeceleration=2;
+        this.reverseMaxSpeed=20;
+        this.sideAcceleration=4;
+        this.sideDeceleration=2;
+        this.sideMaxSpeed=40;
+        this.damageSpeedFactor=0.25;
+        this.slideMoveTick=2000;
+        this.jumpWaitTick=0;
+        this.jumpWaitTickRandomAdd=0;
+        this.jumpHeight=0;
+        this.canBump=true;
+        this.canSlide=true;
+        this.canBePushed=false;
+        this.angleYProjectileRange=5;
+        this.angleYMeleeRange=15;
+            
+        this.idlePath=null;
+        this.stalkByPath=false;
+        this.seekNodeDistanceSlop=1000;
+        this.seekNodeAngleSlop=35;
+        this.seekPauseDistance=4000;
+    
+        this.wakeUpSetTriggerName=null;
+        this.deathSetTriggerName=null;
+        this.showTriggerName=null;
         
             // animation
             

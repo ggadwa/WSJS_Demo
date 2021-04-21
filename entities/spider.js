@@ -5,7 +5,7 @@ export default class SpiderClass extends MonsterBaseClass
 {
     constructor(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
     {
-        super(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
+        super(core,name,null,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
         
             // model
         
@@ -28,7 +28,57 @@ export default class SpiderClass extends MonsterBaseClass
         this.collisionHeightMargin=10;
         this.canBeClimbed=false;
         
+            // monster base settings
         
+        this.startHealth=40;
+        this.startAsleep=false;
+        this.wakeUpDistance=35000;
+        this.wakeUpOnOtherWakeUpDistance=30000;
+        this.idleDistance=75000;
+            
+        this.meleeDistance=5000;
+        this.meleeWaitTick=800;
+        this.meleeDamage=5;
+            
+        this.projectileDistance=0;
+        this.projectileWaitTick=0;
+        this.projectileFirePosition=new PointClass(0,0,0);
+        this.projectileJson=null;
+        this.projectileData=null;
+        this.projectileRequiresSight=false;
+        this.noSelfDamage=false;
+        this.hitAnimationPercentage=1.0;
+            
+        this.maxTurnSpeed=8;
+        this.forwardAcceleration=10;
+        this.forwardDeceleration=8;
+        this.forwardMaxSpeed=150;
+        this.reverseAcceleration=4;
+        this.reverseDeceleration=2;
+        this.reverseMaxSpeed=20;
+        this.sideAcceleration=8;
+        this.sideDeceleration=6;
+        this.sideMaxSpeed=100;
+        this.damageSpeedFactor=0;
+        this.slideMoveTick=2000;
+        this.jumpWaitTick=2000;
+        this.jumpWaitTickRandomAdd=500;
+        this.jumpHeight=250;
+        this.canBump=false;
+        this.canSlide=true;
+        this.canBePushed=true;
+        this.angleYProjectileRange=5;
+        this.angleYMeleeRange=15;
+            
+        this.idlePath=null;
+        this.stalkByPath=false;
+        this.seekNodeDistanceSlop=1000;
+        this.seekNodeAngleSlop=35;
+        this.seekPauseDistance=4000;
+    
+        this.wakeUpSetTriggerName=null;
+        this.deathSetTriggerName=null;
+        this.showTriggerName=data.showTrigger;
         
             // animations
             
@@ -49,6 +99,5 @@ export default class SpiderClass extends MonsterBaseClass
         this.meleeSound={"name":"spider_wake_up","rate":1.2,"randomRateAdd":0.2,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
         this.deathSound={"name":"spider_die","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
         this.fallSound=null;
-
     }
 }

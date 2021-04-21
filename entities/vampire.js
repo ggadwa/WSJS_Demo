@@ -5,7 +5,7 @@ export default class VampireClass extends MonsterBaseClass
 {
     constructor(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
     {
-        super(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
+        super(core,name,null,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
         
             // model
         
@@ -28,7 +28,57 @@ export default class VampireClass extends MonsterBaseClass
         this.collisionHeightMargin=10;
         this.canBeClimbed=false;
         
+            // monster base settings
         
+        this.startHealth=240;
+        this.startAsleep=false;
+        this.wakeUpDistance=25000;
+        this.wakeUpOnOtherWakeUpDistance=0;
+        this.idleDistance=75000;
+            
+        this.meleeDistance=6000;
+        this.meleeWaitTick=2500;
+        this.meleeDamage=20;
+            
+        this.projectileDistance=40000;
+        this.projectileWaitTick=5000;
+        this.projectileFirePosition=new PointClass(0,4100,3500);
+        this.projectileJson='projectile_vampire';
+        this.projectileData=null;
+        this.projectileRequiresSight=true;
+        this.noSelfDamage=false;
+        this.hitAnimationPercentage=0.8;
+            
+        this.maxTurnSpeed=5;
+        this.forwardAcceleration=4;
+        this.forwardDeceleration=2;
+        this.forwardMaxSpeed=80;
+        this.reverseAcceleration=4;
+        this.reverseDeceleration=2;
+        this.reverseMaxSpeed=20;
+        this.sideAcceleration=4;
+        this.sideDeceleration=2;
+        this.sideMaxSpeed=60;
+        this.damageSpeedFactor=0;
+        this.slideMoveTick=2000;
+        this.jumpWaitTick=0;
+        this.jumpWaitTickRandomAdd=0;
+        this.jumpHeight=0;
+        this.canBump=true;
+        this.canSlide=true;
+        this.canBePushed=false;
+        this.angleYProjectileRange=5;
+        this.angleYMeleeRange=15;
+            
+        this.idlePath=data.idlePath;
+        this.stalkByPath=false;
+        this.seekNodeDistanceSlop=2000;
+        this.seekNodeAngleSlop=35;
+        this.seekPauseDistance=4000;
+    
+        this.wakeUpSetTriggerName=null;
+        this.deathSetTriggerName=null;
+        this.showTriggerName=null;
         
             // animations
             
@@ -49,6 +99,5 @@ export default class VampireClass extends MonsterBaseClass
         this.meleeSound={"name":"vampire_wake_up","rate":1.2,"randomRateAdd":0.4,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
         this.deathSound={"name":"vampire_die","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
         this.fallSound={"name":"thud","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
-
     }
 }

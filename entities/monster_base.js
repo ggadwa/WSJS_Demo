@@ -4,7 +4,7 @@ import BoundClass from '../../../code/utility/bound.js';
 import EntityClass from '../../../code/game/entity.js';
 
 //
-// monster class
+// base monster class
 //
 
 export default class MonsterBaseClass extends EntityClass
@@ -126,83 +126,8 @@ export default class MonsterBaseClass extends EntityClass
         this.fireAngle=new PointClass(0,0,0);
         this.fireVector=new PointClass(0,0,0);
         this.fireHitPoint=new PointClass(0,0,0);
-        
-        Object.seal(this);
     }
 
-    initialize()
-    {
-        super.initialize();            
-        
-        this.startHealth=this.core.game.lookupValue(this.json.config.startHealth,this.data,0);
-        this.startAsleep=this.core.game.lookupValue(this.json.config.startAsleep,this.data,false);
-        this.wakeUpDistance=this.core.game.lookupValue(this.json.config.wakeUpDistance,this.data,0);
-        this.wakeUpOnOtherWakeUpDistance=this.core.game.lookupValue(this.json.config.wakeUpOnOtherWakeUpDistance,this.data,0);
-        this.idleDistance=this.core.game.lookupValue(this.json.config.idleDistance,this.data,0);
-        
-        this.meleeDistance=this.core.game.lookupValue(this.json.config.meleeDistance,this.data,0);
-        this.meleeWaitTick=this.core.game.lookupValue(this.json.config.meleeWaitTick,this.data,0);
-        this.meleeDamage=this.core.game.lookupValue(this.json.config.meleeDamage,this.data,0);
-        
-        this.projectileDistance=this.core.game.lookupValue(this.json.config.projectileDistance,this.data,0);
-        this.projectileWaitTick=this.core.game.lookupValue(this.json.config.projectileWaitTick,this.data,0);
-        this.projectileFirePosition=this.core.game.lookupPointValue(this.json.config.projectileFirePosition,0,0,0);
-        this.projectileJson=this.core.game.lookupValue(this.json.config.projectileJson,this.data,null);
-        this.projectileData=this.json.config.projectileData;
-        this.projectileRequiresSight=this.core.game.lookupValue(this.json.config.projectileRequiresSight,this.data,0);
-        this.noSelfDamage=this.core.game.lookupValue(this.json.config.noSelfDamage,this.data,false);
-        this.hitAnimationPercentage=this.core.game.lookupValue(this.json.config.hitAnimationPercentage,this.data,1.0);
-        
-        this.maxTurnSpeed=this.core.game.lookupValue(this.json.config.maxTurnSpeed,this.data,0);
-        this.forwardAcceleration=this.core.game.lookupValue(this.json.config.forwardAcceleration,this.data,0);
-        this.forwardDeceleration=this.core.game.lookupValue(this.json.config.forwardDeceleration,this.data,0);
-        this.forwardMaxSpeed=this.core.game.lookupValue(this.json.config.forwardMaxSpeed,this.data,0);
-        this.reverseAcceleration=this.core.game.lookupValue(this.json.config.reverseAcceleration,this.data,0);
-        this.reverseDeceleration=this.core.game.lookupValue(this.json.config.reverseDeceleration,this.data,0);
-        this.reverseMaxSpeed=this.core.game.lookupValue(this.json.config.reverseMaxSpeed,this.data,0);
-        this.sideAcceleration=this.core.game.lookupValue(this.json.config.sideAcceleration,this.data,0);
-        this.sideDeceleration=this.core.game.lookupValue(this.json.config.sideDeceleration,this.data,0);
-        this.sideMaxSpeed=this.core.game.lookupValue(this.json.config.sideMaxSpeed,this.data,0);
-        this.damageSpeedFactor=this.core.game.lookupValue(this.json.config.damageSpeedFactor,this.data,0);
-        this.slideMoveTick=this.core.game.lookupValue(this.json.config.slideMoveTick,this.data,0);
-        this.jumpWaitTick=this.core.game.lookupValue(this.json.config.jumpWaitTick,this.data,0);
-        this.jumpWaitTickRandomAdd=this.core.game.lookupValue(this.json.config.jumpWaitTickRandomAdd,this.data,0);
-        this.jumpHeight=this.core.game.lookupValue(this.json.config.jumpHeight,this.data,0);
-        this.canBump=this.core.game.lookupValue(this.json.config.canBump,this.data,true);
-        this.canSlide=this.core.game.lookupValue(this.json.config.canSlide,this.data,true);
-        this.canBePushed=this.core.game.lookupValue(this.json.config.canBePushed,this.data,false);
-        this.angleYProjectileRange=this.core.game.lookupValue(this.json.config.angleYProjectileRange,this.data,0);
-        this.angleYMeleeRange=this.core.game.lookupValue(this.json.config.angleYMeleeRange,this.data,0);
-        
-        this.idlePath=this.core.game.lookupValue(this.json.config.idlePath,this.data,null);
-        this.stalkByPath=this.core.game.lookupValue(this.json.config.stalkByPath,this.data,false);
-        this.seekNodeDistanceSlop=this.core.game.lookupValue(this.json.config.seekNodeDistanceSlop,this.data,0);
-        this.seekNodeAngleSlop=this.core.game.lookupValue(this.json.config.seekNodeAngleSlop,this.data,0);
-        this.seekPauseDistance=this.core.game.lookupValue(this.json.config.seekPauseDistance,this.data,0);
-/*        
-        this.sleepAnimation=this.core.game.lookupAnimationValue(this.json.animations.sleepAnimation);
-        this.wakeUpAnimation=this.core.game.lookupAnimationValue(this.json.animations.wakeUpAnimation);
-        this.idleAnimation=this.core.game.lookupAnimationValue(this.json.animations.idleAnimation);
-        this.walkAnimation=this.core.game.lookupAnimationValue(this.json.animations.walkAnimation);
-        this.meleeLeftAnimation=this.core.game.lookupAnimationValue(this.json.animations.meleeLeftAnimation);
-        this.meleeRightAnimation=this.core.game.lookupAnimationValue(this.json.animations.meleeRightAnimation);
-        this.projectileAnimation=this.core.game.lookupAnimationValue(this.json.animations.projectileAnimation);
-        this.hitAnimation=this.core.game.lookupAnimationValue(this.json.animations.hitAnimation);
-        this.dieAnimation=this.core.game.lookupAnimationValue(this.json.animations.dieAnimation);
-        
-        this.wakeUpSound=this.core.game.lookupSoundValue(this.json.sounds.wakeUpSound);
-        this.hurtSound=this.core.game.lookupSoundValue(this.json.sounds.hurtSound);
-        this.meleeSound=this.core.game.lookupSoundValue(this.json.sounds.meleeSound);
-        this.deathSound=this.core.game.lookupSoundValue(this.json.sounds.deathSound);
-        this.fallSound=this.core.game.lookupSoundValue(this.json.sounds.fallSound);
-*/
-        this.wakeUpSetTriggerName=this.core.game.lookupValue(this.json.triggers.wakeUpSetTrigger,this.data,null);
-        this.deathSetTriggerName=this.core.game.lookupValue(this.json.triggers.deathSetTrigger,this.data,null);
-        this.showTriggerName=this.core.game.lookupValue(this.json.triggers.showTrigger,this.data,null);
-        
-        return(true);
-    }
-    
     ready()
     {
         super.ready();
