@@ -7,7 +7,7 @@ export default class BotClass extends EntityClass
 {
     constructor(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
     {
-        super(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
+        super(core,name,null,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
         
         this.isBot=true;
         
@@ -31,44 +31,51 @@ export default class BotClass extends EntityClass
         this.collisionHeightSegmentCount=2;
         this.collisionHeightMargin=10;
         this.canBeClimbed=false;
+        
+            // settings
+            
+        this.healthMaxCount=data.healthMaxCount;
+        this.armorMaxCount=data.armorMaxCount;
+        
+        this.maxTurnSpeed=data.maxTurnSpeed;
+        this.forwardAcceleration=15;
+        this.forwardDeceleration=30;
+        this.forwardMaxSpeed=data.forwardMaxSpeed;
+        this.backwardAcceleration=10;
+        this.backwardDeceleration=25;
+        this.backwardMaxSpeed=Math.trunc(this.forwardMaxSpeed*0.9);
+        this.sideAcceleration=25;
+        this.sideDeceleration=50;
+        this.sideMaxSpeed=Math.trunc(this.forwardMaxSpeed*0.6);
+        this.swimAcceleration=10;
+        this.swimDeceleration=70;
+        this.swimMaxSpeed=Math.trunc(this.forwardMaxSpeed*0.5);
+        this.flyAcceleration=30;
+        this.flyDeceleration=50;
+        this.flyMaxSpeed=Math.trunc(this.forwardMaxSpeed*0.75);
+            
+        this.jumpHeight=data.jumpHeight;
+        this.jumpWaterHeight=Math.trunc(this.jumpHeight*1.25);
+        this.damageFlinchWaitTick=500;
+        this.fallDamageMinDistance=10000;
+        this.fallDamagePercentage=0.05;
+        this.seekNodeDistanceSlop=1000;
+        this.seekNodeAngleSlop=35;
 
+        this.targetScanYRange=data.targetScanYRange;
+        this.targetForgetDistance=100000;
+        this.targetFireYRange=data.targetFireYRange;
+        this.targetFireSlop=data.targetFireSlop;
+ 
+            // variables
         
         this.health=0;
-        this.healthInitialCount=0;
-        this.healthMaxCount=0;
-        
         this.armor=0;
-        this.armorInitialCount=0;
-        this.armorMaxCount=0;
         
         this.inStandingAnimation=true;
         
-        this.maxTurnSpeed=0;
-        this.forwardAcceleration=0;
-        this.forwardDeceleration=0;
-        this.forwardMaxSpeed=0;
-        this.backwardAcceleration=0;
-        this.backwardDeceleration=0;
-        this.backwardMaxSpeed=0;
-        this.sideAcceleration=0;
-        this.sideDeceleration=0;
-        this.sideMaxSpeed=0;
-        this.swimAcceleration=0;
-        this.swimDeceleration=0;
-        this.swimMaxSpeed=0;
-        this.flyAcceleration=0;
-        this.flyDeceleration=0;
-        this.flyMaxSpeed=0;
-
-        this.jumpHeight=0;
-        this.jumpWaterHeight=0;
-        this.damageFlinchWaitTick=0;
-        this.fallDamageMinDistance=0;
-        this.fallDamagePercentage=0;
-        this.respawnWaitTick=0;
         this.movementFreezeTick=0;
         
-        this.nextDamageTick=0;
         this.falling=false;
         this.fallStartY=0;
         this.lastInLiquidIdx=-1;
@@ -76,11 +83,13 @@ export default class BotClass extends EntityClass
         
         this.lastWheelClick=0;
         
-        this.pistolWeapons=null;
+        this.pistolWeapon=null;
         this.m16Weapon=null;
         this.grenadeWeapon=null;
         
         this.currentWeapon=null;
+        this.grenadeNextThrowTick=0;
+        this.weaponClipFinishTick=0;
         
         this.forceAnimationUpdate=false;
         
@@ -93,17 +102,10 @@ export default class BotClass extends EntityClass
         this.currentTargetYScan=0;
         
         this.flying=false;
-        this.stuckCount=0;
 
         this.respawnTick=0;
+        this.stuckCount=0;
         this.telefragTriggerEntity=null;
-        
-        this.seekNodeDistanceSlop=0;
-        this.seekNodeAngleSlop=0;
-        this.targetScanYRange=0;
-        this.targetForgetDistance=0;
-        this.targetFireYRange=0;
-        this.targetFireSlop=0;
         
             // animations
             
@@ -116,6 +118,8 @@ export default class BotClass extends EntityClass
         this.runAnimationM16={"startFrame":933,"endFrame":955,"actionFrame":0,"meshes":null};
         this.fireIdleAnimationM16={"startFrame":775,"endFrame":815,"actionFrame":0,"meshes":null};
         this.fireRunAnimationM16={"startFrame":865,"endFrame":887,"actionFrame":0,"meshes":null};
+        
+        this.throwGrenadeAnimation={"startFrame":51,"endFrame":91,"actionFrame":0,"meshes":null};
         
         this.dieAnimation={"startFrame":209,"endFrame":247,"actionFrame":0,"meshes":null};
         
@@ -144,52 +148,9 @@ export default class BotClass extends EntityClass
     {
         if (!super.initialize()) return(false);
         
-        this.healthInitialCount=this.core.game.lookupValue(this.json.config.healthInitialCount,this.data,0);
-        this.healthMaxCount=this.core.game.lookupValue(this.json.config.healthMaxCount,this.data,0);
-        this.armorInitialCount=this.core.game.lookupValue(this.json.config.armorInitialCount,this.data,0);
-        this.armorMaxCount=this.core.game.lookupValue(this.json.config.armorMaxCount,this.data,0);
-        
-        this.maxTurnSpeed=this.core.game.lookupValue(this.json.config.maxTurnSpeed,this.data,0);
-        
-        this.forwardAcceleration=this.core.game.lookupValue(this.json.config.forwardAcceleration,this.data,0);
-        this.forwardDeceleration=this.core.game.lookupValue(this.json.config.forwardDeceleration,this.data,0);
-        this.forwardMaxSpeed=this.core.game.lookupValue(this.json.config.forwardMaxSpeed,this.data,0);
-        this.backwardAcceleration=this.core.game.lookupValue(this.json.config.backwardAcceleration,this.data,0);
-        this.backwardDeceleration=this.core.game.lookupValue(this.json.config.backwardDeceleration,this.data,0);
-        this.backwardMaxSpeed=this.core.game.lookupValue(this.json.config.backwardMaxSpeed,this.data,0);
-        this.sideAcceleration=this.core.game.lookupValue(this.json.config.sideAcceleration,this.data,0);
-        this.sideDeceleration=this.core.game.lookupValue(this.json.config.sideDeceleration,this.data,0);
-        this.sideMaxSpeed=this.core.game.lookupValue(this.json.config.sideMaxSpeed,this.data,0);
-        this.swimAcceleration=this.core.game.lookupValue(this.json.config.swimAcceleration,this.data,0);
-        this.swimDeceleration=this.core.game.lookupValue(this.json.config.swimDeceleration,this.data,0);
-        this.swimMaxSpeed=this.core.game.lookupValue(this.json.config.swimMaxSpeed,this.data,0);
-        this.flyAcceleration=this.core.game.lookupValue(this.json.config.flyAcceleration,this.data,0);
-        this.flyDeceleration=this.core.game.lookupValue(this.json.config.flyDeceleration,this.data,0);
-        this.flyMaxSpeed=this.core.game.lookupValue(this.json.config.flyMaxSpeed,this.data,0);
-
-        this.jumpHeight=this.core.game.lookupValue(this.json.config.jumpHeight,this.data,0);
-        this.jumpWaterHeight=this.core.game.lookupValue(this.json.config.jumpWaterHeight,this.data,0);
-        this.damageFlinchWaitTick=this.core.game.lookupValue(this.json.config.damageFlinchWaitTick,this.data,0);
-        this.fallDamageMinDistance=this.core.game.lookupValue(this.json.config.fallDamageMinDistance,this.data,0);
-        this.fallDamagePercentage=this.core.game.lookupValue(this.json.config.fallDamagePercentage,this.data,0);
-        this.respawnWaitTick=this.core.game.lookupValue(this.json.config.respawnWaitTick,this.data,0);
-        
-        this.seekNodeDistanceSlop=this.core.game.lookupValue(this.json.config.seekNodeDistanceSlop,this.data,0);
-        this.seekNodeAngleSlop=this.core.game.lookupValue(this.json.config.seekNodeAngleSlop,this.data,0);
-        this.targetScanYRange=this.core.game.lookupValue(this.json.config.targetScanYRange,this.data,0);
-        this.targetForgetDistance=this.core.game.lookupValue(this.json.config.targetForgetDistance,this.data,0);
-        this.targetFireYRange=this.core.game.lookupValue(this.json.config.targetFireYRange,this.data,0);
-        this.targetFireSlop=this.core.game.lookupValue(this.json.config.targetFireSlop,this.data,0);
-        
-        this.flying=false;
-        
-        this.nextDamageTick=0;
-        this.lastInLiquidIdx=-1;
-        this.lastUnderLiquid=false;
-        
             // setup the weapons
         
-        this.pistolWeapon=this.addEntity('weapon_pistole','pistol',new PointClass(0,0,0),new PointClass(0,0,0),null,this,this,true);
+        this.pistolWeapon=this.addEntity('weapon_pistol','pistol',new PointClass(0,0,0),new PointClass(0,0,0),null,this,this,true);
         this.m16Weapon=this.addEntity('weapon_m16','m16',new PointClass(0,0,0),new PointClass(0,0,0),null,this,this,true);
         this.grenadeWeapon=this.addEntity('weapon_grenade','grenade',new PointClass(0,0,0),new PointClass(0,0,0),null,this,this,true);
         
@@ -211,8 +172,8 @@ export default class BotClass extends EntityClass
         
             // full health
             
-        this.health=this.healthInitialCount;
-        this.armor=this.armorInitialCount;
+        this.health=this.data.healthMaxCount;
+        this.armor=0;
         this.stuckCount=0;
         this.passThrough=false;         // reset if this is being called after bot died
         
@@ -223,6 +184,12 @@ export default class BotClass extends EntityClass
         this.telefragTriggerEntity=null;
         
         this.movementFreezeTick=0;
+        
+        this.lastInLiquidIdx=-1;
+        this.lastUnderLiquid=false;
+        
+        this.grenadeNextThrowTick=0;
+        this.weaponClipFinishTick=0;
         
             // weapons
             
@@ -277,7 +244,7 @@ export default class BotClass extends EntityClass
         
     die(fromEntity,isTelefrag)
     {
-        this.respawnTick=this.core.game.timestamp+this.respawnWaitTick;
+        this.respawnTick=this.core.game.timestamp+this.getMultiplayerRespawnWaitTick();
         this.passThrough=true;
         
         this.playSound(this.dieSound);
@@ -377,7 +344,7 @@ export default class BotClass extends EntityClass
             // find best weapon
             
         weapon=this.pistolWeapon;
-        if ((this.m16Weapon.available) && (this.m16Weapon.ammoInClipCount!==0)) weapon=this.m16Weapon;
+        if ((this.m16Weapon.available) && ((this.m16Weapon.ammoInClipCount!==0) || (this.m16Weapon.clipCount!==0))) weapon=this.m16Weapon;
 
         if (this.currentWeapon===weapon) return;
         
@@ -392,7 +359,7 @@ export default class BotClass extends EntityClass
             // special check for no ammo
             // if so, don't fight
         
-        if (this.currentWeapon.ammoInClip===0) {
+        if ((this.currentWeapon.ammoInClipCount===0) && (this.currentWeapon.clipCount===0)) {
             this.targetEntity=null;
             return;
         }
@@ -457,7 +424,16 @@ export default class BotClass extends EntityClass
 
     fireWeapon()
     {
-        let dist,weapon;
+        let dist,timestamp;
+        
+            // are we changing clips?
+            
+        timestamp=this.getTimestamp();
+            
+        if (this.weaponClipFinishTick!==0) {
+            if (this.weaponClipFinishTick>timestamp) return;
+            this.weaponClipFinishTick=0;
+        }
         
             // are we turned enough towards player?
             
@@ -474,8 +450,21 @@ export default class BotClass extends EntityClass
         
         if (this.grenadeWeapon.ammoCount!==0) {
             if ((dist>15000) && (dist<60000)) {
-                if (weapon.fire(this.firePosition,this.drawAngle)) return;
+                if (this.grenadeNextThrowTick<timestamp) {
+                    this.grenadeNextThrowTick=timestamp+10000;
+                    if (this.grenadeWeapon.fire(this.firePosition,this.drawAngle)) {
+                        this.interuptAnimation(this.throwGrenadeAnimation);
+                        return;
+                    }
+                }
             }
+        }
+        
+            // need clip change?
+            
+        if (this.currentWeapon.needClipChange()) {
+            this.weaponClipFinishTick=timestamp+this.currentWeapon.changeClip(this.position);
+            return;
         }
            
             // otherwise shot the held weapon

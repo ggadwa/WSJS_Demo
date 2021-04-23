@@ -7,7 +7,7 @@ export default class EntityFPSPlayerClass extends EntityClass
 {
     constructor(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
     {
-        super(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
+        super(core,name,null,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
         
         this.isPlayer=true;
         
@@ -32,42 +32,42 @@ export default class EntityFPSPlayerClass extends EntityClass
         this.collisionHeightMargin=10;
         this.canBeClimbed=false;
         
-        this.health=0;
-        this.healthInitialCount=0;
-        this.healthMaxCount=0;
+            // settings
+            
+        this.healthMaxCount=this.isMultiplayerGame()?data.healthMaxCount:100;
+        this.armorMaxCount=this.isMultiplayerGame()?data.armorMaxCount:100;
         
+        this.maxTurnSpeed=this.isMultiplayerGame()?data.maxTurnSpeed:8;
+        this.maxLookSpeed=8;
+        this.maxLookAngle=80;
+        this.forwardAcceleration=15;
+        this.forwardDeceleration=30;
+        this.forwardMaxSpeed=this.isMultiplayerGame()?data.forwardMaxSpeed:200;
+        this.backwardAcceleration=10;
+        this.backwardDeceleration=25;
+        this.backwardMaxSpeed=Math.trunc(this.forwardMaxSpeed*0.9);
+        this.sideAcceleration=25;
+        this.sideDeceleration=50;
+        this.sideMaxSpeed=Math.trunc(this.forwardMaxSpeed*0.6);
+        this.swimAcceleration=10;
+        this.swimDeceleration=70;
+        this.swimMaxSpeed=Math.trunc(this.forwardMaxSpeed*0.5);
+        this.flyAcceleration=30;
+        this.flyDeceleration=50;
+        this.flyMaxSpeed=Math.trunc(this.forwardMaxSpeed*0.75);
+        
+        this.jumpHeight=this.isMultiplayerGame()?data.jumpHeight:400;
+        this.jumpWaterHeight=Math.trunc(this.jumpHeight*1.25);
+        this.damageFlinchWaitTick=500;
+        this.fallDamageMinDistance=10000;
+        this.fallDamagePercentage=0.002;
+        
+            // variables
+        
+        this.health=0;
         this.armor=0;
-        this.armorInitialCount=0;
-        this.armorMaxCount=0;
         
         this.inStandingAnimation=true;
-        
-        this.maxTurnSpeed=0;
-        this.maxLookSpeed=0;
-        this.maxLookAngle=0;
-        
-        this.forwardAcceleration=0;
-        this.forwardDeceleration=0;
-        this.forwardMaxSpeed=0;
-        this.backwardAcceleration=0;
-        this.backwardDeceleration=0;
-        this.backwardMaxSpeed=0;
-        this.sideAcceleration=0;
-        this.sideDeceleration=0;
-        this.sideMaxSpeed=0;
-        this.swimAcceleration=0;
-        this.swimDeceleration=0;
-        this.swimMaxSpeed=0;
-        this.flyAcceleration=0;
-        this.flyDeceleration=0;
-        this.flyMaxSpeed=0;
-        
-        this.jumpHeight=0;
-        this.jumpWaterHeight=0;
-        this.damageFlinchWaitTick=0;
-        this.fallDamageMinDistance=0;
-        this.fallDamagePercentage=0;
-        this.respawnWaitTick=0;
         
         this.nextDamageTick=0;
         this.falling=false;
@@ -89,7 +89,6 @@ export default class EntityFPSPlayerClass extends EntityClass
         
         this.respawnTick=0;
         this.telefragTriggerEntity=null;
-        
 
             // animations
             
@@ -103,6 +102,8 @@ export default class EntityFPSPlayerClass extends EntityClass
         this.fireIdleAnimationM16={"startFrame":775,"endFrame":815,"actionFrame":0,"meshes":null};
         this.fireRunAnimationM16={"startFrame":865,"endFrame":887,"actionFrame":0,"meshes":null};
         this.dieAnimation={"startFrame":209,"endFrame":247,"actionFrame":0,"meshes":null};
+        
+        this.throwGrenadeAnimation={"startFrame":51,"endFrame":91,"actionFrame":0,"meshes":null};
         
             // sounds
             
@@ -125,41 +126,6 @@ export default class EntityFPSPlayerClass extends EntityClass
     {
         if (!super.initialize()) return(false);
         
-        this.healthInitialCount=this.core.game.lookupValue(this.json.config.healthInitialCount,this.data,0);
-        this.healthMaxCount=this.core.game.lookupValue(this.json.config.healthMaxCount,this.data,0);
-        this.armorInitialCount=this.core.game.lookupValue(this.json.config.armorInitialCount,this.data,0);
-        this.armorMaxCount=this.core.game.lookupValue(this.json.config.armorMaxCount,this.data,0);
-        
-        this.maxTurnSpeed=this.core.game.lookupValue(this.json.config.maxTurnSpeed,this.data,0);
-        this.maxLookSpeed=this.core.game.lookupValue(this.json.config.maxLookSpeed,this.data,0);
-        this.maxLookAngle=this.core.game.lookupValue(this.json.config.maxLookAngle,this.data,0);
-        
-        this.forwardAcceleration=this.core.game.lookupValue(this.json.config.forwardAcceleration,this.data,0);
-        this.forwardDeceleration=this.core.game.lookupValue(this.json.config.forwardDeceleration,this.data,0);
-        this.forwardMaxSpeed=this.core.game.lookupValue(this.json.config.forwardMaxSpeed,this.data,0);
-        this.backwardAcceleration=this.core.game.lookupValue(this.json.config.backwardAcceleration,this.data,0);
-        this.backwardDeceleration=this.core.game.lookupValue(this.json.config.backwardDeceleration,this.data,0);
-        this.backwardMaxSpeed=this.core.game.lookupValue(this.json.config.backwardMaxSpeed,this.data,0);
-        this.sideAcceleration=this.core.game.lookupValue(this.json.config.sideAcceleration,this.data,0);
-        this.sideDeceleration=this.core.game.lookupValue(this.json.config.sideDeceleration,this.data,0);
-        this.sideMaxSpeed=this.core.game.lookupValue(this.json.config.sideMaxSpeed,this.data,0);
-        this.swimAcceleration=this.core.game.lookupValue(this.json.config.swimAcceleration,this.data,0);
-        this.swimDeceleration=this.core.game.lookupValue(this.json.config.swimDeceleration,this.data,0);
-        this.swimMaxSpeed=this.core.game.lookupValue(this.json.config.swimMaxSpeed,this.data,0);
-        this.flyAcceleration=this.core.game.lookupValue(this.json.config.flyAcceleration,this.data,0);
-        this.flyDeceleration=this.core.game.lookupValue(this.json.config.flyDeceleration,this.data,0);
-        this.flyMaxSpeed=this.core.game.lookupValue(this.json.config.flyMaxSpeed,this.data,0);
-
-        this.jumpHeight=this.core.game.lookupValue(this.json.config.jumpHeight,this.data,0);
-        this.jumpWaterHeight=this.core.game.lookupValue(this.json.config.jumpWaterHeight,this.data,0);
-        this.damageFlinchWaitTick=this.core.game.lookupValue(this.json.config.damageFlinchWaitTick,this.data,0);
-        this.fallDamageMinDistance=this.core.game.lookupValue(this.json.config.fallDamageMinDistance,this.data,0);
-        this.fallDamagePercentage=this.core.game.lookupValue(this.json.config.fallDamagePercentage,this.data,0);
-        this.respawnWaitTick=this.core.game.lookupValue(this.json.config.respawnWaitTick,this.data,0);
-        
-        this.nextDamageTick=0;
-        this.lastInLiquidIdx=-1;
-        this.lastUnderLiquid=false;
 
             // setup the weapons
         
@@ -193,8 +159,8 @@ export default class EntityFPSPlayerClass extends EntityClass
         
             // health
             
-        this.health=this.healthInitialCount;
-        this.armor=this.armorInitialCount;
+        this.health=this.healthMaxCount;
+        this.armor=0;
         
         this.passThrough=false;
         
@@ -202,6 +168,10 @@ export default class EntityFPSPlayerClass extends EntityClass
         
         this.falling=false;
         this.fallStartY=0;
+        
+        this.nextDamageTick=0;
+        this.lastInLiquidIdx=-1;
+        this.lastUnderLiquid=false;
         
             // ready all the weapons
             
@@ -290,7 +260,7 @@ export default class EntityFPSPlayerClass extends EntityClass
         
     die(fromEntity,isTelefrag)
     {
-        this.respawnTick=this.core.game.timestamp+this.respawnWaitTick;
+        this.respawnTick=this.core.game.timestamp+this.getMultiplayerRespawnWaitTick();
         this.passThrough=true;
         
         this.cameraGotoTopDown(10000);
@@ -558,12 +528,15 @@ export default class EntityFPSPlayerClass extends EntityClass
         
             // animations
             
-        if (this.currentWeapon===this.pistolWeapon) {
+        if (weapon===this.pistolWeapon) {
             this.interuptAnimation((this.inStandingAnimation)?this.fireIdleAnimationPistol:this.fireRunAnimationPistol);
         }
         else {
-            if (this.currentWeapon===this.m16Weapon) {
+            if (weapon===this.m16Weapon) {
                 this.interuptAnimation((this.inStandingAnimation)?this.fireIdleAnimationM16:this.fireRunAnimationM16);
+            }
+            else {
+                this.interuptAnimation(this.throwGrenadeAnimation);
             }
         }
     }
