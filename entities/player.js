@@ -85,7 +85,7 @@ export default class EntityFPSPlayerClass extends EntityClass
         this.weaponRaiseFinishTick=-1;
         this.weaponClipFinishTick=-1;
         
-        this.forceAnimationUpdate=false;
+        this.animationFinishTick=0;
         
         this.respawnTick=0;
         this.telefragTriggerEntity=null;
@@ -188,6 +188,8 @@ export default class EntityFPSPlayerClass extends EntityClass
         this.currentWeapon=this.pistolWeapon;
         
         this.adjustMeshesForCurrentWeapon();
+        
+        this.animationFinishTick=0;
 
             // start with the idle animation
             
@@ -364,20 +366,22 @@ export default class EntityFPSPlayerClass extends EntityClass
         
     setCurrentAnimation()
     {
+            // are we stalled in another animation?
+            
+        if (this.animationFinishTick!==0) {
+            if (this.animationFinishTick<this.getTimestamp()) this.animationFinishTick=0;
+        }
+        
+            // setup the running animation
+            
         if ((this.movement.x!==0) || (this.movement.z!==0)) {
-            if ((this.inStandingAnimation) || (this.forceAnimationUpdate)) {
-                this.continueAnimation((this.currentWeapon===this.pistolWeapon)?this.runAnimationPistol:this.runAnimationM16);
-            }
+            if (this.animationFinishTick===0) this.continueAnimation((this.currentWeapon===this.pistolWeapon)?this.runAnimationPistol:this.runAnimationM16);
             this.inStandingAnimation=false;
         }
         else {
-            if ((!this.inStandingAnimation) || (this.forceAnimationUpdate)) {
-                this.continueAnimation((this.currentWeapon===this.pistolWeapon)?this.idleAnimationPistol:this.idleAnimationM16);
-            }
+            if (this.animationFinishTick===0) this.continueAnimation((this.currentWeapon===this.pistolWeapon)?this.idleAnimationPistol:this.idleAnimationM16);
             this.inStandingAnimation=true;
         }
-        
-        this.forceAnimationUpdate=false;        
     }
 
         //
@@ -430,7 +434,6 @@ export default class EntityFPSPlayerClass extends EntityClass
                 
         this.currentWeapon.show=true;
 
-        this.forceAnimationUpdate=true;
         this.adjustMeshesForCurrentWeapon();
 
         this.weaponRaiseFinishTick=this.core.game.timestamp+this.currentWeapon.runRaiseAnimation();
@@ -500,6 +503,7 @@ export default class EntityFPSPlayerClass extends EntityClass
     runWeaponFiring()
     {
         let weapon;
+        let timestamp=this.getTimestamp();
         
         weapon=null;
         
@@ -529,14 +533,31 @@ export default class EntityFPSPlayerClass extends EntityClass
             // animations
             
         if (weapon===this.pistolWeapon) {
-            this.interuptAnimation((this.inStandingAnimation)?this.fireIdleAnimationPistol:this.fireRunAnimationPistol);
+            if (this.inStandingAnimation) {
+                this.continueAnimation(this.fireIdleAnimationPistol);
+                this.animationFinishTick=timestamp+this.getAnimationTickCount(this.fireIdleAnimationPistol);
+            }
+            else {
+                this.continueAnimation(this.fireRunAnimationPistol);
+                this.animationFinishTick=timestamp+this.getAnimationTickCount(this.fireRunAnimationPistol);
+            }
         }
         else {
             if (weapon===this.m16Weapon) {
-                this.interuptAnimation((this.inStandingAnimation)?this.fireIdleAnimationM16:this.fireRunAnimationM16);
+                if (this.inStandingAnimation) {
+                    this.continueAnimation(this.fireIdleAnimationM16);
+                    this.animationFinishTick=timestamp+this.getAnimationTickCount(this.fireIdleAnimationM16);
+                }
+                else {
+                    this.continueAnimation(this.fireRunAnimationM16);
+                    this.animationFinishTick=timestamp+this.getAnimationTickCount(this.fireRunAnimationM16);
+                }
             }
             else {
-                this.interuptAnimation(this.throwGrenadeAnimation);
+                if (weapon===this.grenadeWeapon) {
+                    this.startAnimation(this.throwGrenadeAnimation);
+                    this.animationFinishTick=timestamp+this.getAnimationTickCount(this.throwGrenadeAnimation);
+                }
             }
         }
     }

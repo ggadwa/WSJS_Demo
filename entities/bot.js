@@ -90,6 +90,7 @@ export default class BotClass extends EntityClass
         this.currentWeapon=null;
         this.grenadeNextThrowTick=0;
         this.weaponClipFinishTick=0;
+        this.animationFinishTick=0;
         
         this.forceAnimationUpdate=false;
         
@@ -190,11 +191,12 @@ export default class BotClass extends EntityClass
         
         this.grenadeNextThrowTick=0;
         this.weaponClipFinishTick=0;
+        this.animationFinishTick=0;
         
             // weapons
             
         this.pistolWeapon.available=true;
-        this.m16Weapon.available=false;
+        this.m16Weapon.available=true; //false;
         this.grenadeWeapon.available=true;
 
         this.currentWeapon=this.pistolWeapon;
@@ -244,7 +246,7 @@ export default class BotClass extends EntityClass
         
     die(fromEntity,isTelefrag)
     {
-        this.respawnTick=this.core.game.timestamp+this.getMultiplayerRespawnWaitTick();
+        this.respawnTick=this.getTimestamp()+this.getMultiplayerRespawnWaitTick();
         this.passThrough=true;
         
         this.playSound(this.dieSound);
@@ -453,7 +455,8 @@ export default class BotClass extends EntityClass
                 if (this.grenadeNextThrowTick<timestamp) {
                     this.grenadeNextThrowTick=timestamp+10000;
                     if (this.grenadeWeapon.fire(this.firePosition,this.drawAngle)) {
-                        this.interuptAnimation(this.throwGrenadeAnimation);
+                        this.startAnimation(this.throwGrenadeAnimation);
+                        this.animationFinishTick=timestamp+this.getAnimationTickCount(this.throwGrenadeAnimation);
                         return;
                     }
                 }
@@ -474,11 +477,25 @@ export default class BotClass extends EntityClass
             // animations
             
         if (this.currentWeapon===this.pistolWeapon) {
-            this.interuptAnimation((this.inStandingAnimation)?this.fireIdleAnimationPistol:this.fireRunAnimationPistol);
+            if (this.inStandingAnimation) {
+                this.continueAnimation(this.fireIdleAnimationPistol);
+                this.animationFinishTick=timestamp+this.getAnimationTickCount(this.fireIdleAnimationPistol);
+            }
+            else {
+                this.continueAnimation(this.fireRunAnimationPistol);
+                this.animationFinishTick=timestamp+this.getAnimationTickCount(this.fireRunAnimationPistol);
+            }
         }
         else {
             if (this.currentWeapon===this.m16Weapon) {
-                this.interuptAnimation((this.inStandingAnimation)?this.fireIdleAnimationM16:this.fireRunAnimationM16);
+                if (this.inStandingAnimation) {
+                    this.continueAnimation(this.fireIdleAnimationM16);
+                    this.animationFinishTick=timestamp+this.getAnimationTickCount(this.fireIdleAnimationM16);
+                }
+                else {
+                    this.continueAnimation(this.fireRunAnimationM16);
+                    this.animationFinishTick=timestamp+this.getAnimationTickCount(this.fireRunAnimationM16);
+                }
             }
         }
     }
@@ -491,6 +508,7 @@ export default class BotClass extends EntityClass
     {
         let nodeIdx,prevNodeIdx,moveForward;
         let turnDiff,slideLeft,liquid,liquidIdx,gravityFactor,fallDist;
+        let timestamp=this.getTimestamp();
         
         super.run();
         
@@ -523,7 +541,7 @@ export default class BotClass extends EntityClass
             
                 // bots always recover
                 
-            if (this.core.game.timestamp>this.respawnTick)  this.ready();
+            if (timestamp>this.respawnTick)  this.ready();
             
             return;
         }
@@ -625,11 +643,16 @@ export default class BotClass extends EntityClass
         
             // select proper animation
             
-        if (!moveForward) {
-            this.continueAnimation((this.currentWeapon===this.pistolWeapon)?this.idleAnimationPistol:this.idleAnimationM16);
-        }
-        else {
-            this.continueAnimation((this.currentWeapon===this.pistolWeapon)?this.runAnimationPistol:this.runAnimationM16);
+        this.inStandingAnimation=!moveForward;
+        
+        if ((this.animationFinishTick===0) || (this.animationFinishTick<timestamp)) {
+            this.animationFinishTick=0;
+            if (!moveForward) {
+                this.continueAnimation((this.currentWeapon===this.pistolWeapon)?this.idleAnimationPistol:this.idleAnimationM16);
+            }
+            else {
+                this.continueAnimation((this.currentWeapon===this.pistolWeapon)?this.runAnimationPistol:this.runAnimationM16);
+            }
         }
         
             // if we are touching an entity, try to slide out
@@ -645,7 +668,7 @@ export default class BotClass extends EntityClass
             // mostly happens from certain weapon fires
             
         if (this.movementFreezeTick!==0) {
-            if (this.movementFreezeTick>this.core.game.timestamp) {
+            if (this.movementFreezeTick>timestamp) {
                 moveForward=false;
                 slideLeft=false;
             }
