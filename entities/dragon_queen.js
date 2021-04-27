@@ -3,9 +3,9 @@ import MonsterBaseClass from './monster_base.js';
 
 export default class DragonQueenClass extends MonsterBaseClass
 {
-    constructor(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
+    constructor(core,name,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
     {
-        super(core,name,null,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
+        super(core,name,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
         
             // model
         

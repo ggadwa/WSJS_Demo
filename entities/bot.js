@@ -5,9 +5,9 @@ import MonsterBaseClass from './monster_base.js';
 
 export default class BotClass extends EntityClass
 {
-    constructor(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
+    constructor(core,name,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
     {
-        super(core,name,null,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
+        super(core,name,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
         
         this.isBot=true;
         

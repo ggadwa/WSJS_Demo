@@ -9,9 +9,9 @@ import EntityClass from '../../../code/game/entity.js';
 
 export default class MonsterBaseClass extends EntityClass
 {
-    constructor(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
+    constructor(core,name,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
     {
-        super(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
+        super(core,name,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
         
         this.STATE_HIDDEN=0;
         this.STATE_ASLEEP=1;

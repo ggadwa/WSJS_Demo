@@ -28,116 +28,123 @@ import VampireClass from '../entities/vampire.js';
 
 export default class DemoClass extends ProjectClass
 {
-    mapModels(mapName,singlePlayer)
+    initialize()
     {
-        if (singlePlayer) {
-            return(['captain_chest','crystal_ball','dragon_queen','grenade',
-                    'hand_beretta','hand_m16','m16','player','ratkin_skeleton',
-                    'shield','skeleton_captain','spider','vampire_patriarch']);
-        }
-        else {
-            return(['beretta','chicken_leg','grenade','hand_beretta','hand_m16','m16',
-                    'player_al','player_bob','player_dan','player_greg','player_jack',
-                    'player_larry','player_mike','shield']);
-        }
-    }
-    
-    mapBitmaps(mapName,singlePlayer)
-    {
-        return(['textures/particle_smoke.png','textures/particle_blob.png','textures/particle_hit.png','textures/particle_glow.png']);
-    }
-    
-    mapSounds(mapName,singlePlayer)
-    {
-        if (singlePlayer) {
-            return(['blade','chime','door','explosion','gate','grenade_bounce','hurt','laser','m16_fire',
-                    'm16_reload','pickup','pistol_fire','pistol_reload','player_die','queen_hurt','queen_scream',
-                    'rat_die','rat_wake_up','skeleton_die','skeleton_wake_up','spider_die','spider_wake_up',
-                    'splash','stone_platform','throw','thud','vampire_die','vampire_wake_up','dungeon','fire']);
-        }
-        else {
-            return(['chime','door','explosion','grenade_bounce','hurt','m16_fire',
-                    'm16_reload','pickup','pistol_fire','pistol_reload','player_die','splash',
-                    'stone_platform','throw','thud','wind','fire','liquid']);
-        }
-    }
-    
-    mapCube(mapName,cubeName)
-    {
-        switch (cubeName) {
-            case 'kill':
-                return(KillClass);
-        }
+        super.initialize();
         
-        return(null);
-    }
-    
-    mapEffect(mapName,effectName)
-    {
-        switch (effectName) {
-            case 'explosion':
-                return(ExplosionClass);
-            case 'fire':
-                return(FireClass);
-            case 'fountain':
-                return(FountainClass);
-            case 'hit':
-                return(HitClass);
-            case 'sparkle':
-                return(SparkleClass);
-        }
+            // project effects
         
-        return(null);
-    }
-
-    mapEntity(mapName,entityName)
-    {
-        switch (entityName) {
-            case 'player':
-                return(PlayerClass);
-            case 'bot':
-                return(BotClass);
-            case 'captain_chest':
-                return(CaptainChestClass);
-            case 'pickup_m16':
-                return(PickupM16Class);
-            case 'pickup_pistol_ammo':
-                return(PickupPistolAmmoClass);
-            case 'pickup_m16_ammo':
-                return(PickupM16AmmoClass);
-            case 'pickup_grenade':
-                return(PickupGrenadeClass);
-            case 'pickup_health':
-                return(PickupHealthClass);
-            case 'pickup_armor':
-                return(PickupArmorClass);
-            case 'weapon_pistol':
-                return(WeaponPistolClass);
-            case 'weapon_m16':
-                return(WeaponM16Class);
-            case 'weapon_grenade':
-                return(WeaponGrenadeClass);
-            case 'projectile_grenade':
-                return(ProjectileGrenadeClass);
-            case 'projectile_vampire':
-                return(ProjectileVampireClass);
-            case 'projectile_queen':
-                return(ProjectileQueenClass);
-            case 'dragon_queen':
-                return(DragonQueenClass);
-            case 'ratkin':
-                return(RatkinClass);
-            case 'skeleton':
-                return(SkeletonClass);
-            case 'spider':
-                return(SpiderClass);
-            case 'vampire':
-                return(VampireClass);
-        }
-
-        return(null);
+        this.addEffectClass('explosion',ExplosionClass);
+        this.addEffectClass('fire',FireClass);
+        this.addEffectClass('fountain',FountainClass);
+        this.addEffectClass('hit',HitClass);
+        this.addEffectClass('sparkle',SparkleClass);
+        
+            // project entities
+            
+        this.addEntityClass('player',PlayerClass);
+        this.addEntityClass('bot',BotClass);
+        this.addEntityClass('captain_chest',CaptainChestClass);
+        this.addEntityClass('pickup_m16',PickupM16Class);
+        this.addEntityClass('pickup_pistol_ammo',PickupPistolAmmoClass);
+        this.addEntityClass('pickup_m16_ammo',PickupM16AmmoClass);
+        this.addEntityClass('pickup_grenade',PickupGrenadeClass);
+        this.addEntityClass('pickup_health',PickupHealthClass);
+        this.addEntityClass('pickup_armor',PickupArmorClass);
+        this.addEntityClass('weapon_pistol',WeaponPistolClass);
+        this.addEntityClass('weapon_m16',WeaponM16Class);
+        this.addEntityClass('weapon_grenade',WeaponGrenadeClass);
+        this.addEntityClass('projectile_grenade',ProjectileGrenadeClass);
+        this.addEntityClass('projectile_vampire',ProjectileVampireClass);
+        this.addEntityClass('projectile_queen',ProjectileQueenClass);
+        this.addEntityClass('dragon_queen',DragonQueenClass);
+        this.addEntityClass('ratkin',RatkinClass);
+        this.addEntityClass('skeleton',SkeletonClass);
+        this.addEntityClass('spider',SpiderClass);
+        this.addEntityClass('vampire',VampireClass);
+        
+            // cube classes
+            
+        this.addCubeClass('kill',KillClass);
+            
+            // models
+            
+        this.addCommonModel('grenade');
+        this.addCommonModel('hand_beretta');
+        this.addCommonModel('hand_m16');
+        this.addCommonModel('m16');
+        this.addCommonModel('shield');
+        
+        this.addSingleplayerModel('player');
+        this.addSingleplayerModel('captain_chest');
+        this.addSingleplayerModel('crystal_ball');
+        this.addSingleplayerModel('dragon_queen');
+        this.addSingleplayerModel('ratkin_skeleton');
+        this.addSingleplayerModel('skeleton_captain');
+        this.addSingleplayerModel('spider');
+        this.addSingleplayerModel('vampire_patriarch');
+        
+        this.addMultiplayerModel('beretta');
+        this.addMultiplayerModel('chicken_leg');
+        this.addMultiplayerModel('player_al');
+        this.addMultiplayerModel('player_bob');
+        this.addMultiplayerModel('player_dan');
+        this.addMultiplayerModel('player_greg');
+        this.addMultiplayerModel('player_jack');
+        this.addMultiplayerModel('player_larry');
+        this.addMultiplayerModel('player_mike');
+        
+            // bitmaps
+            
+        this.addCommonBitmap('textures/particle_smoke.png');
+        this.addCommonBitmap('textures/particle_blob.png');
+        this.addCommonBitmap('textures/particle_hit.png');
+        this.addCommonBitmap('textures/particle_glow.png');
+        
+           // sounds
+           
+        this.addCommonSound('chime');
+        this.addCommonSound('door');
+        this.addCommonSound('explosion');
+        this.addCommonSound('grenade_bounce');
+        this.addCommonSound('hurt');
+        this.addCommonSound('m16_fire');
+        this.addCommonSound('m16_reload');
+        this.addCommonSound('pickup');
+        this.addCommonSound('pistol_fire');
+        this.addCommonSound('pistol_reload');
+        this.addCommonSound('player_die');
+        this.addCommonSound('splash');
+        this.addCommonSound('stone_platform');
+        this.addCommonSound('throw');
+        this.addCommonSound('thud');
+        this.addCommonSound('fire');
+        
+        this.addSingleplayerSound('blade');
+        this.addSingleplayerSound('gate');
+        this.addSingleplayerSound('laser');
+        this.addSingleplayerSound('queen_hurt');
+        this.addSingleplayerSound('queen_scream');
+        this.addSingleplayerSound('rat_die');
+        this.addSingleplayerSound('rat_wake_up');
+        this.addSingleplayerSound('skeleton_die');
+        this.addSingleplayerSound('skeleton_wake_up');
+        this.addSingleplayerSound('spider_die');
+        this.addSingleplayerSound('spider_wake_up',);
+        this.addSingleplayerSound('vampire_die');
+        this.addSingleplayerSound('vampire_wake_up');
+        this.addSingleplayerSound('dungeon');
+        
+        this.addMultiplayerSound('wind');
+        this.addMultiplayerSound('liquid');
+        
+        this.addSequence('lost');
     }
     
+        //
+        // overrides
+        //
+        
     mapStartup(mapName)
     {
     }

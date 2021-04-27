@@ -5,9 +5,9 @@ import EntityClass from '../../../code/game/entity.js';
 
 export default class EntityFPSPlayerClass extends EntityClass
 {
-    constructor(core,name,jsonName,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
+    constructor(core,name,position,angle,data,mapSpawn,spawnedBy,heldBy,show)
     {
-        super(core,name,null,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
+        super(core,name,position,angle,data,mapSpawn,spawnedBy,heldBy,show);
         
         this.isPlayer=true;
         
@@ -274,7 +274,7 @@ export default class EntityFPSPlayerClass extends EntityClass
         this.multiplayerAddScore(fromEntity,this,isTelefrag);
         this.multiplayerShowScores(true);
         
-        if (this.core.game.multiplayerMode===this.core.game.MULTIPLAYER_MODE_NONE) this.core.game.lost(this);
+        if (this.core.game.multiplayerMode===this.core.game.MULTIPLAYER_MODE_NONE) this.startSequence('lost');
     }
     
     damage(fromEntity,damage,hitPoint)
