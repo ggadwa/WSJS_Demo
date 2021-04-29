@@ -1,4 +1,6 @@
 import ProjectClass from '../../../code/main/project.js';
+import PointClass from '../../../code/utility/point.js';
+import ColorClass from '../../../code/utility/color.js';
 import KillClass from '../cubes/kill.js';
 import ExplosionClass from '../effects/explosion.js';
 import FireClass from '../effects/fire.js';
@@ -138,7 +140,38 @@ export default class DemoClass extends ProjectClass
         this.addMultiplayerSound('wind');
         this.addMultiplayerSound('liquid');
         
+            // sequences
+        
         this.addSequence('lost');
+        
+            // characters
+            
+        this.addCharacter('Al','player','bot','textures/character_al.png',{"model":"player_al","forwardMaxSpeed":100,"maxTurnSpeed":5,"healthMaxCount":50,"armorMaxCount":50,"jumpHeight":400,"targetScanYRange":80,"targetFireYRange":15,"targetFireSlop":15});
+        this.addCharacter('Bob','player','bot','textures/character_bob.png',{"model":"player_bob","forwardMaxSpeed":220,"maxTurnSpeed":8,"healthMaxCount":100,"armorMaxCount":75,"jumpHeight":400,"targetScanYRange":120,"targetFireYRange":10,"targetFireSlop":10});
+        this.addCharacter('Dan','player','bot','textures/character_dan.png',{"model":"player_dan","forwardMaxSpeed":220,"maxTurnSpeed":8,"healthMaxCount":100,"armorMaxCount":100,"jumpHeight":400,"targetScanYRange":100,"targetFireYRange":15,"targetFireSlop":15});
+        this.addCharacter('Greg','player','bot','textures/character_greg.png',{"model":"player_greg","forwardMaxSpeed":160,"maxTurnSpeed":7,"healthMaxCount":150,"armorMaxCount":100,"jumpHeight":400,"targetScanYRange":120,"targetFireYRange":10,"targetFireSlop":10});
+        this.addCharacter('Jack','player','bot','textures/character_jack.png',{"model":"player_jack","forwardMaxSpeed":200,"maxTurnSpeed":8,"healthMaxCount":150,"armorMaxCount":150,"jumpHeight":400,"targetScanYRange":120,"targetFireYRange":15,"targetFireSlop":10});
+        this.addCharacter('Larry','player','bot','textures/character_larry.png',{"model":"player_larry","forwardMaxSpeed":200,"maxTurnSpeed":8,"healthMaxCount":100,"armorMaxCount":100,"jumpHeight":400,"targetScanYRange":120,"targetFireYRange":5,"targetFireSlop":0});
+        this.addCharacter('Mike','player','bot','textures/character_mike.png',{"model":"player_mike","forwardMaxSpeed":180,"maxTurnSpeed":7,"healthMaxCount":75,"armorMaxCount":100,"jumpHeight":400,"targetScanYRange":160,"targetFireYRange":5,"targetFireSlop":0});
+
+            // interfaces
+
+        this.addInterfaceText('multiplayer_message','',this.POSITION_TOP_LEFT,new PointClass(5,25),20,this.TEXT_ALIGN_LEFT,new ColorClass(1.0,0.7,1.0),1.0,true);
+        this.addInterfaceText('armor_count','',this.POSITION_BOTTOM_RIGHT,new PointClass(-50,-50),20,this.TEXT_ALIGN_RIGHT,new ColorClass(0.3,0.3,1.0),1.0,true);
+        this.addInterfaceText('health_count','',this.POSITION_BOTTOM_RIGHT,new PointClass(-50,-12),20,this.TEXT_ALIGN_RIGHT,new ColorClass(1.0,0.3,0.3),1.0,true);
+        this.addInterfaceText('pistol_clip_count','',this.POSITION_BOTTOM_LEFT,new PointClass(35,-135),20,this.TEXT_ALIGN_LEFT,new ColorClass(1.0,1.0,0.0),1.0,true);
+        this.addInterfaceText('pistol_bullet_count','',this.POSITION_BOTTOM_LEFT,new PointClass(35,-115),20,this.TEXT_ALIGN_LEFT,new ColorClass(1.0,1.0,0.0),1.0,true);
+        this.addInterfaceText('m16_clip_count','',this.POSITION_BOTTOM_LEFT,new PointClass(35,-80),20,this.TEXT_ALIGN_LEFT,new ColorClass(1.0,1.0,0.0),1.0,true);
+        this.addInterfaceText('m16_bullet_count','',this.POSITION_BOTTOM_LEFT,new PointClass(35,-60),20,this.TEXT_ALIGN_LEFT,new ColorClass(1.0,1.0,0.0),1.0,true);
+        this.addInterfaceText('grenade_count','',this.POSITION_BOTTOM_LEFT,new PointClass(35,-15),20,this.TEXT_ALIGN_LEFT,new ColorClass(1.0,1.0,0.0),1.0,true);
+        
+        this.addInterfaceElement('armor','textures/icon_armor.png',35,35,this.POSITION_BOTTOM_RIGHT,new PointClass(-40,-80),new ColorClass(1.0,1.0,1.0),1.0,true);
+        this.addInterfaceElement('health','textures/icon_health.png',35,35,this.POSITION_BOTTOM_RIGHT,new PointClass(-40,-40),new ColorClass(1.0,1.0,1.0),1.0,true);
+        this.addInterfaceElement('pistol_crosshair','textures/crosshair_dot.png',8,8,this.POSITION_MIDDLE,new PointClass(-4,-4),new ColorClass(1.0,1.0,1.0),1.0,false);
+        this.addInterfaceElement('pistol_bullet','textures/icon_beretta_bullet.png',25,50,this.POSITION_BOTTOM_LEFT,new PointClass(5,-165),new ColorClass(1.0,1.0,1.0),1.0,true);
+        this.addInterfaceElement('m16_crosshair','textures/crosshair_x.png',8,8,this.POSITION_MIDDLE,new PointClass(-4,-4),new ColorClass(1.0,1.0,1.0),1.0,false);
+        this.addInterfaceElement('m16_bullet','textures/icon_m16_bullet.png',25,50,this.POSITION_BOTTOM_LEFT,new PointClass(5,-110),new ColorClass(1.0,1.0,1.0),1.0,true);
+        this.addInterfaceElement('grenade','textures/icon_grenade.png',25,50,this.POSITION_BOTTOM_LEFT,new PointClass(5,-55),new ColorClass(1.0,1.0,1.0),1.0,true);
     }
     
         //
