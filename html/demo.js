@@ -156,22 +156,31 @@ export default class DemoClass extends ProjectClass
 
             // interfaces
 
-        this.addInterfaceText('multiplayer_message','',this.POSITION_TOP_LEFT,new PointClass(5,25),20,this.TEXT_ALIGN_LEFT,new ColorClass(1.0,0.7,1.0),1.0,true);
-        this.addInterfaceText('armor_count','',this.POSITION_BOTTOM_RIGHT,new PointClass(-50,-50),20,this.TEXT_ALIGN_RIGHT,new ColorClass(0.3,0.3,1.0),1.0,true);
-        this.addInterfaceText('health_count','',this.POSITION_BOTTOM_RIGHT,new PointClass(-50,-12),20,this.TEXT_ALIGN_RIGHT,new ColorClass(1.0,0.3,0.3),1.0,true);
-        this.addInterfaceText('pistol_clip_count','',this.POSITION_BOTTOM_LEFT,new PointClass(35,-135),20,this.TEXT_ALIGN_LEFT,new ColorClass(1.0,1.0,0.0),1.0,true);
-        this.addInterfaceText('pistol_bullet_count','',this.POSITION_BOTTOM_LEFT,new PointClass(35,-115),20,this.TEXT_ALIGN_LEFT,new ColorClass(1.0,1.0,0.0),1.0,true);
-        this.addInterfaceText('m16_clip_count','',this.POSITION_BOTTOM_LEFT,new PointClass(35,-80),20,this.TEXT_ALIGN_LEFT,new ColorClass(1.0,1.0,0.0),1.0,true);
-        this.addInterfaceText('m16_bullet_count','',this.POSITION_BOTTOM_LEFT,new PointClass(35,-60),20,this.TEXT_ALIGN_LEFT,new ColorClass(1.0,1.0,0.0),1.0,true);
-        this.addInterfaceText('grenade_count','',this.POSITION_BOTTOM_LEFT,new PointClass(35,-15),20,this.TEXT_ALIGN_LEFT,new ColorClass(1.0,1.0,0.0),1.0,true);
+        this.addInterfaceText('multiplayer_message','',this.POSITION_TOP_LEFT,new PointClass(5,25,0),20,this.TEXT_ALIGN_LEFT,new ColorClass(1.0,0.7,1.0),1.0,true);
+        this.addInterfaceText('armor_count','',this.POSITION_BOTTOM_RIGHT,new PointClass(-50,-50,0),20,this.TEXT_ALIGN_RIGHT,new ColorClass(0.3,0.3,1.0),1.0,true);
+        this.addInterfaceText('health_count','',this.POSITION_BOTTOM_RIGHT,new PointClass(-50,-12,0),20,this.TEXT_ALIGN_RIGHT,new ColorClass(1.0,0.3,0.3),1.0,true);
+        this.addInterfaceText('pistol_clip_count','',this.POSITION_BOTTOM_LEFT,new PointClass(35,-135,0),20,this.TEXT_ALIGN_LEFT,new ColorClass(1.0,1.0,0.0),1.0,true);
+        this.addInterfaceText('pistol_bullet_count','',this.POSITION_BOTTOM_LEFT,new PointClass(35,-115,0),20,this.TEXT_ALIGN_LEFT,new ColorClass(1.0,1.0,0.0),1.0,true);
+        this.addInterfaceText('m16_clip_count','',this.POSITION_BOTTOM_LEFT,new PointClass(35,-80,0),20,this.TEXT_ALIGN_LEFT,new ColorClass(1.0,1.0,0.0),1.0,true);
+        this.addInterfaceText('m16_bullet_count','',this.POSITION_BOTTOM_LEFT,new PointClass(35,-60,0),20,this.TEXT_ALIGN_LEFT,new ColorClass(1.0,1.0,0.0),1.0,true);
+        this.addInterfaceText('grenade_count','',this.POSITION_BOTTOM_LEFT,new PointClass(35,-15,0),20,this.TEXT_ALIGN_LEFT,new ColorClass(0.0,1.0,0.0),1.0,true);
         
-        this.addInterfaceElement('armor','textures/icon_armor.png',35,35,this.POSITION_BOTTOM_RIGHT,new PointClass(-40,-80),new ColorClass(1.0,1.0,1.0),1.0,true);
-        this.addInterfaceElement('health','textures/icon_health.png',35,35,this.POSITION_BOTTOM_RIGHT,new PointClass(-40,-40),new ColorClass(1.0,1.0,1.0),1.0,true);
-        this.addInterfaceElement('pistol_crosshair','textures/crosshair_dot.png',8,8,this.POSITION_MIDDLE,new PointClass(-4,-4),new ColorClass(1.0,1.0,1.0),1.0,false);
-        this.addInterfaceElement('pistol_bullet','textures/icon_beretta_bullet.png',25,50,this.POSITION_BOTTOM_LEFT,new PointClass(5,-165),new ColorClass(1.0,1.0,1.0),1.0,true);
-        this.addInterfaceElement('m16_crosshair','textures/crosshair_x.png',8,8,this.POSITION_MIDDLE,new PointClass(-4,-4),new ColorClass(1.0,1.0,1.0),1.0,false);
-        this.addInterfaceElement('m16_bullet','textures/icon_m16_bullet.png',25,50,this.POSITION_BOTTOM_LEFT,new PointClass(5,-110),new ColorClass(1.0,1.0,1.0),1.0,true);
-        this.addInterfaceElement('grenade','textures/icon_grenade.png',25,50,this.POSITION_BOTTOM_LEFT,new PointClass(5,-55),new ColorClass(1.0,1.0,1.0),1.0,true);
+        this.addInterfaceElement('armor','textures/icon_armor.png',35,35,this.POSITION_BOTTOM_RIGHT,new PointClass(-40,-80,0),new ColorClass(1.0,1.0,1.0),1.0,true);
+        this.addInterfaceElement('health','textures/icon_health.png',35,35,this.POSITION_BOTTOM_RIGHT,new PointClass(-40,-40,0),new ColorClass(1.0,1.0,1.0),1.0,true);
+        this.addInterfaceElement('pistol_crosshair','textures/crosshair_dot.png',8,8,this.POSITION_MIDDLE,new PointClass(-4,-4,0),new ColorClass(1.0,1.0,1.0),1.0,false);
+        this.addInterfaceElement('pistol_bullet','textures/icon_beretta_bullet.png',25,50,this.POSITION_BOTTOM_LEFT,new PointClass(5,-165,0),new ColorClass(1.0,1.0,1.0),1.0,true);
+        this.addInterfaceElement('m16_crosshair','textures/crosshair_x.png',8,8,this.POSITION_MIDDLE,new PointClass(-4,-4,0),new ColorClass(1.0,1.0,1.0),1.0,false);
+        this.addInterfaceElement('m16_bullet','textures/icon_m16_bullet.png',25,50,this.POSITION_BOTTOM_LEFT,new PointClass(5,-110,0),new ColorClass(1.0,1.0,1.0),1.0,true);
+        this.addInterfaceElement('grenade','textures/icon_grenade.png',25,50,this.POSITION_BOTTOM_LEFT,new PointClass(5,-55,0),new ColorClass(1.0,1.0,1.0),1.0,true);
+        
+            // title setup
+            
+        this.setTitleConfig('Arial','click','select');
+        this.setTitleMenu(80,82,new ColorClass(0.4,0.4,0.9),new ColorClass(0.8,0.2,0.9),this.MENU_X_ALIGN_LEFT,this.MENU_Y_ALIGN_MIDDLE);
+        this.setTitlePlayButton('Single Player Game',true);
+        this.setTitleMultiplayerButton('Multiplayer Game',true);
+        this.setTitleSetupButton('Setup',true);
+        this.setTitleQuitButton('Quit',true);
     }
     
         //
