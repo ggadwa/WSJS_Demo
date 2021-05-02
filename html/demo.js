@@ -176,7 +176,7 @@ export default class DemoClass extends ProjectClass
             // title setup
             
         this.setTitleConfig('Arial','click','select');
-        this.setTitleMenu(80,82,new ColorClass(0.4,0.4,0.9),new ColorClass(0.8,0.2,0.9),this.MENU_X_ALIGN_LEFT,this.MENU_Y_ALIGN_MIDDLE);
+        this.setTitleMenu(80,82,new ColorClass(0.4,0.4,0.9),new ColorClass(0.8,0.2,0.9),this.MENU_X_ALIGN_LEFT,this.MENU_Y_ALIGN_CENTER);
         this.setTitlePlayButton('Single Player Game',true);
         this.setTitleMultiplayerButton('Multiplayer Game',true);
         this.setTitleSetupButton('Setup',true);
