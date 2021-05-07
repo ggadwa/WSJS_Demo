@@ -181,6 +181,14 @@ export default class DemoClass extends ProjectClass
         this.setTitleMultiplayerButton('Multiplayer Game',true);
         this.setTitleSetupButton('Setup',true);
         this.setTitleQuitButton('Quit',true);
+        
+            // touch setup
+            
+        this.setTouchControls(256,48,this.POSITION_TOP_LEFT,new PointClass(5,5,0),true,true);
+        
+            // multiplayer setup
+            
+        this.setMultiplayerUI('Bob','multiplayer_message',5000);
     }
     
         //

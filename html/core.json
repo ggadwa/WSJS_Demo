@@ -8,27 +8,5 @@
     "multiplayerMaps":
         [
             "dual_castles"
-        ],
-    "title":
-        {
-            "font":"Arial",
-            "clickSound":"click",
-            "selectSound":"select",
-            "menu":{"textSize":80,"highlightTextSize":82,"color":{"r":0.4,"g":0.4,"b":0.9},"highlightColor":{"r":0.8,"g":0.2,"b":0.9},"alignX":"left","alignY":"middle"},
-            "playButton":{"title":"Single Player Game","show":true},
-            "multiplayerButton":{"title":"Multiplayer Game","show":true},
-            "setupButton":{"title":"Setup","show":true},
-            "quitButton":{"title":"Quit","show":true}
-        },
-    "config":
-        {
-            "multiplayerDefaultCharacter":"Bob",
-            "multiplayerMessageText":"multiplayer_message",
-            "multiplayerMessageWaitTick":5000,
-            "touchStickSize":256,
-            "touchButtonSize":48,
-            "touchMenuPosition":[0.01,0.01],
-            "touchShowLeftStick":true,
-            "touchShowRightStick":true
-        }
+        ]
 }
