@@ -189,6 +189,16 @@ export default class DemoClass extends ProjectClass
             // multiplayer setup
             
         this.setMultiplayerUI('Bob','multiplayer_message',5000);
+        this.addMultiplayerGame('Death Match');
+        this.addMultiplayerMap('Dual Castles','dual_castles');
+        
+            // starting map
+            
+        this.setStartMap('dungeon');
+        
+            // developer setup
+            
+        this.setDeveloper(true);
     }
     
         //
