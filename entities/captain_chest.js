@@ -1,5 +1,7 @@
 import PointClass from '../../../code/utility/point.js';
 import EntityClass from '../../../code/game/entity.js';
+import AnimationDefClass from '../../../code/model/animation_def.js';
+import SoundDefClass from '../../../code/sound/sound_def.js';
 
 export default class CaptainChestClass extends EntityClass
 {
@@ -30,11 +32,11 @@ export default class CaptainChestClass extends EntityClass
 
             // animations
             
-        this.openAnimation={"startFrame":65,"endFrame":66,"actionFrame":0,"meshes":null};
-        this.openingAnimation={"startFrame":1,"endFrame":65,"actionFrame":0,"meshes":null};
-        this.closedAnimation={"startFrame":0,"endFrame":1,"actionFrame":0,"meshes":null};
+        this.openAnimation=new AnimationDefClass(65,66,0);
+        this.openingAnimation=new AnimationDefClass(1,65,0);
+        this.closedAnimation=new AnimationDefClass(0,1,0);
         
-        this.openSound={"name":"chime","rate":1.0,"randomRateAdd":0.0,"distance":7000,"loopStart":0,"loopEnd":0,"loop":false};
+        this.openSound=new SoundDefClass('chime',1.0,0.0,7000,0,0,false);
         
         this.opened=false;
         this.openDistance=8000;

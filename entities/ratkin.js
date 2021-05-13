@@ -1,4 +1,6 @@
 import PointClass from '../../../code/utility/point.js';
+import AnimationDefClass from '../../../code/model/animation_def.js';
+import SoundDefClass from '../../../code/sound/sound_def.js';
 import MonsterBaseClass from './monster_base.js';
 
 export default class RatkinClass extends MonsterBaseClass
@@ -81,23 +83,22 @@ export default class RatkinClass extends MonsterBaseClass
         
             // animation
             
-        this.sleepAnimation={"startFrame":1694,"endFrame":1729,"actionFrame":0,"meshes":null};
-        this.wakeUpAnimation={"startFrame":1839,"endFrame":1889,"actionFrame":0,"meshes":null};
-        this.idleAnimation={"startFrame":1694,"endFrame":1729,"actionFrame":0,"meshes":null};
-        this.walkAnimation={"startFrame":1465,"endFrame":1501,"actionFrame":0,"meshes":null};
-        this.meleeLeftAnimation={"startFrame":440,"endFrame":475,"actionFrame":455,"meshes":null};
-        this.meleeRightAnimation={"startFrame":560,"endFrame":595,"actionFrame":575,"meshes":null};
-        this.projectileAnimation={"startFrame":0,"endFrame":0,"actionFrame":0,"meshes":null};
-        this.hitAnimation={"startFrame":1186,"endFrame":1221,"actionFrame":0,"meshes":null};
-        this.dieAnimation={"startFrame":1306,"endFrame":1371,"actionFrame":1354,"meshes":null};
+        this.sleepAnimation=new AnimationDefClass(1694,1729,0);
+        this.wakeUpAnimation=new AnimationDefClass(1839,1889,0);
+        this.idleAnimation=new AnimationDefClass(1694,1729,0);
+        this.walkAnimation=new AnimationDefClass(1465,1501,0);
+        this.meleeLeftAnimation=new AnimationDefClass(440,475,455);
+        this.meleeRightAnimation=new AnimationDefClass(560,595,575);
+        this.projectileAnimation=new AnimationDefClass(0,0,0);
+        this.hitAnimation=new AnimationDefClass(1186,1221,0);
+        this.dieAnimation=new AnimationDefClass(1306,1371,1354);
 
             // sounds
 
-        this.wakeUpSound={"name":"rat_wake_up","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.hurtSound={"name":"rat_wake_up","rate":0.7,"randomRateAdd":0.6,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.meleeSound={"name":"blade","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.deathSound={"name":"rat_die","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.fallSound={"name":"thud","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
-
+        this.wakeUpSound=new SoundDefClass('rat_wake_up',1.0,0,30000,0,0,false);
+        this.hurtSound=new SoundDefClass('rat_wake_up',0.7,0.6,30000,0,0,false);
+        this.meleeSound=new SoundDefClass('blade',1.0,0,10000,0,0,false);
+        this.deathSound=new SoundDefClass('rat_die',1.0,0,30000,0,0,false);
+        this.fallSound=new SoundDefClass('thud',1.0,0,30000,0,0,false);
     }
 }

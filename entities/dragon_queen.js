@@ -1,4 +1,6 @@
 import PointClass from '../../../code/utility/point.js';
+import AnimationDefClass from '../../../code/model/animation_def.js';
+import SoundDefClass from '../../../code/sound/sound_def.js';
 import MonsterBaseClass from './monster_base.js';
 
 export default class DragonQueenClass extends MonsterBaseClass
@@ -82,24 +84,22 @@ export default class DragonQueenClass extends MonsterBaseClass
         
             // animations
             
-        this.sleepAnimation={"startFrame":1154,"endFrame":1274,"actionFrame":0,"meshes":null};
-        this.wakeUpAnimation={"startFrame":1275,"endFrame":1345,"actionFrame":0,"meshes":null};
-        this.idleAnimation={"startFrame":248,"endFrame":398,"actionFrame":0,"meshes":null};
-        this.walkAnimation={"startFrame":2010,"endFrame":2060,"actionFrame":0,"meshes":null};
-        this.meleeLeftAnimation={"startFrame":2445,"endFrame":2480,"actionFrame":2460,"meshes":null};
-        this.meleeRightAnimation={"startFrame":2589,"endFrame":2624,"actionFrame":2604,"meshes":null};
-        this.projectileAnimation={"startFrame":399,"endFrame":484,"actionFrame":435,"meshes":null};
-        this.hitAnimation={"startFrame":2895,"endFrame":2925,"actionFrame":0,"meshes":null};
-        this.dieAnimation={"startFrame":3849,"endFrame":3980,"actionFrame":3975,"meshes":null};
+        this.sleepAnimation=new AnimationDefClass(1154,1274,0);
+        this.wakeUpAnimation=new AnimationDefClass(1275,1345,0);
+        this.idleAnimation=new AnimationDefClass(248,398,0);
+        this.walkAnimation=new AnimationDefClass(2010,2060,0);
+        this.meleeLeftAnimation=new AnimationDefClass(2445,2480,2460);
+        this.meleeRightAnimation=new AnimationDefClass(2589,2624,2604);
+        this.projectileAnimation=new AnimationDefClass(399,484,435);
+        this.hitAnimation=new AnimationDefClass(2895,2925,0);
+        this.dieAnimation=new AnimationDefClass(3849,3980,3975);
 
             // sounds
             
-        this.wakeUpSound={"name":"queen_scream","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.hurtSound={"name":"queen_hurt","rate":1.0,"randomRateAdd":0.6,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.meleeSound={"name":"queen_hurt","rate":0.7,"randomRateAdd":0.2,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.deathSound={"name":"queen_scream","rate":0.5,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.fallSound={"name":"thud","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
-
-
+        this.wakeUpSound=new SoundDefClass('queen_scream',1.0,0,30000,0,0,false);
+        this.hurtSound=new SoundDefClass('queen_hurt',1.0,0.6,30000,0,0,false);
+        this.meleeSound=new SoundDefClass('queen_hurt',0.7,0.2,10000,0,0,false);
+        this.deathSound=new SoundDefClass('queen_scream',0.5,0,30000,0,0,false);
+        this.fallSound=new SoundDefClass('thud',1.0,0,30000,0,0,false);
     }
 }

@@ -200,7 +200,7 @@ export default class MonsterBaseClass extends EntityClass
         this.state=this.STATE_WAKING_UP;
         
         this.startAnimation(this.wakeUpAnimation);
-        this.animationFinishTick=this.core.game.timestamp+this.getAnimationTickCount(this.wakeUpAnimation);
+        this.animationFinishTick=this.getTimestamp()+this.getAnimationTickCount(this.wakeUpAnimation);
         
         this.playSound(this.wakeUpSound);
         if (this.wakeUpSetTriggerName!==null) this.setTrigger(this.wakeUpSetTriggerName);
@@ -241,18 +241,20 @@ export default class MonsterBaseClass extends EntityClass
     
     goStalk(resetTimers)
     {
+        let timestamp=this.getTimestamp();
+        
         this.state=this.STATE_STALKING;
         
         this.movement.setFromValues(0,0,0);
         
         if (resetTimers) {
-            this.nextProjectileTick=this.core.game.timestamp+this.projectileWaitTick;
-            this.nextMeleeTick=this.core.game.timestamp+this.meleeWaitTick;
-            this.nextJumpTick=this.core.game.timestamp+(this.jumpWaitTick+Math.trunc(Math.random()*this.jumpWaitTickRandomAdd));
+            this.nextProjectileTick=timestamp+this.projectileWaitTick;
+            this.nextMeleeTick=timestamp+this.meleeWaitTick;
+            this.nextJumpTick=timestamp+(this.jumpWaitTick+Math.trunc(Math.random()*this.jumpWaitTickRandomAdd));
         }
         
         if (this.stalkByPath) {
-            this.playerNodeIdx=this.core.game.map.entityList.getPlayer().findNearestPathNode(-1);
+            this.playerNodeIdx=this.getPlayer().findNearestPathNode(-1);
             this.nextNodeIdx=this.nextNodeInPath(this.findNearestPathNode(-1),this.playerNodeIdx);  // always assume monster starts on node
         }
         
@@ -261,10 +263,12 @@ export default class MonsterBaseClass extends EntityClass
     
     goHurt()
     {
+        let timestamp=this.getTimestamp();
+        
             // we always make a noise if possible
         
-        if (this.noiseFinishTick<=this.core.game.timestamp) {
-            this.noiseFinishTick=this.core.game.timestamp+this.core.game.map.soundList.getMillisecondDurationJson(this.hurtSound);
+        if (this.noiseFinishTick<=timestamp) {
+            this.noiseFinishTick=timestamp+this.core.game.map.soundList.getMillisecondDurationJson(this.hurtSound);
             this.playSound(this.hurtSound);
         }
         
@@ -284,33 +288,37 @@ export default class MonsterBaseClass extends EntityClass
             this.state=this.STATE_HURT;
 
             this.startAnimation(this.hitAnimation);
-            this.animationFinishTick=this.core.game.timestamp+this.getAnimationTickCount(this.hitAnimation);
+            this.animationFinishTick=timestamp+this.getAnimationTickCount(this.hitAnimation);
         }
     }
     
     goMelee(distToPlayer)
     {
-        if ((distToPlayer>this.meleeDistance) || (this.core.game.timestamp<this.nextMeleeTick)) return;
+        let timestamp=this.getTimestamp();
+        
+        if ((distToPlayer>this.meleeDistance) || (timestamp<this.nextMeleeTick)) return;
         
         this.state=this.STATE_MELEE;
         
         if (Math.random()<0.5) {
             this.startAnimation(this.meleeLeftAnimation);
             this.meleeHitNextTick=this.getAnimationFinishTimestampFromFrame(this.meleeLeftAnimation.actionFrame,this.meleeLeftAnimation);
-            this.animationFinishTick=this.core.game.timestamp+this.getAnimationTickCount(this.meleeLeftAnimation);
+            this.animationFinishTick=timestamp+this.getAnimationTickCount(this.meleeLeftAnimation);
         }
         else {
             this.startAnimation(this.meleeRightAnimation);
             this.meleeHitNextTick=this.getAnimationFinishTimestampFromFrame(this.meleeRightAnimation.actionFrame,this.meleeRightAnimation);
-            this.animationFinishTick=this.core.game.timestamp+this.getAnimationTickCount(this.meleeRightAnimation);
+            this.animationFinishTick=timestamp+this.getAnimationTickCount(this.meleeRightAnimation);
         }
     }
     
     goProjectile(player,distToPlayer)
     {
+        let timestamp=this.getTimestamp();
+        
             // don't fire if past projectile distance, or less than melee distance
             
-        if ((distToPlayer>this.projectileDistance) || (distToPlayer<this.meleeDistance) || (this.core.game.timestamp<this.nextProjectileTick)) return;
+        if ((distToPlayer>this.projectileDistance) || (distToPlayer<this.meleeDistance) || (timestamp<this.nextProjectileTick)) return;
         
             // does it sight the player?
             
@@ -333,7 +341,7 @@ export default class MonsterBaseClass extends EntityClass
             
         this.startAnimation(this.projectileAnimation);
         this.projectileFireNextTick=this.getAnimationFinishTimestampFromFrame(this.projectileAnimation.actionFrame,this.projectileAnimation);
-        this.animationFinishTick=this.core.game.timestamp+this.getAnimationTickCount(this.projectileAnimation);
+        this.animationFinishTick=timestamp+this.getAnimationTickCount(this.projectileAnimation);
     }
     
     goDying()
@@ -344,7 +352,7 @@ export default class MonsterBaseClass extends EntityClass
 
         this.startAnimation(this.dieAnimation);
         this.queueAnimationStop();
-        this.animationFinishTick=this.core.game.timestamp+this.getAnimationTickCount(this.dieAnimation);
+        this.animationFinishTick=this.getTimestamp()+this.getAnimationTickCount(this.dieAnimation);
 
         this.playSound(this.deathSound);
 
@@ -418,7 +426,7 @@ export default class MonsterBaseClass extends EntityClass
         
     jump()
     {
-        this.gravity=this.core.game.map.gravityMinValue;
+        this.gravity=this.getMapGravityMinValue();
         this.movement.y=this.jumpHeight;
         
         this.playSound(this.wakeUpSound);
@@ -496,7 +504,7 @@ export default class MonsterBaseClass extends EntityClass
         
             // is animation over?
             
-        if (this.animationFinishTick<=this.core.game.timestamp) this.goStalk(true);
+        if (this.animationFinishTick<=this.getTimestamp()) this.goStalk(true);
     }
     
     runIdle(distToPlayer,gravityFactor)
@@ -554,6 +562,7 @@ export default class MonsterBaseClass extends EntityClass
     {
         let angleDif,pauseMoveForward;
         let speedFactor,maxForwardSpeed,maxReverseSpeed,maxSideSpeed;
+        let timestamp=this.getTimestamp();
         
             // if to far away from player,
             // go into idle
@@ -613,15 +622,15 @@ export default class MonsterBaseClass extends EntityClass
             // time to jump?
             
         if (this.jumpHeight!==0) {
-            if (this.core.game.timestamp>this.nextJumpTick) {
-                this.nextJumpTick=this.core.game.timestamp+(this.jumpWaitTick+Math.trunc(Math.random()*this.jumpWaitTickRandomAdd));
+            if (timestamp>this.nextJumpTick) {
+                this.nextJumpTick=timestamp+(this.jumpWaitTick+Math.trunc(Math.random()*this.jumpWaitTickRandomAdd));
                 this.jump();
             }
         }
         
             // chase player (don't move if in flinch)
 
-        if ((this.core.game.timestamp>this.movementFreezeNextTick) && (!pauseMoveForward)) {
+        if ((timestamp>this.movementFreezeNextTick) && (!pauseMoveForward)) {
             
             maxForwardSpeed=this.forwardMaxSpeed+(this.forwardMaxSpeed*speedFactor);
             maxReverseSpeed=this.reverseMaxSpeed+(this.reverseMaxSpeed*speedFactor);
@@ -648,7 +657,7 @@ export default class MonsterBaseClass extends EntityClass
                     this.position.setFromPoint(this.origPosition);
 
                     this.slideDirection=this.findSlideDirection(player);
-                    this.slideNextTick=this.core.game.timestamp+this.slideMoveTick;
+                    this.slideNextTick=timestamp+this.slideMoveTick;
                     this.sideMovement.setFromValues(0,this.movement.y,0);
                 }
             }
@@ -666,7 +675,7 @@ export default class MonsterBaseClass extends EntityClass
                 this.sideMovement.y=this.moveInMapY(this.rotMovement,gravityFactor,false);
                 this.moveInMapXZ(this.rotMovement,this.canBump,this.canSlide);
                
-                if ((this.core.game.timestamp>this.slideNextTick) || (this.collideWallMeshIdx!==-1)) {
+                if ((timestamp>this.slideNextTick) || (this.collideWallMeshIdx!==-1)) {
                     this.slideNextTick=0;
                     this.movement.y=this.sideMovement.y;
                 }
@@ -721,11 +730,13 @@ export default class MonsterBaseClass extends EntityClass
         
             // is animation over?
             
-        if (this.animationFinishTick<=this.core.game.timestamp) this.goStalk(false);
+        if (this.animationFinishTick<=this.getTimestamp()) this.goStalk(false);
     }
     
     runMelee(player,gravityFactor)
     {
+        let timestamp=this.getTimestamp();
+        
             // can fall and turn towards player while in melee
             
         this.rotMovement.setFromValues(0,0,0);
@@ -735,7 +746,7 @@ export default class MonsterBaseClass extends EntityClass
         
             // the hit itself
             
-        if ((this.meleeHitNextTick<=this.core.game.timestamp) && (this.meleeHitNextTick!==0)) {
+        if ((this.meleeHitNextTick<=timestamp) && (this.meleeHitNextTick!==0)) {
             this.playSound(this.meleeSound);
             player.damage(this,this.meleeDamage,this.position);
             
@@ -743,12 +754,13 @@ export default class MonsterBaseClass extends EntityClass
         }
             // is animation over?
             
-        if (this.animationFinishTick<=this.core.game.timestamp) this.goStalk(true);
+        if (this.animationFinishTick<=timestamp) this.goStalk(true);
     }
     
     runProjectile(player,gravityFactor)
     {
         let projEntity;
+        let timestamp=this.getTimestamp();
         
             // can fall and turns towards player while in projectile
             
@@ -759,7 +771,7 @@ export default class MonsterBaseClass extends EntityClass
         
             // the projectile itself
             
-        if ((this.projectileFireNextTick<=this.core.game.timestamp) && (this.projectileFireNextTick!==0)) {
+        if ((this.projectileFireNextTick<=timestamp) && (this.projectileFireNextTick!==0)) {
             this.projectileSetupFire(player);
 
             projEntity=this.addEntity(this.projectileJson,('projectile_'+this.name),this.firePosition,this.fireAngle,this.projectileData,this,null,true);
@@ -769,11 +781,13 @@ export default class MonsterBaseClass extends EntityClass
         }
             // is animation over?
             
-        if (this.animationFinishTick<=this.core.game.timestamp) this.goStalk(true);
+        if (this.animationFinishTick<=timestamp) this.goStalk(true);
     }
     
     runDying(gravityFactor)
     {
+        let timestamp=this.getTimestamp();
+        
             // dying can only fall
             
         this.rotMovement.setFromValues(0,0,0);
@@ -782,7 +796,7 @@ export default class MonsterBaseClass extends EntityClass
             // the fall sound
                
         if (this.fallSound!==null) {
-            if ((this.fallSoundNextTick<=this.core.game.timestamp) && (this.fallSoundNextTick!==0)) {
+            if ((this.fallSoundNextTick<=timestamp) && (this.fallSoundNextTick!==0)) {
                 this.playSound(this.fallSound);
                 this.fallSoundNextTick=0;
             }
@@ -790,7 +804,7 @@ export default class MonsterBaseClass extends EntityClass
         
             // is animation over?
             
-        if (this.animationFinishTick<=this.core.game.timestamp) this.goDead();
+        if (this.animationFinishTick<=timestamp) this.goDead();
     }
     
     runDead(gravityFactor)
@@ -807,7 +821,7 @@ export default class MonsterBaseClass extends EntityClass
         
         super.run();
         
-        if (this.core.game.freezeAI) return;
+        if (this.inFreezeAI()) return;
         
             // liquids
             
@@ -827,7 +841,7 @@ export default class MonsterBaseClass extends EntityClass
         
             // distance to player
             
-        player=this.core.game.map.entityList.getPlayer();
+        player=this.getPlayer();
         distToPlayer=this.position.distance(player.position);
         
             // run the state

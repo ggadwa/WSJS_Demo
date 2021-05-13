@@ -1,4 +1,6 @@
 import PointClass from '../../../code/utility/point.js';
+import AnimationDefClass from '../../../code/model/animation_def.js';
+import SoundDefClass from '../../../code/sound/sound_def.js';
 import MonsterBaseClass from './monster_base.js';
 
 export default class SpiderClass extends MonsterBaseClass
@@ -82,22 +84,22 @@ export default class SpiderClass extends MonsterBaseClass
         
             // animations
             
-        this.sleepAnimation={"startFrame":284,"endFrame":385,"actionFrame":0,"meshes":null};
-        this.wakeUpAnimation={"startFrame":165,"endFrame":195,"actionFrame":0,"meshes":null};
-        this.idleAnimation={"startFrame":284,"endFrame":385,"actionFrame":0,"meshes":null};
-        this.walkAnimation={"startFrame":0,"endFrame":40,"actionFrame":0,"meshes":null};
-        this.meleeLeftAnimation={"startFrame":83,"endFrame":111,"actionFrame":93,"meshes":null};
-        this.meleeRightAnimation={"startFrame":112,"endFrame":139,"actionFrame":122,"meshes":null};
-        this.projectileAnimation={"startFrame":0,"endFrame":0,"actionFrame":0,"meshes":null};
-        this.hitAnimation={"startFrame":140,"endFrame":164,"actionFrame":0,"meshes":null};
-        this.dieAnimation={"startFrame":245,"endFrame":280,"actionFrame":0,"meshes":null};
+        this.sleepAnimation=new AnimationDefClass(284,385,0);
+        this.wakeUpAnimation=new AnimationDefClass(165,195,0);
+        this.idleAnimation=new AnimationDefClass(284,385,0);
+        this.walkAnimation=new AnimationDefClass(0,40,0);
+        this.meleeLeftAnimation=new AnimationDefClass(83,111,93);
+        this.meleeRightAnimation=new AnimationDefClass(112,139,122);
+        this.projectileAnimation=new AnimationDefClass(0,0,0);
+        this.hitAnimation=new AnimationDefClass(140,164,0);
+        this.dieAnimation=new AnimationDefClass(245,280,0);
     
             // sounds
             
-        this.wakeUpSound={"name":"spider_wake_up","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.hurtSound={"name":"spider_wake_up","rate":0.7,"randomRateAdd":0.6,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.meleeSound={"name":"spider_wake_up","rate":1.2,"randomRateAdd":0.2,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.deathSound={"name":"spider_die","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
+        this.wakeUpSound=new SoundDefClass('spider_wake_up',1.0,0,30000,0,0,false);
+        this.hurtSound=new SoundDefClass('spider_wake_up',0.7,0.6,30000,0,0,false);
+        this.meleeSound=new SoundDefClass('spider_wake_up',1.2,0.2,30000,0,0,false);
+        this.deathSound=new SoundDefClass('spider_die',1.0,0,30000,0,0,false);
         this.fallSound=null;
     }
 }

@@ -1,6 +1,8 @@
 import PointClass from '../../../code/utility/point.js';
 import BoundClass from '../../../code/utility/bound.js';
 import EntityClass from '../../../code/game/entity.js';
+import AnimationDefClass from '../../../code/model/animation_def.js';
+import SoundDefClass from '../../../code/sound/sound_def.js';
 
 export default class WeaponM16Class extends EntityClass
 {
@@ -44,29 +46,23 @@ export default class WeaponM16Class extends EntityClass
         
             // animations
             
-        this.idleAnimation={"startFrame":76,"endFrame":126,"actionFrame":0,"meshes":null};
-        this.fireAnimation={"startFrame":128,"endFrame":143,"actionFrame":0,"meshes":null};
-        this.idleWalkAnimation={"startFrame":300,"endFrame":336,"actionFrame":0,"meshes":null};
-        this.raiseAnimation={"startFrame":0,"endFrame":24,"actionFrame":0,"meshes":null};
-        this.lowerAnimation={"startFrame":25,"endFrame":49,"actionFrame":0,"meshes":null};
-        this.reloadAnimation={
-                    "startFrame":149,
-                    "endFrame":299,
-                    "meshes":
-                        [
-                            {"name":"m16_holder_01","hide":[[187,225]]},
-                            {"name":"m16_holder_02","hide":[[0,187],[225,299]]},
-                            {"name":"m16_bullet","hide":[[0,187],[225,299]]},
-                            {"name":"m16_bullet01","hide":[[0,187],[225,299]]},
-                            {"name":"m16_bullet02","hide":[[0,187],[225,299]]},
-                            {"name":"m16_bullet03","hide":[[0,187],[225,299]]}
-                        ]
-                };
+        this.idleAnimation=new AnimationDefClass(76,126,0);
+        this.fireAnimation=new AnimationDefClass(128,143,0);
+        this.idleWalkAnimation=new AnimationDefClass(300,336,0);
+        this.raiseAnimation=new AnimationDefClass(0,24,0);
+        this.lowerAnimation=new AnimationDefClass(25,49,0);
+        this.reloadAnimation=new AnimationDefClass(149,299,0)
+                    .addMeshHide('m16_holder_01',[[187,225]])
+                    .addMeshHide('m16_holder_02',[[0,187],[225,299]])
+                    .addMeshHide('m16_bullet',[[0,187],[225,299]])
+                    .addMeshHide('m16_bullet01',[[0,187],[225,299]])
+                    .addMeshHide('m16_bullet02',[[0,187],[225,299]])
+                    .addMeshHide('m16_bullet03',[[0,187],[225,299]]);
         
             // sounds
             
-        this.fireSound={"name":"m16_fire","rate":1.0,"randomRateAdd":0.4,"distance":25000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.reloadSound={"name":"m16_reload","rate":1.0,"randomRateAdd":0.0,"distance":7000,"loopStart":0,"loopEnd":0,"loop":false};
+        this.fireSound=new SoundDefClass('m16_fire',1.0,0.4,25000,0,0,false);
+        this.reloadSound=new SoundDefClass('m16_reload',1.0,0.0,7000,0,0,false);
             
             // pre-allocates
         
@@ -223,7 +219,7 @@ export default class WeaponM16Class extends EntityClass
         
     isFirePaused()
     {
-        return((this.lastFireTimestamp+200)>this.core.game.timestamp);
+        return((this.lastFireTimestamp+200)>this.getTimestamp());
     }
     
     fire(firePosition,fireAngle)
@@ -233,7 +229,7 @@ export default class WeaponM16Class extends EntityClass
         if (this.ammoInClipCount===0) return(false);
             
         if (this.isFirePaused()) return(false);
-        this.lastFireTimestamp=this.core.game.timestamp;
+        this.lastFireTimestamp=this.getTimestamp();
         
             // fire
             

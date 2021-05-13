@@ -1,5 +1,7 @@
 import PointClass from '../../../code/utility/point.js';
 import EntityClass from '../../../code/game/entity.js';
+import AnimationDefClass from '../../../code/model/animation_def.js';
+import SoundDefClass from '../../../code/sound/sound_def.js';
 import PlayerClass from './player.js';
 import MonsterBaseClass from './monster_base.js';
 
@@ -110,24 +112,21 @@ export default class BotClass extends EntityClass
         
             // animations
             
-        this.idleAnimationPistol={"startFrame":0,"endFrame":50, "actionFrame":0,"meshes":null};
-        this.runAnimationPistol={"startFrame":492,"endFrame":518,"actionFrame":0,"meshes":null};
-        this.fireIdleAnimationPistol={"startFrame":364,"endFrame":401,"actionFrame":0,"meshes":null};
-        this.fireRunAnimationPistol={"startFrame":523,"endFrame":549,"actionFrame":0,"meshes":null};
-
-        this.idleAnimationM16={"startFrame":710,"endFrame":760,"actionFrame":0,"meshes":null};
-        this.runAnimationM16={"startFrame":933,"endFrame":955,"actionFrame":0,"meshes":null};
-        this.fireIdleAnimationM16={"startFrame":775,"endFrame":815,"actionFrame":0,"meshes":null};
-        this.fireRunAnimationM16={"startFrame":865,"endFrame":887,"actionFrame":0,"meshes":null};
-        
-        this.throwGrenadeAnimation={"startFrame":51,"endFrame":91,"actionFrame":0,"meshes":null};
-        
-        this.dieAnimation={"startFrame":209,"endFrame":247,"actionFrame":0,"meshes":null};
+        this.idleAnimationPistol=new AnimationDefClass(0,50,0);
+        this.runAnimationPistol=new AnimationDefClass(492,518,0);
+        this.fireIdleAnimationPistol=new AnimationDefClass(364,401,0);
+        this.fireRunAnimationPistol=new AnimationDefClass(523,549,0);
+        this.idleAnimationM16=new AnimationDefClass(710,760,0);
+        this.runAnimationM16=new AnimationDefClass(933,955,0);
+        this.fireIdleAnimationM16=new AnimationDefClass(775,815,0);
+        this.fireRunAnimationM16=new AnimationDefClass(865,887,0);
+        this.throwGrenadeAnimation=new AnimationDefClass(51,91,0);
+        this.dieAnimation=new AnimationDefClass(209,247,0);
         
             // sounds
             
-        this.hurtSound={"name":"hurt","rate":0.5,"randomRateAdd":1.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.dieSound={"name":"player_die","rate":0.8,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
+        this.hurtSound=new SoundDefClass('hurt',0.5,1.0,5000,0,0,false);
+        this.dieSound=new SoundDefClass('player_die',0.8,0,30000,0,0,false);
         
             // pre-allocates
             
@@ -512,7 +511,7 @@ export default class BotClass extends EntityClass
         
         super.run();
         
-        if (this.core.game.freezeAI) return;
+        if (this.inFreezeAI()) return;
         
             // liquids
             

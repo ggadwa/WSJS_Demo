@@ -1,4 +1,6 @@
 import PointClass from '../../../code/utility/point.js';
+import AnimationDefClass from '../../../code/model/animation_def.js';
+import SoundDefClass from '../../../code/sound/sound_def.js';
 import MonsterBaseClass from './monster_base.js';
 
 export default class SkeletonClass extends MonsterBaseClass
@@ -82,23 +84,22 @@ export default class SkeletonClass extends MonsterBaseClass
         
             // animations
             
-        this.sleepAnimation={"startFrame":6370,"endFrame":6470,"actionFrame":0,"meshes":null};
-        this.wakeUpAnimation={"startFrame":0,"endFrame":50,"actionFrame":0,"meshes":null};
-        this.idleAnimation={"startFrame":6370,"endFrame":6470,"actionFrame":0,"meshes":null};
-        this.walkAnimation={"startFrame":5683,"endFrame":5719,"actionFrame":0,"meshes":null};
-        this.meleeLeftAnimation={"startFrame":5299,"endFrame":5334,"actionFrame":5314,"meshes":null};
-        this.meleeRightAnimation={"startFrame":5335,"endFrame":5370,"actionFrame":5350,"meshes":null};
-        this.projectileAnimation={"startFrame":4711,"endFrame":4731,"actionFrame":0,"meshes":null};
-        this.hitAnimation={"startFrame":4974,"endFrame":5009,"actionFrame":0,"meshes":null};
-        this.dieAnimation={"startFrame":3971,"endFrame":4111,"actionFrame":4097,"meshes":null};
+        this.sleepAnimation=new AnimationDefClass(6370,6470,0);
+        this.wakeUpAnimation=new AnimationDefClass(0,50,0);
+        this.idleAnimation=new AnimationDefClass(6370,6470,0);
+        this.walkAnimation=new AnimationDefClass(5683,5719,0);
+        this.meleeLeftAnimation=new AnimationDefClass(5299,5334,5314);
+        this.meleeRightAnimation=new AnimationDefClass(5335,5370,5350);
+        this.projectileAnimation=new AnimationDefClass(4711,4731,0);
+        this.hitAnimation=new AnimationDefClass(4974,5009,0);
+        this.dieAnimation=new AnimationDefClass(3971,4111,4097);
         
             // sounds
             
-        this.wakeUpSound={"name":"skeleton_wake_up","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.hurtSound={"name":"skeleton_wake_up","rate":0.7,"randomRateAdd":0.6,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.meleeSound={"name":"blade","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.deathSound={"name":"skeleton_die","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.fallSound={"name":"thud","rate":1.0,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
-
+        this.wakeUpSound=new SoundDefClass('skeleton_wake_up',1.0,0,30000,0,0,false);
+        this.hurtSound=new SoundDefClass('skeleton_wake_up',0.7,0.6,30000,0,0,false);
+        this.meleeSound=new SoundDefClass('blade',1.0,0,10000,0,0,false);
+        this.deathSound=new SoundDefClass('skeleton_die',1.0,0,30000,0,0,false);
+        this.fallSound=new SoundDefClass('thud',1.0,0,30000,0,0,false);
     }
 }

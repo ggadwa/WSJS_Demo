@@ -1,6 +1,8 @@
 import PointClass from '../../../code/utility/point.js';
 import BoundClass from '../../../code/utility/bound.js';
 import EntityClass from '../../../code/game/entity.js';
+import AnimationDefClass from '../../../code/model/animation_def.js';
+import SoundDefClass from '../../../code/sound/sound_def.js';
 
 export default class WeaponGrenadeClass extends EntityClass
 {
@@ -38,7 +40,7 @@ export default class WeaponGrenadeClass extends EntityClass
         
             // sounds
             
-        this.fireSound={"name":"throw","rate":1.0,"randomRateAdd":0,"distance":10000,"loopStart":0,"loopEnd":0,"loop":false};
+        this.fireSound=new SoundDefClass('throw',1.0,0,10000,0,0,false);
             
             // pre-allocates
         
@@ -70,7 +72,7 @@ export default class WeaponGrenadeClass extends EntityClass
         
     isFirePaused()
     {
-        return((this.lastFireTimestamp+1000)>this.core.game.timestamp);
+        return((this.lastFireTimestamp+1000)>this.getTimestamp());
     }
     
     fire(firePosition,fireAngle)
@@ -81,7 +83,7 @@ export default class WeaponGrenadeClass extends EntityClass
         if (this.ammoCount===0) return(false);
             
         if (this.isFirePaused()) return(false);
-        this.lastFireTimestamp=this.core.game.timestamp;
+        this.lastFireTimestamp=this.getTimestamp();
         
             // fire
             

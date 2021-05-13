@@ -1,6 +1,7 @@
 import PointClass from '../../../code/utility/point.js';
 import ColorClass from '../../../code/utility/color.js';
 import EffectClass from '../../../code/game/effect.js';
+import SoundDefClass from '../../../code/sound/sound_def.js';
 
 export default class ExplosionClass extends EffectClass
 {
@@ -58,7 +59,7 @@ export default class ExplosionClass extends EffectClass
                 .addParticleFrame(1101,0.9,500,500,30,new ColorClass(1.0,1.0,0.2),0.05)
                 .addParticleFrame(3000,0.9,100,100,40,new ColorClass(1.0,1.0,0.2),0.0);
         
-        this.startSound={"name":"explosion","rate":1.0,"randomRateAdd":-0.4,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false};
+        this.startSound=new SoundDefClass('explosion',1.0,-0.4,50000,0,0,false);
     }
     
     ready()

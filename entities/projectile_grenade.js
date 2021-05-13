@@ -1,5 +1,7 @@
 import PointClass from '../../../code/utility/point.js';
 import EntityClass from '../../../code/game/entity.js';
+import AnimationDefClass from '../../../code/model/animation_def.js';
+import SoundDefClass from '../../../code/sound/sound_def.js';
 
 export default class EntityGrenadeClass extends EntityClass
 {
@@ -34,8 +36,8 @@ export default class EntityGrenadeClass extends EntityClass
         this.rolling=false;
         this.stopped=false;
         
-        this.bounceSound={"name":"grenade_bounce","rate":1.0,"randomRateAdd":0.1,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.reflectSound={"name":"grenade_bounce","rate":1.2,"randomRateAdd":0.1,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false};
+        this.bounceSound=new SoundDefClass('grenade_bounce',1.0,0.1,50000,0,0,false);
+        this.reflectSound=new SoundDefClass('grenade_bounce',1.2,0.1,50000,0,0,false);
         
             // pre-allocations
 
@@ -51,7 +53,7 @@ export default class EntityGrenadeClass extends EntityClass
     {
         super.ready();
         
-        this.lifeTimestamp=this.core.game.timestamp+4000;
+        this.lifeTimestamp=this.getTimestamp()+4000;
         
         this.rolling=false;
         this.stopped=false;
@@ -77,7 +79,7 @@ export default class EntityGrenadeClass extends EntityClass
         
             // are we over our life time
  
-        if (this.core.game.timestamp>this.lifeTimestamp) {
+        if (this.getTimestamp()>this.lifeTimestamp) {
             this.finish();
             return;
         }
@@ -176,7 +178,7 @@ export default class EntityGrenadeClass extends EntityClass
 
         if (!this.stopped) {
             if (!this.rolling) {
-                this.drawAngle.x=this.core.game.getPeriodicLinear(4000,360);
+                this.drawAngle.x=this.getPeriodicLinear(4000,360);
             }
             else {
                 if (this.drawAngle.x!==90) {
@@ -189,10 +191,10 @@ export default class EntityGrenadeClass extends EntityClass
                         if (this.drawAngle.x>90) this.drawAngle.x=90;
                     }
                 }
-                this.drawAngle.z=this.core.game.getPeriodicLinear(4000,360);
+                this.drawAngle.z=this.getPeriodicLinear(4000,360);
             }
 
-            this.drawAngle.y=this.core.game.getPeriodicLinear(3000,360);
+            this.drawAngle.y=this.getPeriodicLinear(3000,360);
         }
 
             // model is centered on Y so it needs

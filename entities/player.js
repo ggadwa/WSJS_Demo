@@ -2,6 +2,8 @@ import PointClass from '../../../code/utility/point.js';
 import ColorClass from '../../../code/utility/color.js';
 import BoundClass from '../../../code/utility/bound.js';
 import EntityClass from '../../../code/game/entity.js';
+import AnimationDefClass from '../../../code/model/animation_def.js';
+import SoundDefClass from '../../../code/sound/sound_def.js';
 
 export default class EntityFPSPlayerClass extends EntityClass
 {
@@ -92,23 +94,21 @@ export default class EntityFPSPlayerClass extends EntityClass
 
             // animations
             
-        this.idleAnimationPistol={"startFrame":0,"endFrame":50, "actionFrame":0,"meshes":null};
-        this.runAnimationPistol={"startFrame":492,"endFrame":518,"actionFrame":0,"meshes":null};
-        this.fireIdleAnimationPistol={"startFrame":364,"endFrame":401,"actionFrame":0,"meshes":null};
-        this.fireRunAnimationPistol={"startFrame":523,"endFrame":549,"actionFrame":0,"meshes":null};
-
-        this.idleAnimationM16={"startFrame":710,"endFrame":760,"actionFrame":0,"meshes":null};
-        this.runAnimationM16={"startFrame":933,"endFrame":955,"actionFrame":0,"meshes":null};
-        this.fireIdleAnimationM16={"startFrame":775,"endFrame":815,"actionFrame":0,"meshes":null};
-        this.fireRunAnimationM16={"startFrame":865,"endFrame":887,"actionFrame":0,"meshes":null};
-        this.dieAnimation={"startFrame":209,"endFrame":247,"actionFrame":0,"meshes":null};
-        
-        this.throwGrenadeAnimation={"startFrame":51,"endFrame":91,"actionFrame":0,"meshes":null};
+        this.idleAnimationPistol=new AnimationDefClass(0,50,0);
+        this.runAnimationPistol=new AnimationDefClass(492,518,0);
+        this.fireIdleAnimationPistol=new AnimationDefClass(364,401,0);
+        this.fireRunAnimationPistol=new AnimationDefClass(523,549,0);
+        this.idleAnimationM16=new AnimationDefClass(710,760,0);
+        this.runAnimationM16=new AnimationDefClass(933,955,0);
+        this.fireIdleAnimationM16=new AnimationDefClass(775,815,0);
+        this.fireRunAnimationM16=new AnimationDefClass(865,887,0);
+        this.dieAnimation=new AnimationDefClass(209,247,0);
+        this.throwGrenadeAnimation=new AnimationDefClass(51,91,0);
         
             // sounds
             
-        this.hurtSound={"name":"hurt","rate":0.5,"randomRateAdd":1.0,"distance":5000,"loopStart":0,"loopEnd":0,"loop":false};
-        this.dieSound={"name":"player_die","rate":0.8,"randomRateAdd":0,"distance":30000,"loopStart":0,"loopEnd":0,"loop":false};
+        this.hurtSound=new SoundDefClass('hurt',0.5,1.0,5000,0,0,false);
+        this.dieSound=new SoundDefClass('player_die',0.8,0,30000,0,0,false);
 
             // pre-allocates
             
@@ -262,7 +262,7 @@ export default class EntityFPSPlayerClass extends EntityClass
         
     die(fromEntity,isTelefrag)
     {
-        this.respawnTick=this.core.game.timestamp+this.getMultiplayerRespawnWaitTick();
+        this.respawnTick=this.getTimestamp()+this.getMultiplayerRespawnWaitTick();
         this.passThrough=true;
         
         this.cameraGotoTopDown(10000);
@@ -279,7 +279,7 @@ export default class EntityFPSPlayerClass extends EntityClass
     
     damage(fromEntity,damage,hitPoint)
     {
-        let y,addway,subway;
+        let y,addway,subway,timestamp;
 
             // already dead, can't take damage
             
@@ -349,8 +349,10 @@ export default class EntityFPSPlayerClass extends EntityClass
         
             // hurt sound
             
-        if (this.core.game.timestamp>this.nextDamageTick) {
-            this.nextDamageTick=this.core.game.timestamp+this.damageFlinchWaitTick;
+        timestamp=this.getTimestamp();
+        
+        if (timestamp>this.nextDamageTick) {
+            this.nextDamageTick=timestamp+this.damageFlinchWaitTick;
             this.playSound(this.hurtSound);
         }
     }
@@ -413,7 +415,7 @@ export default class EntityFPSPlayerClass extends EntityClass
             // lower current weapon
         
         if (this.currentWeapon!==null) {
-            this.weaponLowerFinishTick=this.core.game.timestamp+this.currentWeapon.runLowerAnimation();
+            this.weaponLowerFinishTick=this.getTimestamp()+this.currentWeapon.runLowerAnimation();
         }
         else {
             swapWeaponSwitch();
@@ -436,7 +438,7 @@ export default class EntityFPSPlayerClass extends EntityClass
 
         this.adjustMeshesForCurrentWeapon();
 
-        this.weaponRaiseFinishTick=this.core.game.timestamp+this.currentWeapon.runRaiseAnimation();
+        this.weaponRaiseFinishTick=this.getTimestamp()+this.currentWeapon.runRaiseAnimation();
     }
     
     endWeaponSwitch()
@@ -447,16 +449,17 @@ export default class EntityFPSPlayerClass extends EntityClass
     runWeaponAnimations()
     {
         let weaponSwitchFreeze=false;
+        let timestamp=this.getTimestamp();
         
         if (this.weaponLowerFinishTick!==-1) {
-            if (this.weaponLowerFinishTick<=this.core.game.timestamp) {
+            if (this.weaponLowerFinishTick<=timestamp) {
                 this.swapWeaponSwitch();
             }
             weaponSwitchFreeze=true;
         }
         
         if (this.weaponRaiseFinishTick!==-1) {
-            if (this.weaponRaiseFinishTick<=this.core.game.timestamp) {
+            if (this.weaponRaiseFinishTick<=timestamp) {
                 this.endWeaponSwitch();
             }
             else {
@@ -465,7 +468,7 @@ export default class EntityFPSPlayerClass extends EntityClass
         }
 
         if (this.weaponClipFinishTick!==-1) {
-            if (this.weaponClipFinishTick<=this.core.game.timestamp) {
+            if (this.weaponClipFinishTick<=timestamp) {
                 this.weaponClipFinishTick=-1;
             }
             else {
@@ -522,7 +525,7 @@ export default class EntityFPSPlayerClass extends EntityClass
             // check for clip reload
 
         if (weapon.needClipChange()) {
-            this.weaponClipFinishTick=this.core.game.timestamp+weapon.changeClip(this.position);
+            this.weaponClipFinishTick=this.getTimestamp()+weapon.changeClip(this.position);
             return;
         }
 
@@ -572,11 +575,11 @@ export default class EntityFPSPlayerClass extends EntityClass
         let moveForward,moveBackward,moveLeft,moveRight;
         let liquid,liquidIdx,bump,gravityFactor,fallDist;
         let turnAdd,lookAdd;
-        let setup=this.core.setup;
+        let setup=this.getSetup();
         
         super.run();
         
-        if (this.core.game.freezePlayer) return;
+        if (this.inFreezePlayer()) return;
         
             // liquid changes
             
@@ -587,7 +590,7 @@ export default class EntityFPSPlayerClass extends EntityClass
         }
         else {
             if ((this.lastUnderLiquid) && (this.angle.x<0)) {
-                this.gravity=this.core.game.map.gravityMinValue;
+                this.gravity=this.getMapGravityMinValue();
                 this.movement.y=this.jumpWaterHeight;
                 if (this.lastInLiquidIdx!==-1) this.core.game.map.liquidList.liquids[this.lastInLiquidIdx].playSoundOut(this.position);
             }
@@ -646,7 +649,7 @@ export default class EntityFPSPlayerClass extends EntityClass
                 // only recover in multiplayer
                 
             if (this.core.game.multiplayerMode!==this.core.game.MULTIPLAYER_MODE_NONE) {
-                if (this.core.game.timestamp>this.respawnTick)  this.ready();
+                if (this.getTimestamp()>this.respawnTick)  this.ready();
             }
             
             return;
@@ -757,7 +760,7 @@ export default class EntityFPSPlayerClass extends EntityClass
            
         if (this.isKeyDown(' ')) {
             if ((this.standOnMeshIdx!==-1) && (!this.lastUnderLiquid)) {
-                this.gravity=this.core.game.map.gravityMinValue;
+                this.gravity=this.getMapGravityMinValue();
                 this.movement.y=this.jumpHeight;
             }
         }

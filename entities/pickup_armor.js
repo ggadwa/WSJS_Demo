@@ -1,5 +1,7 @@
 import PointClass from '../../../code/utility/point.js';
 import EntityClass from '../../../code/game/entity.js';
+import AnimationDefClass from '../../../code/model/animation_def.js';
+import SoundDefClass from '../../../code/sound/sound_def.js';
 
 export default class PickupArmorClass extends EntityClass
 {
@@ -37,7 +39,7 @@ export default class PickupArmorClass extends EntityClass
         
             // sounds
             
-        this.pickupSound={"name":"pickup","rate":0.8,"randomRateAdd":0.0,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false};
+        this.pickupSound=new SoundDefClass('pickup',0.8,0.0,50000,0,0,false);
         
         Object.seal(this);
     }
@@ -52,6 +54,8 @@ export default class PickupArmorClass extends EntityClass
     
     run()
     {
+        let timestamp=this.getTimestamp();
+        
         super.run();
         
             // if hidden, count down to show
@@ -59,7 +63,7 @@ export default class PickupArmorClass extends EntityClass
             
         if (!this.show) {
             if ((this.data!==null) && (this.data.pickupOnce)) return;
-            if (this.core.game.timestamp<this.reappearTick) return;
+            if (timestamp<this.reappearTick) return;
 
             this.touchEntity=null;          // clear any touches
             this.show=true;
@@ -67,8 +71,8 @@ export default class PickupArmorClass extends EntityClass
         
             // animation
 
-        this.position.y=this.originalY+this.core.game.getPeriodicCos(5000,200);
-        this.angle.y=this.core.game.getPeriodicLinear(5000,360);
+        this.position.y=this.originalY+this.getPeriodicCos(5000,200);
+        this.angle.y=this.getPeriodicLinear(5000,360);
         
             // check for collisions from
             // entities that has armor
@@ -81,7 +85,7 @@ export default class PickupArmorClass extends EntityClass
         this.touchEntity.addArmor(100);
             
         this.show=false;
-        this.reappearTick=this.core.game.timestamp+10000;
+        this.reappearTick=timestamp+10000;
         
         this.touchEntity.playSound(this.pickupSound);
     }

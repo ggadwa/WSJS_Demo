@@ -1,5 +1,7 @@
 import PointClass from '../../../code/utility/point.js';
 import EntityClass from '../../../code/game/entity.js';
+import AnimationDefClass from '../../../code/model/animation_def.js';
+import SoundDefClass from '../../../code/sound/sound_def.js';
 
 export default class ProjectileQueenClass extends EntityClass
 {
@@ -33,7 +35,7 @@ export default class ProjectileQueenClass extends EntityClass
         this.lifeTimestamp=0;
         this.nextTrailTick=0;
         
-        this.spawnSound={"name":"laser","rate":1.0,"randomRateAdd":0.0,"distance":50000,"loopStart":0,"loopEnd":0,"loop":false};
+        this.spawnSound=new SoundDefClass('laser',1.0,0.0,50000,0,0,false);
         
             // pre-allocations
 
@@ -46,10 +48,12 @@ export default class ProjectileQueenClass extends EntityClass
     
     ready()
     {
+        let timestamp=this.getTimestamp();
+        
         super.ready();
         
-        this.lifeTimestamp=this.core.game.timestamp+4000;
-        this.nextTrailTick=this.core.game.timestamp;
+        this.lifeTimestamp=timestamp+4000;
+        this.nextTrailTick=timestamp;
         
         this.motion.setFromValues(0,0,300);
         this.motion.rotate(this.angle);
@@ -77,19 +81,20 @@ export default class ProjectileQueenClass extends EntityClass
     run()
     {
         let player;
+        let timestamp=this.getTimestamp();
         
         super.run();
         
             // are we over our life time
  
-        if (this.core.game.timestamp>this.lifeTimestamp) {
+        if (timestamp>this.lifeTimestamp) {
             this.finish();
             return;
         }
         
             // trails
 
-        if (this.core.game.timestamp>=this.nextTrailTick) {
+        if (timestamp>=this.nextTrailTick) {
             this.nextTrailTick+=40;
             this.addEffect(this,'sparkle',this.position,null,true);
         }
@@ -126,7 +131,7 @@ export default class ProjectileQueenClass extends EntityClass
     
     drawSetup()
     {
-        this.drawAngle.setFromValues(this.angle.x,this.core.game.getPeriodicLinear(1000,360),this.angle.z);
+        this.drawAngle.setFromValues(this.angle.x,this.getPeriodicLinear(1000,360),this.angle.z);
         
         this.setModelDrawAttributes(this.position,this.drawAngle,this.scale,false);
         return(this.boundBoxInFrustum());
