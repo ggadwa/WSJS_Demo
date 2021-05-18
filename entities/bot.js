@@ -208,11 +208,11 @@ export default class BotClass extends EntityClass
         
             // move to random spawn node
             
-        if (this.core.game.map.path.spawnNodes.length!==0) this.moveToRandomSpawnNode(false);
+        if (this.hasSpawnNodes()) this.moveToRandomSpawnNode(false);
 
             // get seek node
             
-        if (this.core.game.map.path.keyNodes.length!==0) {
+        if (this.hasKeyNodes()) {
             this.goalNodeIdx=this.getRandomKeyNodeIndex();      // path to some random key node
             this.nextNodeIdx=this.nextNodeInPath(this.findNearestPathNode(-1),this.goalNodeIdx);    // we always spawn on a node, so next node is node in path to goal node
         }
@@ -515,16 +515,16 @@ export default class BotClass extends EntityClass
         
             // liquids
             
-        liquidIdx=this.core.game.map.liquidList.getLiquidForPoint(this.position);
+        liquidIdx=this.getLiquidForPoint(this.position);
         
         if (liquidIdx!==-1) {
-            liquid=this.core.game.map.liquidList.liquids[liquidIdx];
+            liquid=this.getLiquidForIndex(liquidIdx);
             if (this.lastInLiquidIdx===-1) liquid.playSoundIn(this.position);
             this.lastInLiquidIdx=liquidIdx;
             gravityFactor=liquid.gravityFactor;
         }
         else {
-            if (this.lastInLiquidIdx!==-1) this.core.game.map.liquidList.liquids[this.lastInLiquidIdx].playSoundOut(this.position);
+            if (this.lastInLiquidIdx!==-1) this.getLiquidForIndex(this.lastInLiquidIdx).playSoundOut(this.position);
             this.lastInLiquidIdx=-1;
             gravityFactor=1.0;
         }

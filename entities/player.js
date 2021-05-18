@@ -201,7 +201,7 @@ export default class EntityFPSPlayerClass extends EntityClass
             // yet, just leave spawned at 0,0,0
             
         this.telefragTriggerEntity=null;
-        if ((this.core.game.multiplayerMode!==this.core.game.MULTIPLAYER_MODE_NONE) && (this.core.game.map.path.spawnNodes.length!==0)) this.moveToRandomSpawnNode(false);
+        if ((this.isMultiplayerGame()) && (this.hasSpawnNodes())) this.moveToRandomSpawnNode(false);
         
             // turn off any score display
             
@@ -274,7 +274,7 @@ export default class EntityFPSPlayerClass extends EntityClass
         this.multiplayerAddScore(fromEntity,this,isTelefrag);
         this.multiplayerShowScores(true);
         
-        if (this.core.game.multiplayerMode===this.core.game.MULTIPLAYER_MODE_NONE) this.startSequence('lost');
+        if (!this.isMultiplayerGame()) this.startSequence('lost');
     }
     
     damage(fromEntity,damage,hitPoint)
@@ -583,7 +583,7 @@ export default class EntityFPSPlayerClass extends EntityClass
         
             // liquid changes
             
-        liquidIdx=this.core.game.map.liquidList.getLiquidForEyePoint(this.position,this.eyeOffset);
+        liquidIdx=this.getLiquidForEyePoint(this.position,this.eyeOffset);
         
         if (liquidIdx!==-1) {
             this.lastUnderLiquid=true;
@@ -592,22 +592,22 @@ export default class EntityFPSPlayerClass extends EntityClass
             if ((this.lastUnderLiquid) && (this.angle.x<0)) {
                 this.gravity=this.getMapGravityMinValue();
                 this.movement.y=this.jumpWaterHeight;
-                if (this.lastInLiquidIdx!==-1) this.core.game.map.liquidList.liquids[this.lastInLiquidIdx].playSoundOut(this.position);
+                if (this.lastInLiquidIdx!==-1) this.getLiquidForIndex(this.lastInLiquidIdx).playSoundOut(this.position);
             }
             
             this.lastUnderLiquid=false;
         }
         
-        liquidIdx=this.core.game.map.liquidList.getLiquidForPoint(this.position);
+        liquidIdx=this.getLiquidForPoint(this.position);
         
         if (liquidIdx!==-1) {
-            liquid=this.core.game.map.liquidList.liquids[liquidIdx];
+            liquid=this.getLiquidForIndex(liquidIdx);
             if (this.lastInLiquidIdx===-1) liquid.playSoundIn(this.position);
             this.lastInLiquidIdx=liquidIdx;
             gravityFactor=liquid.gravityFactor;
         }
         else {
-            if (this.lastInLiquidIdx!==-1) this.core.game.map.liquidList.liquids[this.lastInLiquidIdx].playSoundOut(this.position);
+            if (this.lastInLiquidIdx!==-1) this.getLiquidForIndex(this.lastInLiquidIdx).playSoundOut(this.position);
             this.lastInLiquidIdx=-1;
             gravityFactor=1.0;
         }
@@ -648,7 +648,7 @@ export default class EntityFPSPlayerClass extends EntityClass
             
                 // only recover in multiplayer
                 
-            if (this.core.game.multiplayerMode!==this.core.game.MULTIPLAYER_MODE_NONE) {
+            if (this.isMultiplayerGame()) {
                 if (this.getTimestamp()>this.respawnTick)  this.ready();
             }
             

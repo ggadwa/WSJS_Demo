@@ -194,6 +194,7 @@ export default class MonsterBaseClass extends EntityClass
     goWakeUp(noRecurse)
     {
         let entity;
+        let entities;
         
             // wake this monster up
             
@@ -210,7 +211,9 @@ export default class MonsterBaseClass extends EntityClass
             // check any other monster of the same
             // type being alerted
         
-        for (entity of this.core.game.map.entityList.entities) {
+        entities=this.getEntityList();
+        
+        for (entity of entities) {
             if (entity===this) continue;
             if ((!entity.show) || (entity.health<=0)) continue;
             if (entity.constructor.name!==this.constructor.name) continue;
@@ -268,7 +271,7 @@ export default class MonsterBaseClass extends EntityClass
             // we always make a noise if possible
         
         if (this.noiseFinishTick<=timestamp) {
-            this.noiseFinishTick=timestamp+this.core.game.map.soundList.getMillisecondDurationJson(this.hurtSound);
+            this.noiseFinishTick=timestamp+this.getSoundMillisecondDuration(this.hurtSound);
             this.playSound(this.hurtSound);
         }
         
@@ -825,16 +828,16 @@ export default class MonsterBaseClass extends EntityClass
         
             // liquids
             
-        liquidIdx=this.core.game.map.liquidList.getLiquidForPoint(this.position);
+        liquidIdx=this.getLiquidForPoint(this.position);
         
         if (liquidIdx!==-1) {
-            liquid=this.core.game.map.liquidList.liquids[liquidIdx];
+            liquid=this.getLiquidForIndex(liquidIdx);
             if (this.lastInLiquidIdx===-1) liquid.playSoundIn(this.position);
             this.lastInLiquidIdx=liquidIdx;
             gravityFactor=liquid.gravityFactor;
         }
         else {
-            if (this.lastInLiquidIdx!==-1) this.core.game.map.liquidList.liquids[this.lastInLiquidIdx].playSoundOut(this.position);
+            if (this.lastInLiquidIdx!==-1) this.getLiquidForIndex(this.lastInLiquidIdx).playSoundOut(this.position);
             this.lastInLiquidIdx=-1;
             gravityFactor=1.0;
         }
