@@ -696,7 +696,7 @@ export default class EntityFPSPlayerClass extends EntityClass
             
         x=this.getTouchStickLeftX();
         y=this.getTouchStickLeftY();
-            
+        
         moveForward=(this.isKeyDown('w')) || (this.isKeyDown('ArrowUp')) || (y<0);
         moveBackward=(this.isKeyDown('s')) || (this.isKeyDown('ArrowDown')) || (y>0);
         moveLeft=this.isKeyDown('a') || (x<0);
