@@ -3,4 +3,5 @@ Dungeon Map/Dual Castle Map/Player/Weapons/Monsters: Mr. Necturus / mr-necturus.
 Grenade: Sergei Pavlov / sketchfab
 Misc Textures: textures.com
 Misc Sound Effects: freesound.org
+Dungeon Ambient: DrMinky (freesound - edited by me a bit)
 Sky Domes: hdrihaven.com
